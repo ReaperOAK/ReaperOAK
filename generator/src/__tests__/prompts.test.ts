@@ -35,7 +35,7 @@ describe("getDynamicFields", () => {
 
   it("uses LLM output when valid, falls back per-field when invalid", async () => {
     const cfg: Config = { githubToken: null, githubLogin: "ReaperOAK",
-      openRouter: { key: "k", model: "m" }, wakatimeEnabled: false };
+      openRouter: { key: "k", models: ["m"] }, wakatimeEnabled: false };
     const fake = vi.fn()
       .mockResolvedValueOnce(new Response(JSON.stringify({ choices: [{ message: { content: "Building calm systems." } }] })))
       .mockResolvedValue(new Response(JSON.stringify({ choices: [{ message: { content: "passionate ninja rockstar" } }] })));
@@ -44,9 +44,24 @@ describe("getDynamicFields", () => {
     expect(out.recentWork).toBe(content.fallback.recentWork);
   });
 
+  it("falls through the model chain: first model fails, second returns valid", async () => {
+    const cfg: Config = { githubToken: null, githubLogin: "ReaperOAK",
+      openRouter: { key: "k", models: ["bad/model:free", "good/model:free"] }, wakatimeEnabled: false };
+    // Odd calls (first model) 404; even calls (second model) succeed.
+    let n = 0;
+    const fake = vi.fn().mockImplementation(async () => {
+      n++;
+      return n % 2 === 1
+        ? new Response("nope", { status: 404 })
+        : new Response(JSON.stringify({ choices: [{ message: { content: "From the second model." } }] }));
+    });
+    const out = await getDynamicFields(cfg, snap, fake as unknown as typeof fetch);
+    expect(out.tagline).toBe("From the second model.");
+  });
+
   it("never throws on network error", async () => {
     const cfg: Config = { githubToken: null, githubLogin: "ReaperOAK",
-      openRouter: { key: "k", model: "m" }, wakatimeEnabled: false };
+      openRouter: { key: "k", models: ["m"] }, wakatimeEnabled: false };
     const fake = vi.fn().mockRejectedValue(new Error("down"));
     const out = await getDynamicFields(cfg, snap, fake as unknown as typeof fetch);
     expect(out.tagline).toBe(content.fallback.tagline);

@@ -25,12 +25,16 @@ export async function getDynamicFields(
 ): Promise<DynamicFields> {
   const fb = content.fallback;
   if (!config.openRouter) return { ...fb };
-  const { key, model } = config.openRouter;
+  const { key, models } = config.openRouter;
   const cached = readCache<DynamicFields>(CACHE_KEY);
 
+  // Try each free model in order; first valid line wins. All fail → cache → static.
   const pick = async (system: string, user: string, max: number, fallback: string, cachedVal?: string) => {
-    const out = sanitizeLine(await chat({ key, model, system, user, fetchImpl }), max);
-    return out ?? cachedVal ?? fallback;
+    for (const model of models) {
+      const out = sanitizeLine(await chat({ key, model, system, user, fetchImpl }), max);
+      if (out) return out;
+    }
+    return cachedVal ?? fallback;
   };
 
   const commits = snapshot.recentCommitMessages.slice(0, 8).join("; ") || "no recent commits";
