@@ -1,10 +1,10 @@
 {
   "recentCommitMessages": [
+    "feat: free-model chain for LLM layer (try 4 free models, then cache, then static)",
+    "chore: refresh profile README [skip ci]",
     "chore: default to a free OpenRouter model (llama-3.3-70b:free)",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
-    "feat: add README generator app (TypeScript, 36 tests, fail-closed data sources)",
-    "feat: generate oak-themed profile README with dual-theme SVG hero + daily Action",
     "License: switch MIT -> PolyForm Noncommercial 1.0.0 (commercial use requires a paid license)",
     "Sanitize for public release: portable paths, MIT LICENSE, stronger disclaimer; drop personal files (note.md, PRD.md) + legacy ai4trade client",
     "Initial commit: honest survivorship-corrected Indian equity backtesting lab",
@@ -13,6 +13,6 @@
     "minor changes",
     "Make personal invite responsive: length-aware name sizing + perf"
   ],
-  "totalContributions": 8465,
+  "totalContributions": 8466,
   "currentStreakDays": 24
 }

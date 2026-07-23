@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — This week: refreshed the profile README, added a README generator app in TypeScript with 36 tests, and generated an oak-themed profile README with a dual-theme SVG hero.
-- **Thinking about** — Exploring the balance between model complexity and interpretability in AI systems to enhance both performance and user trust.
+- **Thinking about** — Evaluating the trade-offs between stateful caching and re-computation for long-context LLM inference to reduce time-to-first-token.
 
 ---
 
