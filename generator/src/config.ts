@@ -5,7 +5,9 @@ export interface Config {
   wakatimeEnabled: boolean;
 }
 
-const DEFAULT_MODEL = "openai/gpt-4o-mini"; // cheap + fast; swappable via env
+// Free OpenRouter model (zero cost, rate-limited). Any failure degrades to cache→static,
+// so rate-limit hits never break the profile. Swap via OPENROUTER_MODEL env.
+const DEFAULT_MODEL = "meta-llama/llama-3.3-70b-instruct:free";
 
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
   const key = env.OPENROUTER_API_KEY?.trim();
