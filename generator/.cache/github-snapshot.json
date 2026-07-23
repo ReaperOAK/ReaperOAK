@@ -1,18 +1,18 @@
 {
   "recentCommitMessages": [
+    "feat: add README generator app (TypeScript, 36 tests, fail-closed data sources)",
+    "feat: generate oak-themed profile README with dual-theme SVG hero + daily Action",
+    "Add implementation plan for profile README generator",
+    "Add design spec for ReaperOAK profile README generator",
+    "Update README.md",
     "License: switch MIT -> PolyForm Noncommercial 1.0.0 (commercial use requires a paid license)",
     "Sanitize for public release: portable paths, MIT LICENSE, stronger disclaimer; drop personal files (note.md, PRD.md) + legacy ai4trade client",
     "Initial commit: honest survivorship-corrected Indian equity backtesting lab",
-    "Harden ForgeOS × Corsair connector: write-back, pagination, update mode, richer mapping, Linear source",
-    "Add self-contained ForgeOS Claude Code plugin + marketplace",
-    "synce vibecoding",
-    "[hunter-agent] switch MODEL to anthropic/claude-sonnet-4.6 in templates",
-    "[hunter-agent] finalize quality fixes, max_tokens, and deploy",
-    "Update README.md",
-    "Initial commit",
     "Update invite email start time to 2:00 PM onwards",
-    "Redesign invite email: event details, optimized Drive portraits, monogram fallback"
+    "Redesign invite email: event details, optimized Drive portraits, monogram fallback",
+    "minor changes",
+    "Make personal invite responsive: length-aware name sizing + perf"
   ],
-  "totalContributions": 8460,
+  "totalContributions": 8464,
   "currentStreakDays": 24
 }
