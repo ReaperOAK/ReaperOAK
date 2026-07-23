@@ -13,8 +13,8 @@
 ### Currently
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
-- **This cycle** — Currently hardening billing ledgers, scaling multi-AZ infra, and shipping generative-AI media tooling.
-- **Thinking about** — Fail-closed systems: how to make every external dependency optional without the product ever looking broken.
+- **This cycle** — This week: refreshed the profile README, added a README generator app in TypeScript with 36 tests, and generated an oak-themed profile README with a dual-theme SVG hero.
+- **Thinking about** — Exploring the balance between model complexity and interpretability in AI systems to enhance both performance and user trust.
 
 ---
 

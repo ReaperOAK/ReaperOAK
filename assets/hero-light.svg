@@ -15,6 +15,6 @@
 <text x="450" y="170" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2" fill="#6B6459">
   <tspan fill="#C77B30">O</tspan>wais <tspan fill="#C77B30">A</tspan>hmed <tspan fill="#C77B30">K</tspan>han
 </text>
-<text x="450" y="212" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" fill="#1A1712" opacity="0.92">I architect and ship production AI platforms — prompts into image, video, and audio.</text>
+<text x="450" y="212" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" fill="#1A1712" opacity="0.92">I design and deploy AI platforms that convert prompts into images, videos, and audio.</text>
 <line x1="330" y1="238" x2="570" y2="238" stroke="#C77B30" stroke-opacity="0.35"/>
 </svg>
