@@ -16,10 +16,20 @@ const QUERY = `query($login:String!){
   }
 }`;
 
-function computeStreak(weeks: Array<{ contributionDays: Array<{ contributionCount: number; date: string }> }>): number {
-  const days = weeks.flatMap((w) => w.contributionDays).sort((a, b) => b.date.localeCompare(a.date));
+export function computeStreak(
+  weeks: Array<{ contributionDays: Array<{ contributionCount: number; date: string }> }>,
+  todayISO: string = new Date().toISOString().slice(0, 10),
+): number {
+  // Drop future-dated padding in the current week, then walk newest → oldest.
+  const days = weeks.flatMap((w) => w.contributionDays)
+    .filter((d) => d.date <= todayISO)
+    .sort((a, b) => b.date.localeCompare(a.date));
   let streak = 0;
-  for (const d of days) { if (d.contributionCount > 0) streak++; else break; }
+  for (let i = 0; i < days.length; i++) {
+    if (days[i]!.contributionCount > 0) streak++;
+    else if (i === 0) continue; // today may have no commits yet — don't break the streak
+    else break;
+  }
   return streak;
 }
 

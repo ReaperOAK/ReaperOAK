@@ -1,8 +1,29 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { rmSync } from "node:fs";
-import { getGithubSnapshot } from "../data/github.js";
+import { getGithubSnapshot, computeStreak } from "../data/github.js";
 import { CACHE_DIR } from "../cache.js";
 import type { Config } from "../config.js";
+
+describe("computeStreak", () => {
+  const week = (days: Array<[string, number]>) => ({ contributionDays: days.map(([date, contributionCount]) => ({ date, contributionCount })) });
+  it("does not break the streak when today has no commits yet", () => {
+    // today = 2026-07-29 with 0; the three prior days are active.
+    const weeks = [week([["2026-07-26", 3], ["2026-07-27", 1], ["2026-07-28", 2], ["2026-07-29", 0]])];
+    expect(computeStreak(weeks, "2026-07-29")).toBe(3);
+  });
+  it("counts today when today is active", () => {
+    const weeks = [week([["2026-07-27", 1], ["2026-07-28", 2], ["2026-07-29", 5]])];
+    expect(computeStreak(weeks, "2026-07-29")).toBe(3);
+  });
+  it("returns 0 when yesterday was also empty", () => {
+    const weeks = [week([["2026-07-27", 4], ["2026-07-28", 0], ["2026-07-29", 0]])];
+    expect(computeStreak(weeks, "2026-07-29")).toBe(0);
+  });
+  it("ignores future-dated padding days in the current week", () => {
+    const weeks = [week([["2026-07-28", 2], ["2026-07-29", 1], ["2026-07-30", 0], ["2026-07-31", 0]])];
+    expect(computeStreak(weeks, "2026-07-29")).toBe(2);
+  });
+});
 
 const cfg: Config = { githubToken: "t", githubLogin: "ReaperOAK", openRouter: null, wakatimeEnabled: false };
 
