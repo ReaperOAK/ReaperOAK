@@ -1,5 +1,5 @@
 {
-  "tagline": "I build AI systems that convert prompts into images, video, and audio.",
+  "tagline": "I build production AI platforms that turn prompts into images, video, audio.",
   "recentWork": "This week: refreshed the profile README, added a README generator app in TypeScript with 36 tests, and generated an oak-themed profile README with a dual-theme SVG hero.",
   "thinkingAbout": "Evaluating the trade-offs between stateful caching and re-computation for long-context LLM inference to reduce time-to-first-token.",
   "featuredBlurbs": {}
