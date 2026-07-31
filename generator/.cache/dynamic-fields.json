@@ -1,6 +1,6 @@
 {
-  "tagline": "I build production AI platforms that turn prompts into images, video, audio.",
+  "tagline": "I build and deploy production AI platforms converting prompts to images, video, audio.",
   "recentWork": "This week: refreshed the profile README, added a README generator app in TypeScript with 36 tests, and generated an oak-themed profile README with a dual-theme SVG hero.",
-  "thinkingAbout": "Considering how to isolate stateful model inference from batch pipelines using lightweight request‑scoped containers.",
+  "thinkingAbout": "Event-driven architectures scale better when state is pushed to the edge and coordination happens through idempotent message queues rather than distributed locks.",
   "featuredBlurbs": {}
 }

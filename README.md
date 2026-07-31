@@ -14,7 +14,7 @@
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
 - **This cycle** — This week: refreshed the profile README, added a README generator app in TypeScript with 36 tests, and generated an oak-themed profile README with a dual-theme SVG hero.
-- **Thinking about** — Considering how to isolate stateful model inference from batch pipelines using lightweight request‑scoped containers.
+- **Thinking about** — Event-driven architectures scale better when state is pushed to the edge and coordination happens through idempotent message queues rather than distributed locks.
 
 ---
 
