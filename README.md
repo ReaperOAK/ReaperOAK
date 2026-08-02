@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — This week: refreshed the profile README, added a README generator app in TypeScript with 36 tests, and generated an oak-themed profile README with a dual-theme SVG hero.
-- **Thinking about** — Event-driven architectures scale better when state is pushed to the edge and coordination happens through idempotent message queues rather than distributed locks.
+- **Thinking about** — Context-window limits make me wonder if we're over-indexing on long-horizon reasoning and under-indexing on tight, iterative feedback loops that fit in 4K tokens or less.
 
 ---
 
