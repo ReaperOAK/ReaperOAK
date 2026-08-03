@@ -4,7 +4,7 @@
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
-    "fix: streak no longer resets when today has no commits yet",
+    "chore: refresh profile README [skip ci]",
     "License: switch MIT -> PolyForm Noncommercial 1.0.0 (commercial use requires a paid license)",
     "Sanitize for public release: portable paths, MIT LICENSE, stronger disclaimer; drop personal files (note.md, PRD.md) + legacy ai4trade client",
     "Initial commit: honest survivorship-corrected Indian equity backtesting lab",
@@ -13,6 +13,6 @@
     "minor changes",
     "Make personal invite responsive: length-aware name sizing + perf"
   ],
-  "totalContributions": 8821,
-  "currentStreakDays": 7
+  "totalContributions": 8795,
+  "currentStreakDays": 8
 }
