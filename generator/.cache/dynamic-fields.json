@@ -1,5 +1,5 @@
 {
-  "tagline": "I build and deploy production AI platforms converting prompts to images, video, audio.",
+  "tagline": "Designs and deploys AI systems converting prompts into visual, video, and audio outputs.",
   "recentWork": "This week: refreshed the profile README, added a README generator app in TypeScript with 36 tests, and generated an oak-themed profile README with a dual-theme SVG hero.",
   "thinkingAbout": "Context-window limits make me wonder if we're over-indexing on long-horizon reasoning and under-indexing on tight, iterative feedback loops that fit in 4K tokens or less.",
   "featuredBlurbs": {}
