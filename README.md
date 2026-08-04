@@ -13,8 +13,8 @@
 ### Currently
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
-- **This cycle** — This week: refreshed the profile README, added a README generator app in TypeScript with 36 tests, and generated an oak-themed profile README with a dual-theme SVG hero.
-- **Thinking about** — Context-window limits make me wonder if we're over-indexing on long-horizon reasoning and under-indexing on tight, iterative feedback loops that fit in 4K tokens or less.
+- **This cycle** — This week: refreshed README, changed license to PolyForm, sanitized with portable paths, removed files and client, Indian equity backtesting.
+- **Thinking about** — RAG systems need better failure isolation—chunking errors shouldn't cascade into hallucination detection. Treat retrieval confidence as a circuit breaker.
 
 ---
 
