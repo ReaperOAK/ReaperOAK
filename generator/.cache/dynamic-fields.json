@@ -1,5 +1,5 @@
 {
-  "tagline": "I build production AI platforms that turn prompts into image, video, and audio.",
+  "tagline": "Design and deploy production AI systems that convert text prompts into images, video, and audio.",
   "recentWork": "This week: refreshed README, changed license to PolyForm, sanitized with portable paths, removed files and client, Indian equity backtesting.",
   "thinkingAbout": "RAG systems need better failure isolation—chunking errors shouldn't cascade into hallucination detection. Treat retrieval confidence as a circuit breaker.",
   "featuredBlurbs": {}
