@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — This week: refreshed README, changed license to PolyForm, sanitized with portable paths, removed files and client, Indian equity backtesting.
-- **Thinking about** — RAG systems need better failure isolation—chunking errors shouldn't cascade into hallucination detection. Treat retrieval confidence as a circuit breaker.
+- **Thinking about** — Stale reads in vector stores still cost us accuracy—building a lightweight version vector on each chunk to detect drift without reindexing everything.
 
 ---
 
