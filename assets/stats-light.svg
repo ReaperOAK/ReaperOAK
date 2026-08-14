@@ -5,7 +5,7 @@
 <text x="297" y="70" text-anchor="middle" font-family="OakDisplay,sans-serif" font-weight="800" font-size="46" fill="#C77B30">9,332</text>
 <text x="297" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#6B6459">Contributions · last year</text>
 
-<text x="603" y="70" text-anchor="middle" font-family="OakDisplay,sans-serif" font-weight="800" font-size="46" fill="#C77B30">17</text>
+<text x="603" y="70" text-anchor="middle" font-family="OakDisplay,sans-serif" font-weight="800" font-size="46" fill="#C77B30">0</text>
 <text x="603" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#6B6459">Day streak</text>
 <line x1="450" y1="34" x2="450" y2="106" stroke="rgba(0,0,0,0.10)"/>
 </svg>
