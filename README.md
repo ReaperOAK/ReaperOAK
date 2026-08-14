@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — This week: README refreshed, license changed to PolyForm Noncommercial, personal files and legacy client removed, survivorship Indian equity backtesting.
-- **Thinking about** — Stale reads in vector stores still cost us accuracy—building a lightweight version vector on each chunk to detect drift without reindexing everything.
+- **Thinking about** — User Safety:
 
 ---
 
