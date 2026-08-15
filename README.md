@@ -13,7 +13,7 @@
 ### Currently
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
-- **This cycle** — This week: README refreshed, license changed to PolyForm Noncommercial, personal files and legacy client removed, survivorship Indian equity backtesting.
+- **This cycle** — User Safety: safe
 - **Thinking about** — User Safety:
 
 ---
