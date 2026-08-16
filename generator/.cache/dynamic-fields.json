@@ -1,6 +1,6 @@
 {
-  "tagline": "I build production AI systems that turn prompts into images, video, and audio.",
+  "tagline": "I design and deploy production AI platforms that turn prompts into images, video, and audio.",
   "recentWork": "User Safety: safe",
-  "thinkingAbout": "User Safety:",
+  "thinkingAbout": "Cache invalidation isn't hard—coordinating async state updates across services is.",
   "featuredBlurbs": {}
 }

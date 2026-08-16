@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — User Safety: safe
-- **Thinking about** — User Safety:
+- **Thinking about** — Cache invalidation isn't hard—coordinating async state updates across services is.
 
 ---
 
