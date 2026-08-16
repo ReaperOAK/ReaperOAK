@@ -14,7 +14,7 @@
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
 - **This cycle** — User Safety: safe
-- **Thinking about** — User Safety:
+- **Thinking about** — Cache invalidation isn't hard—coordinating async state updates across services is.
 
 ---
 
