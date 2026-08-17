@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — User Safety: safe
-- **Thinking about** — Cache invalidation isn't hard—coordinating async state updates across services is.
+- **Thinking about** — Considering event‑driven state sync with CRDTs to keep AI model caches consistent across microservices.
 
 ---
 
