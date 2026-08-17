@@ -1,6 +1,6 @@
 {
   "tagline": "I design and deploy production AI platforms that turn prompts into images, video, and audio.",
   "recentWork": "User Safety: safe",
-  "thinkingAbout": "Cache invalidation isn't hard—coordinating async state updates across services is.",
+  "thinkingAbout": "Considering event‑driven state sync with CRDTs to keep AI model caches consistent across microservices.",
   "featuredBlurbs": {}
 }
