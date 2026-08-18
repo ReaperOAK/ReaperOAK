@@ -1,5 +1,5 @@
 {
-  "tagline": "I design and deploy production AI platforms that turn prompts into images, video, and audio.",
+  "tagline": "I build production AI systems that turn prompts into image, video, and audio outputs.",
   "recentWork": "User Safety: safe",
   "thinkingAbout": "Considering event‑driven state sync with CRDTs to keep AI model caches consistent across microservices.",
   "featuredBlurbs": {}
