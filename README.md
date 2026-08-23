@@ -13,8 +13,8 @@
 ### Currently
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
-- **This cycle** — User Safety: safe
-- **Thinking about** — Considering event‑driven state sync with CRDTs to keep AI model caches consistent across microservices.
+- **This cycle** — This week: refreshed profile README and updated license terms for public release.
+- **Thinking about** — User Safety: safe
 
 ---
 
