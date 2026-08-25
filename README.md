@@ -14,7 +14,7 @@
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
 - **This cycle** — This week: refreshed profile README and updated license terms for public release.
-- **Thinking about** — User Safety: safe
+- **Thinking about** — I keep coming back to whether we should shard embeddings per user or index globally—latency vs. isolation trade-off still feels unresolved.
 
 ---
 
