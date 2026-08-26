@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — This week: refreshed profile README and updated license terms for public release.
-- **Thinking about** — I keep coming back to whether we should shard embeddings per user or index globally—latency vs. isolation trade-off still feels unresolved.
+- **Thinking about** — RAG systems need failure modes that degrade gracefully, not catastrophically.
 
 ---
 

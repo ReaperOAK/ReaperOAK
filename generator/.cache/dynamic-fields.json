@@ -1,6 +1,6 @@
 {
-  "tagline": "I architect and ship production AI systems for image, video, and audio generation.",
+  "tagline": "I build production AI platforms that turn prompts into image, video and audio.",
   "recentWork": "This week: refreshed profile README and updated license terms for public release.",
-  "thinkingAbout": "I keep coming back to whether we should shard embeddings per user or index globally—latency vs. isolation trade-off still feels unresolved.",
+  "thinkingAbout": "RAG systems need failure modes that degrade gracefully, not catastrophically.",
   "featuredBlurbs": {}
 }
