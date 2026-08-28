@@ -1,5 +1,5 @@
 {
-  "tagline": "I design and deploy production AI systems that turn prompts into images, video, and audio.",
+  "tagline": "Ship production AI platforms that turn prompts into image, video, and audio.",
   "recentWork": "This week: refreshed profile README and updated license terms for public release.",
   "thinkingAbout": "Evaluating the trade-off between latent space caching and re-computation for long-context retrieval in multi-tenant production environments.",
   "featuredBlurbs": {}
