@@ -13,7 +13,7 @@
 ### Currently
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
-- **This cycle** — This week: README refreshed, license switched to PolyForm Noncommercial, personal files removed, survivorship‑corrected Indian equity backtesting lab added.
+- **This cycle** — User Safety: safe
 - **Thinking about** — context windows are the new memory hierarchy; treating them as cache, not store, changes everything about agent design.
 
 ---
