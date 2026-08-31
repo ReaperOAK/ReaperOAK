@@ -14,7 +14,7 @@
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
 - **This cycle** — User Safety: safe
-- **Thinking about** — context windows are the new memory hierarchy; treating them as cache, not store, changes everything about agent design.
+- **Thinking about** — Pondering whether ephemeral sandboxes per request would beat long-lived ones for cost and isolation in multi-agent inference pipelines.
 
 ---
 
