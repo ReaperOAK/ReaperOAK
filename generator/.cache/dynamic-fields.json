@@ -1,6 +1,6 @@
 {
-  "tagline": "Building production AI systems for image, video, and audio generation.",
+  "tagline": "I build production AI systems that generate image, video, and audio from prompts.",
   "recentWork": "User Safety: safe",
-  "thinkingAbout": "context windows are the new memory hierarchy; treating them as cache, not store, changes everything about agent design.",
+  "thinkingAbout": "Pondering whether ephemeral sandboxes per request would beat long-lived ones for cost and isolation in multi-agent inference pipelines.",
   "featuredBlurbs": {}
 }
