@@ -1,18 +1,18 @@
 {
   "recentCommitMessages": [
-    "fix: implement the date transform and close operator-facing gaps",
-    "fix: align overlay baselines and close silent-rescale paths",
-    "fix: cover the duplex mirror, tighten the content check, scope photo embeds",
-    "feat: job orchestrator and CLI",
-    "fix: keep crop marks out of neighbouring cards",
-    "Add: longest-repeating-substring-with-replacement - submission-1",
-    "Add: longest-repeating-substring-with-replacement - submission-0",
-    "Add: longest-substring-without-duplicates - submission-3",
-    "Add: longest-substring-without-duplicates - submission-2",
-    "Add: longest-substring-without-duplicates - submission-1",
+    "Add: reverse-string - submission-0",
+    "Add: largest-rectangle-in-histogram - submission-0",
+    "Add: car-fleet - submission-3",
+    "Add: car-fleet - submission-2",
+    "Add: car-fleet - submission-1",
+    "fix: drop the scaffold's opener capability",
+    "feat: project store and folder open",
+    "fix: make paths and photo parsing platform-neutral",
+    "feat: Tauri scaffold with the engine resolving in the webview",
+    "refactor: move engine file I/O behind a FileSystem interface",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]"
   ],
-  "totalContributions": 9804,
-  "currentStreakDays": 5
+  "totalContributions": 9850,
+  "currentStreakDays": 6
 }
