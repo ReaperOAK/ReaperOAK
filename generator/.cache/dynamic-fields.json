@@ -1,6 +1,6 @@
 {
   "tagline": "I build production AI systems that generate image, video, and audio from prompts.",
   "recentWork": "User Safety: safe",
-  "thinkingAbout": "Pondering whether ephemeral sandboxes per request would beat long-lived ones for cost and isolation in multi-agent inference pipelines.",
+  "thinkingAbout": "Replay buffers aren't data, they're a schedule—treat every replay ratio like a learning-rate knob worth tuning.",
   "featuredBlurbs": {}
 }

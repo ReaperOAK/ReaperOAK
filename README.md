@@ -14,7 +14,7 @@
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
 - **This cycle** — User Safety: safe
-- **Thinking about** — Pondering whether ephemeral sandboxes per request would beat long-lived ones for cost and isolation in multi-agent inference pipelines.
+- **Thinking about** — Replay buffers aren't data, they're a schedule—treat every replay ratio like a learning-rate knob worth tuning.
 
 ---
 
