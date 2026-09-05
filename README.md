@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — User Safety: safe
-- **Thinking about** — Pondering whether ephemeral sandboxes per request would beat long-lived ones for cost and isolation in multi-agent inference pipelines.
+- **Thinking about** — Replay buffers aren't data, they're a schedule—treat every replay ratio like a learning-rate knob worth tuning.
 
 ---
 
