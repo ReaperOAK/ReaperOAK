@@ -13,7 +13,7 @@
 ### Currently
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
-- **This cycle** — User Safety: safe
+- **This cycle** — This week: Solved reverse-nodes-in-k-group, merge-k-sorted-linked-lists, lru-cache, find-duplicate-integer, add-two-numbers; refreshed README.
 - **Thinking about** — Replay buffers aren't data, they're a schedule—treat every replay ratio like a learning-rate knob worth tuning.
 
 ---

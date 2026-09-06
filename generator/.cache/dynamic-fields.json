@@ -1,6 +1,6 @@
 {
   "tagline": "I build production AI systems that generate image, video, and audio from prompts.",
-  "recentWork": "User Safety: safe",
+  "recentWork": "This week: Solved reverse-nodes-in-k-group, merge-k-sorted-linked-lists, lru-cache, find-duplicate-integer, add-two-numbers; refreshed README.",
   "thinkingAbout": "Replay buffers aren't data, they're a schedule—treat every replay ratio like a learning-rate knob worth tuning.",
   "featuredBlurbs": {}
 }
