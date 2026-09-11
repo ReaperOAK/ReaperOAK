@@ -1,10 +1,10 @@
 {
   "recentCommitMessages": [
+    "Add: serialize-and-deserialize-binary-tree - submission-0",
+    "Add: binary-tree-maximum-path-sum - submission-0",
+    "Add: binary-tree-from-preorder-and-inorder-traversal - submission-0",
     "Add: kth-smallest-integer-in-bst - submission-0",
     "Add: valid-binary-search-tree - submission-0",
-    "Add: count-good-nodes-in-binary-tree - submission-0",
-    "Add: binary-tree-right-side-view - submission-0",
-    "Add: level-order-traversal-of-binary-tree - submission-1",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
@@ -13,6 +13,6 @@
     "fix: drop the scaffold's opener capability",
     "feat: project store and folder open"
   ],
-  "totalContributions": 10134,
-  "currentStreakDays": 12
+  "totalContributions": 10153,
+  "currentStreakDays": 13
 }

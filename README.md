@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — This week: Solved reverse-nodes-in-k-group, merge-k-sorted-linked-lists, lru-cache, find-duplicate-integer, add-two-numbers; refreshed README.
-- **Thinking about** — Batching inference requests by latency budget beats static batch sizes when tail latency dominates cost.
+- **Thinking about** — Batching LLM calls per user session cuts cost, but stale cache keys silently poison results. Versioning prompts + inputs as cache keys is non-negotiable.
 
 ---
 
