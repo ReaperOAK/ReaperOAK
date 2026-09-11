@@ -1,6 +1,6 @@
 {
   "tagline": "I build production AI platforms that turn prompts into image, video, and audio.",
   "recentWork": "This week: Solved reverse-nodes-in-k-group, merge-k-sorted-linked-lists, lru-cache, find-duplicate-integer, add-two-numbers; refreshed README.",
-  "thinkingAbout": "Batching inference requests by latency budget beats static batch sizes when tail latency dominates cost.",
+  "thinkingAbout": "Batching LLM calls per user session cuts cost, but stale cache keys silently poison results. Versioning prompts + inputs as cache keys is non-negotiable.",
   "featuredBlurbs": {}
 }
