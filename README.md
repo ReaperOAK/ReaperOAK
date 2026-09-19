@@ -13,7 +13,7 @@
 ### Currently
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
-- **This cycle** — This week: Solved reverse-nodes-in-k-group, merge-k-sorted-linked-lists, lru-cache, find-duplicate-integer, add-two-numbers; refreshed README.
+- **This cycle** — This week: Added count-number-of-islands, search-for-word-ii, design-word-search-data-structure, implement-prefix-tree, and n-queens solutions; refreshed profile README.
 - **Thinking about** — A queue should not be the
 
 ---

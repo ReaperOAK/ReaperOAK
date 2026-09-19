@@ -1,10 +1,10 @@
 {
   "recentCommitMessages": [
+    "Add: count-number-of-islands - submission-0",
     "Add: search-for-word-ii - submission-1",
     "Add: design-word-search-data-structure - submission-0",
     "Add: implement-prefix-tree - submission-0",
     "Add: n-queens - submission-0",
-    "Add: combinations-of-a-phone-number - submission-0",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
@@ -13,6 +13,6 @@
     "first commit",
     "fix: drop the scaffold's opener capability"
   ],
-  "totalContributions": 10561,
+  "totalContributions": 10567,
   "currentStreakDays": 21
 }
