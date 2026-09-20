@@ -13,7 +13,7 @@
 ### Currently
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
-- **This cycle** — This week: Added count-number-of-islands, search-for-word-ii, design-word-search-data-structure, implement-prefix-tree, and n-queens solutions; refreshed profile README.
+- **This cycle** — This week: Added submissions for Rotting Fruit, Islands and Treasure, Clone Graph, Max Area of Island, and Number of Islands, and refreshed the profile README.
 - **Thinking about** — A queue should not be the
 
 ---
