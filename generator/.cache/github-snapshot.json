@@ -1,10 +1,10 @@
 {
   "recentCommitMessages": [
+    "Add: valid-tree - submission-0",
+    "Add: course-schedule-ii - submission-2",
+    "Add: course-schedule-ii - submission-1",
+    "Add: course-schedule-ii - submission-0",
     "Add: course-schedule - submission-0",
-    "Add: surrounded-regions - submission-2",
-    "Add: pacific-atlantic-water-flow - submission-0",
-    "Add: rotting-fruit - submission-1",
-    "Add: islands-and-treasure - submission-0",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
     "chore: refresh profile README [skip ci]",
@@ -13,6 +13,6 @@
     "first commit",
     "fix: drop the scaffold's opener capability"
   ],
-  "totalContributions": 10880,
+  "totalContributions": 10953,
   "currentStreakDays": 27
 }
