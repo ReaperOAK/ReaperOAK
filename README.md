@@ -14,7 +14,7 @@
 
 - **Building** [Pindow](https://pindow.ai) and [Crosbird](https://www.crosbird.com/) at Cornflakes Media.
 - **This cycle** — This week: submitted word-ladder, redundant-connection, and count-connected-components solutions, and refreshed the profile README.
-- **Thinking about** — A queue should not be the
+- **Thinking about** — User Safety: safe
 
 ---
 
