@@ -14,7 +14,7 @@
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
 - **This cycle** — This week: submitted word-ladder, redundant-connection, and count-connected-components solutions, and refreshed the profile README.
-- **Thinking about** — A queue should not be the
+- **Thinking about** — User Safety: safe
 
 ---
 
