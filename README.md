@@ -14,7 +14,7 @@
 
 - **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
 - **This cycle** — This week: submitted word-ladder, redundant-connection, and count-connected-components solutions, and refreshed the profile README.
-- **Thinking about** — User Safety: safe
+- **Thinking about** — Most agents still treat context length as a hard ceiling rather than a compression budget, so they waste it on redundant tool outputs instead of summarizing past actions.
 
 ---
 
