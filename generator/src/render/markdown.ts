@@ -22,7 +22,7 @@ function currently(fields: DynamicFields): string {
   return `<!-- section:currently -->
 ### Currently
 
-- **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
+- **Building** a GenAI Media Platform and a Creator Marketplace at Cornflakes Media.
 - **This cycle** — ${fields.recentWork}
 - **Thinking about** — ${fields.thinkingAbout}`;
 }
@@ -33,7 +33,8 @@ function blurb(f: FeaturedItem, fields: DynamicFields): string {
 
 function featured(fields: DynamicFields): string {
   const rows = content.featured.map((f) => {
-    const name = f.live ? `**[${f.title} ↗](${f.url})**` : `**[${f.title}](${f.url})**`;
+    const name = !f.url ? `**${f.title}**`
+      : f.live ? `**[${f.title} ↗](${f.url})**` : `**[${f.title}](${f.url})**`;
     return `| ${name} | ${blurb(f, fields)} | \`${f.stack}\` |`;
   }).join("\n");
   return `<!-- section:featured -->

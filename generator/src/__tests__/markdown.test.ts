@@ -18,7 +18,7 @@ describe("renderReadme", () => {
   });
   it("lists live featured items with outward links and repos", () => {
     const md = renderReadme(fields, snap);
-    expect(md).toContain("https://genai-platform.ai");
+    expect(md).toContain("GenAI Media Platform");
     expect(md).toContain("ForgeOS");
   });
   it("renders the real numbers and the human coda", () => {

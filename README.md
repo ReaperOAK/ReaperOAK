@@ -12,7 +12,7 @@
 <!-- section:currently -->
 ### Currently
 
-- **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
+- **Building** a GenAI Media Platform and a Creator Marketplace at Cornflakes Media.
 - **This cycle** — This week: submitted word-ladder, redundant-connection, and count-connected-components solutions, and refreshed the profile README.
 - **Thinking about** — Most agents still treat context length as a hard ceiling rather than a compression budget, so they waste it on redundant tool outputs instead of summarizing past actions.
 
@@ -23,8 +23,8 @@
 
 | Project | What it solves | Stack |
 |---------|----------------|-------|
-| **[GenAI Media Platform ↗](https://genai-platform.ai)** | Turns prompts into image, video, and audio across 15+ foundation models. | `FastAPI · NestJS · Java · React · AWS` |
-| **[Creator Marketplace ↗](https://www.creator-marketplace.com/)** | Cross-platform influencer marketplace with escrow, split payouts, and discovery. | `Expo · React Native · NestJS · OpenSearch` |
+| **GenAI Media Platform** | Turns prompts into image, video, and audio across 15+ foundation models. | `FastAPI · NestJS · Java · React · AWS` |
+| **Creator Marketplace** | Cross-platform influencer marketplace with escrow, split payouts, and discovery. | `Expo · React Native · NestJS · OpenSearch` |
 | **[ForgeOS](https://github.com/ReaperOAK/ForgeOS)** | An SDLC engine of orchestrated agents for spec-driven development. | `TypeScript` |
 | **[CodebaseRAG](https://github.com/ReaperOAK/CodebaseRAG)** | Local RAG over any repository via an MCP server for instant querying. | `JavaScript · LLMs · MCP` |
 | **[survivorship-free-backtester](https://github.com/ReaperOAK/survivorship-free-backtester)** | Honest, survivorship-bias-corrected, tax-aware backtesting on free data. | `Python · DuckDB` |
