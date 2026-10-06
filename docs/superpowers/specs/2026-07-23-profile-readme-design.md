@@ -113,7 +113,7 @@ for validation.
 1. **`hero`** — hero SVG: eyebrow (`Founding Engineer · Generative AI`), ReaperOAK → O·A·K
    reveal, tagline\*, human line. Dual light/dark via `<picture>` + `prefers-color-scheme`.
 2. **`currently`** — building GenAI Media Platform + Creator Marketplace · recent-work line\* · "thinking about" note\*.
-3. **`featured`** — **GenAI Media Platform** + **Creator Marketplace** (live, outward links) then **ForgeOS** /
+3. **`featured`** — **GenAI Media Platform** + **Creator Marketplace** (live, no links) then **ForgeOS** /
    **CodebaseRAG** / **survivorship-free-backtester** (repo links). Each: one-line problem
    it solves + stack.
 4. **`engine-room`** — curated stack, grouped, minimal single-color presentation

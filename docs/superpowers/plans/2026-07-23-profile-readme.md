@@ -209,10 +209,10 @@ export const content: StaticContent = {
   fullName: "Owais Ahmed Khan",
   humanLine: "125R, throttle open  ·  writes poetry  ·  optimizes the economy before attacking",
   featured: [
-    { title: "GenAI Media Platform", url: "https://genai-platform.ai", live: true,
+    { title: "GenAI Media Platform", url: "", live: true,
       problem: "Turns prompts into image, video, and audio across 15+ foundation models.",
       stack: "FastAPI · NestJS · Java · React · AWS" },
-    { title: "Creator Marketplace", url: "https://www.creator-marketplace.com/", live: true,
+    { title: "Creator Marketplace", url: "", live: true,
       problem: "Cross-platform influencer marketplace with escrow, split payouts, and discovery.",
       stack: "Expo · React Native · NestJS · OpenSearch" },
     { title: "ForgeOS", url: "https://github.com/ReaperOAK/ForgeOS", live: false,
@@ -1070,7 +1070,7 @@ describe("renderReadme", () => {
   });
   it("lists live featured items with outward links and repos", () => {
     const md = renderReadme(fields, snap);
-    expect(md).toContain("https://genai-platform.ai");
+    expect(md).toContain("GenAI Media Platform");
     expect(md).toContain("ForgeOS");
   });
   it("renders the real numbers and the human coda", () => {
@@ -1116,7 +1116,7 @@ function currently(fields: DynamicFields): string {
   return `<!-- section:currently -->
 ### Currently
 
-- **Building** [GenAI Media Platform](https://genai-platform.ai) and [Creator Marketplace](https://www.creator-marketplace.com/) at Cornflakes Media.
+- **Building** a GenAI Media Platform and a Creator Marketplace at Cornflakes Media.
 - **This cycle** — ${fields.recentWork}
 - **Thinking about** — ${fields.thinkingAbout}`;
 }

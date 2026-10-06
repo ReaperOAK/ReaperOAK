@@ -2,7 +2,7 @@
 **Location:** India · open to remote & relocation | **Phone:** \+91-7003080896 | **Email:** [oaak78692@gmail.com](mailto:oaak78692@gmail.com)  
 **Portfolio:** [reaperoak.web.app](https://reaperoak.web.app/) | **GitHub:** [github.com/ReaperOAK](https://github.com/ReaperOAK) | **LinkedIn:** [linkedin.com/in/owaistech](https://linkedin.com/in/owaistech)
 
-**Summary:** Founding engineer and full-stack developer shipping production, AI-native platforms while completing my B.Tech (2027). First engineer at **Cornflakes Media** — I own architecture and lead a 4-engineer team building [**GenAI Media Platform**](https://genai-platform.ai), a generative-AI media platform (launching to early access), and [**Creator Marketplace**](https://www.creator-marketplace.com/), a cross-platform influencer marketplace. Previously scaled a data platform to **1.2M+ clicks and 28K+ MAU**. Depth in TypeScript/React, Python/FastAPI, LLM/generative-AI integration, and AWS.
+**Summary:** Founding engineer and full-stack developer shipping production, AI-native platforms while completing my B.Tech (2027). First engineer at **Cornflakes Media** — I own architecture and lead a 4-engineer team building a generative-AI media platform (launching to early access) and a cross-platform influencer marketplace. Previously scaled a data platform to **1.2M+ clicks and 28K+ MAU**. Depth in TypeScript/React, Python/FastAPI, LLM/generative-AI integration, and AWS.
 
 **Technical Skills**
 
@@ -19,10 +19,10 @@
 *First engineer hired; own architecture across all products and lead a team of 4\.*
 
 * **Leadership:** Set technical direction as founding engineer; interviewed/hired and now lead 4 engineers (code reviews, mentoring, standards); solo-built a separate B2B product MVP at the founder's request.  
-* **GenAI Media Platform — generative-AI media platform:** Architected and built an AI platform (**Python/FastAPI \+ Java \+ NestJS \+ React**) turning prompts into image / video / audio across **15+ foundation models**, with an in-app prompt engine (**250+ presets**, multilingual) and multimodal vision. Now launching to early access.  
+* **Generative-AI media platform:** Architected and built an AI platform (**Python/FastAPI \+ Java \+ NestJS \+ React**) turning prompts into image / video / audio across **15+ foundation models**, with an in-app prompt engine (**250+ presets**, multilingual) and multimodal vision. Now launching to early access.  
 * **Scale-out infrastructure:** Engineered the cloud infra for horizontal scale ahead of launch — **Multi-AZ RDS Postgres \+ ElastiCache Redis**, **pgbouncer** pooling, load-balanced replicas, Redis-backed rate-limiting / idempotency — via a **zero-downtime** migration off a single instance.  
 * **Credit billing & payments:** Built a credit-metering & billing system with an **atomic, fail-closed ledger**; integrated **Stripe** & **Cashfree** (subscriptions, credit packs, refunds), hardened against double-spend and replayed webhooks.  
-* **Creator Marketplace — cross-platform marketplace (pre-launch):** Led the build of an **iOS / Android / Web** marketplace on one **Expo/React Native \+ NestJS** codebase — escrow/split-payments/payouts, contract negotiation, Socket.io messaging, Meta Graph API webhooks, OpenSearch discovery; cut dev-infra **\~$2,000/month** with a $0 local Docker/MinIO mirror at **\~95% test coverage**.
+* **Cross-platform creator marketplace (pre-launch):** Led the build of an **iOS / Android / Web** marketplace on one **Expo/React Native \+ NestJS** codebase — escrow/split-payments/payouts, contract negotiation, Socket.io messaging, Meta Graph API webhooks, OpenSearch discovery; cut dev-infra **\~$2,000/month** with a $0 local Docker/MinIO mirror at **\~95% test coverage**.
 
 **Kolkata Chess Academy | Full-Stack Developer (Contract) | Kolkata, India | Oct 2024 – Sept 2025**
 
