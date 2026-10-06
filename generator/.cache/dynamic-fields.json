@@ -1,5 +1,5 @@
 {
-  "tagline": "Architect and ship production AI platforms: prompts to image, video, audio.",
+  "tagline": "User Safety: safe",
   "recentWork": "This week: submitted word-ladder, redundant-connection, and count-connected-components solutions, and refreshed the profile README.",
   "thinkingAbout": "Most agents still treat context length as a hard ceiling rather than a compression budget, so they waste it on redundant tool outputs instead of summarizing past actions.",
   "featuredBlurbs": {}
