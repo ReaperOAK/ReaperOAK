@@ -6,8 +6,9 @@
  *    - data/feed.ts     parseFeed and the feed cache read, on an item's title and url
  *    - panels/md/featured.ts  ranked GitHub repos: name, url and stack (repo dropped),
  *                       description (blanked)
- *  validateReadme (assemble.ts) is the last gate, but today it rejects only `{{`; the rest of
- *  this pattern is enforced at those sources alone, so a new place that prints external text
- *  must call it too. Deliberately has no `g` flag: a global regex keeps `lastIndex` between
- *  `.test()` calls and would give alternating answers. */
+ *  validateReadme (assemble.ts) is the last gate and enforces the whole pattern on the finished
+ *  page, so a leak a source missed fails the build instead of reaching GitHub. Sources should
+ *  still call it: it lets them drop one bad item rather than lose the whole page. Deliberately
+ *  has no `g` flag: a global regex keeps `lastIndex` between `.test()` calls and would give
+ *  alternating answers. */
 export const LEAK_PATTERN = /\{\{|\bNaN\b|\bundefined\b|\bInfinity\b|\[object Object\]/;
