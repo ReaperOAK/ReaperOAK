@@ -1,4 +1,12 @@
 import type { Snapshot } from "../panels/types.js";
+import type { Config } from "../config.js";
+
+/** A config with one LLM model configured and every other source off. */
+export const LLM_CONFIG: Config = {
+  githubToken: null, githubLogin: "ReaperOAK",
+  llm: { baseUrl: "https://openrouter.ai/api/v1", key: "k", models: ["m"] },
+  wakatimeKey: null, leetcodeHandle: null, uptimeTargets: [], feedUrl: null,
+};
 
 /** The canonical empty-ish snapshot every test builds on. Every optional source is
  *  null, so any panel that appears against this fixture appears unconditionally. */

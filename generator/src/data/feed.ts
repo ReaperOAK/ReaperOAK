@@ -1,6 +1,7 @@
 import type { Config } from "../config.js";
 import type { FeedItem } from "../types.js";
 import { readCache, writeCache } from "../cache.js";
+import { LEAK_PATTERN } from "../render/leaks.js";
 
 const CACHE_KEY = "feed-items";
 const MAX_ITEMS = 4;
@@ -10,15 +11,39 @@ function tag(block: string, name: string): string | null {
   return m ? m[1]!.replace(/<!\[CDATA\[|\]\]>/g, "").trim() : null;
 }
 
-/** Escapes markdown link syntax in an untrusted feed title so it can't close the
- *  `[title](url)` link early. */
-function sanitizeTitle(title: string): string {
-  return title.replace(/[[\]]/g, (c) => (c === "[" ? "\\[" : "\\]"));
+/** Value of a quoted attribute (single or double quotes) inside a tag's attribute text. */
+function attr(attrs: string, name: string): string | null {
+  const m = new RegExp(`(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`, "i").exec(attrs);
+  return m ? (m[1] ?? m[2] ?? null) : null;
 }
 
-/** A `)` or whitespace in the url would break out of `(url)`; reject rather than mangle it. */
+/** RSS carries the url as element text. Atom carries it in `href` and lists several links per
+ *  entry (self, edit, enclosure, alternate), so take the human-facing one: `rel="alternate"` or
+ *  no `rel`. An entry with only machine links gets no url and is skipped - a link to the entry's
+ *  own XML is worse than no link. */
+function entryUrl(block: string): string | null {
+  const text = tag(block, "link");
+  if (text) return text;
+  for (const m of block.matchAll(/<link\b([^>]*)>/gi)) {
+    const href = attr(m[1]!, "href");
+    const rel = attr(m[1]!, "rel");
+    if (href && (!rel || rel.toLowerCase() === "alternate")) return href;
+  }
+  return null;
+}
+
+/** Only http(s). A `)` or whitespace in the url would break out of `(url)`; reject rather
+ *  than mangle it. */
 function isSafeUrl(url: string): boolean {
-  return url.startsWith("http") && !/[)\s]/.test(url);
+  return /^https?:\/\//.test(url) && !/[)\s]/.test(url);
+}
+
+/** Everything the Writing panel prints for an item. A leak in any of title, url or date
+ *  (`/posts/undefined` is a plausible url) would fail README validation, so the item is
+ *  dropped instead. Titles are not markdown-escaped here - that happens where they are
+ *  rendered (writing.ts), so cached and freshly parsed items take the same path. */
+function leaks(i: FeedItem): boolean {
+  return LEAK_PATTERN.test(`${i.title}\n${i.url}\n${i.date}`);
 }
 
 /** Regex parsing is deliberate — no XML dependency for four titles and four links. */
@@ -27,10 +52,11 @@ export function parseFeed(xml: string): FeedItem[] {
   const items: FeedItem[] = [];
   for (const b of blocks) {
     const title = tag(b, "title");
-    const url = tag(b, "link") || /<link[^>]*href="([^"]+)"/i.exec(b)?.[1] || null;
+    const url = entryUrl(b);
     const date = tag(b, "pubDate") ?? tag(b, "updated") ?? tag(b, "published") ?? "";
     if (!title || !url || !isSafeUrl(url)) continue;
-    items.push({ title: sanitizeTitle(title), url, date });
+    const item = { title, url, date };
+    if (!leaks(item)) items.push(item);
   }
   return items.slice(0, MAX_ITEMS);
 }
@@ -38,8 +64,8 @@ export function parseFeed(xml: string): FeedItem[] {
 function isFeedItem(v: unknown): v is FeedItem {
   if (!v || typeof v !== "object") return false;
   const r = v as Record<string, unknown>;
-  return typeof r.title === "string" && typeof r.url === "string"
-    && r.url.startsWith("http") && typeof r.date === "string";
+  return typeof r.title === "string" && typeof r.url === "string" && typeof r.date === "string"
+    && isSafeUrl(r.url) && !leaks({ title: r.title, url: r.url, date: r.date });
 }
 
 /** The on-disk cache is untrusted the same way github-snapshot's is: a schema change or a
