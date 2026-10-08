@@ -1,13 +1,9 @@
 import { content } from "../content.js";
-import type { DynamicFields, GithubSnapshot, FeaturedItem } from "../types.js";
+import { activeMarkdownPanels } from "../panels/index.js";
+import type { Snapshot } from "../panels/types.js";
 
-export const SECTION_MARKERS = [
-  "<!-- section:hero -->", "<!-- section:currently -->", "<!-- section:featured -->",
-  "<!-- section:engine-room -->", "<!-- section:numbers -->", "<!-- section:stats -->",
-  "<!-- section:connect -->", "<!-- section:coda -->",
-];
-
-function hero(fields: DynamicFields): string {
+/** Hero is still hand-written here; the panel registry covers everything else. */
+function hero(): string {
   return `<!-- section:hero -->
 <div align="center">
 <picture>
@@ -18,76 +14,25 @@ function hero(fields: DynamicFields): string {
 </div>`;
 }
 
-function currently(fields: DynamicFields): string {
-  return `<!-- section:currently -->
-### Currently
-
-- **Building** a GenAI Media Platform and a Creator Marketplace at Cornflakes Media.
-- **This cycle** — ${fields.recentWork}
-- **Thinking about** — ${fields.thinkingAbout}`;
-}
-
-function blurb(f: FeaturedItem, fields: DynamicFields): string {
-  return fields.featuredBlurbs[f.title] ?? f.problem;
-}
-
-function featured(fields: DynamicFields): string {
-  const rows = content.featured.map((f) => {
-    const name = !f.url ? `**${f.title}**`
-      : f.live ? `**[${f.title} ↗](${f.url})**` : `**[${f.title}](${f.url})**`;
-    return `| ${name} | ${blurb(f, fields)} | \`${f.stack}\` |`;
-  }).join("\n");
-  return `<!-- section:featured -->
-### Featured
-
-| Project | What it solves | Stack |
-|---------|----------------|-------|
-${rows}`;
-}
-
-function engineRoom(): string {
-  const lines = content.stackGroups.map((g) => `- **${g.heading}** — ${g.items.join(" · ")}`).join("\n");
-  return `<!-- section:engine-room -->
-### The Engine Room
-
-${lines}`;
-}
-
-function numbers(): string {
-  const cells = content.numbers.map((n) => `\`${n.value}\` ${n.label}`).join("  ·  ");
-  return `<!-- section:numbers -->
-### Selected numbers
-
-${cells}`;
-}
-
-function stats(): string {
-  return `<!-- section:stats -->
-<div align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
-  <img alt="GitHub activity" src="assets/stats-dark.svg" width="900">
-</picture>
-</div>`;
-}
-
-function connect(): string {
-  const links = content.contacts.map((c) => `[${c.label}](${c.url})`).join(" • ");
-  return `<!-- section:connect -->
-### Connect
-
-${links}`;
-}
-
-function coda(): string {
-  return `<!-- section:coda -->
-<div align="center"><sub>${content.humanLine}</sub></div>`;
-}
-
-export function renderReadme(fields: DynamicFields, snap: GithubSnapshot): string {
-  return [
-    hero(fields), currently(fields), featured(fields), engineRoom(),
-    numbers(), stats(), connect(), coda(),
-  ].join("\n\n---\n\n") + "\n";
+export function renderReadme(ctx: Snapshot): string {
+  const panels = activeMarkdownPanels(ctx);
+  const byId = (id: string) => panels.find((p) => p.id === id)?.body;
+  const ordered = [
+    hero(),
+    byId("currently"),
+    byId("telemetry"),
+    byId("craft"),
+    byId("arena"),
+    byId("featured"),
+    byId("log"),
+    byId("cases"),
+    byId("roadmap"),
+    byId("engine-room"),
+    byId("numbers"),
+    byId("how"),
+    byId("writing"),
+    byId("connect"),
+    byId("coda"),
+  ].filter((s): s is string => Boolean(s));
+  return ordered.join("\n\n---\n\n") + "\n";
 }

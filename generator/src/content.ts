@@ -22,6 +22,10 @@ export const content: StaticContent = {
       problem: "Honest, survivorship-bias-corrected, tax-aware backtesting on free data.",
       stack: "Python · DuckDB" },
   ],
+  /** Repos forced to the top of Featured regardless of score. */
+  featuredPins: [],
+  /** Repos never shown. */
+  featuredBlocks: ["ai-trader-lab", "App", "neetcode-submissions", "ReaperOAK"],
   stackGroups: [
     { heading: "Languages", items: ["TypeScript", "JavaScript", "Python", "PHP", "Java"] },
     { heading: "Frontend", items: ["React", "React Native", "Next.js", "Expo", "Tailwind / NativeWind"] },
@@ -46,6 +50,46 @@ export const content: StaticContent = {
     tagline: "I architect and ship production AI platforms — prompts into image, video, and audio.",
     recentWork: "Currently deep in backend reliability: load-shedding, idempotency, and capacity planning.",
     thinkingAbout: "Fail-closed systems: how to make every external dependency optional without the product ever looking broken.",
+    // An invented changelog is worse than no section — empty is deliberate.
+    engineeringLog: [],
     featuredBlurbs: {}, // empty → renderer uses each FeaturedItem.problem
   },
+  caseStudies: [
+    {
+      title: "survivorship-free-backtester",
+      url: "https://github.com/ReaperOAK/survivorship-free-backtester",
+      problem: "Retail backtests test the past using today's winning stocks. The bias is invisible and it inflates every result.",
+      decision: "Reconstructed point-in-time Nifty 100/200/500 membership from the Internet Archive, recovered delisted-loser prices, and re-ran every strategy against the honest universe. Lot-level FIFO on top, with real Indian tax (20% STCG / 12.5% LTCG).",
+      tradeoff: "The correction destroyed the headline. Momentum's Sharpe fell from ~1.5 to ~1.0, and after tax the high-turnover strategies barely beat buy-and-hold. Publishing that was the point.",
+      outcome: "Survivorship inflates momentum by +0.4 to +0.9 Sharpe. Ensemble + regime-cash roughly halves drawdown, −38% to ~−18% — insurance, not free alpha. Intraday dip-buying died under honest testing.",
+      stack: "Python · DuckDB · yfinance · NSE bhavcopy",
+    },
+    {
+      title: "todayeggrates",
+      url: "https://todayeggrates.com/",
+      problem: "Daily commodity rates that people actually check, which means the site is worthless the day it goes stale.",
+      decision: "Content as MDX so rates and long-form pages ship through the same pipeline, with SEO treated as a build-time concern rather than a plugin.",
+      tradeoff: "MDX made the build heavier and the content model stricter than a CMS would have. Bought two years of uninterrupted daily updates without an editor UI to maintain.",
+      outcome: "",
+      stack: "JavaScript · MDX · PHP",
+    },
+    {
+      title: "ForgeOS",
+      url: "https://github.com/ReaperOAK/ForgeOS",
+      problem: "Agents given a whole codebase and a vague goal produce plausible output and unreviewable diffs.",
+      decision: "Split the SDLC into stage-specific agents with explicit handoffs and a ticket lifecycle, so each stage has one job and a reviewable artifact.",
+      tradeoff: "Far more orchestration machinery than a single-agent loop, and every stage boundary is a place work can stall. Bought traceability from vision to diff.",
+      outcome: "",
+      stack: "TypeScript · Python · PostgreSQL",
+    },
+  ],
+  roadmapTopics: [
+    { name: "System design", detail: "Distributed scheduling, consensus, failure detectors" },
+  ],
+  principles: [
+    "Every external dependency is optional. If a provider is down the product degrades, it does not break.",
+    "A number without a method behind it is decoration. Publish the correction, not just the result.",
+    "Tests describe behaviour, not implementation. A refactor that breaks the suite means the suite was wrong.",
+    "Ship the smallest thing that can be measured, then measure it.",
+  ],
 };

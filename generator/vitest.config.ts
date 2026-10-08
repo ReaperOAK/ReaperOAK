@@ -8,5 +8,9 @@ export default defineConfig({
     environment: "node",
     include: ["src/**/*.test.ts"],
     env: { README_CACHE_DIR: join(tmpdir(), "roak-readme-test-cache") },
+    // Every adapter test clears that one shared cache dir in beforeEach, so files
+    // running in parallel delete each other's fixtures mid-test. The suite runs in
+    // well under a second — sequential files cost nothing and remove the race.
+    fileParallelism: false,
   },
 });

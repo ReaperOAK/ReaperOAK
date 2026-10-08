@@ -1,9 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { validateReadme, assemble } from "../assemble.js";
-import { content } from "../content.js";
-
-const fields = { ...content.fallback };
-const snap = { recentCommitMessages: [], totalContributions: 10, currentStreakDays: 1 };
+import { FIXTURE } from "./fixtures.js";
 
 describe("validateReadme", () => {
   it("rejects empty / too-short output", () => {
@@ -11,22 +8,22 @@ describe("validateReadme", () => {
     expect(validateReadme("tiny").ok).toBe(false);
   });
   it("rejects output missing a section marker", () => {
-    const md = assemble(fields, snap).readme.replace("<!-- section:coda -->", "");
+    const md = assemble(FIXTURE).readme.replace("<!-- section:coda -->", "");
     expect(validateReadme(md).ok).toBe(false);
   });
   it("rejects unresolved tokens", () => {
-    const md = assemble(fields, snap).readme + "\n{{oops}}";
+    const md = assemble(FIXTURE).readme + "\n{{oops}}";
     expect(validateReadme(md).ok).toBe(false);
   });
   it("accepts a full valid readme", () => {
-    expect(validateReadme(assemble(fields, snap).readme).ok).toBe(true);
+    expect(validateReadme(assemble(FIXTURE).readme).ok).toBe(true);
   });
 });
 
 describe("assemble", () => {
   it("produces four svg assets", () => {
-    const built = assemble(fields, snap);
+    const built = assemble(FIXTURE);
     expect(Object.keys(built.assets).sort()).toEqual(
-      ["hero-dark.svg", "hero-light.svg", "stats-dark.svg", "stats-light.svg"]);
+      ["hero-dark.svg", "hero-light.svg", "telemetry-dark.svg", "telemetry-light.svg"]);
   });
 });
