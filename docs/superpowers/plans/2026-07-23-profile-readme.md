@@ -204,16 +204,16 @@ export interface StaticContent {
 import type { StaticContent } from "./types.js";
 
 export const content: StaticContent = {
-  eyebrow: "Founding Engineer · Generative AI",
+  eyebrow: "Senior Developer · Backend & Infrastructure",
   wordmark: { reaper: "Reaper", oak: "OAK" },
   fullName: "Owais Ahmed Khan",
   humanLine: "125R, throttle open  ·  writes poetry  ·  optimizes the economy before attacking",
   featured: [
     { title: "GenAI Media Platform", url: "", live: true,
-      problem: "Turns prompts into image, video, and audio across 15+ foundation models.",
+      problem: "Turns prompts into image, video, and audio across multiple foundation models.",
       stack: "FastAPI · NestJS · Java · React · AWS" },
     { title: "Creator Marketplace", url: "", live: true,
-      problem: "Cross-platform influencer marketplace with escrow, split payouts, and discovery.",
+      problem: "Cross-platform influencer marketplace with web, iOS, and Android.",
       stack: "Expo · React Native · NestJS · OpenSearch" },
     { title: "ForgeOS", url: "https://github.com/ReaperOAK/ForgeOS", live: false,
       problem: "An SDLC engine of orchestrated agents for spec-driven development.",
@@ -234,9 +234,9 @@ export const content: StaticContent = {
     { heading: "Data & Payments", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "OpenSearch", "Stripe", "Razorpay", "Cashfree"] },
   ],
   numbers: [
-    { value: "1.2M+", label: "clicks served" },
-    { value: "28K+", label: "monthly active users" },
-    { value: "15+", label: "foundation models" },
+    { value: "7M+", label: "clicks served" },
+    { value: "2K+", label: "monthly active users" },
+    { value: "4", label: "engineers led" },
     { value: "~95%", label: "test coverage" },
     { value: "<100ms", label: "API responses" },
   ],
@@ -247,7 +247,7 @@ export const content: StaticContent = {
   ],
   fallback: {
     tagline: "First engineer at Cornflakes Media. I architect and ship production AI platforms — prompts to image, video, and audio at scale.",
-    recentWork: "Currently hardening billing ledgers, scaling multi-AZ infra, and shipping generative-AI media tooling.",
+    recentWork: "Currently deep in backend reliability: load-shedding, idempotency, and capacity planning.",
     thinkingAbout: "Fail-closed systems: how to make every external dependency optional without the product ever looking broken.",
     featuredBlurbs: {}, // empty → renderer uses each FeaturedItem.problem
   },
@@ -733,7 +733,7 @@ export function sanitizeLine(raw: string | null, max: number): string | null {
 }
 
 const VOICE =
-  "You write one line for Owais Ahmed Khan (ReaperOAK), a founding engineer who ships production AI systems. " +
+  "You write one line for Owais Ahmed Khan (ReaperOAK), a backend and infrastructure engineer who ships production AI systems. " +
   "Voice: precise, understated, technical, no hype. No emoji. No hashtags. Never use the words passionate, ninja, rockstar, guru. Plain sentence only.";
 
 export async function getDynamicFields(
@@ -1075,7 +1075,7 @@ describe("renderReadme", () => {
   });
   it("renders the real numbers and the human coda", () => {
     const md = renderReadme(fields, snap);
-    expect(md).toContain("1.2M+");
+    expect(md).toContain("7M+");
     expect(md).toContain("throttle open");
   });
   it("leaves no unresolved template tokens", () => {

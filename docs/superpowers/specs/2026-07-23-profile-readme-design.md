@@ -110,7 +110,7 @@ Each unit: one clear job, well-defined interface, independently testable.
 Ordered as a landing page, not documentation. Each `<!-- section:X -->` marker is required
 for validation.
 
-1. **`hero`** — hero SVG: eyebrow (`Founding Engineer · Generative AI`), ReaperOAK → O·A·K
+1. **`hero`** — hero SVG: eyebrow (`Senior Developer · Backend & Infrastructure`), ReaperOAK → O·A·K
    reveal, tagline\*, human line. Dual light/dark via `<picture>` + `prefers-color-scheme`.
 2. **`currently`** — building GenAI Media Platform + Creator Marketplace · recent-work line\* · "thinking about" note\*.
 3. **`featured`** — **GenAI Media Platform** + **Creator Marketplace** (live, no links) then **ForgeOS** /
@@ -124,7 +124,7 @@ for validation.
    - Generative AI: Claude / GPT / Gemini integration, prompt engineering, fal.ai, ElevenLabs, multimodal
    - Cloud & DevOps: AWS (EC2, RDS, ElastiCache, S3, Lambda), Docker, Kubernetes, GitHub Actions
    - Data & Payments: PostgreSQL, MySQL, MongoDB, Redis, OpenSearch · Stripe, Razorpay, Cashfree
-5. **`numbers`** — real proof (from résumé): 1.2M+ clicks · 28K+ MAU · 15+ foundation models ·
+5. **`numbers`** — real proof (from résumé): 7M+ impressions · 2K+ MAU · multiple foundation models ·
    ~95% test coverage · sub-100ms APIs · National Finalist (19,000+ participants).
 6. **`stats`** — one tasteful oak-themed contribution/streak SVG card. **Top-languages hidden**
    (reflects repo makeup, not skill).

@@ -1,17 +1,17 @@
 import type { StaticContent } from "./types.js";
 
 export const content: StaticContent = {
-  eyebrow: "Founding Engineer · Generative AI",
+  eyebrow: "Senior Developer · Backend & Infrastructure",
   wordmark: { reaper: "Reaper", oak: "OAK" },
   fullName: "Owais Ahmed Khan",
   humanLine: "125R, throttle open  ·  writes poetry  ·  optimizes the economy before attacking",
   featured: [
     { title: "GenAI Media Platform", url: "", live: true,
-      problem: "Turns prompts into image, video, and audio across 15+ foundation models.",
+      problem: "Generative-AI media platform orchestrating foundation models for image, video, and audio.",
       stack: "FastAPI · NestJS · Java · React · AWS" },
     { title: "Creator Marketplace", url: "", live: true,
-      problem: "Cross-platform influencer marketplace with escrow, split payouts, and discovery.",
-      stack: "Expo · React Native · NestJS · OpenSearch" },
+      problem: "Cross-platform creator marketplace for web, iOS, and Android.",
+      stack: "Expo · React Native · NestJS" },
     { title: "ForgeOS", url: "https://github.com/ReaperOAK/ForgeOS", live: false,
       problem: "An SDLC engine of orchestrated agents for spec-driven development.",
       stack: "TypeScript" },
@@ -31,10 +31,10 @@ export const content: StaticContent = {
     { heading: "Data & Payments", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "OpenSearch", "Stripe", "Razorpay", "Cashfree"] },
   ],
   numbers: [
-    { value: "1.2M+", label: "clicks served" },
-    { value: "28K+", label: "monthly active users" },
-    { value: "15+", label: "foundation models" },
-    { value: "~95%", label: "test coverage" },
+    { value: "3 yrs", label: "shipping production systems" },
+    { value: "4", label: "engineers led" },
+    { value: "7M+", label: "search impressions served" },
+    { value: "~90%", label: "DB load cut by caching" },
     { value: "<100ms", label: "API responses" },
   ],
   contacts: [
@@ -44,7 +44,7 @@ export const content: StaticContent = {
   ],
   fallback: {
     tagline: "I architect and ship production AI platforms — prompts into image, video, and audio.",
-    recentWork: "Currently hardening billing ledgers, scaling multi-AZ infra, and shipping generative-AI media tooling.",
+    recentWork: "Currently deep in backend reliability: load-shedding, idempotency, and capacity planning.",
     thinkingAbout: "Fail-closed systems: how to make every external dependency optional without the product ever looking broken.",
     featuredBlurbs: {}, // empty → renderer uses each FeaturedItem.problem
   },

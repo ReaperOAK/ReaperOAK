@@ -1,47 +1,48 @@
-**Owais Ahmed Khan** | Founding Engineer & Full-Stack Developer — Generative AI  
+**Owais Ahmed Khan** | Senior Developer — Backend & Infrastructure  
 **Location:** India · open to remote & relocation | **Phone:** \+91-7003080896 | **Email:** [oaak78692@gmail.com](mailto:oaak78692@gmail.com)  
 **Portfolio:** [reaperoak.web.app](https://reaperoak.web.app/) | **GitHub:** [github.com/ReaperOAK](https://github.com/ReaperOAK) | **LinkedIn:** [linkedin.com/in/owaistech](https://linkedin.com/in/owaistech)
 
-**Summary:** Founding engineer and full-stack developer shipping production, AI-native platforms while completing my B.Tech (2027). First engineer at **Cornflakes Media** — I own architecture and lead a 4-engineer team building a generative-AI media platform (launching to early access) and a cross-platform influencer marketplace. Previously scaled a data platform to **1.2M+ clicks and 28K+ MAU**. Depth in TypeScript/React, Python/FastAPI, LLM/generative-AI integration, and AWS.
+**Summary:** Backend and infrastructure engineer with **3 years building and operating production systems**. First engineer at **Cornflakes Media** — own architecture across all products and lead a team of 4\. Built and operate the backend and cloud infrastructure for a generative-AI media platform, from horizontal scale-out and load-shedding under saturation to a fail-closed billing ledger.
 
 **Technical Skills**
 
-* **Languages:** TypeScript, JavaScript (ES6+), Python, PHP, Java  
-* **Frontend:** React, React Native, Next.js, Expo, Tailwind CSS / NativeWind, Storybook  
-* **Backend:** NestJS, FastAPI, Node.js, Express.js, REST APIs, Microservices, Socket.io, BullMQ, JWT / RBAC  
-* **Generative AI:** LLM integration (Claude, GPT, Gemini), prompt engineering, multi-model image / video / audio (fal.ai, ElevenLabs), vision / multimodal  
-* **Cloud & DevOps:** AWS (EC2, RDS, ElastiCache, S3, Lambda), Docker, Kubernetes, GitHub Actions CI/CD, Sentry, Datadog  
-* **Data & Payments:** PostgreSQL, MySQL, MongoDB, Redis, OpenSearch · Stripe, Razorpay, Cashfree  
-* **Testing:** Jest, Supertest, Playwright, k6
+* **Languages:** TypeScript, Python, Java, SQL, JavaScript (ES6+)  
+* **Backend & Distributed Systems:** NestJS, FastAPI, Node.js, Express.js, REST APIs, microservices, BullMQ job queues, Socket.io, idempotency & replay safety, distributed rate limiting, JWT / RBAC  
+* **Data:** PostgreSQL (pgbouncer, read replicas, Multi-AZ, query tuning), Redis / ElastiCache, MySQL, MongoDB, OpenSearch  
+* **Cloud & Infrastructure:** AWS (Amazon Web Services) — EC2, RDS, ElastiCache, S3, Lambda; Docker, Kubernetes, GitHub Actions CI/CD (continuous integration & delivery)  
+* **Observability & Testing:** Datadog, Sentry, k6 load testing, Playwright, Jest, Supertest  
+* **AI Systems:** multi-model inference orchestration (Claude, GPT, Gemini, fal.ai, ElevenLabs), prompt systems, multimodal / vision pipelines  
+* **Payments:** Stripe, Cashfree, Razorpay
 
 **Experience**  
-**Cornflakes Media | Founding Engineer & Tech Lead | Remote → Mumbai, India | Sept 2025 – Present**  
+[**Cornflakes Media**](https://www.linkedin.com/company/cornflakesmedia) **([Opacity AI Pvt Ltd](https://www.linkedin.com/company/opacityai)) | Senior Developer (Founding Engineer) | Remote | Sept 2025 – Present**  
 *First engineer hired; own architecture across all products and lead a team of 4\.*
 
-* **Leadership:** Set technical direction as founding engineer; interviewed/hired and now lead 4 engineers (code reviews, mentoring, standards); solo-built a separate B2B product MVP at the founder's request.  
-* **Generative-AI media platform:** Architected and built an AI platform (**Python/FastAPI \+ Java \+ NestJS \+ React**) turning prompts into image / video / audio across **15+ foundation models**, with an in-app prompt engine (**250+ presets**, multilingual) and multimodal vision. Now launching to early access.  
-* **Scale-out infrastructure:** Engineered the cloud infra for horizontal scale ahead of launch — **Multi-AZ RDS Postgres \+ ElastiCache Redis**, **pgbouncer** pooling, load-balanced replicas, Redis-backed rate-limiting / idempotency — via a **zero-downtime** migration off a single instance.  
-* **Credit billing & payments:** Built a credit-metering & billing system with an **atomic, fail-closed ledger**; integrated **Stripe** & **Cashfree** (subscriptions, credit packs, refunds), hardened against double-spend and replayed webhooks.  
-* **Cross-platform creator marketplace (pre-launch):** Led the build of an **iOS / Android / Web** marketplace on one **Expo/React Native \+ NestJS** codebase — escrow/split-payments/payouts, contract negotiation, Socket.io messaging, Meta Graph API webhooks, OpenSearch discovery; cut dev-infra **\~$2,000/month** with a $0 local Docker/MinIO mirror at **\~95% test coverage**.
+* **Production infrastructure:** Led a **zero-downtime migration** from a single instance to a horizontally scaled, highly available setup on AWS — managed **PostgreSQL** with connection pooling and read replicas, **Redis**-backed rate limiting and idempotency.  
+* **Performance & capacity:** Built a **k6** load-testing harness against production-like infrastructure and used it to find the system's saturation points; root-caused them to CPU-bound authentication and database connection-pool exhaustion, and brought worst-case login latency **from tens of seconds to sub-second** while roughly doubling throughput.  
+* **Failure behavior:** Replaced a hang-under-load failure mode with **admission control and fast load-shedding** (`503` + `Retry-After`), eliminating server errors under burst traffic; showed experimentally that enlarging the connection pool *worsened* tail latency, and sized admission limits from queueing behavior instead of adding capacity.  
+* **Billing correctness:** Designed an **atomic, fail-closed credit ledger** for metered AI usage, correct under concurrent spend, replayed webhooks, and partial payment-provider failures; built idempotent subscription, top-up, and refund flows that close double-spend paths.  
+* **Generative-AI media platform:** Architected and built the platform (**Python/FastAPI \+ Java \+ NestJS \+ React**) that orchestrates multiple third-party foundation models for image, video, and audio generation, with a multilingual prompt system and multimodal vision.  
+* **Cross-platform creator marketplace:** Led the build of an **iOS / Android / Web** marketplace on one **Expo/React Native \+ NestJS** codebase, with escrow payments, real-time messaging, and search.  
+* **Developer infrastructure:** Replaced a cloud staging dependency with a local **Docker/MinIO** mirror of production storage and queues, cutting dev-infra cost and enabling a high-coverage integration test suite.  
+* **Leadership:** Interviewed, hired, and lead 4 engineers across code review, mentoring, and standards; solo-built a separate B2B product MVP at the founder's request.
 
-**Kolkata Chess Academy | Full-Stack Developer (Contract) | Kolkata, India | Oct 2024 – Sept 2025**
+[**Kolkata Chess Academy**](https://kolkatachessacademy.in) **| Full-Stack Developer (Contract) | Kolkata, India | Oct 2024 – Sept 2025**
 
-* Built a **LAMP** learning-management system from scratch with role-based student/coach dashboards and an interactive chess-training module (PGN, **Stockfish**, real-time challenges).  
-* Designed a secure **REST API with RBAC** over a multi-tenant backend; ran a **security self-audit** and remediated auth, access-control, and input-validation issues.
+* Built a **LAMP** learning-management system from scratch with role-based student/coach dashboards and an interactive chess-training module (PGN parsing, **Stockfish** engine integration, real-time challenges).  
+* Designed a secure **REST API with RBAC** over a multi-tenant backend; ran a **security self-audit** and remediated authentication, access-control, and input-validation defects.
 
-**Today Egg Rates | Freelance Full-Stack Engineer | Remote | Nov 2023 – Oct 2024**
+[**Today Egg Rates**](https://todayeggrates.com/) **| Freelance Full-Stack Engineer | Remote | Nov 2023 – Oct 2024**
 
-* Built and scaled a data platform (**React · PHP · MySQL**) to **1.2M+ clicks and 28K+ MAU**; cut DB load **\~90%** and hit **sub-100ms** API responses with Redis caching at **\~99.9% uptime**.  
-* Shipped 5 interactive data visualizations and SEO-optimized pages → **20% increase in organic traffic**; automated deploys via GitHub Actions.
+* Built and scaled a data platform (**React · PHP · MySQL**) to **7M+ impressions, 34.2K+ clicks, and 2K+ MAU**; cut database load **\~90%** and reached **sub-100ms** API response times via Redis caching, at **\~99.9% uptime**.  
+* Shipped 5 interactive data visualizations and SEO-optimized pages, driving a **20% increase in organic traffic**; automated deploys with GitHub Actions.
 
 **Projects**
 
-* **TicketVault — NFT Ticketing dApp** | *Aptos, Move, Next.js, Node.js* — Hackathon build; **led a team of 3**. Three dApps \+ a **gasless relayer** (users need no crypto), with on-chain NFTs and offline-first, signed-JWT QR verification.  
-* **Festify — Event-Management SaaS** | *MERN, JWT, RBAC* — Sole developer; event creation, team collaboration, task management, and financial tracking.  
-* **Real-Time Sign-Language Recognition** | *Python, MediaPipe, Keras, Flask* — Real-time Indian Sign Language → text via a live camera pipeline.
+* [**TicketVault**](https://github.com/ReaperOAK/TicketVault) **— Offline-Capable Ticketing with On-Chain Settlement** | *Aptos, Move, Next.js, Node.js* — Led a team of 3\. Built a **gasless relayer** letting users transact without holding crypto, plus **offline-first signed-JWT QR verification** that validates tickets at the gate with no network connectivity.
 
 **Education & Achievements**  
-**B.Tech in Computer Science & Engineering** | St. Thomas' College of Engineering & Technology, Kolkata | Expected 2027
+**B.Tech in Computer Science & Engineering** | St. Thomas' College of Engineering & Technology, Kolkata | 2027
 
-* **National Finalist — Odoo Hackathon 2025** (19,000+ participants): full-stack **MERN** skill-swapping platform with real-time **Socket.IO**.  
+* **National Finalist — [Odoo Hackathon 2025](https://unstop.com/hackathons/odoo-hackathon-odoo-1464473)** (19,000+ participants): full-stack skill-swapping platform with real-time **Socket.IO** messaging. | [Prelims Project](https://github.com/ReaperOAK/odoo2k25) | [Finals Project](https://github.com/ReaperOAK/odoo-final-2025)  
 * **HackerRank** — Gold Badge, Python.

@@ -13,8 +13,8 @@
 ### Currently
 
 - **Building** a GenAI Media Platform and a Creator Marketplace at Cornflakes Media.
-- **This cycle** — This week: submitted word-ladder, redundant-connection, and count-connected-components solutions, and refreshed the profile README.
-- **Thinking about** — Most agents still treat context length as a hard ceiling rather than a compression budget, so they waste it on redundant tool outputs instead of summarizing past actions.
+- **This cycle** — Currently deep in backend reliability: load-shedding, idempotency, and capacity planning.
+- **Thinking about** — Fail-closed systems: how to make every external dependency optional without the product ever looking broken.
 
 ---
 
@@ -23,8 +23,8 @@
 
 | Project | What it solves | Stack |
 |---------|----------------|-------|
-| **GenAI Media Platform** | Turns prompts into image, video, and audio across 15+ foundation models. | `FastAPI · NestJS · Java · React · AWS` |
-| **Creator Marketplace** | Cross-platform influencer marketplace with escrow, split payouts, and discovery. | `Expo · React Native · NestJS · OpenSearch` |
+| **GenAI Media Platform** | Generative-AI media platform orchestrating foundation models for image, video, and audio. | `FastAPI · NestJS · Java · React · AWS` |
+| **Creator Marketplace** | Cross-platform creator marketplace for web, iOS, and Android. | `Expo · React Native · NestJS` |
 | **[ForgeOS](https://github.com/ReaperOAK/ForgeOS)** | An SDLC engine of orchestrated agents for spec-driven development. | `TypeScript` |
 | **[CodebaseRAG](https://github.com/ReaperOAK/CodebaseRAG)** | Local RAG over any repository via an MCP server for instant querying. | `JavaScript · LLMs · MCP` |
 | **[survivorship-free-backtester](https://github.com/ReaperOAK/survivorship-free-backtester)** | Honest, survivorship-bias-corrected, tax-aware backtesting on free data. | `Python · DuckDB` |
@@ -46,7 +46,7 @@
 <!-- section:numbers -->
 ### Selected numbers
 
-`1.2M+` clicks served  ·  `28K+` monthly active users  ·  `15+` foundation models  ·  `~95%` test coverage  ·  `<100ms` API responses
+`3 yrs` shipping production systems  ·  `4` engineers led  ·  `7M+` search impressions served  ·  `~90%` DB load cut by caching  ·  `<100ms` API responses
 
 ---
 

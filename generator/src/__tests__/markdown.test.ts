@@ -23,7 +23,7 @@ describe("renderReadme", () => {
   });
   it("renders the real numbers and the human coda", () => {
     const md = renderReadme(fields, snap);
-    expect(md).toContain("1.2M+");
+    expect(md).toContain("7M+");
     expect(md).toContain("throttle open");
   });
   it("leaves no unresolved template tokens", () => {

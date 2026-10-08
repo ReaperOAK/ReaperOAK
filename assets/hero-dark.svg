@@ -8,13 +8,13 @@
 </defs>
 <rect width="900" height="260" fill="#0B0B0D"/>
 <rect width="900" height="260" fill="url(#glow)"/>
-<text x="450" y="58" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" letter-spacing="4" fill="#8F887B">FOUNDING ENGINEER · GENERATIVE AI</text>
+<text x="450" y="58" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" letter-spacing="4" fill="#8F887B">SENIOR DEVELOPER · BACKEND &amp; INFRASTRUCTURE</text>
 <text x="450" y="132" text-anchor="middle" font-family="OakDisplay,sans-serif" font-weight="800" font-size="72" letter-spacing="-2">
   <tspan fill="#ECE7DE">Reaper</tspan><tspan fill="#E8A33D">OAK</tspan>
 </text>
 <text x="450" y="170" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2" fill="#8F887B">
   <tspan fill="#E8A33D">O</tspan>wais <tspan fill="#E8A33D">A</tspan>hmed <tspan fill="#E8A33D">K</tspan>han
 </text>
-<text x="450" y="212" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" fill="#ECE7DE" opacity="0.92">I build AI systems that turn prompts into images, video, and audio.</text>
+<text x="450" y="212" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" fill="#ECE7DE" opacity="0.92">I architect and ship production AI platforms — prompts into image, video, and audio.</text>
 <line x1="330" y1="238" x2="570" y2="238" stroke="#E8A33D" stroke-opacity="0.35"/>
 </svg>

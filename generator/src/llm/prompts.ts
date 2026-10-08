@@ -17,7 +17,7 @@ export function sanitizeLine(raw: string | null, max: number): string | null {
 }
 
 const VOICE =
-  "You write one line for Owais Ahmed Khan (ReaperOAK), a founding engineer who ships production AI systems. " +
+  "You write one line for Owais Ahmed Khan (ReaperOAK), a backend and infrastructure engineer who ships production AI systems. " +
   "Voice: precise, understated, technical, no hype. No emoji. No hashtags. Never use the words passionate, ninja, rockstar, guru. Plain sentence only.";
 
 export async function getDynamicFields(
