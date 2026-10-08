@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { rmSync } from "node:fs";
-import { getDynamicFields, sanitizeLine, sanitizeBullets } from "../llm/prompts.js";
+import { getDynamicFields, isSafeLlmText, sanitizeLine, sanitizeBullets } from "../llm/prompts.js";
 import { content } from "../content.js";
 import { CACHE_DIR, writeCache } from "../cache.js";
 import type { Config } from "../config.js";
-import { FIXTURE, LLM_CONFIG } from "./fixtures.js";
+import { FIXTURE, GITHUB_3_COMMITS, LLM_CONFIG, UNSAFE_LLM_TEXT } from "./fixtures.js";
 
 const snap = FIXTURE.github;
 
@@ -42,6 +42,25 @@ describe("sanitizeLine", () => {
   it("rejects a line that would trip README validation", () => {
     expect(sanitizeLine("NaN is the new tagline", 100)).toBeNull();
     expect(sanitizeLine("Hello {{ name }}", 100)).toBeNull();
+  });
+  it.each(UNSAFE_LLM_TEXT)("rejects %s", (_label, text) => {
+    expect(sanitizeLine(text, 100)).toBeNull();
+  });
+});
+
+describe("isSafeLlmText", () => {
+  it.each(UNSAFE_LLM_TEXT)("rejects %s", (_label, text) => {
+    expect(isSafeLlmText(text)).toBe(false);
+  });
+
+  it.each([
+    "Shipped the telemetry canvas",
+    "Added HTTP/2 support",
+    "Tuned httpClient timeouts",
+    "Cut p99 from 120ms to 80ms (-33%)",
+    "Fixed an off-by-one in a [0, n) range",
+  ])("accepts %s", (text) => {
+    expect(isSafeLlmText(text)).toBe(true);
   });
 });
 
@@ -173,7 +192,7 @@ describe("getDynamicFields", () => {
       .mockResolvedValueOnce(new Response(JSON.stringify({ choices: [{ message: { content: "This week: shipped." } }] })))
       .mockResolvedValueOnce(new Response(JSON.stringify({ choices: [{ message: { content: "A thought." } }] })))
       .mockResolvedValueOnce(new Response(JSON.stringify({ choices: [{ message: { content: bullets } }] })));
-    const out = await getDynamicFields(cfg, snap, fake as unknown as typeof fetch);
+    const out = await getDynamicFields(cfg, GITHUB_3_COMMITS, fake as unknown as typeof fetch);
     expect(out.engineeringLog).toEqual([
       "Shipped the telemetry canvas", "Hardened readme validation", "Fixed the log panel crash",
     ]);
@@ -197,8 +216,73 @@ describe("getDynamicFields cache and gating", () => {
 
   it("falls back to the cached log when the model returns fewer than 3 valid bullets", async () => {
     writeCache("dynamic-fields", VALID_CACHE);
-    const out = await getDynamicFields(LLM_CONFIG, snap, llmFake("- Shipped one\n- Shipped two") as unknown as typeof fetch);
+    const bodies: string[] = [];
+    const out = await getDynamicFields(LLM_CONFIG, GITHUB_3_COMMITS, llmFake("- Shipped one\n- Shipped two", bodies) as unknown as typeof fetch);
+    expect(bodies.some((b) => b.includes("bullet lines"))).toBe(true); // the model was asked, and came up short
     expect(out.engineeringLog).toEqual(VALID_CACHE.engineeringLog);
+  });
+
+  // The log prompt asks for 3 to 5 bullets. Handed fewer real commits than that, the model pads
+  // the list with invented work, so it is not asked at all and the cached log (or none) stands.
+  it.each([[1], [2]])("does not ask for a log from %i real commit(s)", async (n) => {
+    writeCache("dynamic-fields", VALID_CACHE);
+    const msgs = [...Array.from({ length: n }, (_, i) => `feat: real ${i}`), "chore: refresh profile README [skip ci]"];
+    const bodies: string[] = [];
+    const fake = llmFake("- Invented one\n- Invented two\n- Invented three", bodies);
+    const out = await getDynamicFields(LLM_CONFIG, { ...snap, recentCommitMessages: msgs }, fake as unknown as typeof fetch);
+    expect(bodies).toHaveLength(3); // tagline, recentWork, thinkingAbout
+    expect(bodies.some((b) => b.includes("bullet lines"))).toBe(false);
+    expect(bodies.some((b) => b.includes("commit messages"))).toBe(true); // recentWork still has something real
+    expect(out.engineeringLog).toEqual(VALID_CACHE.engineeringLog);
+  });
+
+  it("with fewer than 3 real commits and no cache, the log is empty rather than invented", async () => {
+    const msgs = ["feat: real one", "fix: real two"];
+    const out = await getDynamicFields(LLM_CONFIG, { ...snap, recentCommitMessages: msgs },
+      llmFake("- Invented one\n- Invented two\n- Invented three") as unknown as typeof fetch);
+    expect(out.engineeringLog).toEqual([]);
+  });
+
+  it("asks for a log from exactly 3 real commits, not counting the bot's", async () => {
+    const msgs = [...GITHUB_3_COMMITS.recentCommitMessages, "chore: refresh profile README [skip ci]"];
+    const bodies: string[] = [];
+    const out = await getDynamicFields(LLM_CONFIG, { ...snap, recentCommitMessages: msgs },
+      llmFake("- Shipped A\n- Shipped B\n- Shipped C", bodies) as unknown as typeof fetch);
+    expect(bodies.filter((b) => b.includes("bullet lines"))).toHaveLength(1);
+    expect(out.engineeringLog).toEqual(["Shipped A", "Shipped B", "Shipped C"]);
+  });
+
+  // Cached model text is re-checked on the way in with the same predicate the sanitisers use:
+  // the file may hold rows written before a rule existed, or hand-edited ones, and these fields
+  // are printed raw. Each field is tried alone, so a reader that skips the check is caught.
+  describe.each(["tagline", "recentWork", "thinkingAbout"] as const)("a cached %s", (field) => {
+    it.each(UNSAFE_LLM_TEXT)("is not trusted when it holds %s", async (_label, bad) => {
+      writeCache("dynamic-fields", { ...VALID_CACHE, [field]: bad });
+      const fake = vi.fn().mockRejectedValue(new Error("down"));
+      const out = await getDynamicFields(LLM_CONFIG, snap, fake as unknown as typeof fetch);
+      expect(out[field]).toBe(content.fallback[field]);
+      for (const other of (["tagline", "recentWork", "thinkingAbout"] as const).filter((f) => f !== field)) {
+        expect(out[other]).toBe(VALID_CACHE[other]); // the clean fields survive
+      }
+    });
+  });
+
+  describe("a cached engineering log", () => {
+    it.each([...UNSAFE_LLM_TEXT, ["a preamble", "Here are the bullets:"] as const])(
+      "is not trusted when one entry holds %s", async (_label, bad) => {
+        writeCache("dynamic-fields", { ...VALID_CACHE, engineeringLog: ["Shipped A", bad, "Shipped C"] });
+        const fake = vi.fn().mockRejectedValue(new Error("down"));
+        const out = await getDynamicFields(LLM_CONFIG, snap, fake as unknown as typeof fetch);
+        expect(out.engineeringLog).toEqual(content.fallback.engineeringLog);
+        expect(out.tagline).toBe(VALID_CACHE.tagline);
+      });
+
+    it("is not trusted when it is a list of one empty string", async () => {
+      writeCache("dynamic-fields", { ...VALID_CACHE, engineeringLog: [""] });
+      const fake = vi.fn().mockRejectedValue(new Error("down"));
+      const out = await getDynamicFields(LLM_CONFIG, snap, fake as unknown as typeof fetch);
+      expect(out.engineeringLog).toEqual(content.fallback.engineeringLog);
+    });
   });
 
   it("does not trust cached strings that would trip README validation", async () => {
@@ -288,6 +372,12 @@ describe("sanitizeBullets", () => {
 
   it("strips only real bullet markers", () => {
     expect(sanitizeBullets("  - A\n* B\n• C\n1. D\n2) E", 9, 120)).toEqual(["A", "B", "C", "D", "E"]);
+  });
+
+  // A line break splits a reply into separate bullets before any line is judged, so it cannot
+  // appear inside one; every other unsafe shape must be dropped without losing its neighbours.
+  it.each(UNSAFE_LLM_TEXT.filter(([, text]) => !text.includes("\n")))("drops a line that holds %s", (_label, text) => {
+    expect(sanitizeBullets(`Shipped X\n${text}\nShipped Y`, 5, 120)).toEqual(["Shipped X", "Shipped Y"]);
   });
 
   it("drops a preamble line that ends in a colon", () => {

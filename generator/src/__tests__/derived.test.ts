@@ -3,7 +3,8 @@ import { featuredPanel } from "../panels/md/featured.js";
 import { stackPanel } from "../panels/md/stack.js";
 import { logPanel } from "../panels/md/log.js";
 import { writingPanel } from "../panels/md/writing.js";
-import { FIXTURE } from "./fixtures.js";
+import { parseFeed } from "../data/feed.js";
+import { FIXTURE, INJECTED_FEED_XML } from "./fixtures.js";
 import type { Snapshot } from "../panels/types.js";
 import type { RankedRepo, FeedItem } from "../types.js";
 
@@ -72,6 +73,66 @@ describe("featuredPanel", () => {
       description: "d", stack: "TS", score: 1 - i * 0.01,
     })) };
     expect(featuredPanel.select(many)!.length).toBe(6);
+  });
+
+  it("escapes html and brackets in a description, not just pipes", () => {
+    const ctx = withRepo({ description: "Wraps <script>alert(1)</script> and [x]" });
+    expect(lastRow(ctx)).toBe(
+      "| **[repo](https://github.com/ReaperOAK/repo)** | Wraps &lt;script&gt;alert(1)&lt;/script&gt; and \\[x\\] | `TS` |");
+  });
+
+  it("keeps a name or stack holding a pipe or newline from breaking the row", () => {
+    const ctx = withRepo({ name: "a|b", stack: "C|D\nE" });
+    expect(lastRow(ctx)).toBe("| **[a\\|b](https://github.com/ReaperOAK/repo)** | d | `C\\|D E` |");
+  });
+
+  // Ranked repos carry GitHub text. Anything LEAK_PATTERN matches must not reach the README.
+  const repo = (name: string, over: Partial<RankedRepo> = {}): RankedRepo => ({
+    name, url: `https://github.com/ReaperOAK/${name}`, description: "d", stack: "TS", score: 1, ...over,
+  });
+  const table = (...repos: RankedRepo[]) => {
+    const ctx: Snapshot = { ...FIXTURE, featured: repos };
+    return featuredPanel.render(featuredPanel.select(ctx)!, ctx);
+  };
+  /** The ranked rows only: the two curated live projects have no github url. */
+  const repoRows = (out: string) => out.split("\n").filter((l) => l.includes("github.com/ReaperOAK/"));
+
+  it.each([
+    "NaN-safe math utilities",
+    "Handles undefined inputs",
+    "Guards the Infinity case",
+    "Prints [object Object] on error",
+    "Template {{ name }} renderer",
+  ])("blanks a description that would leak and keeps the repo: %s", (description) => {
+    expect(repoRows(table(repo("a"), repo("b", { description }), repo("c")))).toEqual([
+      "| **[a](https://github.com/ReaperOAK/a)** | d | `TS` |",
+      "| **[b](https://github.com/ReaperOAK/b)** |  | `TS` |",
+      "| **[c](https://github.com/ReaperOAK/c)** | d | `TS` |",
+    ]);
+  });
+
+  it.each([
+    ["name", { name: "NaN-utils" }],
+    ["url", { url: "https://github.com/ReaperOAK/undefined" }],
+    ["stack", { stack: "TS · undefined" }],
+  ])("drops a repo whose %s would leak", (_label, over) => {
+    const bad = repo("b", { url: "https://github.com/ReaperOAK/b", ...over });
+    expect(repoRows(table(repo("a"), bad, repo("c")))).toEqual([
+      "| **[a](https://github.com/ReaperOAK/a)** | d | `TS` |",
+      "| **[c](https://github.com/ReaperOAK/c)** | d | `TS` |",
+    ]);
+  });
+
+  it("lets the next-ranked repo take the row of one that was dropped", () => {
+    const repos = Array.from({ length: 7 }, (_, i) => repo(i === 1 ? "undefined" : `r${i}`));
+    const ctx: Snapshot = { ...FIXTURE, featured: repos };
+    expect(featuredPanel.select(ctx)!.map((r) => r.name))
+      .toEqual(["GenAI Media Platform", "Creator Marketplace", "r0", "r2", "r3", "r4"]);
+  });
+
+  it("falls back to the curated list rather than an empty table when every ranked repo leaks", () => {
+    const ctx: Snapshot = { ...FIXTURE, featured: [repo("NaN-utils")] };
+    expect(featuredPanel.select(ctx)).toEqual(featuredPanel.select(FIXTURE));
   });
 });
 
@@ -152,6 +213,29 @@ describe("writingPanel", () => {
   it("does not let a backslash defeat the bracket escape and smuggle in a second link", () => {
     expect(line(post({ title: "foo\\](https://evil.example)" })))
       .toBe("- [foo\\\\\\](https://evil.example)](https://blog.example/a)");
+  });
+
+  it("escapes a pipe in a title", () => {
+    expect(line(post({ title: "Rates | update" }))).toBe("- [Rates \\| update](https://blog.example/a)");
+  });
+
+  // The end-to-end case: a CDATA title and date that try to start a heading, a rule and a list
+  // must come out as inert text on the post's own line, and break neither the link nor the list.
+  it("renders a feed title and date that carry newlines as one line each", () => {
+    const ctx: Snapshot = { ...FIXTURE, feed: parseFeed(INJECTED_FEED_XML) };
+    expect(writingPanel.render(writingPanel.select(ctx)!, ctx)).toBe([
+      "<!-- section:writing -->",
+      "### Writing",
+      "",
+      "- [Real post ## Injected heading --- - fake list](https://blog.example/a) — <sub>2026-09-06</sub>",
+      "- [Second post](https://blog.example/b)",
+    ].join("\n"));
+  });
+
+  // Cached items skip the parser, so the panel has to hold the line on its own.
+  it("flattens a title and date that arrive with newlines, as a cached item could", () => {
+    expect(line(post({ title: "Real post\n\n## Injected", date: "2026-09-06\n\n## Injected" })))
+      .toBe("- [Real post ## Injected](https://blog.example/a) — <sub>2026-09-06 ## Injected</sub>");
   });
 
   it("does not render an html title or date as html", () => {

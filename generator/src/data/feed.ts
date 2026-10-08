@@ -38,12 +38,27 @@ function isSafeUrl(url: string): boolean {
   return /^https?:\/\//.test(url) && !/[)\s]/.test(url);
 }
 
-/** Everything the Writing panel prints for an item. A leak in any of title, url or date
- *  (`/posts/undefined` is a plausible url) would fail README validation, so the item is
- *  dropped instead. Titles are not markdown-escaped here - that happens where they are
- *  rendered (writing.ts), so cached and freshly parsed items take the same path. */
+/** The only date shapes an item may carry: `YYYY-MM-DD`, or "" for no date. */
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+/** A feed date is free text (RSS `pubDate`, Atom `published`/`updated`), CDATA included, and
+ *  is printed inside `<sub>`. Reducing it to a calendar date leaves nothing to inject and
+ *  nothing for a markdown autolink to latch on to. Unparseable -> "": the post is still worth
+ *  listing, a made-up date is not. */
+function normaliseDate(raw: string): string {
+  const ms = Date.parse(raw);
+  if (!Number.isFinite(ms)) return "";
+  const day = new Date(ms).toISOString().slice(0, 10);
+  return ISO_DATE.test(day) ? day : ""; // years past 9999 serialise as `+YYYYYY-...`
+}
+
+/** Everything the Writing panel prints for an item. A leak in the title or url
+ *  (`/posts/undefined` is a plausible url) would put a leak in the README, so the item is
+ *  dropped instead. The date cannot leak: it is a validated `YYYY-MM-DD` or empty. Titles are
+ *  not markdown-escaped here - that happens where they are rendered (writing.ts), so cached
+ *  and freshly parsed items take the same path. */
 function leaks(i: FeedItem): boolean {
-  return LEAK_PATTERN.test(`${i.title}\n${i.url}\n${i.date}`);
+  return LEAK_PATTERN.test(`${i.title}\n${i.url}`);
 }
 
 /** Regex parsing is deliberate — no XML dependency for four titles and four links. */
@@ -53,7 +68,9 @@ export function parseFeed(xml: string): FeedItem[] {
   for (const b of blocks) {
     const title = tag(b, "title");
     const url = entryUrl(b);
-    const date = tag(b, "pubDate") ?? tag(b, "updated") ?? tag(b, "published") ?? "";
+    // `||`, not `??`: an empty <published/> must fall through to <updated>. Atom's `published`
+    // is when the post went out; `updated` moves on every edit.
+    const date = normaliseDate(tag(b, "pubDate") || tag(b, "published") || tag(b, "updated") || "");
     if (!title || !url || !isSafeUrl(url)) continue;
     const item = { title, url, date };
     if (!leaks(item)) items.push(item);
@@ -65,6 +82,7 @@ function isFeedItem(v: unknown): v is FeedItem {
   if (!v || typeof v !== "object") return false;
   const r = v as Record<string, unknown>;
   return typeof r.title === "string" && typeof r.url === "string" && typeof r.date === "string"
+    && (r.date === "" || ISO_DATE.test(r.date))
     && isSafeUrl(r.url) && !leaks({ title: r.title, url: r.url, date: r.date });
 }
 

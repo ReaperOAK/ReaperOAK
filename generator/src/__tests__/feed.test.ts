@@ -24,11 +24,18 @@ describe("parseFeed", () => {
   it("reads RSS items", () => {
     const items = parseFeed(RSS);
     expect(items).toHaveLength(2);
-    expect(items[0]).toMatchObject({ title: "Honest backtests", url: "https://blog.example/a" });
+    expect(items[0]).toEqual({ title: "Honest backtests", url: "https://blog.example/a", date: "2026-09-06" });
   });
 
   it("reads Atom entries with href links", () => {
-    expect(parseFeed(ATOM)[0]).toMatchObject({ title: "Atom post", url: "https://blog.example/c" });
+    expect(parseFeed(ATOM)[0]).toEqual({ title: "Atom post", url: "https://blog.example/c", date: "2026-09-06" });
+  });
+
+  // MAX_ITEMS: the Writing panel is four lines, whatever the feed holds.
+  it("keeps only the first four items, in feed order", () => {
+    const xml = `<rss><channel>${[1, 2, 3, 4, 5, 6].map((n) =>
+      `<item><title>Post ${n}</title><link>https://blog.example/${n}</link></item>`).join("")}</channel></rss>`;
+    expect(parseFeed(xml).map((i) => i.title)).toEqual(["Post 1", "Post 2", "Post 3", "Post 4"]);
   });
 
   it("returns an empty list for junk rather than throwing", () => {
@@ -49,6 +56,51 @@ describe("parseFeed", () => {
     const items = parseFeed(xml);
     expect(items).toHaveLength(1);
     expect(items[0]!.title).toBe("Good one");
+  });
+});
+
+describe("parseFeed dates", () => {
+  const rssDate = (date: string) =>
+    `<rss><channel><item><title>T</title><link>https://blog.example/a</link>${date}</item></channel></rss>`;
+  const atomDates = (dates: string) =>
+    `<feed><entry><title>T</title><link href="https://blog.example/a"/>${dates}</entry></feed>`;
+
+  it.each([
+    ["an RFC 822 pubDate", rssDate("<pubDate>Sat, 06 Sep 2026 23:30:00 -0500</pubDate>"), "2026-09-07"],
+    ["an ISO timestamp", rssDate("<pubDate>2026-09-06T10:00:00Z</pubDate>"), "2026-09-06"],
+    ["a CDATA pubDate", rssDate("<pubDate><![CDATA[Sat, 06 Sep 2026 10:00:00 GMT]]></pubDate>"), "2026-09-06"],
+    ["no date at all", rssDate(""), ""],
+  ])("reduces %s to a calendar date in UTC", (_label, xml, date) => {
+    expect(parseFeed(xml)[0]!.date).toBe(date);
+  });
+
+  it.each([
+    ["words", "not a date at all"],
+    ["a leak", "NaN"],
+    ["html", "<b>today</b>"],
+    ["a date followed by a heading", "2026-09-06\n\n## Injected date"],
+    ["an email address", "see author@blog.example"],
+    ["a year too large to print as four digits", "+275760-09-13T00:00:00.000Z"],
+  ])("omits a date that is %s, but keeps the post", (_label, raw) => {
+    expect(parseFeed(rssDate(`<pubDate><![CDATA[${raw}]]></pubDate>`)))
+      .toEqual([{ title: "T", url: "https://blog.example/a", date: "" }]);
+  });
+
+  it("prefers an Atom published date over updated, whichever comes first", () => {
+    const published = "<published>2026-01-02T00:00:00Z</published>";
+    const updated = "<updated>2026-09-06T10:00:00Z</updated>";
+    expect(parseFeed(atomDates(updated + published))[0]!.date).toBe("2026-01-02");
+    expect(parseFeed(atomDates(published + updated))[0]!.date).toBe("2026-01-02");
+  });
+
+  it("falls through to updated when published is empty", () => {
+    expect(parseFeed(atomDates("<published></published><updated>2026-09-06T10:00:00Z</updated>"))[0]!.date)
+      .toBe("2026-09-06");
+  });
+
+  it("prefers pubDate over the Atom dates", () => {
+    const xml = rssDate("<updated>2026-01-01T00:00:00Z</updated><pubDate>2026-09-06T10:00:00Z</pubDate>");
+    expect(parseFeed(xml)[0]!.date).toBe("2026-09-06");
   });
 });
 
@@ -93,7 +145,6 @@ describe("parseFeed rejects untrusted values", () => {
   it.each([
     ["a leak in the title", `<title>Why undefined is not a function</title><link>https://blog.example/x</link>`],
     ["a leak in the url", `<title>Fine</title><link>https://blog.example/posts/undefined</link>`],
-    ["a leak in the date", `<title>Fine</title><link>https://blog.example/x</link><pubDate>NaN</pubDate>`],
     ["a template token", `<title>Hello {{ name }}</title><link>https://blog.example/x</link>`],
     ["a stringified object", `<title>[object Object]</title><link>https://blog.example/x</link>`],
     ["an Infinity title", `<title>Infinity and beyond</title><link>https://blog.example/x</link>`],
@@ -125,11 +176,41 @@ describe("getFeed", () => {
     expect(await getFeed(cfg, fake as unknown as typeof fetch)).toBeNull();
   });
 
+  // A good fetch must refresh the cache, or the next outage serves nothing (or a stale list).
+  it("caches a good fetch, so the next failed fetch serves it", async () => {
+    const online = vi.fn().mockResolvedValue(new Response(RSS, { status: 200 }));
+    const fresh = await getFeed(cfg, online as unknown as typeof fetch);
+    expect(fresh).toHaveLength(2);
+    const offline = vi.fn().mockRejectedValue(new Error("offline"));
+    expect(await getFeed(cfg, offline as unknown as typeof fetch)).toEqual(fresh);
+  });
+
+  // The body here parses as a perfectly good feed, as a proxy's error page can: only the
+  // status check stands between it and the README.
+  it("treats a non-2xx response as a failed fetch and serves the cache instead", async () => {
+    const cached = { title: "Cached post", url: "https://blog.example/z", date: "2026-09-01" };
+    writeCache("feed-items", [cached]);
+    const broken = vi.fn().mockResolvedValue(new Response(RSS, { status: 500 }));
+    expect(await getFeed(cfg, broken as unknown as typeof fetch)).toEqual([cached]);
+  });
+
+  it("returns null on a non-2xx response when there is no cache", async () => {
+    const broken = vi.fn().mockResolvedValue(new Response(RSS, { status: 500 }));
+    expect(await getFeed(cfg, broken as unknown as typeof fetch)).toBeNull();
+  });
+
   it("falls back to a valid cache on fetch failure", async () => {
     writeCache("feed-items", [{ title: "Cached post", url: "https://blog.example/z", date: "2026-09-01" }]);
     const fake = vi.fn().mockRejectedValue(new Error("offline"));
     const out = await getFeed(cfg, fake as unknown as typeof fetch);
     expect(out).toEqual([{ title: "Cached post", url: "https://blog.example/z", date: "2026-09-01" }]);
+  });
+
+  it("serves a cached item that has no date", async () => {
+    const undated = { title: "Cached post", url: "https://blog.example/z", date: "" };
+    writeCache("feed-items", [undated]);
+    const fake = vi.fn().mockRejectedValue(new Error("offline"));
+    expect(await getFeed(cfg, fake as unknown as typeof fetch)).toEqual([undated]);
   });
 
   it("ignores a malformed on-disk cache rather than serving garbage", async () => {
@@ -158,6 +239,9 @@ describe("getFeed", () => {
     ["a leak in the title", { ...GOOD, title: "Why undefined is not a function" }],
     ["a leak in the url", { ...GOOD, url: "https://blog.example/posts/undefined" }],
     ["a leak in the date", { ...GOOD, date: "NaN" }],
+    ["a free-text date", { ...GOOD, date: "Sat, 06 Sep 2026 10:00:00 GMT" }],
+    ["a date with a heading after it", { ...GOOD, date: "2026-09-01\n\n## Injected" }],
+    ["a date with trailing text", { ...GOOD, date: "2026-09-01 www.evil.example" }],
   ])("ignores a cache holding %s", async (_label, bad) => {
     writeCache("feed-items", [GOOD, bad]);
     const fake = vi.fn().mockRejectedValue(new Error("offline"));

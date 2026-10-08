@@ -23,3 +23,38 @@ export const FIXTURE: Snapshot = {
     featuredBlurbs: {},
   },
 };
+
+/** FIXTURE.github with three real commits: the fewest for the engineering log to be generated. */
+export const GITHUB_3_COMMITS = {
+  ...FIXTURE.github,
+  recentCommitMessages: ["feat: a", "fix: b", "feat: c"],
+};
+
+/** Model text no panel may print, each with the reason. Used against the sanitisers and the
+ *  cache readers alike, since both gate on the same predicate. */
+export const UNSAFE_LLM_TEXT: ReadonlyArray<readonly [string, string]> = [
+  ["an empty string", ""],
+  ["a blank string", "   "],
+  ["a line break", "first\nsecond"],
+  ["a carriage return", "first\rsecond"],
+  ["a code fence", "run ```rm``` now"],
+  ["html", "Shipped <b>it</b>"],
+  ["a markdown link", "See [notes](#top)"],
+  ["an http url", "See https://evil.example now"],
+  ["a www url", "See www.evil.example now"],
+  ["a leak", "Fixed NaN propagation"],
+];
+
+/** A feed whose CDATA title and date try to start a heading, a rule and a list. */
+export const INJECTED_FEED_XML = `<rss><channel>
+<item><title><![CDATA[Real post
+
+## Injected heading
+
+---
+
+- fake list]]></title><link>https://blog.example/a</link><pubDate>Sat, 06 Sep 2026 10:00:00 GMT</pubDate></item>
+<item><title>Second post</title><link>https://blog.example/b</link><pubDate><![CDATA[2026-09-06
+
+## Injected date]]></pubDate></item>
+</channel></rss>`;
