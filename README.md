@@ -13,8 +13,8 @@
 ### Currently
 
 - **Building** a GenAI Media Platform and a Creator Marketplace at Cornflakes Media.
-- **This cycle** — Currently deep in backend reliability: load-shedding, idempotency, and capacity planning.
-- **Thinking about** — Fail-closed systems: how to make every external dependency optional without the product ever looking broken.
+- **This cycle** — This week: completed the app with delete, new, and view functionality using Express, Mongoose, and EJS.
+- **Thinking about** — Most agents still treat context length as a hard ceiling rather than a compression budget, so they waste it on redundant tool outputs instead of summarizing past actions.
 
 ---
 
