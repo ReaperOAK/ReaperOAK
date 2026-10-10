@@ -1,6 +1,7 @@
 {
   "tagline": "I build AI systems that turn prompts into images, video, and audio.",
   "recentWork": "This week: completed the app with delete, new, and view functionality using Express, Mongoose, and EJS.",
-  "thinkingAbout": "Most agents still treat context length as a hard ceiling rather than a compression budget, so they waste it on redundant tool outputs instead of summarizing past actions.",
+  "thinkingAbout": "Considering how to isolate stateful inference workloads in a multi‑tenant Kubernetes cluster without sacrificing latency.",
+  "engineeringLog": [],
   "featuredBlurbs": {}
 }

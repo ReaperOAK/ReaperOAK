@@ -1,18 +1,2643 @@
 {
   "recentCommitMessages": [
-    "added delete functionality, end of development",
-    "addded new and view functionality",
-    "setting up the basics",
-    "installed ejs, express, mongoose",
-    "first commit",
-    "completed",
-    "pura app bana dala lol",
-    "Initial commit",
     "new skills",
     "script updated",
     "graphify",
-    "graphify"
+    "graphify",
+    "Add .claude bridge so Claude Code can fully operate the vibecoding system",
+    "Refactor event handling and improve type safety in ticket verification",
+    "fix: update vercel.json to include config for builds and rewrites",
+    "fix: update next.config.ts files to standardize configuration and remove type imports",
+    "fix: standardize dev script and update lint command in package.json files",
+    "fix: update vercel configuration to use next.config.ts for frontend builds",
+    "License: switch MIT -> PolyForm Noncommercial 1.0.0 (commercial use requires a paid license)",
+    "Sanitize for public release: portable paths, MIT LICENSE, stronger disclaimer; drop personal files (note.md, PRD.md) + legacy ai4trade client"
   ],
   "totalContributions": 0,
-  "currentStreakDays": 0
+  "currentStreakDays": 0,
+  "commits": 0,
+  "prs": 0,
+  "reviews": 0,
+  "issues": 0,
+  "calendar": [
+    {
+      "date": "2025-10-05",
+      "count": 0
+    },
+    {
+      "date": "2025-10-06",
+      "count": 0
+    },
+    {
+      "date": "2025-10-07",
+      "count": 0
+    },
+    {
+      "date": "2025-10-08",
+      "count": 0
+    },
+    {
+      "date": "2025-10-09",
+      "count": 0
+    },
+    {
+      "date": "2025-10-10",
+      "count": 0
+    },
+    {
+      "date": "2025-10-11",
+      "count": 0
+    },
+    {
+      "date": "2025-10-12",
+      "count": 0
+    },
+    {
+      "date": "2025-10-13",
+      "count": 0
+    },
+    {
+      "date": "2025-10-14",
+      "count": 0
+    },
+    {
+      "date": "2025-10-15",
+      "count": 0
+    },
+    {
+      "date": "2025-10-16",
+      "count": 0
+    },
+    {
+      "date": "2025-10-17",
+      "count": 0
+    },
+    {
+      "date": "2025-10-18",
+      "count": 0
+    },
+    {
+      "date": "2025-10-19",
+      "count": 0
+    },
+    {
+      "date": "2025-10-20",
+      "count": 0
+    },
+    {
+      "date": "2025-10-21",
+      "count": 0
+    },
+    {
+      "date": "2025-10-22",
+      "count": 0
+    },
+    {
+      "date": "2025-10-23",
+      "count": 0
+    },
+    {
+      "date": "2025-10-24",
+      "count": 0
+    },
+    {
+      "date": "2025-10-25",
+      "count": 0
+    },
+    {
+      "date": "2025-10-26",
+      "count": 0
+    },
+    {
+      "date": "2025-10-27",
+      "count": 0
+    },
+    {
+      "date": "2025-10-28",
+      "count": 0
+    },
+    {
+      "date": "2025-10-29",
+      "count": 0
+    },
+    {
+      "date": "2025-10-30",
+      "count": 0
+    },
+    {
+      "date": "2025-10-31",
+      "count": 0
+    },
+    {
+      "date": "2025-11-01",
+      "count": 0
+    },
+    {
+      "date": "2025-11-02",
+      "count": 0
+    },
+    {
+      "date": "2025-11-03",
+      "count": 0
+    },
+    {
+      "date": "2025-11-04",
+      "count": 0
+    },
+    {
+      "date": "2025-11-05",
+      "count": 0
+    },
+    {
+      "date": "2025-11-06",
+      "count": 0
+    },
+    {
+      "date": "2025-11-07",
+      "count": 0
+    },
+    {
+      "date": "2025-11-08",
+      "count": 0
+    },
+    {
+      "date": "2025-11-09",
+      "count": 0
+    },
+    {
+      "date": "2025-11-10",
+      "count": 0
+    },
+    {
+      "date": "2025-11-11",
+      "count": 0
+    },
+    {
+      "date": "2025-11-12",
+      "count": 0
+    },
+    {
+      "date": "2025-11-13",
+      "count": 0
+    },
+    {
+      "date": "2025-11-14",
+      "count": 0
+    },
+    {
+      "date": "2025-11-15",
+      "count": 0
+    },
+    {
+      "date": "2025-11-16",
+      "count": 0
+    },
+    {
+      "date": "2025-11-17",
+      "count": 0
+    },
+    {
+      "date": "2025-11-18",
+      "count": 0
+    },
+    {
+      "date": "2025-11-19",
+      "count": 0
+    },
+    {
+      "date": "2025-11-20",
+      "count": 0
+    },
+    {
+      "date": "2025-11-21",
+      "count": 0
+    },
+    {
+      "date": "2025-11-22",
+      "count": 0
+    },
+    {
+      "date": "2025-11-23",
+      "count": 0
+    },
+    {
+      "date": "2025-11-24",
+      "count": 0
+    },
+    {
+      "date": "2025-11-25",
+      "count": 0
+    },
+    {
+      "date": "2025-11-26",
+      "count": 0
+    },
+    {
+      "date": "2025-11-27",
+      "count": 0
+    },
+    {
+      "date": "2025-11-28",
+      "count": 0
+    },
+    {
+      "date": "2025-11-29",
+      "count": 0
+    },
+    {
+      "date": "2025-11-30",
+      "count": 0
+    },
+    {
+      "date": "2025-12-01",
+      "count": 0
+    },
+    {
+      "date": "2025-12-02",
+      "count": 0
+    },
+    {
+      "date": "2025-12-03",
+      "count": 0
+    },
+    {
+      "date": "2025-12-04",
+      "count": 0
+    },
+    {
+      "date": "2025-12-05",
+      "count": 0
+    },
+    {
+      "date": "2025-12-06",
+      "count": 0
+    },
+    {
+      "date": "2025-12-07",
+      "count": 0
+    },
+    {
+      "date": "2025-12-08",
+      "count": 0
+    },
+    {
+      "date": "2025-12-09",
+      "count": 0
+    },
+    {
+      "date": "2025-12-10",
+      "count": 0
+    },
+    {
+      "date": "2025-12-11",
+      "count": 0
+    },
+    {
+      "date": "2025-12-12",
+      "count": 0
+    },
+    {
+      "date": "2025-12-13",
+      "count": 0
+    },
+    {
+      "date": "2025-12-14",
+      "count": 0
+    },
+    {
+      "date": "2025-12-15",
+      "count": 0
+    },
+    {
+      "date": "2025-12-16",
+      "count": 0
+    },
+    {
+      "date": "2025-12-17",
+      "count": 0
+    },
+    {
+      "date": "2025-12-18",
+      "count": 0
+    },
+    {
+      "date": "2025-12-19",
+      "count": 0
+    },
+    {
+      "date": "2025-12-20",
+      "count": 0
+    },
+    {
+      "date": "2025-12-21",
+      "count": 0
+    },
+    {
+      "date": "2025-12-22",
+      "count": 0
+    },
+    {
+      "date": "2025-12-23",
+      "count": 0
+    },
+    {
+      "date": "2025-12-24",
+      "count": 0
+    },
+    {
+      "date": "2025-12-25",
+      "count": 0
+    },
+    {
+      "date": "2025-12-26",
+      "count": 0
+    },
+    {
+      "date": "2025-12-27",
+      "count": 0
+    },
+    {
+      "date": "2025-12-28",
+      "count": 0
+    },
+    {
+      "date": "2025-12-29",
+      "count": 0
+    },
+    {
+      "date": "2025-12-30",
+      "count": 0
+    },
+    {
+      "date": "2025-12-31",
+      "count": 0
+    },
+    {
+      "date": "2026-01-01",
+      "count": 0
+    },
+    {
+      "date": "2026-01-02",
+      "count": 0
+    },
+    {
+      "date": "2026-01-03",
+      "count": 0
+    },
+    {
+      "date": "2026-01-04",
+      "count": 0
+    },
+    {
+      "date": "2026-01-05",
+      "count": 0
+    },
+    {
+      "date": "2026-01-06",
+      "count": 0
+    },
+    {
+      "date": "2026-01-07",
+      "count": 0
+    },
+    {
+      "date": "2026-01-08",
+      "count": 0
+    },
+    {
+      "date": "2026-01-09",
+      "count": 0
+    },
+    {
+      "date": "2026-01-10",
+      "count": 0
+    },
+    {
+      "date": "2026-01-11",
+      "count": 0
+    },
+    {
+      "date": "2026-01-12",
+      "count": 0
+    },
+    {
+      "date": "2026-01-13",
+      "count": 0
+    },
+    {
+      "date": "2026-01-14",
+      "count": 0
+    },
+    {
+      "date": "2026-01-15",
+      "count": 0
+    },
+    {
+      "date": "2026-01-16",
+      "count": 0
+    },
+    {
+      "date": "2026-01-17",
+      "count": 0
+    },
+    {
+      "date": "2026-01-18",
+      "count": 0
+    },
+    {
+      "date": "2026-01-19",
+      "count": 0
+    },
+    {
+      "date": "2026-01-20",
+      "count": 0
+    },
+    {
+      "date": "2026-01-21",
+      "count": 0
+    },
+    {
+      "date": "2026-01-22",
+      "count": 0
+    },
+    {
+      "date": "2026-01-23",
+      "count": 0
+    },
+    {
+      "date": "2026-01-24",
+      "count": 0
+    },
+    {
+      "date": "2026-01-25",
+      "count": 0
+    },
+    {
+      "date": "2026-01-26",
+      "count": 0
+    },
+    {
+      "date": "2026-01-27",
+      "count": 0
+    },
+    {
+      "date": "2026-01-28",
+      "count": 0
+    },
+    {
+      "date": "2026-01-29",
+      "count": 0
+    },
+    {
+      "date": "2026-01-30",
+      "count": 0
+    },
+    {
+      "date": "2026-01-31",
+      "count": 0
+    },
+    {
+      "date": "2026-02-01",
+      "count": 0
+    },
+    {
+      "date": "2026-02-02",
+      "count": 0
+    },
+    {
+      "date": "2026-02-03",
+      "count": 0
+    },
+    {
+      "date": "2026-02-04",
+      "count": 0
+    },
+    {
+      "date": "2026-02-05",
+      "count": 0
+    },
+    {
+      "date": "2026-02-06",
+      "count": 0
+    },
+    {
+      "date": "2026-02-07",
+      "count": 0
+    },
+    {
+      "date": "2026-02-08",
+      "count": 0
+    },
+    {
+      "date": "2026-02-09",
+      "count": 0
+    },
+    {
+      "date": "2026-02-10",
+      "count": 0
+    },
+    {
+      "date": "2026-02-11",
+      "count": 0
+    },
+    {
+      "date": "2026-02-12",
+      "count": 0
+    },
+    {
+      "date": "2026-02-13",
+      "count": 0
+    },
+    {
+      "date": "2026-02-14",
+      "count": 0
+    },
+    {
+      "date": "2026-02-15",
+      "count": 0
+    },
+    {
+      "date": "2026-02-16",
+      "count": 0
+    },
+    {
+      "date": "2026-02-17",
+      "count": 0
+    },
+    {
+      "date": "2026-02-18",
+      "count": 0
+    },
+    {
+      "date": "2026-02-19",
+      "count": 0
+    },
+    {
+      "date": "2026-02-20",
+      "count": 0
+    },
+    {
+      "date": "2026-02-21",
+      "count": 0
+    },
+    {
+      "date": "2026-02-22",
+      "count": 0
+    },
+    {
+      "date": "2026-02-23",
+      "count": 0
+    },
+    {
+      "date": "2026-02-24",
+      "count": 0
+    },
+    {
+      "date": "2026-02-25",
+      "count": 0
+    },
+    {
+      "date": "2026-02-26",
+      "count": 0
+    },
+    {
+      "date": "2026-02-27",
+      "count": 0
+    },
+    {
+      "date": "2026-02-28",
+      "count": 0
+    },
+    {
+      "date": "2026-03-01",
+      "count": 0
+    },
+    {
+      "date": "2026-03-02",
+      "count": 0
+    },
+    {
+      "date": "2026-03-03",
+      "count": 0
+    },
+    {
+      "date": "2026-03-04",
+      "count": 0
+    },
+    {
+      "date": "2026-03-05",
+      "count": 0
+    },
+    {
+      "date": "2026-03-06",
+      "count": 0
+    },
+    {
+      "date": "2026-03-07",
+      "count": 0
+    },
+    {
+      "date": "2026-03-08",
+      "count": 0
+    },
+    {
+      "date": "2026-03-09",
+      "count": 0
+    },
+    {
+      "date": "2026-03-10",
+      "count": 0
+    },
+    {
+      "date": "2026-03-11",
+      "count": 0
+    },
+    {
+      "date": "2026-03-12",
+      "count": 0
+    },
+    {
+      "date": "2026-03-13",
+      "count": 0
+    },
+    {
+      "date": "2026-03-14",
+      "count": 0
+    },
+    {
+      "date": "2026-03-15",
+      "count": 0
+    },
+    {
+      "date": "2026-03-16",
+      "count": 0
+    },
+    {
+      "date": "2026-03-17",
+      "count": 0
+    },
+    {
+      "date": "2026-03-18",
+      "count": 0
+    },
+    {
+      "date": "2026-03-19",
+      "count": 0
+    },
+    {
+      "date": "2026-03-20",
+      "count": 0
+    },
+    {
+      "date": "2026-03-21",
+      "count": 0
+    },
+    {
+      "date": "2026-03-22",
+      "count": 0
+    },
+    {
+      "date": "2026-03-23",
+      "count": 0
+    },
+    {
+      "date": "2026-03-24",
+      "count": 0
+    },
+    {
+      "date": "2026-03-25",
+      "count": 0
+    },
+    {
+      "date": "2026-03-26",
+      "count": 0
+    },
+    {
+      "date": "2026-03-27",
+      "count": 0
+    },
+    {
+      "date": "2026-03-28",
+      "count": 0
+    },
+    {
+      "date": "2026-03-29",
+      "count": 0
+    },
+    {
+      "date": "2026-03-30",
+      "count": 0
+    },
+    {
+      "date": "2026-03-31",
+      "count": 0
+    },
+    {
+      "date": "2026-04-01",
+      "count": 0
+    },
+    {
+      "date": "2026-04-02",
+      "count": 0
+    },
+    {
+      "date": "2026-04-03",
+      "count": 0
+    },
+    {
+      "date": "2026-04-04",
+      "count": 0
+    },
+    {
+      "date": "2026-04-05",
+      "count": 0
+    },
+    {
+      "date": "2026-04-06",
+      "count": 0
+    },
+    {
+      "date": "2026-04-07",
+      "count": 0
+    },
+    {
+      "date": "2026-04-08",
+      "count": 0
+    },
+    {
+      "date": "2026-04-09",
+      "count": 0
+    },
+    {
+      "date": "2026-04-10",
+      "count": 0
+    },
+    {
+      "date": "2026-04-11",
+      "count": 0
+    },
+    {
+      "date": "2026-04-12",
+      "count": 0
+    },
+    {
+      "date": "2026-04-13",
+      "count": 0
+    },
+    {
+      "date": "2026-04-14",
+      "count": 0
+    },
+    {
+      "date": "2026-04-15",
+      "count": 0
+    },
+    {
+      "date": "2026-04-16",
+      "count": 0
+    },
+    {
+      "date": "2026-04-17",
+      "count": 0
+    },
+    {
+      "date": "2026-04-18",
+      "count": 0
+    },
+    {
+      "date": "2026-04-19",
+      "count": 0
+    },
+    {
+      "date": "2026-04-20",
+      "count": 0
+    },
+    {
+      "date": "2026-04-21",
+      "count": 0
+    },
+    {
+      "date": "2026-04-22",
+      "count": 0
+    },
+    {
+      "date": "2026-04-23",
+      "count": 0
+    },
+    {
+      "date": "2026-04-24",
+      "count": 0
+    },
+    {
+      "date": "2026-04-25",
+      "count": 0
+    },
+    {
+      "date": "2026-04-26",
+      "count": 0
+    },
+    {
+      "date": "2026-04-27",
+      "count": 0
+    },
+    {
+      "date": "2026-04-28",
+      "count": 0
+    },
+    {
+      "date": "2026-04-29",
+      "count": 0
+    },
+    {
+      "date": "2026-04-30",
+      "count": 0
+    },
+    {
+      "date": "2026-05-01",
+      "count": 0
+    },
+    {
+      "date": "2026-05-02",
+      "count": 0
+    },
+    {
+      "date": "2026-05-03",
+      "count": 0
+    },
+    {
+      "date": "2026-05-04",
+      "count": 0
+    },
+    {
+      "date": "2026-05-05",
+      "count": 0
+    },
+    {
+      "date": "2026-05-06",
+      "count": 0
+    },
+    {
+      "date": "2026-05-07",
+      "count": 0
+    },
+    {
+      "date": "2026-05-08",
+      "count": 0
+    },
+    {
+      "date": "2026-05-09",
+      "count": 0
+    },
+    {
+      "date": "2026-05-10",
+      "count": 0
+    },
+    {
+      "date": "2026-05-11",
+      "count": 0
+    },
+    {
+      "date": "2026-05-12",
+      "count": 0
+    },
+    {
+      "date": "2026-05-13",
+      "count": 0
+    },
+    {
+      "date": "2026-05-14",
+      "count": 0
+    },
+    {
+      "date": "2026-05-15",
+      "count": 0
+    },
+    {
+      "date": "2026-05-16",
+      "count": 0
+    },
+    {
+      "date": "2026-05-17",
+      "count": 0
+    },
+    {
+      "date": "2026-05-18",
+      "count": 0
+    },
+    {
+      "date": "2026-05-19",
+      "count": 0
+    },
+    {
+      "date": "2026-05-20",
+      "count": 0
+    },
+    {
+      "date": "2026-05-21",
+      "count": 0
+    },
+    {
+      "date": "2026-05-22",
+      "count": 0
+    },
+    {
+      "date": "2026-05-23",
+      "count": 0
+    },
+    {
+      "date": "2026-05-24",
+      "count": 0
+    },
+    {
+      "date": "2026-05-25",
+      "count": 0
+    },
+    {
+      "date": "2026-05-26",
+      "count": 0
+    },
+    {
+      "date": "2026-05-27",
+      "count": 0
+    },
+    {
+      "date": "2026-05-28",
+      "count": 0
+    },
+    {
+      "date": "2026-05-29",
+      "count": 0
+    },
+    {
+      "date": "2026-05-30",
+      "count": 0
+    },
+    {
+      "date": "2026-05-31",
+      "count": 0
+    },
+    {
+      "date": "2026-06-01",
+      "count": 0
+    },
+    {
+      "date": "2026-06-02",
+      "count": 0
+    },
+    {
+      "date": "2026-06-03",
+      "count": 0
+    },
+    {
+      "date": "2026-06-04",
+      "count": 0
+    },
+    {
+      "date": "2026-06-05",
+      "count": 0
+    },
+    {
+      "date": "2026-06-06",
+      "count": 0
+    },
+    {
+      "date": "2026-06-07",
+      "count": 0
+    },
+    {
+      "date": "2026-06-08",
+      "count": 0
+    },
+    {
+      "date": "2026-06-09",
+      "count": 0
+    },
+    {
+      "date": "2026-06-10",
+      "count": 0
+    },
+    {
+      "date": "2026-06-11",
+      "count": 0
+    },
+    {
+      "date": "2026-06-12",
+      "count": 0
+    },
+    {
+      "date": "2026-06-13",
+      "count": 0
+    },
+    {
+      "date": "2026-06-14",
+      "count": 0
+    },
+    {
+      "date": "2026-06-15",
+      "count": 0
+    },
+    {
+      "date": "2026-06-16",
+      "count": 0
+    },
+    {
+      "date": "2026-06-17",
+      "count": 0
+    },
+    {
+      "date": "2026-06-18",
+      "count": 0
+    },
+    {
+      "date": "2026-06-19",
+      "count": 0
+    },
+    {
+      "date": "2026-06-20",
+      "count": 0
+    },
+    {
+      "date": "2026-06-21",
+      "count": 0
+    },
+    {
+      "date": "2026-06-22",
+      "count": 0
+    },
+    {
+      "date": "2026-06-23",
+      "count": 0
+    },
+    {
+      "date": "2026-06-24",
+      "count": 0
+    },
+    {
+      "date": "2026-06-25",
+      "count": 0
+    },
+    {
+      "date": "2026-06-26",
+      "count": 0
+    },
+    {
+      "date": "2026-06-27",
+      "count": 0
+    },
+    {
+      "date": "2026-06-28",
+      "count": 0
+    },
+    {
+      "date": "2026-06-29",
+      "count": 0
+    },
+    {
+      "date": "2026-06-30",
+      "count": 0
+    },
+    {
+      "date": "2026-07-01",
+      "count": 0
+    },
+    {
+      "date": "2026-07-02",
+      "count": 0
+    },
+    {
+      "date": "2026-07-03",
+      "count": 0
+    },
+    {
+      "date": "2026-07-04",
+      "count": 0
+    },
+    {
+      "date": "2026-07-05",
+      "count": 0
+    },
+    {
+      "date": "2026-07-06",
+      "count": 0
+    },
+    {
+      "date": "2026-07-07",
+      "count": 0
+    },
+    {
+      "date": "2026-07-08",
+      "count": 0
+    },
+    {
+      "date": "2026-07-09",
+      "count": 0
+    },
+    {
+      "date": "2026-07-10",
+      "count": 0
+    },
+    {
+      "date": "2026-07-11",
+      "count": 0
+    },
+    {
+      "date": "2026-07-12",
+      "count": 0
+    },
+    {
+      "date": "2026-07-13",
+      "count": 0
+    },
+    {
+      "date": "2026-07-14",
+      "count": 0
+    },
+    {
+      "date": "2026-07-15",
+      "count": 0
+    },
+    {
+      "date": "2026-07-16",
+      "count": 0
+    },
+    {
+      "date": "2026-07-17",
+      "count": 0
+    },
+    {
+      "date": "2026-07-18",
+      "count": 0
+    },
+    {
+      "date": "2026-07-19",
+      "count": 0
+    },
+    {
+      "date": "2026-07-20",
+      "count": 0
+    },
+    {
+      "date": "2026-07-21",
+      "count": 0
+    },
+    {
+      "date": "2026-07-22",
+      "count": 0
+    },
+    {
+      "date": "2026-07-23",
+      "count": 0
+    },
+    {
+      "date": "2026-07-24",
+      "count": 0
+    },
+    {
+      "date": "2026-07-25",
+      "count": 0
+    },
+    {
+      "date": "2026-07-26",
+      "count": 0
+    },
+    {
+      "date": "2026-07-27",
+      "count": 0
+    },
+    {
+      "date": "2026-07-28",
+      "count": 0
+    },
+    {
+      "date": "2026-07-29",
+      "count": 0
+    },
+    {
+      "date": "2026-07-30",
+      "count": 0
+    },
+    {
+      "date": "2026-07-31",
+      "count": 0
+    },
+    {
+      "date": "2026-08-01",
+      "count": 0
+    },
+    {
+      "date": "2026-08-02",
+      "count": 0
+    },
+    {
+      "date": "2026-08-03",
+      "count": 0
+    },
+    {
+      "date": "2026-08-04",
+      "count": 0
+    },
+    {
+      "date": "2026-08-05",
+      "count": 0
+    },
+    {
+      "date": "2026-08-06",
+      "count": 0
+    },
+    {
+      "date": "2026-08-07",
+      "count": 0
+    },
+    {
+      "date": "2026-08-08",
+      "count": 0
+    },
+    {
+      "date": "2026-08-09",
+      "count": 0
+    },
+    {
+      "date": "2026-08-10",
+      "count": 0
+    },
+    {
+      "date": "2026-08-11",
+      "count": 0
+    },
+    {
+      "date": "2026-08-12",
+      "count": 0
+    },
+    {
+      "date": "2026-08-13",
+      "count": 0
+    },
+    {
+      "date": "2026-08-14",
+      "count": 0
+    },
+    {
+      "date": "2026-08-15",
+      "count": 0
+    },
+    {
+      "date": "2026-08-16",
+      "count": 0
+    },
+    {
+      "date": "2026-08-17",
+      "count": 0
+    },
+    {
+      "date": "2026-08-18",
+      "count": 0
+    },
+    {
+      "date": "2026-08-19",
+      "count": 0
+    },
+    {
+      "date": "2026-08-20",
+      "count": 0
+    },
+    {
+      "date": "2026-08-21",
+      "count": 0
+    },
+    {
+      "date": "2026-08-22",
+      "count": 0
+    },
+    {
+      "date": "2026-08-23",
+      "count": 0
+    },
+    {
+      "date": "2026-08-24",
+      "count": 0
+    },
+    {
+      "date": "2026-08-25",
+      "count": 0
+    },
+    {
+      "date": "2026-08-26",
+      "count": 0
+    },
+    {
+      "date": "2026-08-27",
+      "count": 0
+    },
+    {
+      "date": "2026-08-28",
+      "count": 0
+    },
+    {
+      "date": "2026-08-29",
+      "count": 0
+    },
+    {
+      "date": "2026-08-30",
+      "count": 0
+    },
+    {
+      "date": "2026-08-31",
+      "count": 0
+    },
+    {
+      "date": "2026-09-01",
+      "count": 0
+    },
+    {
+      "date": "2026-09-02",
+      "count": 0
+    },
+    {
+      "date": "2026-09-03",
+      "count": 0
+    },
+    {
+      "date": "2026-09-04",
+      "count": 0
+    },
+    {
+      "date": "2026-09-05",
+      "count": 0
+    },
+    {
+      "date": "2026-09-06",
+      "count": 0
+    },
+    {
+      "date": "2026-09-07",
+      "count": 0
+    },
+    {
+      "date": "2026-09-08",
+      "count": 0
+    },
+    {
+      "date": "2026-09-09",
+      "count": 0
+    },
+    {
+      "date": "2026-09-10",
+      "count": 0
+    },
+    {
+      "date": "2026-09-11",
+      "count": 0
+    },
+    {
+      "date": "2026-09-12",
+      "count": 0
+    },
+    {
+      "date": "2026-09-13",
+      "count": 0
+    },
+    {
+      "date": "2026-09-14",
+      "count": 0
+    },
+    {
+      "date": "2026-09-15",
+      "count": 0
+    },
+    {
+      "date": "2026-09-16",
+      "count": 0
+    },
+    {
+      "date": "2026-09-17",
+      "count": 0
+    },
+    {
+      "date": "2026-09-18",
+      "count": 0
+    },
+    {
+      "date": "2026-09-19",
+      "count": 0
+    },
+    {
+      "date": "2026-09-20",
+      "count": 0
+    },
+    {
+      "date": "2026-09-21",
+      "count": 0
+    },
+    {
+      "date": "2026-09-22",
+      "count": 0
+    },
+    {
+      "date": "2026-09-23",
+      "count": 0
+    },
+    {
+      "date": "2026-09-24",
+      "count": 0
+    },
+    {
+      "date": "2026-09-25",
+      "count": 0
+    },
+    {
+      "date": "2026-09-26",
+      "count": 0
+    },
+    {
+      "date": "2026-09-27",
+      "count": 0
+    },
+    {
+      "date": "2026-09-28",
+      "count": 0
+    },
+    {
+      "date": "2026-09-29",
+      "count": 0
+    },
+    {
+      "date": "2026-09-30",
+      "count": 0
+    },
+    {
+      "date": "2026-10-01",
+      "count": 0
+    },
+    {
+      "date": "2026-10-02",
+      "count": 0
+    },
+    {
+      "date": "2026-10-03",
+      "count": 0
+    },
+    {
+      "date": "2026-10-04",
+      "count": 0
+    },
+    {
+      "date": "2026-10-05",
+      "count": 0
+    },
+    {
+      "date": "2026-10-06",
+      "count": 0
+    },
+    {
+      "date": "2026-10-07",
+      "count": 0
+    },
+    {
+      "date": "2026-10-08",
+      "count": 0
+    },
+    {
+      "date": "2026-10-09",
+      "count": 0
+    },
+    {
+      "date": "2026-10-10",
+      "count": 0
+    }
+  ],
+  "repos": [
+    {
+      "name": "whatsapp",
+      "url": "https://github.com/ReaperOAK/whatsapp",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2023-09-25T12:34:24Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 3221
+        },
+        {
+          "name": "EJS",
+          "color": "#a91e50",
+          "size": 2184
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 251
+        }
+      ]
+    },
+    {
+      "name": "WeatherApp",
+      "url": "https://github.com/ReaperOAK/WeatherApp",
+      "description": "A simple weather app using react material UI and weather api",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2024-03-02T06:51:23Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 5950
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 2031
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 361
+        }
+      ]
+    },
+    {
+      "name": "vibecoding",
+      "url": "https://github.com/ReaperOAK/vibecoding",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-08T06:58:46Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 258,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 77137
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 18953
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 9979
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 825
+        }
+      ]
+    },
+    {
+      "name": "tradingviewAPI",
+      "url": "https://github.com/ReaperOAK/tradingviewAPI",
+      "description": "Simple usage of TradingView API to create a web app",
+      "homepageUrl": null,
+      "stars": 1,
+      "forks": 0,
+      "pushedAt": "2023-12-22T05:19:40Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 723
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 706
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 109
+        }
+      ]
+    },
+    {
+      "name": "TicketVault",
+      "url": "https://github.com/ReaperOAK/TicketVault",
+      "description": null,
+      "homepageUrl": "https://ticketvault-eta.vercel.app",
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-11-01T07:44:41Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 132,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 377688
+        },
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 282584
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 208110
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 28605
+        },
+        {
+          "name": "PowerShell",
+          "color": "#012456",
+          "size": 25772
+        },
+        {
+          "name": "Move",
+          "color": "#4a137a",
+          "size": 22373
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 4562
+        }
+      ]
+    },
+    {
+      "name": "survivorship-free-backtester",
+      "url": "https://github.com/ReaperOAK/survivorship-free-backtester",
+      "description": "An honest, survivorship-bias-corrected backtesting engine. Market-agnostic — Indian equities (Nifty 50/100/200/500) wired in out of the box, extensible to US/global via yfinance. Tax-aware, free data, Python + DuckDB.",
+      "homepageUrl": null,
+      "stars": 2,
+      "forks": 0,
+      "pushedAt": "2026-07-17T17:50:27Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 3,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 189010
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 2801
+        }
+      ]
+    },
+    {
+      "name": "Spotify-Clone",
+      "url": "https://github.com/ReaperOAK/Spotify-Clone",
+      "description": "Simple Spotify Clone with HTML and CSS",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2023-12-22T05:07:46Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 9176
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 4853
+        }
+      ]
+    },
+    {
+      "name": "Simple-Nav-Bar",
+      "url": "https://github.com/ReaperOAK/Simple-Nav-Bar",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2023-12-22T05:23:08Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 2496
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 1982
+        }
+      ]
+    },
+    {
+      "name": "Simon-Says",
+      "url": "https://github.com/ReaperOAK/Simon-Says",
+      "description": "Simple Simon-says Game made with Html, css and JS",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2023-08-17T13:07:02Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 1849
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 756
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 459
+        }
+      ]
+    },
+    {
+      "name": "sem3",
+      "url": "https://github.com/ReaperOAK/sem3",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-01-21T05:24:27Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 30988
+        }
+      ]
+    },
+    {
+      "name": "reddit-post",
+      "url": "https://github.com/ReaperOAK/reddit-post",
+      "description": "reddit auto post bot",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-06-18T16:26:00Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 12292
+        },
+        {
+          "name": "Batchfile",
+          "color": "#C1F12E",
+          "size": 412
+        }
+      ]
+    },
+    {
+      "name": "ReaperOAK.terminal-sniper-1.0.0",
+      "url": "https://github.com/ReaperOAK/ReaperOAK.terminal-sniper-1.0.0",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-03-04T18:35:24Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 2,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 1714
+        }
+      ]
+    },
+    {
+      "name": "ReaperOAK.tab-nuke-1.0.0",
+      "url": "https://github.com/ReaperOAK/ReaperOAK.tab-nuke-1.0.0",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-03-05T18:57:23Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 1,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 2762
+        }
+      ]
+    },
+    {
+      "name": "ReaperOAK",
+      "url": "https://github.com/ReaperOAK/ReaperOAK",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-10T07:46:08Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 104,
+      "languages": [
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 255803
+        }
+      ]
+    },
+    {
+      "name": "QuoraApp",
+      "url": "https://github.com/ReaperOAK/QuoraApp",
+      "description": "An attempt to make a Quora Clone with Restful APIs",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2023-09-04T15:38:33Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "EJS",
+          "color": "#a91e50",
+          "size": 2330
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 1669
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 666
+        }
+      ]
+    },
+    {
+      "name": "python-cli-alarm-clock",
+      "url": "https://github.com/ReaperOAK/python-cli-alarm-clock",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-09-16T08:56:34Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 1,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 84635
+        }
+      ]
+    },
+    {
+      "name": "portfolio",
+      "url": "https://github.com/ReaperOAK/portfolio",
+      "description": null,
+      "homepageUrl": "https://portfolio-umber-seven-19.vercel.app",
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-10T07:36:13Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 24,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 253472
+        },
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 63954
+        },
+        {
+          "name": "MDX",
+          "color": "#fcb32c",
+          "size": 53031
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 18469
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 9116
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 1628
+        }
+      ]
+    },
+    {
+      "name": "player-auction",
+      "url": "https://github.com/ReaperOAK/player-auction",
+      "description": "player auction software for RSTC.",
+      "homepageUrl": "https://player-auction-eight.vercel.app",
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-09-05T18:39:56Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 156406
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 4060
+        },
+        {
+          "name": "PLpgSQL",
+          "color": "#336790",
+          "size": 3316
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 370
+        }
+      ]
+    },
+    {
+      "name": "PalBro",
+      "url": "https://github.com/ReaperOAK/PalBro",
+      "description": "Companion app for palworld",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2024-06-26T13:29:20Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "EJS",
+          "color": "#a91e50",
+          "size": 3556
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 3232
+        }
+      ]
+    },
+    {
+      "name": "openweatherAPI",
+      "url": "https://github.com/ReaperOAK/openweatherAPI",
+      "description": "Simple weather app created with HTML,CSS, JS and openweather API",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2023-12-22T05:15:13Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 3984
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 2938
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 2569
+        }
+      ]
+    },
+    {
+      "name": "odoo2k25",
+      "url": "https://github.com/ReaperOAK/odoo2k25",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-07-12T11:30:25Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 284038
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 665
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 363
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 361
+        }
+      ]
+    },
+    {
+      "name": "odoo-final-2025",
+      "url": "https://github.com/ReaperOAK/odoo-final-2025",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-08-12T04:20:52Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 650587
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 5820
+        },
+        {
+          "name": "Dockerfile",
+          "color": "#384d54",
+          "size": 612
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 361
+        }
+      ]
+    },
+    {
+      "name": "neetcode-submissions",
+      "url": "https://github.com/ReaperOAK/neetcode-submissions",
+      "description": "My NeetCode.io problem submissions",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-07T06:43:43Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 168,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 90894
+        }
+      ]
+    },
+    {
+      "name": "ms-rewards",
+      "url": "https://github.com/ReaperOAK/ms-rewards",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 1,
+      "forks": 0,
+      "pushedAt": "2025-04-22T16:16:10Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 102917
+        },
+        {
+          "name": "PowerShell",
+          "color": "#012456",
+          "size": 6810
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 781
+        },
+        {
+          "name": "Dockerfile",
+          "color": "#384d54",
+          "size": 523
+        }
+      ]
+    },
+    {
+      "name": "linearecta",
+      "url": "https://github.com/ReaperOAK/linearecta",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2024-03-09T14:24:33Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 6481
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 2549
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 2513
+        }
+      ]
+    },
+    {
+      "name": "KCAdashboard",
+      "url": "https://github.com/ReaperOAK/KCAdashboard",
+      "description": "student teacher dashboard for KCA",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-08-02T06:22:11Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 1442634
+        },
+        {
+          "name": "PHP",
+          "color": "#4F5D95",
+          "size": 934502
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 2337
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 623
+        }
+      ]
+    },
+    {
+      "name": "isl_prototype_test",
+      "url": "https://github.com/ReaperOAK/isl_prototype_test",
+      "description": null,
+      "homepageUrl": "https://islprototypetest.vercel.app",
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2024-09-28T14:46:49Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 4679
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 2725
+        }
+      ]
+    },
+    {
+      "name": "id-card-maker",
+      "url": "https://github.com/ReaperOAK/id-card-maker",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-09-03T09:07:39Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 35,
+      "languages": [
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 165317
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 1739
+        },
+        {
+          "name": "Rust",
+          "color": "#dea584",
+          "size": 496
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 376
+        }
+      ]
+    },
+    {
+      "name": "ForgeOS",
+      "url": "https://github.com/ReaperOAK/ForgeOS",
+      "description": "An SDLC engine of orchestrated agents for spec-driven development.",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-08T06:58:55Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 1551,
+      "languages": [
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 2239726
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 697121
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 252619
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 220158
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 119083
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 87146
+        },
+        {
+          "name": "PLpgSQL",
+          "color": "#336790",
+          "size": 74584
+        },
+        {
+          "name": "Makefile",
+          "color": "#427819",
+          "size": 10818
+        },
+        {
+          "name": "Dockerfile",
+          "color": "#384d54",
+          "size": 6547
+        }
+      ]
+    },
+    {
+      "name": "faceless",
+      "url": "https://github.com/ReaperOAK/faceless",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-05-04T06:34:44Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 29731
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 12935
+        }
+      ]
+    },
+    {
+      "name": "eventure",
+      "url": "https://github.com/ReaperOAK/eventure",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 2,
+      "pushedAt": "2025-08-14T12:03:26Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 46273
+        },
+        {
+          "name": "PowerShell",
+          "color": "#012456",
+          "size": 1815
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 295
+        },
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 163
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 58
+        }
+      ]
+    },
+    {
+      "name": "csefarewell2k25",
+      "url": "https://github.com/ReaperOAK/csefarewell2k25",
+      "description": null,
+      "homepageUrl": "https://ibiza.vercel.app",
+      "stars": 0,
+      "forks": 1,
+      "pushedAt": "2026-10-08T06:58:41Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 37,
+      "languages": [
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 328622
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 303222
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 177556
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 24690
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 24382
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 19561
+        }
+      ]
+    },
+    {
+      "name": "CodebaseRAG",
+      "url": "https://github.com/ReaperOAK/CodebaseRAG",
+      "description": "Local RAG over any repository via an MCP server for instant codebase querying.",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-01-28T18:52:01Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 2,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 45301
+        }
+      ]
+    },
+    {
+      "name": "chesscodex",
+      "url": "https://github.com/ReaperOAK/chesscodex",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-09-20T04:45:01Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 294880
+        },
+        {
+          "name": "PHP",
+          "color": "#4F5D95",
+          "size": 8330
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 6860
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 4695
+        }
+      ]
+    },
+    {
+      "name": "bulk-certificate-generator",
+      "url": "https://github.com/ReaperOAK/bulk-certificate-generator",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-04-27T17:48:30Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 27143
+        }
+      ]
+    },
+    {
+      "name": "autosolveAI",
+      "url": "https://github.com/ReaperOAK/autosolveAI",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-04-08T20:43:54Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 32766
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 2406
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 767
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 738
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 587
+        },
+        {
+          "name": "Batchfile",
+          "color": "#C1F12E",
+          "size": 556
+        }
+      ]
+    },
+    {
+      "name": "auction-player-assigner",
+      "url": "https://github.com/ReaperOAK/auction-player-assigner",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2025-09-14T14:09:54Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 92744
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 1033
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 361
+        }
+      ]
+    },
+    {
+      "name": "airbnb",
+      "url": "https://github.com/ReaperOAK/airbnb",
+      "description": "A simple AirBnB clone.",
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2024-01-02T13:36:21Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 0,
+      "languages": [
+        {
+          "name": "EJS",
+          "color": "#a91e50",
+          "size": 19211
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 16471
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 6714
+        }
+      ]
+    }
+  ],
+  "fetchedAt": "2026-10-10T07:46:30.746Z"
 }
