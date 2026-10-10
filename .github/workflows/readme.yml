@@ -24,11 +24,22 @@ jobs:
       - name: Test
         working-directory: generator
         run: npm test
+      - name: Typecheck
+        working-directory: generator
+        run: npm run typecheck
       - name: Generate
         working-directory: generator
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_LOGIN: ReaperOAK
+          # Optional sources: an unset secret just omits its panel (null-omission), never breaks the build.
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          LEETCODE_HANDLE: oaak78692
+          UPTIME_TARGETS: "todayeggrates=https://todayeggrates.com/,portfolio=https://portfolio.owaiskhan.website/"
+          # FEED_URL is deliberately unset: the Writing section stays hidden until a blog exists.
         run: npm run build
       - name: Commit changes
         run: |
