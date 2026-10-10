@@ -2,7 +2,7 @@ import type { Config } from "../config.js";
 import type { DynamicFields, GithubSnapshot } from "../types.js";
 import { content } from "../content.js";
 import { readCache, writeCache } from "../cache.js";
-import { chat } from "./openrouter.js";
+import { chat } from "./gateway.js";
 import { LEAK_PATTERN } from "../render/leaks.js";
 
 const CACHE_KEY = "dynamic-fields";
