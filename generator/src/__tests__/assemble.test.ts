@@ -1,6 +1,25 @@
 import { describe, it, expect } from "vitest";
-import { validateReadme, assemble, SECTION_MARKERS } from "../assemble.js";
+import { mkdtempSync, existsSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { validateReadme, assemble, writeOutputs, SECTION_MARKERS } from "../assemble.js";
+import { LEAK_PATTERN } from "../render/leaks.js";
 import { FIXTURE } from "./fixtures.js";
+
+describe("writeOutputs asset scan", () => {
+  it("rejects a leaking asset and writes nothing at all", () => {
+    const dir = mkdtempSync(join(tmpdir(), "roak-write-"));
+    const built = assemble(FIXTURE);
+    built.assets["telemetry-dark.svg"] = '<svg width="NaN"/>';
+    expect(() => writeOutputs(dir, built)).toThrow("telemetry-dark.svg leaked NaN");
+    expect(existsSync(join(dir, "README.md"))).toBe(false);
+    expect(existsSync(join(dir, "assets"))).toBe(false);
+  });
+
+  it("passes the real rendered assets, embedded font included", () => {
+    for (const svg of Object.values(assemble(FIXTURE).assets)) expect(LEAK_PATTERN.test(svg)).toBe(false);
+  });
+});
 
 describe("validateReadme", () => {
   it("rejects empty / too-short output", () => {

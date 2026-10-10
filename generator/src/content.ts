@@ -42,7 +42,7 @@ export const content: StaticContent = {
     { value: "<100ms", label: "API responses" },
   ],
   contacts: [
-    { label: "Portfolio", url: "https://reaperoak.web.app/" },
+    { label: "Portfolio", url: "https://portfolio.owaiskhan.website/" },
     { label: "LinkedIn", url: "https://linkedin.com/in/owaistech" },
     { label: "Email", url: "mailto:oaak78692@gmail.com" },
   ],

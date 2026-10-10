@@ -4383,7 +4383,7 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           LEETCODE_HANDLE: oaak78692
-          UPTIME_TARGETS: "todayeggrates=https://todayeggrates.com/,portfolio=https://reaperoak.web.app/"
+          UPTIME_TARGETS: "todayeggrates=https://todayeggrates.com/,portfolio=https://portfolio.owaiskhan.website/"
         run: npm run build
       - name: Commit changes
         run: |

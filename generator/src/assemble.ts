@@ -46,6 +46,11 @@ export function assemble(ctx: Snapshot): { readme: string; assets: Record<string
 export function writeOutputs(root: string, built: { readme: string; assets: Record<string, string> }): void {
   const check = validateReadme(built.readme);
   if (!check.ok) throw new Error(`readme validation failed: ${check.reason}`);
+  // The README only embeds the SVGs as <img>, so scan them too — before anything is written.
+  for (const [name, svg] of Object.entries(built.assets)) {
+    const leak = LEAK_PATTERN.exec(svg);
+    if (leak) throw new Error(`asset validation failed: ${name} leaked ${leak[0]}`);
+  }
   const assetsDir = join(root, "assets");
   if (!existsSync(assetsDir)) mkdirSync(assetsDir, { recursive: true });
   for (const [name, svg] of Object.entries(built.assets)) writeFileSync(join(assetsDir, name), svg, "utf8");
