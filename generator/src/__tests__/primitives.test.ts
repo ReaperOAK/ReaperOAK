@@ -36,16 +36,16 @@ describe("primitives", () => {
     expect((out.match(/<rect/g) ?? []).length).toBe(14);
   });
 
-  it("heatGrid gives a zero-count day the panel colour, not the accent", () => {
+  it("heatGrid draws a zero-count day as a faint line-coloured cell, not the accent", () => {
     const out = heatGrid(box, [{ date: "2026-08-01", count: 0 }], t);
-    expect(out).toContain(t.panel);
+    expect(out).toContain(`fill="${t.line}"`);
     expect(out).not.toContain(t.accent);
   });
 
-  it("heatGrid gives a NaN-count day the panel colour, not a malformed fill", () => {
+  it("heatGrid treats a NaN-count day as empty, not a malformed fill", () => {
     const out = heatGrid(box, [{ date: "2026-08-01", count: NaN }], t);
     expect(out).not.toContain("NaN");
-    expect(out).toContain(`fill="${t.panel}"`);
+    expect(out).toContain(`fill="${t.line}"`);
   });
 
   it("heatGrid never emits a negative cell size", () => {

@@ -26,6 +26,22 @@ describe("heatmapPanel", () => {
   });
 });
 
+describe("heatmapPanel data rules", () => {
+  it("omits itself when every day in the year is zero", () => {
+    const zeros = Array.from({ length: 371 }, (_, i) => ({ date: `d${i}`, count: 0 }));
+    expect(heatmapPanel.select(withCalendar(zeros))).toBeNull();
+  });
+
+  it("labels each month above the column where it starts", () => {
+    const days = Array.from({ length: 70 }, (_, i) => {
+      const d = new Date(Date.UTC(2026, 0, 1 + i));
+      return { date: d.toISOString().slice(0, 10), count: i % 3 };
+    });
+    const out = heatmapPanel.render(heatmapPanel.select(withCalendar(days))!, t, box);
+    for (const m of ["Jan", "Feb", "Mar"]) expect(out).toContain(`>${m}</text>`);
+  });
+});
+
 describe("signalPanel", () => {
   it("omits itself when every counter is zero", () => {
     const ctx: Snapshot = { ...FIXTURE, github: {
@@ -35,9 +51,16 @@ describe("signalPanel", () => {
 
   it("renders all five counters when data exists", () => {
     const out = signalPanel.render(signalPanel.select(FIXTURE)!, t, box);
-    for (const label of ["commits", "PRs", "reviews", "issues", "streak"]) {
+    for (const label of ["commits", "pull requests", "reviews", "issues", "day streak"]) {
       expect(out).toContain(label);
     }
+  });
+
+  it("drops a zero counter from the line instead of printing it", () => {
+    const ctx: Snapshot = { ...FIXTURE, github: { ...FIXTURE.github, reviews: 0 } };
+    const out = signalPanel.render(signalPanel.select(ctx)!, t, box);
+    expect(out).not.toContain("reviews");
+    expect(out).toContain("commits");
   });
 
   it("formats large numbers with separators", () => {

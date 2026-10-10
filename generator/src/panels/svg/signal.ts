@@ -1,12 +1,15 @@
 import type { SvgPanel } from "../types.js";
-import { counter, frame } from "../../render/svg/primitives.js";
+import { frame } from "../../render/svg/primitives.js";
 
 interface Signal { commits: number; prs: number; reviews: number; issues: number; streak: number; }
 
+/** One sentence of numbers, read left to right, rather than five big-number tiles: the counts
+ *  support the heatmap above them, they don't compete with it. Zero counts are dropped so the
+ *  line never brags about "0 reviews". */
 export const signalPanel: SvgPanel<Signal> = {
   id: "signal",
   kind: "svg",
-  size: { w: 860, h: 110 },
+  size: { w: 860, h: 58 },
   select: (ctx) => {
     const s: Signal = {
       commits: ctx.github.commits, prs: ctx.github.prs, reviews: ctx.github.reviews,
@@ -16,14 +19,15 @@ export const signalPanel: SvgPanel<Signal> = {
     return any ? s : null;
   },
   render: (s, t, box) => {
-    const cells: Array<[number, string]> = [
-      [s.commits, "commits"], [s.prs, "PRs"], [s.reviews, "reviews"],
-      [s.issues, "issues"], [s.streak, "streak"],
+    const parts: Array<[number, string]> = [
+      [s.commits, "commits"], [s.prs, "pull requests"], [s.reviews, "reviews"],
+      [s.issues, "issues"], [s.streak, "day streak"],
     ];
-    const step = box.w / cells.length;
-    const body = cells.map(([v, label], i) =>
-      counter(box.x + step * (i + 0.5), box.y + 62, v.toLocaleString("en-US"), label, t),
-    ).join("\n");
-    return `${frame(box, t, "signal")}\n${body}`;
+    const spans = parts
+      .filter(([v]) => Number.isFinite(v) && v > 0)
+      .map(([v, label], i) => `${i ? `<tspan fill="${t.accent}" dx="14">·</tspan><tspan dx="14"` : "<tspan"} font-family="OakDisplay,sans-serif" font-weight="800" font-size="20" fill="${t.ink}">${v.toLocaleString("en-US")}</tspan><tspan dx="6" fill="${t.mut}">${label}</tspan>`)
+      .join("");
+    return `${frame(box, t)}
+<text x="${box.x + box.w / 2}" y="${box.y + box.h / 2 + 7}" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" letter-spacing="0.5">${spans}</text>`;
   },
 };

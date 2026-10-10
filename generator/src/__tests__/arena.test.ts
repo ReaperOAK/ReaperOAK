@@ -24,12 +24,22 @@ describe("leetcodePanel", () => {
     expect(leetcodePanel.select({ ...FIXTURE, leetcode: null })).toBeNull();
   });
 
-  it("shows the total, the per-difficulty split and the formatted ranking", () => {
+  it("shows the total and the per-difficulty split, and never the global rank", () => {
     const out = leetcodePanel.render(leetcodePanel.select(withLeet)!, t, box);
-    expect(out).toContain("214");
-    expect(out).toContain("96");
-    expect(out).toContain("17");
-    expect(out).toContain("184,203");
+    expect(out).toContain(">214<");
+    expect(out).toContain(">96<");
+    expect(out).toContain(">17<");
+    expect(out).not.toContain("184,203");
+    expect(out).not.toContain("rank");
+  });
+
+  it("splits the difficulty bar in proportion to the solved counts", () => {
+    const out = leetcodePanel.render(leetcodePanel.select(withLeet)!, t, box);
+    const widths = [...out.matchAll(/<rect x="[\d.]+" y="[\d.]+" width="([\d.]+)" height="8"/g)].map((m) => Number(m[1]));
+    expect(widths).toHaveLength(3);
+    // easy 96, medium 101, hard 17 of 214: medium is the widest, hard the narrowest
+    expect(widths[1]!).toBeGreaterThan(widths[0]!);
+    expect(widths[2]!).toBeLessThan(widths[0]!);
   });
 
   it("escapes the handle from config/API in the frame label (frame's own escaping, not double-escaped)", () => {
@@ -166,7 +176,9 @@ describe("roadmapGaugePanel percentage", () => {
   it("never prints more than 100% even when solved exceeds the target", () => {
     const ctx: Snapshot = { ...FIXTURE, neetcode: { solved: 160, target: 150 } };
     const out = roadmapGaugePanel.render(roadmapGaugePanel.select(ctx)!, THEME.dark, { x: 0, y: 0, w: 278, h: 190 });
-    expect(out).toContain("100% complete");
+    expect(out).toContain(">100%</tspan> complete");
     expect(out).not.toContain("107%");
+    // solved is clamped too, so the headline never claims 160 of 150
+    expect(out).toContain(">150<tspan");
   });
 });

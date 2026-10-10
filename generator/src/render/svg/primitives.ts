@@ -29,7 +29,8 @@ export function bar(box: Box, pct: number, t: Tokens, color?: string): string {
  *  (rather than `count <= 0`) also catches NaN, which a corrupted cache entry can produce. */
 const HEAT_OPACITY = [0, 0.25, 0.45, 0.7, 1];
 function heatColor(count: number, max: number, t: Tokens): string {
-  if (!(count > 0)) return t.panel;
+  // An empty day is a faint cell, not a hole: the grid's rhythm is what makes the year readable.
+  if (!(count > 0)) return t.line;
   const step = Math.min(4, Math.ceil((count / Math.max(1, max)) * 4));
   const opacity = HEAT_OPACITY[step]!;
   return `${t.accent}${Math.round(opacity * 255).toString(16).padStart(2, "0")}`;
@@ -39,17 +40,44 @@ function heatColor(count: number, max: number, t: Tokens): string {
 export function heatGrid(box: Box, days: Array<{ date: string; count: number }>, t: Tokens): string {
   if (days.length === 0) return "";
   const cols = Math.ceil(days.length / 7);
-  const cell = Math.max(0, Math.min(11, Math.floor((box.w - cols * 2) / Math.max(1, cols))));
-  const gap = 2;
+  const gap = 3;
+  // Fill the panel's width (capped so a short calendar doesn't balloon), then centre the grid.
+  const cell = Math.max(0, Math.min(14, Math.floor((box.w - (cols - 1) * gap) / Math.max(1, cols))));
+  const left = box.x + Math.max(0, (box.w - (cols * (cell + gap) - gap)) / 2);
   // A non-finite count on any one day must not poison the ratio for every other day's cell.
   const max = Math.max(0, ...days.map((d) => (Number.isFinite(d.count) ? d.count : 0)));
   return days.map((d, i) => {
-    const x = box.x + Math.floor(i / 7) * (cell + gap);
+    const x = left + Math.floor(i / 7) * (cell + gap);
     const y = box.y + (i % 7) * (cell + gap);
     // The tooltip renders this count as text, so it needs the same non-finite guard as the fill.
     const safeCount = Number.isFinite(d.count) ? d.count : 0;
-    return `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2" fill="${heatColor(d.count, max, t)}"><title>${escapeXml(d.date)}: ${safeCount}</title></rect>`;
+    return `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2.5" fill="${heatColor(d.count, max, t)}"><title>${escapeXml(d.date)}: ${safeCount}</title></rect>`;
   }).join("");
+}
+
+const MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** Month names above the heat grid, placed on the column where each month starts. Uses the
+ *  same geometry as heatGrid so labels and cells always line up. Skips a label that would
+ *  crowd the previous one (the first partial month usually). */
+export function heatMonths(box: Box, days: Array<{ date: string; count: number }>, t: Tokens): string {
+  if (days.length === 0) return "";
+  const cols = Math.ceil(days.length / 7);
+  const gap = 3;
+  const cell = Math.max(0, Math.min(14, Math.floor((box.w - (cols - 1) * gap) / Math.max(1, cols))));
+  const left = box.x + Math.max(0, (box.w - (cols * (cell + gap) - gap)) / 2);
+  const out: string[] = [];
+  let lastMonth = -1, lastX = -Infinity;
+  for (let c = 0; c < cols; c++) {
+    const m = Number((days[c * 7]?.date ?? "").slice(5, 7)) - 1;
+    if (!(m >= 0 && m < 12) || m === lastMonth) continue;
+    lastMonth = m;
+    const x = left + c * (cell + gap);
+    if (x - lastX < 3 * (cell + gap)) continue;
+    lastX = x;
+    out.push(`<text x="${x}" y="${box.y}" font-family="ui-monospace,monospace" font-size="10" fill="${t.mut}">${MONTH_ABBR[m]}</text>`);
+  }
+  return out.join("");
 }
 
 /** A labelled progress readout: "51 / 150" over a bar. value is clamped to target. */
