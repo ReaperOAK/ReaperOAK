@@ -13,7 +13,7 @@
 ### Currently
 
 - **Building** a GenAI Media Platform and a Creator Marketplace at Cornflakes Media.
-- **This cycle** — This week: completed the app with delete, new, and view functionality using Express, Mongoose, and EJS.
+- **This cycle** — This week: added .claude bridge for Claude Code vibecoding, graphify, refactored event handling, updated vercel.json and next.config.ts for builds and rewrites.
 - **Thinking about** — Considering how to isolate stateful inference workloads in a multi‑tenant Kubernetes cluster without sacrificing latency.
 
 ---
@@ -49,8 +49,8 @@
 | **Creator Marketplace** | Cross-platform creator marketplace for web, iOS, and Android. | `Expo · React Native · NestJS` |
 | **[ForgeOS](https://github.com/ReaperOAK/ForgeOS)** | An SDLC engine of orchestrated agents for spec-driven development. | `TypeScript · Python · JavaScript` |
 | **[csefarewell2k25](https://github.com/ReaperOAK/csefarewell2k25)** |  | `TypeScript · Python · HTML` |
-| **[vibecoding](https://github.com/ReaperOAK/vibecoding)** |  | `Python · HTML · Shell` |
 | **[portfolio](https://github.com/ReaperOAK/portfolio)** |  | `JavaScript · TypeScript · MDX` |
+| **[vibecoding](https://github.com/ReaperOAK/vibecoding)** |  | `Python · HTML · Shell` |
 
 ---
 
@@ -113,7 +113,7 @@
 <!-- section:engine-room -->
 ### The Engine Room
 
-- **Languages · measured** — Python 38% · TypeScript 29% · JavaScript 23% · HTML 5% · Shell 2% · MDX 1%
+- **Languages · measured** — Python 38% · TypeScript 29% · JavaScript 22% · HTML 5% · Shell 2% · CSS 2%
 - **Frontend** — React · React Native · Next.js · Expo · Tailwind / NativeWind
 - **Backend** — NestJS · FastAPI · Node.js · Express · Socket.io · BullMQ
 - **Generative AI** — Claude / GPT / Gemini · Prompt engineering · fal.ai · ElevenLabs · Multimodal
