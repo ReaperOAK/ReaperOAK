@@ -54,6 +54,17 @@
 
 ---
 
+<!-- section:log -->
+### Engineering log
+
+- Added a .claude bridge enabling Claude Code to operate the vibecoding system.
+- Refactored event handling and improved type safety in ticket verification.
+- Updated vercel.json with build and rewrite configuration.
+- Standardized next.config.ts files and removed type imports.
+- Integrated graphify into the project pipeline.
+
+---
+
 <!-- section:cases -->
 ### Case studies
 
