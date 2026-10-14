@@ -1,7 +1,7 @@
 {
-  "tagline": "I build AI systems that turn prompts into images, video, and audio.",
+  "tagline": "I build and deploy production AI platforms turning prompts into images, video, audio.",
   "recentWork": "This week: added .claude bridge for Claude Code vibecoding, graphify, refactored event handling, updated vercel.json and next.config.ts for builds and rewrites.",
-  "thinkingAbout": "Considering how to isolate stateful inference workloads in a multi‑tenant Kubernetes cluster without sacrificing latency.",
+  "thinkingAbout": "Most \"vector DB\" benchmarks ignore filter selectivity; real latency lives in the post-filter merge, not the ANN graph.",
   "engineeringLog": [
     "Added a .claude bridge enabling Claude Code to operate the vibecoding system.",
     "Refactored event handling and improved type safety in ticket verification.",

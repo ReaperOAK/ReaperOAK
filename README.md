@@ -14,7 +14,7 @@
 
 - **Building** a GenAI Media Platform and a Creator Marketplace at Cornflakes Media.
 - **This cycle** — This week: added .claude bridge for Claude Code vibecoding, graphify, refactored event handling, updated vercel.json and next.config.ts for builds and rewrites.
-- **Thinking about** — Considering how to isolate stateful inference workloads in a multi‑tenant Kubernetes cluster without sacrificing latency.
+- **Thinking about** — Most "vector DB" benchmarks ignore filter selectivity; real latency lives in the post-filter merge, not the ANN graph.
 
 ---
 
