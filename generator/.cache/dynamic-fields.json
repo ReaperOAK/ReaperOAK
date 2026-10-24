@@ -1,0 +1,13 @@
+{
+  "tagline": "I build and run production backends and their underlying infrastructure.",
+  "recentWork": "This week: added Claude Code bridge for vibecoding, refactored event handling with stricter types, standardized Vercel and Next.js configs, and updated graphify scripts.",
+  "thinkingAbout": "Considering event-driven state sync with CRDTs to reduce latency in distributed model serving.",
+  "engineeringLog": [
+    "New skills were added.",
+    "Script was updated.",
+    "Graphify was added.",
+    "A .claude bridge was added so Claude Code could fully operate the vibecoding system.",
+    "License was switched from MIT to PolyForm Noncommercial 1.0.0."
+  ],
+  "featuredBlurbs": {}
+}
