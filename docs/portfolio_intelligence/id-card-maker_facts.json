@@ -1,0 +1,246 @@
+{
+  "repo": "id-card-maker",
+  "url": "https://github.com/ReaperOAK/id-card-maker",
+  "description": "",
+  "stars": 0,
+  "branch": "feat/render-core",
+  "file_count": 70,
+  "tree_sample": [
+    ".gitignore",
+    "app/.gitignore",
+    "app/.vscode/extensions.json",
+    "app/README.md",
+    "app/index.html",
+    "app/package-lock.json",
+    "app/package.json",
+    "app/src-tauri/.gitignore",
+    "app/src-tauri/Cargo.toml",
+    "app/src-tauri/build.rs",
+    "app/src-tauri/capabilities/default.json",
+    "app/src-tauri/icons/icon.icns",
+    "app/src-tauri/src/lib.rs",
+    "app/src-tauri/src/main.rs",
+    "app/src-tauri/tauri.conf.json",
+    "app/src/App.css",
+    "app/src/App.tsx",
+    "app/src/components/ProjectOpen.tsx",
+    "app/src/main.tsx",
+    "app/src/state/project.ts",
+    "app/src/tauri-io.ts",
+    "app/src/vite-env.d.ts",
+    "app/test/engine-resolves.test.ts",
+    "app/test/project.test.ts",
+    "app/tsconfig.json",
+    "app/tsconfig.node.json",
+    "app/vite.config.ts",
+    "docs/superpowers/plans/2026-09-01-render-core.md",
+    "docs/superpowers/plans/2026-09-03-desktop-editor.md",
+    "docs/superpowers/specs/2026-09-01-id-card-maker-design.md",
+    "fixtures/layout.json",
+    "fixtures/students.xlsx",
+    "fixtures/template-noisy.pdf",
+    "fixtures/template-offcenter.pdf",
+    "fixtures/template.pdf",
+    "package-lock.json",
+    "package.json",
+    "src/card.ts",
+    "src/cli.ts",
+    "src/data.ts"
+  ],
+  "manifests": {
+    "stack": [
+      "@pdf-lib/fontkit",
+      "@tailwindcss/vite",
+      "@tauri-apps/api",
+      "@tauri-apps/cli",
+      "@tauri-apps/plugin-dialog",
+      "@tauri-apps/plugin-fs",
+      "@testing-library/react",
+      "@testing-library/user-event",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "@vitejs/plugin-react",
+      "Rust",
+      "authors",
+      "commander",
+      "crate-type",
+      "description",
+      "edition",
+      "exceljs",
+      "jsdom",
+      "mupdf",
+      "name",
+      "pdf-lib",
+      "react",
+      "react-dom",
+      "serde",
+      "serde_json",
+      "tailwindcss",
+      "tauri",
+      "tauri-build",
+      "tauri-plugin-dialog",
+      "tauri-plugin-fs",
+      "tsx",
+      "typescript",
+      "version",
+      "vite",
+      "vitest",
+      "zod",
+      "zustand"
+    ],
+    "scripts": {
+      "app/package.json": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "test": "vitest run",
+        "preview": "vite preview",
+        "tauri": "tauri"
+      },
+      "package.json": {
+        "test": "vitest run",
+        "build": "tsc -p tsconfig.json"
+      }
+    },
+    "ci_workflows": [],
+    "schemas": [],
+    "specs": [
+      "docs/superpowers/specs/2026-09-01-id-card-maker-design.md"
+    ]
+  },
+  "git_intel": {
+    "total_mined": 35,
+    "inflection_points": [
+      {
+        "sha": "c7f68ef",
+        "date": "2026-09-03T09:06:41Z",
+        "summary": "fix: drop the scaffold's opener capability",
+        "body": "create-tauri-app left opener:default in the capabilities \u2014 permission to\nopen arbitrary URLs and reveal paths in the OS explorer \u2014 which the spec\nnever granted. Plugin, crate, and demo command removed with it.",
+        "is_inflection": true
+      },
+      {
+        "sha": "1988437",
+        "date": "2026-09-03T08:57:00Z",
+        "summary": "fix: make paths and photo parsing platform-neutral",
+        "body": "paths.ts split only on '/', so a Windows layout path collapsed dirname\nto '.' and every font resolved against the wrong directory, silently.\n\nphotos.ts still parsed headers through Node's Buffer, which does not\nexist in a webview. Both parsers now use Uint8Array and DataView, and a\ntest proves buildPhotoIndex runs with the Buffer global removed.",
+        "is_inflection": true
+      },
+      {
+        "sha": "1923448",
+        "date": "2026-09-03T08:43:41Z",
+        "summary": "refactor: move engine file I/O behind a FileSystem interface",
+        "body": "The engine must run inside the Tauri webview. Its five Node I/O calls\nnow go through FileSystem, implemented by Node for the CLI and tests.\nNo behaviour change; the existing suite passes unchanged.",
+        "is_inflection": true
+      },
+      {
+        "sha": "4acc30e",
+        "date": "2026-09-03T08:24:32Z",
+        "summary": "docs: editor design around typed markers; overflow ladder; stale fixes",
+        "body": "Section 6 now describes the authoring model the operator chose: a drawn\nbox for the photo, a typed run of x for each text field (position, font,\nsize and width in one gesture), colour and alignment as field properties,\none marker per line for multi-line fields, and a per-field cover toggle so\nthe template's own placeholders never have to be edited out in CorelDRAW.\n\nTextStyle matches the engine as built (fontId, overflow). The overflow\nladder documents abbreviate-then-shrink and its known limit.\n\nSection 5 records that the engine must run inside the webview behind an\nI/O seam. Section 7.5 no longer says 'warn below 300dpi'. The plan's\nnormaliseId listing carries an execution note pointing at the fix.",
+        "is_inflection": true
+      },
+      {
+        "sha": "617e34b",
+        "date": "2026-09-02T11:14:56Z",
+        "summary": "fix: implement the date transform and close operator-facing gaps",
+        "body": "Second wave of the final whole-branch review (F4, F6, three operator-facing\ngaps, and four minors).\n\n- F4: applyTransform gains a real 'date' case (src/card.ts), parsing\n  DD.MM.YYYY, DD/MM/YYYY, DD-MM-YYYY and ISO YYYY-MM-DD, and formatting per\n  binding.format (DD/MM/YYYY/YY tokens, default DD.MM.YYYY). An unparseable\n  value passes through unchanged rather than throwing or printing a mangled\n  date. Previously the fixture's DOB only looked correct by coincidence.\n\n- F6: the CLI now resolves layout.fonts against the layout file's own\n  directory, exactly like templateFront/templateBack, so a project folder\n  with relative font paths stays self-contained regardless of the process's\n  cwd. fonts.ts is unchanged.\n\n- Operator-facing gaps: a missing --photos directory is now a distinct,\n  named error (PhotoDirectoryNotFoundError) instead of silently becoming\n  1000 photo-missing issues; the CLI prints job-backs.pdf alongside\n  job-fronts.pdf whenever a back side is rendered; an empty spreadsheet is\n  refused with a clear message before anything is written, instead of\n  silently producing a zero-page PDF.\n\n- Minors: package.json drops npm-init boilerplate (main, directories) and\n  gains engines.node >=22; fixtures/layout.json drops the unused 'label'\n  font; the fitText boxWidth<=0 comment no longer overstates what its\n  maxLines slice does; flipY gets a direct unit test; the photo-collision\n  test now asserts which file actually won.\n\n105/105 tests passing, tsc clean. Report appended to\n.superpowers/sdd/final-review-fixes.md (Wave 2).",
+        "is_inflection": true
+      },
+      {
+        "sha": "e810e04",
+        "date": "2026-09-02T11:03:59Z",
+        "summary": "fix: align overlay baselines and close silent-rescale paths",
+        "body": "Fixes six findings from the final whole-branch review.\n\nF1 (most important): every overlay baseline sat 2.05pt below the\ntemplate's own label baseline. Two causes. (a) drawCard anchored the\nbaseline on the shrunk font size (fit.size) instead of the element's\ndesigned size (style.size), so shrink-to-fit moved the baseline and\nneighbouring cards whose text did/didn't shrink disagreed on it.\nFixed by anchoring on style.size always. (b) fixtures/layout.json's\nbox.y values had been derived against pdf-lib 1.17.1's buggy\nheightAtSize(size, {descender:false}), which silently returns the\nwrong ascent for any font whose unitsPerEm isn't 1000 (true for this\nproject's TrueType fonts). A prior task fixed ascentAtSize to read\nthe real ascent from the fontkit font object, but nobody re-derived\nthe fixture's box.y against the corrected value, which had been\nquietly agreeing with the bug's ~2.05pt-low answer. Corrected all\nnine text elements' box.y by -2.0545pt, documented the box.y contract\non elementSchema/TextStyle in layout.ts, and recorded the measured-y\n-> box.y conversion in the spec's Appendix A. Added a rasterized\nbaseline-pinning test plus a shrink-vs-no-shrink baseline-parity\ntest, both proven to discriminate by temporarily reverting each\ncause.\n\nF2: renderJob now throws when solveGrid picks a rotated orientation,\nsince drawCard has no way to draw a rotated card and would otherwise\nsilently crop every card on the sheet.\n\nF3: renderJob now reads each template's real page size before\ndrawing and throws if the front differs from layout.pageBox, or the\nback differs from the front, by more than 0.5pt in either axis --\nclosing the silent 2x-rescale path the cell clip was hiding.\n\nF5: drawCard now clips text elements with fit: 'clip' to their own\nbox, the same way the photo branch already clips -- fitText's clip\nmode reports overflow but never truncates the string itself.\n\nF7: added --flip <axis> to the render CLI command (long-edge or\nshort-edge, defaulting to long-edge, rejecting anything else),\nwired through to renderJob's flipAxis. cli.ts also gained an\nentry-point guard so it stays safely importable by tests.\n\nMinor 7: valignOffset is clamped at 0 so a text block taller than\nits box can no longer draw upward into the row above.",
+        "is_inflection": true
+      },
+      {
+        "sha": "aa8a060",
+        "date": "2026-09-02T10:28:16Z",
+        "summary": "fix: cover the duplex mirror, tighten the content check, scope photo embeds",
+        "body": "No test produced a back PDF, so a renderJob that never mirrored would\nhave passed the whole suite \u2014 on the one function whose failure ruins\nevery card in a duplex run.\n\nThe 'renders real content' check counted the transparent page background,\nso a card renderer that drew nothing satisfied it.\n\nEvery photo in the index was embedded into every side, including ids not\nin the job and sides with no photo element, shipping children's\nphotographs to a print vendor for no reason.",
+        "is_inflection": true
+      },
+      {
+        "sha": "44d44cc",
+        "date": "2026-09-02T09:59:07Z",
+        "summary": "fix: keep crop marks out of neighbouring cards",
+        "body": "Marks extended a fixed 8pt from every card edge regardless of available\nroom. On a butt-cut grid that put ink inside the adjacent card, and on a\ntight margin it produced a negative coordinate off the sheet. Both grid\nshapes solveGrid actually produces.\n\nMark geometry is now a pure function clamped to the space each edge has,\nomitting interior marks entirely where two cards touch.",
+        "is_inflection": true
+      },
+      {
+        "sha": "91839c1",
+        "date": "2026-09-02T09:37:33Z",
+        "summary": "fix: make preflight dpi messages self-consistent, pin the blank-id guard",
+        "body": "A photo at 149.69dpi reported as 'photo is 150dpi at printed size, below\nthe 150dpi floor' \u2014 the comparison was right but the displayed number was\nrounded to look wrong, which is how an operator learns to distrust the\nwhole report.\n\nThe guard stopping a blank-id row from also reporting a missing photo had\nno committed test, and the duplicate-id message said 'row' while listing\nseveral.",
+        "is_inflection": true
+      },
+      {
+        "sha": "3cea791",
+        "date": "2026-09-02T09:17:19Z",
+        "summary": "fix: validate PNG headers and report photo id collisions",
+        "body": "A non-PNG file named .png returned fabricated dimensions (1094795585)\nthat would have passed the print-resolution gate as astronomically high\nrather than failing it.\n\nTwo files whose stems normalise to the same id silently discarded one of\nthem, which is how a student ends up with someone else's face on their\ncard. Collisions are now recorded and the winner is deterministic.\n\neffectiveDpi returned Infinity for a degenerate box, passing every gate\ninstead of failing them.",
+        "is_inflection": true
+      },
+      {
+        "sha": "3e6a9f9",
+        "date": "2026-09-02T05:07:39Z",
+        "summary": "test: pin the hard-break floor across multiple lines",
+        "body": "Three of the five termination tests passed against the pre-fix code; only\nthe sub-glyph and negative-width cases were load-bearing. Nothing covered\nthe floor being re-entered on later lines, which is where a refactor of\nwrap would most plausibly reintroduce the hang.\n\nThe non-positive-box guard also returned lines ignoring maxLines, unlike\nthe other two overflow paths.",
+        "is_inflection": true
+      },
+      {
+        "sha": "535f555",
+        "date": "2026-09-01T17:57:25Z",
+        "summary": "fix: make fitText total, and pin its termination cases",
+        "body": "A negative box width let wrap() spin on an empty word and then throw\nRangeError from the unbounded fallback, instead of returning overflow.\n\nNone of the five termination cases had a committed test, including the\none that originally hung; the existing unbreakable-token test does not\nreach the hard-break floor and passes against the unfixed code.\n\nfit:'wrap' was indistinguishable from fit:'shrink'. It now wraps at the\ndesign size without shrinking, as its name says.",
+        "is_inflection": true
+      },
+      {
+        "sha": "6e7ff7e",
+        "date": "2026-09-01T17:24:09Z",
+        "summary": "fix: restore id/header normalisation invariants",
+        "body": "normaliseId mapped a blank id to '0', colliding with a genuine id of zero\nand making findDuplicateIds report blank rows as duplicates.\n\nnormaliseHeader's curly-apostrophe fold was flattened to an ASCII no-op\nduring transcription, and its test was flattened the same way so it could\nnot fail. Both now use \u2019 escapes.\n\nA failed formula cell rendered as the literal string [object Object],\nwhich would have been printed onto a card.",
+        "is_inflection": true
+      }
+    ],
+    "war_stories": [
+      {
+        "sha": "c7f68ef",
+        "date": "2026-09-03T09:06:41Z",
+        "summary": "fix: drop the scaffold's opener capability",
+        "body": "create-tauri-app left opener:default in the capabilities \u2014 permission to\nopen arbitrary URLs and reveal paths in the OS explorer \u2014 which the spec\nnever granted. Plugin, crate, and demo command removed with it.",
+        "is_inflection": true
+      },
+      {
+        "sha": "1988437",
+        "date": "2026-09-03T08:57:00Z",
+        "summary": "fix: make paths and photo parsing platform-neutral",
+        "body": "paths.ts split only on '/', so a Windows layout path collapsed dirname\nto '.' and every font resolved against the wrong directory, silently.\n\nphotos.ts still parsed headers through Node's Buffer, which does not\nexist in a webview. Both parsers now use Uint8Array and DataView, and a\ntest proves buildPhotoIndex runs with the Buffer global removed.",
+        "is_inflection": true
+      },
+      {
+        "sha": "617e34b",
+        "date": "2026-09-02T11:14:56Z",
+        "summary": "fix: implement the date transform and close operator-facing gaps",
+        "body": "Second wave of the final whole-branch review (F4, F6, three operator-facing\ngaps, and four minors).\n\n- F4: applyTransform gains a real 'date' case (src/card.ts), parsing\n  DD.MM.YYYY, DD/MM/YYYY, DD-MM-YYYY and ISO YYYY-MM-DD, and formatting per\n  binding.format (DD/MM/YYYY/YY tokens, default DD.MM.YYYY). An unparseable\n  value passes through unchanged rather than throwing or printing a mangled\n  date. Previously the fixture's DOB only looked correct by coincidence.\n\n- F6: the CLI now resolves layout.fonts against the layout file's own\n  directory, exactly like templateFront/templateBack, so a project folder\n  with relative font paths stays self-contained regardless of the process's\n  cwd. fonts.ts is unchanged.\n\n- Operator-facing gaps: a missing --photos directory is now a distinct,\n  named error (PhotoDirectoryNotFoundError) instead of silently becoming\n  1000 photo-missing issues; the CLI prints job-backs.pdf alongside\n  job-fronts.pdf whenever a back side is rendered; an empty spreadsheet is\n  refused with a clear message before anything is written, instead of\n  silently producing a zero-page PDF.\n\n- Minors: package.json drops npm-init boilerplate (main, directories) and\n  gains engines.node >=22; fixtures/layout.json drops the unused 'label'\n  font; the fitText boxWidth<=0 comment no longer overstates what its\n  maxLines slice does; flipY gets a direct unit test; the photo-collision\n  test now asserts which file actually won.\n\n105/105 tests passing, tsc clean. Report appended to\n.superpowers/sdd/final-review-fixes.md (Wave 2).",
+        "is_inflection": true
+      },
+      {
+        "sha": "e810e04",
+        "date": "2026-09-02T11:03:59Z",
+        "summary": "fix: align overlay baselines and close silent-rescale paths",
+        "body": "Fixes six findings from the final whole-branch review.\n\nF1 (most important): every overlay baseline sat 2.05pt below the\ntemplate's own label baseline. Two causes. (a) drawCard anchored the\nbaseline on the shrunk font size (fit.size) instead of the element's\ndesigned size (style.size), so shrink-to-fit moved the baseline and\nneighbouring cards whose text did/didn't shrink disagreed on it.\nFixed by anchoring on style.size always. (b) fixtures/layout.json's\nbox.y values had been derived against pdf-lib 1.17.1's buggy\nheightAtSize(size, {descender:false}), which silently returns the\nwrong ascent for any font whose unitsPerEm isn't 1000 (true for this\nproject's TrueType fonts). A prior task fixed ascentAtSize to read\nthe real ascent from the fontkit font object, but nobody re-derived\nthe fixture's box.y against the corrected value, which had been\nquietly agreeing with the bug's ~2.05pt-low answer. Corrected all\nnine text elements' box.y by -2.0545pt, documented the box.y contract\non elementSchema/TextStyle in layout.ts, and recorded the measured-y\n-> box.y conversion in the spec's Appendix A. Added a rasterized\nbaseline-pinning test plus a shrink-vs-no-shrink baseline-parity\ntest, both proven to discriminate by temporarily reverting each\ncause.\n\nF2: renderJob now throws when solveGrid picks a rotated orientation,\nsince drawCard has no way to draw a rotated card and would otherwise\nsilently crop every card on the sheet.\n\nF3: renderJob now reads each template's real page size before\ndrawing and throws if the front differs from layout.pageBox, or the\nback differs from the front, by more than 0.5pt in either axis --\nclosing the silent 2x-rescale path the cell clip was hiding.\n\nF5: drawCard now clips text elements with fit: 'clip' to their own\nbox, the same way the photo branch already clips -- fitText's clip\nmode reports overflow but never truncates the string itself.\n\nF7: added --flip <axis> to the render CLI command (long-edge or\nshort-edge, defaulting to long-edge, rejecting anything else),\nwired through to renderJob's flipAxis. cli.ts also gained an\nentry-point guard so it stays safely importable by tests.\n\nMinor 7: valignOffset is clamped at 0 so a text block taller than\nits box can no longer draw upward into the row above.",
+        "is_inflection": true
+      },
+      {
+        "sha": "aa8a060",
+        "date": "2026-09-02T10:28:16Z",
+        "summary": "fix: cover the duplex mirror, tighten the content check, scope photo embeds",
+        "body": "No test produced a back PDF, so a renderJob that never mirrored would\nhave passed the whole suite \u2014 on the one function whose failure ruins\nevery card in a duplex run.\n\nThe 'renders real content' check counted the transparent page background,\nso a card renderer that drew nothing satisfied it.\n\nEvery photo in the index was embedded into every side, including ids not\nin the job and sides with no photo element, shipping children's\nphotographs to a print vendor for no reason.",
+        "is_inflection": true
+      }
+    ]
+  },
+  "readme_length": 0,
+  "raw_readme": ""
+}

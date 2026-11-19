@@ -1,0 +1,371 @@
+{
+  "repo": "ForgeOS",
+  "url": "https://github.com/ReaperOAK/ForgeOS",
+  "description": "An SDLC engine of orchestrated agents for spec-driven development.",
+  "stars": 0,
+  "branch": "main",
+  "file_count": 3053,
+  "tree_sample": [
+    ".claude-plugin/marketplace.json",
+    ".claude/README.md",
+    ".claude/TOOL_MAPPING.md",
+    ".claude/agents/architect.md",
+    ".claude/agents/backend.md",
+    ".claude/agents/cireviewer.md",
+    ".claude/agents/cto.md",
+    ".claude/agents/devops.md",
+    ".claude/agents/documentation.md",
+    ".claude/agents/frontend.md",
+    ".claude/agents/productmanager.md",
+    ".claude/agents/qa.md",
+    ".claude/agents/research.md",
+    ".claude/agents/security.md",
+    ".claude/agents/ticketer.md",
+    ".claude/agents/todo.md",
+    ".claude/agents/uidesigner.md",
+    ".claude/agents/validator.md",
+    ".claude/commands/continue.md",
+    ".claude/commands/expensify.md",
+    ".claude/commands/figma-to-code.md",
+    ".claude/commands/start.md",
+    ".claude/commands/stop.md",
+    ".claude/commands/takeover.md",
+    ".claude/commands/ui-ux-pro-max.md",
+    ".claude/commands/weekly-history.md",
+    ".claude/hooks/agent-complete.sh",
+    ".claude/hooks/post-edit.sh",
+    ".claude/hooks/pre-tool.sh",
+    ".claude/hooks/session-start.sh",
+    ".claude/hooks/session-stop.sh",
+    ".claude/settings.json",
+    ".claude/skills/a11y/SKILL.md",
+    ".claude/skills/a11y/references/chunk-01.yaml",
+    ".claude/skills/a11y/references/chunk-02.yaml",
+    ".claude/skills/agent-protocols/SKILL.md",
+    ".claude/skills/agent-protocols/references/chunk-01.yaml",
+    ".claude/skills/agent-protocols/references/chunk-02.yaml",
+    ".claude/skills/ai-safety/SKILL.md",
+    ".claude/skills/ai-safety/references/chunk-01.yaml"
+  ],
+  "manifests": {
+    "stack": [
+      "\"Development Status :: 3 - Alpha\",",
+      "\"Intended Audience :: Developers\",",
+      "\"Programming Language :: Python :: 3\",",
+      "\"Programming Language :: Python :: 3.10\",",
+      "\"Programming Language :: Python :: 3.11\",",
+      "\"Programming Language :: Python :: 3.12\",",
+      "\"Topic :: Software Development :: Libraries\",",
+      "\"httpx",
+      "\"mcp",
+      "\"pydantic",
+      "\"pydantic-settings",
+      "\"pytest",
+      "\"pytest-asyncio",
+      "\"pytest-cov",
+      "\"ruff",
+      "@google/genai",
+      "@modelcontextprotocol/sdk",
+      "@openrouter/sdk",
+      "@types/express",
+      "@types/node",
+      "@types/pg",
+      "@typescript-eslint/eslint-plugin",
+      "@typescript-eslint/parser",
+      "@vitest/coverage-v8",
+      "Python",
+      "[build-system]",
+      "[project.optional-dependencies]",
+      "[project]",
+      "[tool.hatch.build.targets.wheel]",
+      "[tool.pytest.ini_options]",
+      "[tool.ruff.lint]",
+      "[tool.ruff]",
+      "]",
+      "asyncio_mode",
+      "authors",
+      "build-backend",
+      "classifiers",
+      "dependencies",
+      "description",
+      "dev",
+      "dotenv",
+      "eslint",
+      "express",
+      "husky",
+      "keywords",
+      "license",
+      "line-length",
+      "name",
+      "packages",
+      "pg",
+      "pino",
+      "pino-pretty",
+      "readme",
+      "requires",
+      "requires-python",
+      "select",
+      "target-version",
+      "testpaths",
+      "tree-sitter-wasms",
+      "tsx",
+      "typescript",
+      "version",
+      "vitest",
+      "web-tree-sitter",
+      "zod",
+      "{ name"
+    ],
+    "scripts": {
+      "forgeos-server/package.json": {
+        "build": "tsc && node scripts/copy-runtime-assets.mjs",
+        "start": "node dist/index.js",
+        "dev": "tsx watch src/index.ts",
+        "lint": "eslint \"src/**/*.{ts,tsx}\"",
+        "typecheck": "tsc --noEmit",
+        "migrate": "tsx src/db/migrate.ts",
+        "ingest:legacy-context": "tsx src/db/ingest-legacy-context.ts",
+        "seed:demo": "tsx src/db/seed-demo.ts",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "grammars:setup": "bash scripts/download-grammars.sh",
+        "prepare": "husky"
+      },
+      "hunter-agent/package.json": {
+        "dev": "tsx src/index.ts",
+        "start": "node dist/index.js",
+        "build": "tsc",
+        "watch": "tsx src/index.ts --watch",
+        "analyze": "tsx src/index.ts --issue",
+        "once": "tsx src/index.ts --once",
+        "setup": "bash scripts/setup.sh",
+        "test": "node --import tsx --test src/*.test.ts"
+      },
+      "integrations/corsair/package.json": {
+        "build": "tsc -p tsconfig.json",
+        "ingest": "tsx src/cli.ts",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage"
+      }
+    },
+    "ci_workflows": [
+      ".github/workflows/ai-code-review.yml",
+      ".github/workflows/ai-doc-sync.yml",
+      ".github/workflows/ai-sandbox-merge.yml",
+      ".github/workflows/ai-security-scan.yml",
+      ".github/workflows/ai-task-runner.yml",
+      ".github/workflows/ai-test-validator.yml",
+      ".github/workflows/memory-verify.yml"
+    ],
+    "schemas": [
+      "forgeos-server/src/db/migrations/001_initial.sql",
+      "forgeos-server/src/db/migrations/002-cutover-functions.sql",
+      "forgeos-server/src/db/migrations/002_add_event_types.notx.sql",
+      "forgeos-server/src/db/migrations/003-code-graph.sql",
+      "forgeos-server/src/db/migrations/004-pgvector.sql",
+      "forgeos-server/src/db/migrations/005-memory-engine.sql",
+      "forgeos-server/src/db/migrations/006-mxbai-embed-large.notx.sql",
+      "forgeos-server/src/db/migrations/007-compiled-prompt.sql",
+      "forgeos-server/src/db/migrations/008-prompt-compiler-foundation.sql",
+      "forgeos-server/src/db/migrations/009-prompt-compile-queue.sql",
+      "forgeos-server/src/db/migrations/010-agent-definitions.sql",
+      "forgeos-server/src/db/migrations/011-compile-stage-triggers.sql",
+      "forgeos-server/src/db/migrations/012-agent-embedding-unique.sql",
+      "forgeos-server/src/db/migrations/013-tickets-last-error.sql",
+      "infra/docker/postgres/init.sql"
+    ],
+    "specs": []
+  },
+  "git_intel": {
+    "total_mined": 100,
+    "inflection_points": [
+      {
+        "sha": "3cb1251",
+        "date": "2026-06-06T10:07:17Z",
+        "summary": "[hunter-agent] finalize quality fixes, max_tokens, and deploy",
+        "body": "- Set maxOutputTokens default to 9999999 (absurdly high, no truncation)\n- Extension tolerance: .ts \u2194 .tsx fallback in quality gate\n- Missing symbol checker: skip short tokens, try trimmed plurals\n- Empty draft fallback: Stage 3 \u2192 skip directly to Stage 5\n- Fix differentiation prompt: preserve full proposal, only add\n- Fix rg glob recursion in quality gate",
+        "is_inflection": true
+      },
+      {
+        "sha": "12c83b3",
+        "date": "2026-06-06T10:00:53Z",
+        "summary": "[hunter-agent] fix proposal truncation + differentiation degradation",
+        "body": "- Set maxOutputTokens default to 16384 (was 0/1024). DeepSeek V4 Flash\n  was truncating proposals at ~2700 chars \u2014 missing Alternative Solutions.\n- Fix differentiation prompt: preserve FULL proposal, only ADD to\n  Alternative Solutions. Was rewriting entire proposal shorter.",
+        "is_inflection": true
+      },
+      {
+        "sha": "86eda47",
+        "date": "2026-06-06T09:53:24Z",
+        "summary": "[hunter-agent] fix proposal quality: extension tolerance, empty draft fallback",
+        "body": "Three fixes:\n1. Source path validation now tries alternate extensions (.ts \u2194 .tsx)\n   so citing PersonalCardDetailsHeaderMenu.tsx works even when LLM says .ts\n2. Empty draft fallback: if Stage 3 produces 0 chars, skip directly to\n   Stage 5 (final proposal) with all competitor context, still passing\n   through quality gate\n3. Missing symbol checker now skips short tokens (<5 chars) and tries\n   trimmed plural forms before flagging as missing",
+        "is_inflection": true
+      },
+      {
+        "sha": "f73183c",
+        "date": "2026-06-06T09:33:53Z",
+        "summary": "[hunter-agent] fix quality gate rg glob to recurse subdirectories",
+        "body": "The glob pattern  doesn't recurse into src/libs, src/components etc.\nChanged to  so 40+ real symbols like ,\n aren't falsely flagged as missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "ee62f27",
+        "date": "2026-06-06T09:09:51Z",
+        "summary": "[hunter-agent] remove max_tokens cap, fix model",
+        "body": "- Remove max_tokens=1024 cap \u2014 was truncating proposals at ~700 words.\n  DeepSeek V4 Flash supports full output; no reason to limit.\n- max_tokens omitted from API call when set to 0 (default).\n- Set default model to deepseek/deepseek-v4-flash.\n- Fix submitter.ts to be async and run quality gate before posting.\n- Keep codex's investigation+quality improvements.\n- Clean compile, no type errors.",
+        "is_inflection": true
+      },
+      {
+        "sha": "0e29066",
+        "date": "2026-05-26T08:22:58Z",
+        "summary": "feat: Introduce ForgeOS MCP configuration and architecture documentation",
+        "body": "- Add .env and .env.example files for ForgeOS MCP server admin token configuration.\n- Create ARCHITECTURE_RECONSTRUCTION.md to outline the current architecture and identify contradictions.\n- Establish CHAOS_REPORT.md to summarize the current state and necessary improvements for ForgeOS MCP.\n- Develop GAP_ANALYSIS.md to highlight gaps in MCP effectiveness and VS Code GitHub Copilot adoption.\n- Draft RECONSTRUCTED_PRD.md to define the problem statement and goals for MCP-first Copilot cutover.\n- Summarize SECURITY_AUDIT_SUMMARY.md findings and required actions for secure MCP usage.\n- Define TARGET_ARCHITECTURE.md to establish principles and target state for MCP orchestration.\n- Document TECH_DEBT_REPORT.md to outline technical debt impacting operator experience.\n- Create a comprehensive TODO list for MCP and VS Code Copilot cutover tasks, including Dockerization and installer development.",
+        "is_inflection": true
+      },
+      {
+        "sha": "364320a",
+        "date": "2026-05-26T07:18:12Z",
+        "summary": "[TASK-COP-MCP002] WORK by Backend on ticketer-local (reaperoak)",
+        "body": "Document safe VS Code MCP setup with env-var-based token resolution\n\n- .vscode/mcp.json: Use ${FORGEOS_ADMIN_TOKEN} variable ref (no hardcoded creds)\n- README.md: Add 'VS Code MCP Setup (Safe)' section with 5-step flow\n- forgeos-server/README.md: Rewrite VS Code Setup section with security notes\n- infra/scripts/setup.sh: Add credential generation block \u2014 creates .env from\n  template, replaces default placeholder with openssl rand -hex 32, falls back\n  to python3 secrets if openssl unavailable. Updates next-steps banner.",
+        "is_inflection": true
+      },
+      {
+        "sha": "7cdb2cf",
+        "date": "2026-05-10T15:32:06Z",
+        "summary": "[TASK-COP-MCP001] Fix YAML frontmatter backticks in prompt files",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "3b58786",
+        "date": "2026-03-23T16:36:07Z",
+        "summary": "MCP standalone production: compile worker, migrations, README rewrite, 60+ tickets",
+        "body": "- Add compile-worker.ts (durable queue worker for stage compilation)\n- Add migrations 011-013 (compile triggers, agent embedding unique, last_error)\n- Add docker-compose.standalone.yml (PostgreSQL + Ollama + MCP one-command)\n- Add mcp-bridge.mjs (stdio-to-HTTP bridge for VS Code)\n- Rewrite README.md (1900 \u2192 172 lines, concise quick-start format)\n- Add VS Code one-click install badge\n- Add /ready health endpoint, update auth middleware\n- Seed 14 bundled agent definitions\n- Add PRD, architecture doc, research output\n- Create 53 TASK-INT + 7 TASK-MCP tickets with dependency graph\n- Update 15 agent definitions with tool loadouts\n- Update infra compose files for standalone compatibility",
+        "is_inflection": true
+      },
+      {
+        "sha": "e798dc4",
+        "date": "2026-03-23T08:27:15Z",
+        "summary": "fix: remove peer flags and update test routes",
+        "body": "Clean up package.json dependencies by removing incorrect peer dependency flags from multiple packages. Update test routes in auth middleware tests to use current API paths and methods.",
+        "is_inflection": true
+      },
+      {
+        "sha": "8cee0a8",
+        "date": "2026-03-15T16:54:12Z",
+        "summary": "[TASK-PC-BE-013] SECURITY complete by Security on local",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "7871166",
+        "date": "2026-03-15T16:46:18Z",
+        "summary": "[TASK-PC-BE-006] SECURITY complete by Security on local",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "7f84c35",
+        "date": "2026-03-15T16:45:27Z",
+        "summary": "[TASK-PC-BE-008] SECURITY complete by Security on local",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "846875d",
+        "date": "2026-03-14T18:02:49Z",
+        "summary": "[TASK-PC-BE-005] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "526d278",
+        "date": "2026-03-14T17:24:44Z",
+        "summary": "[TASK-PC-BE-003] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "c4f4fbc",
+        "date": "2026-03-14T16:12:52Z",
+        "summary": "[TASK-PC-BE-004] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "3e21c37",
+        "date": "2026-03-14T15:50:23Z",
+        "summary": "[TASK-PC-BE-003] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "2e712a9",
+        "date": "2026-03-14T15:45:21Z",
+        "summary": "[TASK-PC-BE-004] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "4c18455",
+        "date": "2026-03-14T15:35:56Z",
+        "summary": "[TASK-PC-BE-003] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "a0637f5",
+        "date": "2026-03-14T15:31:17Z",
+        "summary": "[TASK-PC-BE-004] BACKEND complete by Backend on reaperoak-linux",
+        "body": "Rework #1: implement 11-section packet validator + integration gate.\n\n- Create packet-validator.ts: REQUIRED_SECTIONS[11], validatePacketSections(), PacketValidationError\n- Create packet-validator.test.ts: 24 tests, 100% line coverage, 91.66% branch coverage\n- Fix PROMPT_ARCHITECT_SYSTEM: 7 -> 11 canonical sections per architecture doc \u00a75.1\n- Add validation gate in compileTicketPrompt(): throws PacketValidationError on invalid packets\n- Add 3 validation-failure tests + mock to compiler.test.ts (36 total tests, all pass)\n- npm run typecheck: PASS | eslint --max-warnings=0: PASS",
+        "is_inflection": true
+      },
+      {
+        "sha": "7b5593d",
+        "date": "2026-03-14T15:27:07Z",
+        "summary": "[TASK-PC-BE-002] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "fe02c72",
+        "date": "2026-03-14T15:14:31Z",
+        "summary": "feat: Introduce Prompt Compiler for deterministic execution packets",
+        "body": "- Added PRD for Prompt Compiler detailing vision, goals, and user flows.\n- Implemented ESLint configuration for TypeScript support.\n- Created unit tests for context hash computation and freshness evaluation.\n- Developed legacy context ingestion script to migrate existing agent content.\n- Added database migrations for compiled prompt fields and freshness metadata.\n- Implemented context hash service for deterministic hash computation and freshness validation.\n- Created prompt plan outlining the upgrade path for ForgeOS to a deterministic execution model.",
+        "is_inflection": true
+      },
+      {
+        "sha": "c29d06f",
+        "date": "2026-03-14T14:40:33Z",
+        "summary": "[TASK-PC-BE-001] SECURITY complete by Security on reaperoak",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "c5bd637",
+        "date": "2026-03-14T10:41:44Z",
+        "summary": "refactor: remove unused graph layout, filters, and ticket stream hooks",
+        "body": "- Deleted the graph layout implementation as it is no longer needed.\n- Removed the useFilters hook and its associated tests, which managed filter state from URL parameters.\n- Eliminated the useTicketStream hook and its tests for real-time ticket updates via WebSocket.\n- Cleaned up theme management and global styles, including Tailwind CSS configuration and type definitions.",
+        "is_inflection": true
+      },
+      {
+        "sha": "e69a982",
+        "date": "2026-03-12T14:45:45Z",
+        "summary": "feat: Update ticket JSON files to ensure proper formatting",
+        "body": "fix: Remove unnecessary file and update Docker Compose for PostgreSQL\n\nrefactor: Enhance logging in auth and config modules\n\nfeat: Implement ticket dependency graph tool for visualizing relationships\n\nchore: Add commit-msg and pre-commit hooks for validation and quality checks\n\nstyle: Improve TypeScript configuration and update vitest settings\n\nfix: Adjust ticket rejection handler to remove unnecessary agent name parameter",
+        "is_inflection": true
+      }
+    ],
+    "war_stories": [
+      {
+        "sha": "e798dc4",
+        "date": "2026-03-23T08:27:15Z",
+        "summary": "fix: remove peer flags and update test routes",
+        "body": "Clean up package.json dependencies by removing incorrect peer dependency flags from multiple packages. Update test routes in auth middleware tests to use current API paths and methods.",
+        "is_inflection": true
+      }
+    ]
+  },
+  "readme_length": 5086,
+  "raw_readme": "# Vibecoding\n\n[![MCP Server CI](https://github.com/Ticketer/ForgeOS/actions/workflows/mcp-server-ci.yml/badge.svg)](https://github.com/Ticketer/ForgeOS/actions/workflows/mcp-server-ci.yml)\n\n**Autonomous Software Agency Engine**\n\nAn adaptive, event-driven, elastic multi-worker orchestration system that\nsimulates a professional engineering organization \u2014 not a code generator.\n\nVersion 9.1.0 | Built on GitHub Copilot Agent Infrastructure\n\n## Install for Claude Code (plugin \u2014 fastest, no infra)\n\nRun the full ForgeOS engine inside Claude Code in **any** project \u2014 no Docker,\nno database, no MCP server required.\n\n```bash\n# 1. Add the marketplace, then install the plugin\nclaude plugin marketplace add reaperoak/ForgeOS\nclaude plugin install forgeos@forgeos\n```\n\nThen, in your project:\n\n```\ncd your-project && claude\n/forgeos:init          # scaffold the engine into ./.forgeos/ (once per project)\n/start <your vision>   # PRD \u2192 architecture \u2192 tickets, then build\n```\n\nThis installs 15 SDLC agents, a 14-stage ticket lifecycle, governance hooks,\nand 20+ skills. See [`plugin/forgeos/README.md`](plugin/forgeos/README.md) for\ndetails, and [`scripts/build-plugin.sh`](scripts/build-plugin.sh) to regenerate\nthe plugin from source. The optional PostgreSQL-backed MCP server below is a\nseparate, heavier deployment for multi-worker fleets.\n\n## Quick Start (self-hosted MCP server \u2014 optional)\n\n```bash\ngit clone https://github.com/Ticketer/ForgeOS.git\ncd ForgeOS\nmake setup   # checks prerequisites, installs deps, creates .env\nmake up      # starts PostgreSQL, MCP Server, and pgAdmin\nmake migrate && make seed  # apply schema and load sample data\n```\n\n---\n\n## VS Code MCP Setup (Safe \u2014 No Hardcoded Credentials)\n\nThe ForgeOS MCP server authenticates via Bearer token. To configure VS Code\nwithout committing secrets:\n\n### 1. Run setup (or copy the env template manually)\n\n```bash\nmake setup\n# OR manually:\ncp .env.example .env\n```\n\n### 2. Generate an admin token\n\nPick a strong random value and set it in `.env`:\n\n```bash\n# Generate a secure token\necho \"FORGEOS_ADMIN_TOKEN=$(openssl rand -hex 32)\" >> .env\n```\n\n### 3. Start the server (so the token takes effect)\n\n```bash\nmake up   # or: docker compose -f infra/docker-compose.yml up -d\n```\n\nThe server reads `FORGEOS_ADMIN_TOKEN` from `.env` at startup.\n\n### 4. Configure VS Code\n\nThe workspace ships with `.vscode/mcp.json` that references the token via\nVS Code's variable substitution:\n\n```jsonc\n{\n  \"servers\": {\n    \"forgeos\": {\n      \"type\": \"http\",\n      \"url\": \"http://localhost:3011/mcp\",\n      \"headers\": {\n        \"Authorization\": \"Bearer ${FORGEOS_ADMIN_TOKEN}\"\n      }\n    }\n  }\n}\n```\n\n`${FORGEOS_ADMIN_TOKEN}` is resolved from VS Code's own environment (which\ninherits from your shell, or from a `.env` file loaded by the\n[vscode-env](https://marketplace.visualstudio.com/items?itemName=PKief.vscode-env)\nextension, or via `\"terminal.integrated.env.linux\"` in settings).\n\n**Never** hardcode the token in `mcp.json` \u2014 always use the variable reference.\n\n### 5. Verify the connection\n\nOpen VS Code's MCP panel or check the DevTools console for:\n\n```\n[forgeos] connected to http://localhost:3011/mcp\n[forgeos] tools: tickets.next, tickets.claim, tickets.complete, \u2026\n```\n\n---\n\n## Vision\n\nAI tools generate code. They do not run engineering organizations.\n\nThe gap between \"AI writes a function\" and \"AI ships a product\" is\nenormous. Real engineering requires decomposition, dependency management,\nparallel execution, governance, quality gates, commit discipline, strategic\npivots, and continuous delivery \u2014 all coordinated across specialized roles with\nconflict-free concurrency.\n\nVibecoding closes that gap.\n\nIt is a programmable engineering organization that operates as an elastic,\nevent-driven agency engine. It decomposes work into tickets, assigns them to\nspecialized workers from auto-scaling pools, enforces a strict stage-based SDLC\nlifecycle per ticket, runs strategic planning concurrently with execution,\nand enforces distributed two-commit execution (CLAIM + WORK) with scoped git.\n\nThe result is not generated code. It is governed, reviewable, production-grade\nengineering output with full audit trails.\n\n---\n\n## High-Level Architecture\n\nVibecoding operates a **two-layer concurrent model** with no global phase\nbarriers. Strategic discovery and execution run simultaneously.\n\nThe runtime infrastructure consists of:\n\n- **ForgeOS MCP Server** (`forgeos-server/`) \u2014 TypeScript/Express service\n  exposing 19 tools (11 ticket-lifecycle + 3 code graph + 3 memory + 2 init)\n  over the Model Context Protocol (MCP) via Streamable HTTP transport.\n- **PostgreSQL 17** \u2014 Primary data store with Row-Level Security, stored\n  functions for atomic ticket operations, event-sourcing audit trail, and\n  `LISTEN/NOTIFY` for real-time Server-Sent Events.\n- **Real-Time Dashboard** \u2014 Live Kanban board at\n  **http://localhost:3011/dashboard** with SSE-driven updates, stage\n  filtering, and ticket detail views.\n\n```\nForgeOS Dispatcher (CTO / Elastic Multi-Worker Parallel Orchestrator)\n|\n+--- Strategic Layer ----------------------------------------\n|    Research Analyst      Evidence research, PoC, tech radar\n|    Product Manager       PRDs, user stories, requirements\n|    Architect             System design, ADRs, API contracts\n|    Security (strategic)  STRIDE, OWASP, threat models\n|    UIDesigner            Conceptual mockups, design specs\n|    DevOps (planning)     Infrastructure planning, capacity\n|    TODO                  Progressive task decomposition\n|\n+--- Execution Layer ----------------------------------------\n     Backend               Server code, APIs, business logic\n     Frontend              UI, WCAG 2.2 AA, Core Web Vitals\n     DevOps (execution)    CI/CD, Docker, IaC\n     QA                    Tests, mutation testing, E2E\n     Security (execution)  SBOM generation, vulnerability scans\n     Documentation         Diataxis, Flesch-Kincaid scoring\n     Validator             SDLC compliance, DoD enforcement\n     CI Reviewer           Complexity, lint, SARIF findings\n```\n\n**ForgeOS dispatcher** is the singular orchestrator. It never writes code. It selects\ntickets, assigns workers from elastic pools, drives each ticket through its\nlifecycle, reacts to events, and enforces commits. All inter-agent\ncommunication routes through the dispatcher \u2014 there is no direct agent-to-agent\nmessaging.\n\n### Key Properties\n\n- **Event-driven scheduling.** No global cycles. Workers are assigned tickets\n  the moment they become available. The scheduler wakes on events, not timers.\n- **Elastic worker pools.** Each agent role is backed by an auto-scaling pool\n  with configurable min/max capacity. Pools grow when backlog exceeds active\n  workers and shrink when workers idle.\n- **Ticket-based execution.** Every unit of work is a ticket. Every ticket\n  traverses a deterministic stage-based lifecycle. No exceptions.\n- **No global phases.** There is no \"planning phase\" followed by a \"build\n  phase.\" Strategic agents produce artifacts continuously. Execution agents\n  consume them as they become available.\n- **Adaptive roadmap evolution.** Strategy can change mid-execution via\n  Strategic Decision Records (SDRs). Only affected tickets are re-prioritized.\n  Unrelated work continues without interruption.\n\n---\n\n## Core Concepts\n\n### Ticket\n\nThe atomic unit of work. Each ticket has an ID, acceptance criteria, declared\nfile paths, priority, and dependency list. Tickets are produced by the TODO\nAgent through progressive refinement (Vision -> Capabilities -> Blocks -> Tasks)\nand enter the execution pipeline at the READY state.\n\n### Worker\n\nAn ephemeral, stateless agent instance spawned to process exactly one ticket.\nWorkers are identified by dynamic IDs (`BackendWorker-a1b2c3`,\n`FrontendWorker-d4e5f6`). A worker processes one ticket, completes its\nlifecycle, and terminates. No worker is ever reused across tickets.\n\n### Worker Pool\n\nEach agent role (Backend, Frontend, QA, etc.) is backed by an elastic pool\nwith defined minimum and maximum capacity. Pools auto-scale based on ticket\nbacklog: scale up when READY tickets exceed active workers, scale down when\nworkers idle beyond a configurable timeout.\n\n| Pool | Min | Max |\n|------|-----|-----|\n| Backend | 2 | 15 |\n| Frontend | 1 | 10 |\n| QA | 1 | 8 |\n| Research | 1 | 8 |\n| Security | 1 | 5 |\n| DevOps | 1 | 5 |\n| Documentation | 1 | 3 |\n| Validator | 1 | 3 |\n| CI Reviewer | 1 | 3 |\n| Product Manager | 1 | 3 |\n| Architect | 1 | 3 |\n| UIDesigner | 1 | 3 |\n\n### Strategic Decision Record (SDR)\n\nA versioned artifact produced when project direction needs to change\nmid-execution. SDRs follow a lifecycle: PROPOSED -> APPROVED -> APPLIED ->\nARCHIVED. Each approved SDR increments the roadmap minor version. SDRs enable\ncontrolled pivots without halting unaffected work.\n\n### Event Queue\n\nAn ordered log of all system events. The ForgeOS dispatcher consumes events and routes\nthem to the appropriate handler. Event types include TASK_STARTED,\nTASK_COMPLETED, TASK_FAILED, WORKER_SPAWNED, WORKER_TERMINATED,\nPOOL_SCALED_UP, POOL_SCALED_DOWN, SDR_PROPOSED, SDR_APPROVED,\nCONFLICT_DETECTED, REWORK_TRIGGERED, STALL_WARNING, and others.\n\n### Ticket State Machine\n\nEvery ticket traverses a defined subset of 11 stages based on its type. No\nstage may be skipped. The flow is enforced by `tickets.py`.\n\n```\nAvailable Stages: READY | ARCHITECT | RESEARCH | BACKEND | FRONTEND | QA | SECURITY | CI | DOCS | VALIDATION | DONE\n```\n\n| Type | Flow |\n|------|------|\n| backend | READY \u2192 BACKEND \u2192 QA \u2192 SECURITY \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| frontend | READY \u2192 FRONTEND \u2192 QA \u2192 SECURITY \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| fullstack | READY \u2192 BACKEND \u2192 FRONTEND \u2192 QA \u2192 SECURITY \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| infra | READY \u2192 BACKEND \u2192 QA \u2192 SECURITY \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| security | READY \u2192 SECURITY \u2192 QA \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| docs | READY \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| research | READY \u2192 RESEARCH \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| architecture | READY \u2192 ARCHITECT \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n\nREWORK is a side-state (failure path) entered when QA, Security, Validator, or CI\nReviewer rejects output. Maximum 3 combined rework attempts before escalation\nto the operator.\n\n### Conflict Detection\n\nBefore assigning a ticket, the scheduler checks for conflicts with all\nin-flight tickets across 6 dimensions: file path overlap, directory subtree\noverlap, database schema collision, infrastructure resource contention,\nshared config modification, and mutual exclusion flags.\n\n### Elastic Scaling\n\nWorker pools grow and shrink dynamically. When 5 READY tickets appear for a\nrole with 2 active workers, the pool scales to 5. When backlog clears and\nworkers idle, the pool contracts back toward its minimum. This simulates\nhiring and releasing engineers based on workload \u2014 without the overhead.\n\n---\n\n## Parallelism Model\n\nVibecoding achieves true parallel execution through a continuous scheduling\nloop that batches conflict-free tickets and dispatches them simultaneously.\n\n### Principles\n\n- **One worker = one ticket.** Strictly enforced. A worker that references\n  any ticket other than its assigned one is immediately terminated.\n- **Multiple workers per role.** The Backend pool can run 15 concurrent\n  workers. The Frontend pool can run 10. Each processes its own ticket\n  independently.\n- **Auto-scaling pools.** Worker count adjusts to backlog size within\n  configured bounds.\n- **Independent ticket lifecycles.** Each ticket progresses through the\n  stage-based lifecycle at its own pace. There is no synchronization barrier.\n- **No artificial batching.** Tickets are dispatched as soon as they are\n  ready and a worker is available. No waiting for \"all tickets in a phase\"\n  to complete.\n- **Continuous scheduler.** The scheduling loop runs on every event, not on\n  a timer.\n\n### Scheduling Loop (Pseudocode)\n\n```\nloop:\n    # Auto-Scale Phase\n    for each pool:\n        ready_count = count(tickets where state=READY and role=pool.role)\n        if ready_count > pool.active and pool.active < pool.maxSize:\n            scale_up(pool, min(ready_count, pool.maxSize))\n\n    # Assignment Phase\n    batch = []\n    for ticket in ready_tickets (sorted by priority):\n        if all_dependencies_done(ticket):\n            conflicts = detect_conflicts(ticket, in_flight_tickets + batch)\n            if no conflicts:\n                worker = spawn_worker(ticket.role)\n                batch.append((ticket, worker))\n                transition(ticket, LOCKED)\n\n    # Parallel Dispatch Phase\n    parallel_launch(batch)\n\n    await next_event()\n```\n\nAll workers in a batch execute concurrently. Workers of the same role share\nno state between instances.\n\n---\n\n## SDLC Enforcement\n\nEvery ticket traverses a mandatory stage-based lifecycle per its type. No\nstage may be skipped. No shortcut exists. This is not optional governance \u2014\nit is the execution model.\n\n```\nAvailable Stages: READY | ARCHITECT | RESEARCH | BACKEND | FRONTEND | QA | SECURITY | CI | DOCS | VALIDATION | DONE\n```\n\n| Stage | Description |\n|-------|-------------|\n| READY | Dependencies met, eligible for assignment |\n| ARCHITECT | Architecture design, ADRs, API contracts |\n| RESEARCH | Evidence-based research, PoC, analysis |\n| BACKEND | Server-side implementation, APIs, business logic |\n| FRONTEND | UI implementation, components, layouts |\n| QA | QA Engineer reviews test coverage (>=80%), functional verification |\n| SECURITY | Security Engineer performs STRIDE + OWASP review |\n| CI | CI Reviewer checks lint, types, complexity |\n| DOCS | Documentation Specialist updates relevant artifacts |\n| VALIDATION | Validator independently verifies 10-item Definition of Done |\n| DONE | Full lifecycle complete, worker released |\n\n### Enforcement Rules\n\n- **No skipping.** Guard conditions enforce every transition.\n- **Two-commit required.** Each stage requires CLAIM commit then WORK commit.\n- **Scoped changes only.** Commits must stage explicit ticket files only.\n- **Ticket isolation.** A worker that modifies files outside its declared\n  scope is rejected at QA.\n- **Shared rework counter.** QA rejections, Validator rejections, and CI\n  rejections share one counter. Three combined failures trigger escalation.\n\n### Definition of Done (10 Items)\n\nEvery ticket must satisfy all items. The Validator independently verifies\neach one. No exceptions without operator override.\n\n1. Code implemented (all acceptance criteria met)\n2. Tests written (>=80% coverage for new code)\n3. Lint passes (zero errors, zero warnings)\n4. Type checks pass\n5. CI passes (all workflow checks green)\n6. Docs updated (JSDoc/TSDoc, README if applicable)\n7. Reviewed by Validator (independent review)\n8. No console errors (structured logger only)\n9. No unhandled promises\n10. No TODO comments in code\n\n---\n\n## Strategic Evolution\n\nStrategy is not static. Vibecoding supports controlled mid-execution pivots\nthrough the SDR (Strategic Decision Record) protocol.\n\n### How It Works\n\n1. A strategic-layer agent (Research, Architect, Product Manager) identifies\n   a necessary direction change and proposes an SDR.\n2. The ForgeOS dispatcher evaluates the SDR. Scope expansions require operator approval.\n   Priority reshuffling can be auto-approved.\n3. On approval, affected tickets are re-prioritized, new tickets are generated\n   by the TODO Agent, and obsolete tickets are cancelled.\n4. The roadmap version increments (v1.0 -> v1.1 -> v1.2).\n5. Unaffected tickets continue execution without interruption.\n\n### Properties\n\n- **Only affected tickets pause.** A strategy pivot does not trigger a global\n  reset. Workers processing unrelated tickets continue uninterrupted.\n- **Roadmap versioning.** Each SDR creates a traceable version increment.\n  The full history of strategic evolution is preserved.\n- **No global reset.** The system never stops and replans from scratch. It\n  adapts incrementally.\n- **Controlled pivots.** Every change is documented, approved, and versioned.\n  No silent scope creep.\n\n---\n\n## UI/UX Hard Gating\n\nUI-touching tickets are subject to a hard enforcement gate \u2014 not a soft\nflag. Frontend workers cannot begin execution until design artifacts exist.\n\n### Requirements\n\nBefore a UI-touching ticket transitions from READY to LOCKED for a Frontend\nworker, all of the following must be verified:\n\n- Stitch mockup file exists at the designated path\n- Mockup approved by UIDesigner (status: APPROVED)\n- Component inventory listed\n- Responsive breakpoints defined\n- Accessibility annotations present\n\n### Enforcement\n\n- If any artifact is missing, the ticket is **blocked**. It cannot proceed.\n- If UIDesigner reports completion but artifacts are missing on disk, the\n  completion is rejected and the UIDesigner is re-delegated with specific\n  missing file paths.\n- Backend tickets that are not UI-touching bypass this gate entirely.\n- Override requires explicit operator approval, logged in the decision log.\n\n### Tooling\n\nUIDesigner produces mockups via Google Stitch MCP integration and validates\nthem with Playwright for visual regression. Design tokens, component specs,\nand responsive breakpoints are delivered as structured artifacts that Frontend\nworkers consume directly.\n\n### Design System Artifacts\n\n| Artifact | Path | Description |\n|----------|------|-------------|\n| Design Tokens | `docs/uiux/design-tokens.json` | Dark/light themes, typography, spacing, breakpoints, shadows, z-index, transitions |\n| Layout Specification | `docs/uiux/layout-spec.md` | Shell architecture, responsive matrix, 40+ component hierarchy, WCAG 2.2 AA |\n| Mockup Specification | `docs/uiux/mockups/` | Screen-level mockups, component props, user flows, accessibility checklist |\n\n---\n\n## Intelligence Features\n\nBeyond ticket orchestration, ForgeOS includes a cognitive intelligence layer\nthat makes agents context-aware and self-improving.\n\n### Code Graph Engine (Phase 2)\n\nAST-based code understanding powered by tree-sitter WASM parsers. The MCP\nServer parses source files into a dependency graph stored in PostgreSQL.\n\n| Tool | Purpose |\n|------|---------|\n| `code.blast_radius` | Compute which files and symbols are affected by a change |\n| `code.search_symbols` | Search functions, classes, and methods by name pattern |\n| `code.get_imports` | Trace the transitive import chain of a file |\n\nSupported languages: TypeScript, JavaScript, Python, SQL (regex fallback for\nothers).\n\n### Memory Engine (Phase 3)\n\nVector-based lesson storage using pgvector and OpenAI embeddings. Agents\nrecord lessons from rework cycles, and future agents retrieve relevant\npast lessons via semantic search.\n\n| Tool | Purpose |\n|------|---------|\n| `memory.add_lesson` | Record a lesson with automatic embedding |\n| `memory.search_lessons` | Semantic similarity search over past lessons |\n| `memory.get_context` | Unified context for ticket dispatch (blast radius + lessons) |\n\n### Drop-In Initialization (Phase 4)\n\nZero-config project onboarding. Index a new codebase and auto-detect its\ntech stack in two tool calls.\n\n| Tool | Purpose |\n|------|---------|\n| `init.index` | Parse and index all source files into the code graph |\n| `init.orient` | Auto-discover frameworks, languages, entry points |\n\nFor setup instructions, see the\n[Intelligence Setup Guide](docs/operations/intelligence-setup.md).\nFor architecture details, see the\n[Intelligence Architecture](docs/architecture/intelligence-architecture.md).\n\n---\n\n## Required MCP and Tooling\n\nVibecoding is built on the Model Context Protocol (MCP) ecosystem. While\ncore orchestration logic operates with minimal tooling, maximum value is\nachieved when connected to the full stack.\n\nThe ForgeOS MCP Server exposes 19 tools via the MCP protocol: 11 ticket\nlifecycle tools, 3 code graph tools, 3 memory engine tools, and 2\ninitialization tools.\n\nFor complete input/output schemas, error codes, and usage examples, see the\n[MCP Tool Definition Schemas](docs/architecture/api/mcp-tool-definitions.md)\nreference document and the\n[Intelligence Architecture](docs/architecture/intelligence-architecture.md)\nfor Phase 2\u20134 tool specifications.\n\nThe **Agent Registration API** (`/api/admin/*`) enables programmatic agent\nlifecycle management \u2014 registration with one-time API key generation, key\nrevocation, deregistration, and MCP session association. See the\n[Admin API](forgeos-server/README.md#admin-api-apiadmin) section in the\nForgeOS Server documentation for endpoint details.\n\n### Core (Required)\n\n| Tool | Purpose |\n|------|---------|\n| Code execution MCP | Terminal access for builds, tests, linting |\n| File system MCP | File read/write/search across the workspace |\n| Git integration | Commit enforcement, branch management, diff analysis |\n\n### Recommended\n\n| Tool | Purpose |\n|------|---------|\n| GitHub / GitLab API | Issue tracking, PR creation, code search |\n| Stitch MCP | UI mockup generation, design iteration |\n| Playwright MCP | Browser automation, E2E testing, visual validation |\n| Container / Docker tooling | Staging environments, isolated builds |\n| CI pipeline integration | Automated lint, type check, test execution |\n| MongoDB MCP | Database operations, schema management |\n| Sentry MCP | Error monitoring, issue tracking, trace analysis |\n| Terraform MCP | Infrastructure as Code, provider/module management |\n\n### Optional Enhancements\n\n| Tool | Purpose |\n|------|---------|\n| Redis | Event queue persistence, distributed state |\n| Message queue system | Durable event routing at scale |\n| Secret management | Vault integration for credential handling |\n| Firecrawl MCP | Web scraping, research automation |\n| Memory MCP | Cross-session knowledge graph persistence |\n\nCore logic works without all tools. Each additional integration expands the\nsystem's operational surface \u2014 from basic code generation to full-stack\nautonomous delivery.\n\n---\n\n## Repository Structure\n\n```\n.github/\n  agents/                  14 agent definitions (*.agent.md) with YAML frontmatter\n                           Includes role, tools, permissions, forbidden actions\n  tickets/                 Ticket JSON files + schema (`ticket-schema.json`)\n  ticket-state/            Legacy compatibility snapshots (not runtime state)\n  agent-output/            Stage handoff summaries (`{Agent}/{ticket-id}.md`)\n  memory-bank/             Persistent shared state (9 files + schema)\n                           activeContext, progress, decisionLog, riskRegister,\n                           systemPatterns, productContext, workflow-state,\n                           artifacts-manifest, feedback-log\n  vibecoding/\n    catalog.yml            Semantic tag-to-chunk mapping (15 domains)\n    index.json             Master file index with content hashes\n    chunks/                Token-budgeted YAML instruction chunks (~35 dirs, ~93 files)\n                           Each agent has a chunk directory with detailed protocols\n  tasks/                   Delegation schemas, claim schemas, merge protocol,\n                           Definition of Done template, initialization checklist\n  guardian/                Circuit breaker (STOP_ALL), loop detection rules\n  sandbox/                 Tool ACL definitions per agent\n  observability/           Agent trace event schema\n  workflows/               CI: task runner, sandbox merge, memory verify,\n                           code review, doc sync, security scan, test validation\n  hooks/                   Governance audit, session logger, auto-commit\n  tickets.py               Distributed ticket state manager (`--sync --claim --advance`)\n  agent-runner.py          Two-commit stage runner (CLAIM commit + WORK commit)\n  proposals/               Self-improvement proposals (PROP-*.md)\n  locks/                   File lock schema for concurrent access\n  archives/                Historical orchestration artifacts\n  ARCHITECTURE.instructions.md          Full system topology (1960 lines, 32 sections)\n  security.agentic-guardrails.instructions.md   Threat models, MCP isolation\n  orchestration.rules.instructions.md   DAG protocol, confidence gates, token tracking\n\nagents.md                  Boot protocol loaded on every agent interaction\n                           Safety checks, context loading, chunk routing\n\ndatabase/                  Database seeding tools (Python, psycopg2)\n  seed.py                  CLI script \u2014 imports ticket JSON into PostgreSQL\n  seed_data/               Sample ticket JSON for development environments\n  tests/                   Pytest tests for the seed module (68 tests, 95% coverage)\n\nforgeos-server/            TypeScript MCP Server (Express + PostgreSQL 17)\n  src/\n    server.ts              Express app with MCP Streamable HTTP transport\n    config.ts              Zod-validated environment configuration\n    db/                    Connection pool, migrations, seed, file-mutex\n    tools/                 MCP tool handlers (claim, advance, reject, etc.)\n    api/                   REST + SSE routes (tickets, stages, events, admin)\n    auth/                  Agent registration, API key management\n    dashboard/             Static Kanban dashboard (HTML/CSS/JS)\n    middleware/            Logging, error handling, validation\n    webhooks/              GitHub push reconciliation\n  docker-compose.yml       PostgreSQL + PgBouncer + MCP Server\n  Dockerfile               Multi-stage Docker build\n\ndashboard/                 Next.js 14+ dashboard (App Router + Tailwind CSS)\n  src/app/                 App Router pages (overview, health check)\n  src/components/          React components (sidebar, metric cards, etc.)\n  src/lib/                 API client, theme provider, types\n  src/styles/              CSS custom properties (design tokens)\n\ninfra/                     Infrastructure and DevOps\n  docker-compose.yml       Production Docker stack\n  scripts/                 setup.sh, seed.sh, backup.sh, restore.sh\n  config/                  Environment profiles (settings.py)\n  monitoring/              Prometheus + Grafana stack\n\nTODO/                      Task decomposition artifacts\n  vision.md                L0 vision + L1 capabilities\n  capabilities.md          L1 capability details with status\n  blocks/                  L2 execution blocks per capability\n  tasks/                   L3 actionable tickets per block\n  micro/                   L4 micro-tasks (optional granularity)\n```\n\n---\n\n## Example Execution Flow\n\n**Scenario:** 5 conflict-free READY tickets trigger elastic pool spawning.\nThe ForgeOS dispatcher launches 5 workers in parallel. One triggers a strategic review.\nOnly that ticket pauses. The others continue to completion.\n\n```\nT+0:00   Scheduler detects 5 READY tickets:\n           FE-001 (Frontend)  -- login form\n           FE-002 (Frontend)  -- dashboard sidebar\n           BE-010 (Backend)   -- user API endpoint\n           BE-011 (Backend)   -- auth middleware\n           DO-003 (DevOps)    -- Docker staging config\n\nT+0:01   Conflict detection: no overlapping file paths.\n         All 5 cleared for parallel dispatch.\n\nT+0:02   Auto-scaling:\n           Frontend pool: 0 -> 2 workers\n           Backend pool:  0 -> 2 workers\n           DevOps pool:   0 -> 1 worker\n\nT+0:03   Parallel dispatch -- 5 simultaneous worker spawns:\n           FrontendWorker-f1a2 -> FE-001\n           FrontendWorker-f3b4 -> FE-002\n           BackendWorker-b5c6  -> BE-010\n           BackendWorker-b7d8  -> BE-011\n           DevOpsWorker-d9e0   -> DO-003\n\nT+20:00  BE-011 completes -> enters post-execution chain\n         QA PASS -> Validator APPROVED -> Docs updated -> CI PASS\n         CLAIM + WORK commits complete\n         BE-011 -> DONE. Worker terminated.\n\nT+22:00  BE-010 triggers NEEDS_INPUT_FROM (Architect).\n         BE-010 pauses at BACKEND. Dispatcher routes question.\n         All other tickets continue unaffected.\n\nT+25:00  FE-001 completes -> full chain -> DONE\n         CLAIM + WORK commits complete\n\nT+28:00  Architect responds. BE-010 resumes.\n\nT+33:00  BE-010 completes -> full chain -> DONE\n         CLAIM + WORK commits complete\n\nT+35:00  DO-003 completes -> full chain -> DONE\n         CLAIM + WORK commits complete\n\nT+40:00  FE-002 completes -> full chain -> DONE\n         CLAIM + WORK commits complete\n\nT+40:01  All pools at 0 active. System idle.\n\nCommit history: scoped CLAIM/WORK commit pairs with full traceability.\n```\n\nEach ticket progressed independently. The strategic pause on BE-010 affected\nonly BE-010. Every other ticket completed its full lifecycle without delay.\n\n---\n\n## Scaling Model\n\nVibecoding models engineering team scaling as elastic pool management.\n\n### How Scaling Works\n\n- **Backlog drives capacity.** When READY tickets for a role exceed active\n  workers, the pool expands. When backlog clears, it contracts.\n- **Min/max bounds.** Every pool has a floor (minimum capacity reserved for\n  responsiveness) and a ceiling (maximum concurrent workers to prevent\n  resource exhaustion).\n- **No pre-allocation.** Workers are spawned on demand. There are no idle\n  workers consuming resources when there is no work.\n- **Cooldown period.** After scaling up, a brief cooldown prevents\n  oscillation before the next scaling decision.\n\n### Scaling Analogy\n\n| Engineering Org | Vibecoding |\n|-----------------|------------|\n| Hire contractors for a sprint | Pool scales up when backlog grows |\n| Release contractors after delivery | Pool scales down when workers idle |\n| Minimum team size for support | minSize keeps baseline capacity |\n| Headcount cap from budget | maxSize prevents unbounded growth |\n\n### Future: Economic-Aware Scaling\n\nPlanned extensions include cost-weighted priority scoring, where ticket\npriority factors in estimated resource cost and business impact. High-ROI\ntickets would be scheduled preferentially during constrained capacity.\n\n---\n\n## Who This Is For\n\n- **AI-native dev agencies** replacing manual engineering coordination with\n  autonomous orchestration\n- **Technical founders** who need engineering discipline without a full team\n- **Venture-backed startups** moving from prototype to production with\n  governance from day one\n- **Internal platform teams** building autonomous delivery pipelines\n- **Research labs** exploring multi-agent software engineering at scale\n- **Venture studios** operating multiple product lines with shared\n  infrastructure\n- **Infra/platform engineers** designing next-generation CI/CD beyond\n  static pipelines\n\n---\n\n## What This Is NOT\n\n- **Not a prompt collection.** There are no \"awesome prompts\" here. This is\n  a state machine with governance, scheduling, and lifecycle enforcement.\n- **Not a code generator.** Code generation is a side effect. The system's\n  value is in orchestration, parallelism, quality gates, and commit\n  discipline.\n- **Not a single-agent copilot.** There are 14 specialized agents with\n  defined scopes, permissions, and tool access. They do not freelance.\n- **Not a chat-based dev assistant.** There is no conversational loop.\n  Tickets enter a pipeline and exit as committed, reviewed, documented code.\n\nIt is a programmable engineering organization.\n\n---\n\n## Roadmap\n\n### Near-Term\n\n- Economic-aware scaling (cost-weighted ticket prioritization)\n- Revenue-impact scheduling (business value drives execution order)\n- Sprint simulation (time-boxed execution windows with velocity tracking)\n- Incident response loop (production alerts trigger diagnostic tickets)\n\n### Medium-Term\n\n- Feature flag integration (progressive rollout gating per ticket)\n- Release gating (staging-to-production promotion with approval workflow)\n- Cross-repository orchestration (multi-repo monorepo-style coordination)\n- Budget-aware pool sizing (token cost tracking per worker, per ticket)\n\n### Long-Term\n\n- Self-optimizing scheduling (historical performance data drives\n  ticket estimation and worker allocation)\n- Autonomous dependency updates (security patches as auto-generated tickets)\n- Multi-org federation (shared worker pools across organizational boundaries)\n\n---\n\n## Installation and Usage\n\n### Prerequisites\n\n- Docker and Docker Compose (v2+)\n- VS Code with GitHub Copilot (Agent Mode)\n- Git configured with commit permissions\n- Node.js 22+ / Python 3.12+ (for local development without Docker)\n\n### Setup\n\n```bash\n# Clone the repository\ngit clone https://github.com/Ticketer/ForgeOS.git\ncd ForgeOS\n\n# One-command setup \u2014 checks prerequisites, installs deps, creates .env\nmake setup\n\n# Start all services (PostgreSQL 17, MCP Server, pgAdmin)\nmake up\n\n# Apply database migrations and load sample data\nmake migrate && make seed\n```\n\nThe live Kanban dashboard is available at **http://localhost:3011/dashboard**.\n\n### Configuration\n\n1. **MCP Connections.** Configure required MCP servers in your VS Code\n   settings. At minimum: file system, terminal, and Git access.\n\n2. **Worker Pool Sizes.** Pool bounds are defined in the dispatcher agent\n  definition at `.github/agents/Ticketer.agent.md` (Section 7). Adjust\n   `minSize` and `maxSize` per role based on your workload profile.\n\n3. **Git Provider.** Ensure Git is configured for the target repository.\n  The dispatcher enforces two-commit protocol per stage with explicit scoped staging.\n\n4. **Optional Integrations.** Connect Stitch MCP for UI design, Playwright\n   for E2E testing, Sentry for monitoring, MongoDB for data operations,\n   Terraform for infrastructure \u2014 each expands the system's operational\n   surface.\n\n### Local Development with Docker\n\nThe `infra/` directory contains a Docker Compose stack for running the full\nForgeOS platform locally. Three services start with a single command:\nPostgreSQL 17, the MCP Server, and pgAdmin.\n\nA root `Makefile` wraps all common operations. Run `make help` to list every\navailable target.\n\n```bash\n# First-time setup \u2014 checks prerequisites, installs deps, creates .env\nmake setup\n\n# Start all services (Postgres, MCP server, pgAdmin)\nmake up\n\n# Apply database migrations and load sample data\nmake migrate\nmake seed\n\n# Run the full test suite\nmake test\n\n# Show all available targets\nmake help\n```\n\n| Target | Purpose |\n|--------|---------|\n| `make up` | Start services in dev mode (detached) |\n| `make down` | Stop containers, preserve volumes |\n| `make restart` | Stop then start all services |\n| `make migrate` | Apply pending database migrations |\n| `make seed` | Load sample ticket data |\n| `make test` | Run vitest test suite |\n| `make logs` | Tail logs for all services |\n| `make lint` | Run ESLint + Ruff linters |\n| `make clean` | Remove build artefacts and stopped containers |\n\n| Service    | URL                    |\n|------------|------------------------|\n| MCP Server | http://localhost:3011   |\n| PostgreSQL | localhost:5432          |\n| pgAdmin    | http://localhost:5050   |\n\nSee [`infra/README.md`](infra/README.md) for the full setup guide, including\nenvironment variables, secrets, debugging, and troubleshooting.\n\n### Database Seed Script\n\nThe seed script at `database/seed.py` imports ticket JSON files into the\nPostgreSQL `tickets` table.  It validates each ticket against the schema,\nmaps JSON stage values to database enums, and uses upsert semantics so\nduplicates are skipped rather than causing errors.\n\n```bash\n# Import all tickets from .github/tickets/ (default source)\npython database/seed.py\n\n# Import from sample data for development\npython database/seed.py --source database/seed_data/sample_tickets.json\n\n# Validate without writing to the database\npython database/seed.py --dry-run\n\n# Use a custom database URL\nDATABASE_URL=postgresql://user:pass@host:5432/db python database/seed.py\n\n# Enable debug logging\npython database/seed.py --verbose\n```\n\n| Option | Description |\n|--------|-------------|\n| `--source PATH` | JSON file (array) or directory of ticket JSONs. Defaults to `.github/tickets/`. |\n| `--database-url URL` | PostgreSQL connection string. Defaults to `DATABASE_URL` env var or `postgresql://forgeos:forgeos@localhost:5432/forgeos`. |\n| `--dry-run` | Validate and transform tickets without inserting. |\n| `--verbose`, `-v` | Enable debug-level logging. |\n\nThe script reports a summary of imported, skipped, and failed tickets on\ncompletion.  Exit code is `0` when all tickets succeed and `1` when any\nticket fails validation or insertion.\n\nSample data at `database/seed_data/sample_tickets.json` provides 7\nrepresentative tickets across 6 types (`architecture`, `backend`, `docs`,\n`frontend`, `fullstack`, `research`, `security`) for local development.\n\n### Continuous Integration\n\nThe MCP Server CI workflow (`.github/workflows/mcp-server-ci.yml`) runs\nautomatically on every push to `main` and on pull requests. It validates\nthe TypeScript `forgeos-server`.\n\n| Job | What it checks | Timeout |\n|-----|----------------|---------|  \n| TS Lint & Type Check | ESLint + TypeScript compiler (Node.js 22) | 5 min |\n| TS Tests | Vitest with coverage, PostgreSQL 17 service container | 8 min |\n| Docker Build | Multi-stage image build verification (no push) | 8 min |\n| CI Gate | Aggregation \u2014 fails if any upstream job fails | 1 min |\n\nPath filters restrict the workflow to changes in `forgeos-server/`\nor the workflow file itself. Concurrency control cancels\nin-progress runs when a newer commit is pushed to the same branch.\n\nCoverage artifacts are uploaded with 7-day retention.\n\n### Starting the Engine\n\nInvoke the ForgeOS dispatcher in GitHub Copilot Agent Mode. The boot protocol\n(`agents.md`) loads automatically, reads memory bank state, checks the\nguardian circuit breaker, and initializes the scheduling loop.\n\nFrom there, provide a project vision or feature request. The dispatcher will:\n\n1. Invoke the TODO Agent to decompose work into tickets\n2. Evaluate ticket dependencies and build the execution DAG\n3. Assign workers from elastic pools to conflict-free READY tickets\n4. Drive each ticket through its stage-based lifecycle\n5. Produce scoped CLAIM/WORK commits with full audit trails\n\n---\n\n## License\n\nSee [LICENSE](LICENSE) for details.\n\n---\n\n**Vibecoding** is infrastructure, not a tool.\n\nIt does not write code for you. It runs an engineering organization for you.\n"
+}

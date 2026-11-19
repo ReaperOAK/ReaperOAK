@@ -1,0 +1,1068 @@
+{
+  "summary": {
+    "tier_1_flagships": [
+      "todayeggrates",
+      "ForgeOS",
+      "vibecoding",
+      "id-card-maker",
+      "survivorship-free-backtester",
+      "CodebaseRAG",
+      "KCAdashboard"
+    ],
+    "tier_2_utilities": [
+      "neetcode-submissions",
+      "csefarewell2k25",
+      "accounts",
+      "bag-manufacturer",
+      "TicketVault",
+      "festify",
+      "chesscodex",
+      "auction-player-assigner",
+      "player-auction",
+      "eventure",
+      "reddit-post",
+      "bulk-certificate-generator",
+      "ms-rewards",
+      "PalBro",
+      "linearecta",
+      "tradingviewAPI"
+    ],
+    "tier_3_archive": [
+      "python-cli-alarm-clock",
+      "VMN",
+      "ReaperOAK.tab-nuke-1.0.0",
+      "ReaperOAK.terminal-sniper-1.0.0",
+      "trpPDPL",
+      "hashfame",
+      "odoo-final-2025",
+      "social",
+      "odoo2k25",
+      "faceless",
+      "autosolveAI",
+      "sem3",
+      "isl_prototype_test",
+      "WeatherApp",
+      "airbnb",
+      "Simple-Nav-Bar",
+      "openweatherAPI",
+      "Spotify-Clone",
+      "whatsapp",
+      "QuoraApp",
+      "Simon-Says"
+    ],
+    "skipped": [
+      "owaiskhan-website",
+      "App",
+      "portfolio",
+      "ReaperOAK",
+      "ai-home",
+      "cheating-daddy",
+      "openclaw",
+      "Code_compiler"
+    ],
+    "missing_readme": [
+      "id-card-maker",
+      "trpPDPL",
+      "sem3",
+      "isl_prototype_test",
+      "PalBro"
+    ],
+    "stub_readme": [
+      "linearecta",
+      "WeatherApp",
+      "airbnb",
+      "Simple-Nav-Bar",
+      "tradingviewAPI",
+      "openweatherAPI",
+      "Spotify-Clone",
+      "whatsapp",
+      "QuoraApp",
+      "Simon-Says"
+    ]
+  },
+  "repositories": [
+    {
+      "name": "owaiskhan-website",
+      "url": "https://github.com/ReaperOAK/owaiskhan-website",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-12T15:00:17Z",
+      "default_branch": "master",
+      "tier": "SKIPPED",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 512,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "todayeggrates",
+      "url": "https://github.com/ReaperOAK/todayeggrates",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-12T05:00:09Z",
+      "default_branch": "main",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 307,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "App",
+      "url": "https://github.com/ReaperOAK/App",
+      "is_private": false,
+      "is_fork": true,
+      "stars": 0,
+      "description": "Welcome to New Expensify: a complete re-imagination of financial collaboration, centered around chat. Help us build the next generation of Expensify by sharing feedback and contributing to the code.",
+      "updated_at": "2026-11-09T21:42:01Z",
+      "default_branch": "main",
+      "tier": "FORK_SKIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 916,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "ForgeOS",
+      "url": "https://github.com/ReaperOAK/ForgeOS",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "An SDLC engine of orchestrated agents for spec-driven development.",
+      "updated_at": "2026-10-08T06:58:59Z",
+      "default_branch": "main",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 5086,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "portfolio",
+      "url": "https://github.com/ReaperOAK/portfolio",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-10-24T17:08:38Z",
+      "default_branch": "main",
+      "tier": "SKIPPED",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 817,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "ReaperOAK",
+      "url": "https://github.com/ReaperOAK/ReaperOAK",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-10-24T17:08:26Z",
+      "default_branch": "main",
+      "tier": "SKIPPED",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 867,
+        "has_architecture": true,
+        "has_setup": false,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "neetcode-submissions",
+      "url": "https://github.com/ReaperOAK/neetcode-submissions",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "My NeetCode.io problem submissions",
+      "updated_at": "2026-10-22T15:26:45Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 291,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "vibecoding",
+      "url": "https://github.com/ReaperOAK/vibecoding",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-10-08T06:59:19Z",
+      "default_branch": "main",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1252,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "csefarewell2k25",
+      "url": "https://github.com/ReaperOAK/csefarewell2k25",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-10-08T06:58:49Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 451,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "accounts",
+      "url": "https://github.com/ReaperOAK/accounts",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-09-24T09:15:46Z",
+      "default_branch": "master",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 317,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "python-cli-alarm-clock",
+      "url": "https://github.com/ReaperOAK/python-cli-alarm-clock",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-09-16T08:56:39Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 2427,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "ai-home",
+      "url": "https://github.com/ReaperOAK/ai-home",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "Portable, personal AI environment configuration and adapters",
+      "updated_at": "2026-09-09T16:14:54Z",
+      "default_branch": "main",
+      "tier": "SKIPPED",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 298,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "cheating-daddy",
+      "url": "https://github.com/ReaperOAK/cheating-daddy",
+      "is_private": false,
+      "is_fork": true,
+      "stars": 0,
+      "description": "a free and opensource app that lets you gain an unfair advantage",
+      "updated_at": "2026-09-08T07:23:38Z",
+      "default_branch": "master",
+      "tier": "FORK_SKIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 329,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "id-card-maker",
+      "url": "https://github.com/ReaperOAK/id-card-maker",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-09-03T09:11:39Z",
+      "default_branch": "feat/render-core",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "bag-manufacturer",
+      "url": "https://github.com/ReaperOAK/bag-manufacturer",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "DATUM \u2014 Tech Pack design system and seven-sheet mockup for a fictional B2B OEM/ODM bag manufacturer. Portfolio piece.",
+      "updated_at": "2026-07-29T07:03:20Z",
+      "default_branch": "master",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1199,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "survivorship-free-backtester",
+      "url": "https://github.com/ReaperOAK/survivorship-free-backtester",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 2,
+      "description": "An honest, survivorship-bias-corrected backtesting engine. Market-agnostic \u2014 Indian equities (Nifty 50/100/200/500) wired in out of the box, extensible to US/global via yfinance. Tax-aware, free data, Python + DuckDB.",
+      "updated_at": "2026-10-04T17:39:54Z",
+      "default_branch": "main",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 760,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "VMN",
+      "url": "https://github.com/ReaperOAK/VMN",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-03-11T13:13:22Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 2241,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "ReaperOAK.tab-nuke-1.0.0",
+      "url": "https://github.com/ReaperOAK/ReaperOAK.tab-nuke-1.0.0",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-03-05T18:57:32Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 178,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "ReaperOAK.terminal-sniper-1.0.0",
+      "url": "https://github.com/ReaperOAK/ReaperOAK.terminal-sniper-1.0.0",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-03-04T18:35:43Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 197,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "openclaw",
+      "url": "https://github.com/ReaperOAK/openclaw",
+      "is_private": false,
+      "is_fork": true,
+      "stars": 0,
+      "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. \ud83e\udd9e ",
+      "updated_at": "2026-02-28T15:24:31Z",
+      "default_branch": "main",
+      "tier": "FORK_SKIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 6086,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "CodebaseRAG",
+      "url": "https://github.com/ReaperOAK/CodebaseRAG",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "Local RAG over any repository via an MCP server for instant codebase querying.",
+      "updated_at": "2026-07-23T18:08:41Z",
+      "default_branch": "main",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 992,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "trpPDPL",
+      "url": "https://github.com/ReaperOAK/trpPDPL",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-12-23T10:43:28Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "TicketVault",
+      "url": "https://github.com/ReaperOAK/TicketVault",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-10-21T18:43:47Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 2478,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "festify",
+      "url": "https://github.com/ReaperOAK/festify",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-10-26T18:26:34Z",
+      "default_branch": "master",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1472,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "Code_compiler",
+      "url": "https://github.com/ReaperOAK/Code_compiler",
+      "is_private": false,
+      "is_fork": true,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-10-26T08:20:35Z",
+      "default_branch": "main",
+      "tier": "FORK_SKIP",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 204,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "hashfame",
+      "url": "https://github.com/ReaperOAK/hashfame",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-10-24T09:10:24Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1148,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "chesscodex",
+      "url": "https://github.com/ReaperOAK/chesscodex",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-09-20T04:44:07Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1072,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "auction-player-assigner",
+      "url": "https://github.com/ReaperOAK/auction-player-assigner",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-09-14T14:09:57Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 80,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "player-auction",
+      "url": "https://github.com/ReaperOAK/player-auction",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "player auction software for RSTC.",
+      "updated_at": "2025-09-05T18:39:59Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1785,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "eventure",
+      "url": "https://github.com/ReaperOAK/eventure",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-08-14T12:03:30Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 727,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "odoo-final-2025",
+      "url": "https://github.com/ReaperOAK/odoo-final-2025",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-08-12T04:20:55Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1412,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "social",
+      "url": "https://github.com/ReaperOAK/social",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-08-02T15:52:33Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 451,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "KCAdashboard",
+      "url": "https://github.com/ReaperOAK/KCAdashboard",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "student teacher dashboard for KCA",
+      "updated_at": "2025-08-02T06:22:14Z",
+      "default_branch": "main",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1313,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "odoo2k25",
+      "url": "https://github.com/ReaperOAK/odoo2k25",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-07-14T06:45:08Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1436,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "reddit-post",
+      "url": "https://github.com/ReaperOAK/reddit-post",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "reddit auto post bot",
+      "updated_at": "2026-05-08T03:48:20Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 461,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "faceless",
+      "url": "https://github.com/ReaperOAK/faceless",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-05-04T06:34:47Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 572,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "bulk-certificate-generator",
+      "url": "https://github.com/ReaperOAK/bulk-certificate-generator",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-04-27T17:48:33Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 560,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "ms-rewards",
+      "url": "https://github.com/ReaperOAK/ms-rewards",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 1,
+      "description": "",
+      "updated_at": "2026-09-04T06:26:37Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 1379,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "autosolveAI",
+      "url": "https://github.com/ReaperOAK/autosolveAI",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2025-04-08T20:43:57Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 455,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "sem3",
+      "url": "https://github.com/ReaperOAK/sem3",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-04-26T16:53:39Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "isl_prototype_test",
+      "url": "https://github.com/ReaperOAK/isl_prototype_test",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2024-09-28T14:46:53Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "PalBro",
+      "url": "https://github.com/ReaperOAK/PalBro",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "Companion app for palworld",
+      "updated_at": "2024-06-26T13:29:23Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "linearecta",
+      "url": "https://github.com/ReaperOAK/linearecta",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2024-03-08T15:05:47Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "STUB",
+        "word_count": 2,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "WeatherApp",
+      "url": "https://github.com/ReaperOAK/WeatherApp",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "A simple weather app using react material UI and weather api",
+      "updated_at": "2024-03-02T06:16:25Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "STUB",
+        "word_count": 13,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "airbnb",
+      "url": "https://github.com/ReaperOAK/airbnb",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "A simple AirBnB clone.",
+      "updated_at": "2024-07-21T15:34:53Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "STUB",
+        "word_count": 15,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "Simple-Nav-Bar",
+      "url": "https://github.com/ReaperOAK/Simple-Nav-Bar",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2023-08-17T12:56:27Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "STUB",
+        "word_count": 13,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "tradingviewAPI",
+      "url": "https://github.com/ReaperOAK/tradingviewAPI",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 1,
+      "description": "Simple usage of TradingView API to create a web app",
+      "updated_at": "2023-12-11T12:54:37Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "STUB",
+        "word_count": 15,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "openweatherAPI",
+      "url": "https://github.com/ReaperOAK/openweatherAPI",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "Simple weather app created with HTML,CSS, JS and openweather API",
+      "updated_at": "2023-08-17T13:11:31Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "STUB",
+        "word_count": 15,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "Spotify-Clone",
+      "url": "https://github.com/ReaperOAK/Spotify-Clone",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "Simple Spotify Clone with HTML and CSS",
+      "updated_at": "2023-08-17T13:04:18Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "STUB",
+        "word_count": 12,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "whatsapp",
+      "url": "https://github.com/ReaperOAK/whatsapp",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2023-09-20T14:30:18Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "STUB",
+        "word_count": 2,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "QuoraApp",
+      "url": "https://github.com/ReaperOAK/QuoraApp",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "An attempt to make a Quora Clone with Restful APIs",
+      "updated_at": "2023-09-04T14:22:08Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "STUB",
+        "word_count": 26,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "Simon-Says",
+      "url": "https://github.com/ReaperOAK/Simon-Says",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "Simple Simon-says Game made with Html, css and JS",
+      "updated_at": "2023-08-17T13:07:06Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "STUB",
+        "word_count": 11,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "repo": "vibecoding",
+  "url": "https://github.com/ReaperOAK/vibecoding",
+  "description": "",
+  "stars": 0,
+  "branch": "main",
+  "file_count": 358,
+  "tree_sample": [
+    ".agents/skills/find-skills/SKILL.md",
+    ".agents/skills/frontend-design/LICENSE.txt",
+    ".agents/skills/frontend-design/SKILL.md",
+    ".agents/skills/karpathy-guidelines/SKILL.md",
+    ".claude/README.md",
+    ".claude/TOOL_MAPPING.md",
+    ".claude/agents/architect.md",
+    ".claude/agents/backend.md",
+    ".claude/agents/cireviewer.md",
+    ".claude/agents/cto.md",
+    ".claude/agents/devops.md",
+    ".claude/agents/documentation.md",
+    ".claude/agents/frontend.md",
+    ".claude/agents/productmanager.md",
+    ".claude/agents/qa.md",
+    ".claude/agents/research.md",
+    ".claude/agents/security.md",
+    ".claude/agents/ticketer.md",
+    ".claude/agents/todo.md",
+    ".claude/agents/uidesigner.md",
+    ".claude/agents/validator.md",
+    ".claude/commands/continue.md",
+    ".claude/commands/expensify.md",
+    ".claude/commands/figma-to-code.md",
+    ".claude/commands/start.md",
+    ".claude/commands/stop.md",
+    ".claude/commands/takeover.md",
+    ".claude/commands/ui-ux-pro-max.md",
+    ".claude/commands/weekly-history.md",
+    ".claude/hooks/agent-complete.sh",
+    ".claude/hooks/post-edit.sh",
+    ".claude/hooks/pre-tool.sh",
+    ".claude/hooks/session-start.sh",
+    ".claude/hooks/session-stop.sh",
+    ".claude/settings.json",
+    ".claude/skills",
+    ".copilotignore",
+    ".github/agents/Architect.agent.md",
+    ".github/agents/Backend.agent.md",
+    ".github/agents/CIReviewer.agent.md"
+  ],
+  "manifests": {
+    "stack": [],
+    "scripts": {},
+    "ci_workflows": [],
+    "schemas": [],
+    "specs": []
+  },
+  "git_intel": {
+    "total_mined": 100,
+    "inflection_points": [
+      {
+        "sha": "a2b15b2",
+        "date": "2026-04-18T17:23:03Z",
+        "summary": "Refactor agent names for consistency and clarity across documentation",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "3ca7f8b",
+        "date": "2026-04-10T18:44:23Z",
+        "summary": "[TASK-GHO-SYS002] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "7cda13d",
+        "date": "2026-04-10T17:15:19Z",
+        "summary": "[TASK-GHO-SYS010] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "db0c63d",
+        "date": "2026-04-10T17:13:13Z",
+        "summary": "[TASK-GHO-SYS009] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "2d63988",
+        "date": "2026-04-10T17:10:32Z",
+        "summary": "[TASK-GHO-SYS008] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "fe6628a",
+        "date": "2026-04-10T04:31:44Z",
+        "summary": "Add infrastructure and documentation tickets for optimization tasks",
+        "body": "- TASK-GHO-SYS001: Remove applyTo from instruction files to reduce context bloat.\n- TASK-GHO-SYS002: Consolidate workspace instruction files for clarity and efficiency.\n- TASK-GHO-SYS003: Clean ghost references from catalog to maintain accuracy.\n- TASK-GHO-SYS004: Delete duplicate skills catalog to streamline references.\n- TASK-GHO-SYS005: Extract shared agent rules into a single instruction file for consistency.\n- TASK-GHO-SYS006: Trim agent files to 80 lines by removing duplicated sections.\n- TASK-GHO-SYS007: Remove tool-sets directory to eliminate dead configuration.\n- TASK-GHO-SYS008: Resolve tool-acl enforcement for better access control.\n- TASK-GHO-SYS009: Fix hook toolNames to match VS Code for compatibility.\n- TASK-GHO-SYS010: Remove unused infrastructure directories to improve hygiene.\n- TASK-GHO-DOC001: Audit and consolidate shallow skills for better documentation.",
+        "is_inflection": true
+      },
+      {
+        "sha": "ae50dcf",
+        "date": "2026-04-09T17:01:51Z",
+        "summary": "[TASK-VIB-010] SECURITY complete by Security on dispatcher",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "341f2d0",
+        "date": "2026-04-09T16:59:13Z",
+        "summary": "[TASK-VIB-010] CLAIM by Security on dispatcher (reaperoak)",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "3d5b0b0",
+        "date": "2026-04-09T16:35:29Z",
+        "summary": "[TASK-VIB-010] SECURITY complete by Security on dispatcher",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "75a9d4b",
+        "date": "2026-04-09T16:31:45Z",
+        "summary": "[TASK-VIB-010] CLAIM by Security on dispatcher (reaperoak)",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "117e17c",
+        "date": "2026-04-09T16:30:03Z",
+        "summary": "[TASK-VIB-012] SECURITY complete by Security on dispatcher",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "552d196",
+        "date": "2026-04-09T16:25:57Z",
+        "summary": "[TASK-VIB-012] CLAIM by Security on dispatcher (reaperoak)",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "50d795b",
+        "date": "2026-03-27T09:36:51Z",
+        "summary": "[TASK-VIB-009] SECURITY complete by Security on dispatcher",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "b067dce",
+        "date": "2026-03-27T09:30:00Z",
+        "summary": "[TASK-VIB-009] CLAIM by Security on dispatcher (reaperoak)",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "01bff31",
+        "date": "2026-03-27T09:11:04Z",
+        "summary": "[TASK-VIB-012] SECURITY complete by Security on dispatcher",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "3a24b98",
+        "date": "2026-03-27T09:02:30Z",
+        "summary": "[TASK-VIB-012] CLAIM by Security on dispatcher (reaperoak)",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "e4c4720",
+        "date": "2026-03-27T09:00:03Z",
+        "summary": "[TASK-VIB-011] SECURITY complete by Security on dispatcher",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "70aee75",
+        "date": "2026-03-27T08:51:39Z",
+        "summary": "[TASK-VIB-011] CLAIM by Security on dispatcher (reaperoak)",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "53d0f7e",
+        "date": "2026-03-27T06:55:11Z",
+        "summary": "[TASK-VIB-011] Fix: moved from SECURITY back to QA for proper post-impl chain",
+        "body": "",
+        "is_inflection": true
+      },
+      {
+        "sha": "2103ecd",
+        "date": "2026-03-27T06:48:26Z",
+        "summary": "[TASK-VIB-008] SECURITY complete by Security on pop-os",
+        "body": "",
+        "is_inflection": true
+      }
+    ],
+    "war_stories": []
+  },
+  "readme_length": 1252,
+  "raw_readme": "# Vibecoding\n\nlast_reviewed: 2026-04-09\n\nA ticket-driven multi-agent SDLC system for GitHub Copilot. Decomposes work into tickets, routes them through 14 specialized agents (Research \u2192 Architect \u2192 Backend \u2192 Frontend \u2192 QA \u2192 Security \u2192 CI \u2192 Docs \u2192 Validator), and enforces scoped git commits at every stage.\n\n---\n\n## Install into your project\n\nRun this once from your project root to pull the latest agent infrastructure:\n\n```bash\n# One-liner: download and run the sync script\ncurl -fsSL https://raw.githubusercontent.com/ReaperOAK/vibecoding/main/scripts/sync-vibecoding.sh | bash\n```\n\nOr if you already have the script locally:\n\n```bash\nbash scripts/sync-vibecoding.sh          # sync from main\nbash scripts/sync-vibecoding.sh <branch>  # sync from a specific branch\nDRY_RUN=1 bash scripts/sync-vibecoding.sh  # preview changes without writing\n```\n\n**What it does:** Merges `.github/` agent infrastructure into your project. Never deletes local files \u2014 only adds or overwrites files that exist in upstream. Protected paths that are never touched: `memory-bank/`, `tickets/`, `ticket-state/`, `agent-output/`, `copilot-instructions.md`.\n\nAfter syncing, commit the changes:\n\n```bash\ngit add .github/ AGENTS.md todo_visual.py\ngit commit -m \"chore: sync vibecoding infrastructure\"\n```\n\n---\n\n## How it works\n\n**Ticketer** is a stateless dispatcher. It scans `ticket-state/READY/`, performs a CLAIM commit (distributed lock via git push), then dispatches a subagent to do the work. The subagent performs one WORK commit and exits.\n\n```\nREADY \u2192 [impl stage] \u2192 QA \u2192 SECURITY \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE\n```\n\n| Ticket type | Flow |\n|-------------|------|\n| backend | READY \u2192 BACKEND \u2192 QA \u2192 SECURITY \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| frontend | READY \u2192 UIDesigner \u2192 FRONTEND \u2192 QA \u2192 SECURITY \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| fullstack | READY \u2192 BACKEND \u2192 FRONTEND \u2192 QA \u2192 SECURITY \u2192 CI \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| research | READY \u2192 RESEARCH \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| architecture | READY \u2192 ARCHITECT \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n| docs | READY \u2192 DOCS \u2192 VALIDATION \u2192 DONE |\n\nMax 3 rework attempts (shared across QA/Security/CI/Validator) before escalation to operator.\n\n---\n\n## Agents\n\n| Agent | Stage | Role |\n|-------|-------|------|\n| CTO | pre-SDLC | Reads docs, delegates Research/PM/Architect/TODO to build ticket backlog |\n| Ticketer | dispatcher | Scans READY tickets, performs CLAIM commits, dispatches subagents |\n| TODO | pre-SDLC | Decomposes vision \u2192 L1 capabilities \u2192 L2 blocks \u2192 L3 tickets |\n| Research Analyst | RESEARCH | Evidence-based research, PoC, tech comparison |\n| ProductManager | PM | PRD, user stories, acceptance criteria |\n| Architect | ARCHITECT | System design, ADRs, API contracts, DB schema |\n| DevOps | BACKEND (infra) | IaC, CI/CD, Docker, monitoring |\n| Backend | BACKEND | APIs, business logic, database operations |\n| UIDesigner | UIDesigner | Stitch mockups, design tokens, component specs |\n| Frontend  | FRONTEND | UI components, WCAG 2.2 AA, Core Web Vitals |\n| QA | QA | Tests \u226580% coverage, mutation testing, E2E |\n| Security | SECURITY | STRIDE, OWASP Top 10, SBOM |\n| CIReviewer | CI | Lint, type checks, complexity, SARIF findings |\n| Documentation | DOCS | JSDoc/TSDoc, README, Diataxis structure |\n| Validator | VALIDATION | Independent 10-item Definition of Done verification |\n\n---\n\n## Definition of Done\n\nEvery ticket must pass all 10 items before reaching DONE:\n\n1. All acceptance criteria implemented\n2. Tests written (\u226580% coverage for new code)\n3. Lint passes (zero errors, zero warnings)\n4. Type checks pass\n5. CI passes\n6. Docs updated (JSDoc/TSDoc, README if applicable)\n7. Validator independently reviewed\n8. No console errors (structured logger only)\n9. No unhandled promises\n10. No TODO comments in code\n\n---\n\n## Repository structure\n\n```\n.github/\n  agents/          14 agent definitions (*.agent.md) \u2014 each has tool-sets: frontmatter\n  instructions/    6 canonical instruction files (system rules)\n  tickets/         Ticket JSON + schema\n  ticket-state/    File-based state machine (READY \u2192 DONE)\n  agent-output/    Stage handoff summaries ({Agent}/{ticket-id}.md)\n  memory-bank/     Persistent shared state (append-only)\n  vibecoding/      catalog.yml \u2014 skill chunk index loaded by agents during boot\n  hooks/           Governance hooks (policy-enforcement, auto-sync) \u2014 all enabled\n  tool-sets/       Reusable tool-set configs (universal, research, code-editing)\n  mcp-servers/     MCP server wrappers (ticket-server for typed ticket ops)\n  guardian/        Circuit breaker (STOP_ALL)\n  tickets.py       Ticket state manager (--sync --claim --advance --status)\n\nAGENTS.md          Boot protocol \u2014 loaded on every agent interaction\ntodo_visual.py     CLI dashboard for ticket state\nscripts/\n  sync-vibecoding.sh  Merge upstream agent infrastructure into your project\nTODO/              Task decomposition artifacts (vision \u2192 capabilities \u2192 blocks \u2192 tasks)\n```\n\n---\n\n## Starting a new project\n\n```bash\n# 1. Sync infrastructure\nbash scripts/sync-vibecoding.sh\n\n# 2. Open GitHub Copilot in Agent Mode and invoke CTO:\n#    \"You are CTO. Initialize this project: <your vision>\"\n#\n# CTO will:\n#   - Read existing docs/code\n#   - Delegate to Research Analyst, ProductManager, Architect\n#   - Run TODO agent to generate tickets\n#   - Sync ticket state: python3 tickets.py --sync\n#\n# 3. Once tickets exist in READY, run Ticketer:\n#    \"You are Ticketer. Process all READY tickets.\"\n\n# Check ticket status anytime\npython3 tickets.py --status\npython3 todo_visual.py\n```\n\n---\n\n## Prerequisites\n\n- VS Code with GitHub Copilot (Agent Mode enabled)\n- Git with commit permissions on the target repo\n- Python 3 (for `tickets.py`)\n\n---\n\n## VS Code Ticket Tree\n\nThe extension contributes a sidebar view named `Vibecoding Tickets` (view id: `vibecoding.tickets`).\n\nIt renders three root groups:\n\n- `READY` \u2014 tickets from `ticket-state/READY/`\n- `IN_PROGRESS` \u2014 aggregated tickets from active stage directories (`RESEARCH`, `PM`, `ARCHITECT`, `DEVOPS`, `BACKEND`, `UIDESIGNER`, `FRONTEND`, `QA`, `SECURITY`, `CI`, `DOCS`, `VALIDATION`)\n- `DONE` \u2014 tickets from `ticket-state/DONE/`\n\nRun `vibecoding.refreshTickets` from the Command Palette to reload all groups from disk.\n\n---\n\n## MCP Ticket Server\n\nAn MCP server wraps `tickets.py` for typed access via the Model Context Protocol. Located at `.github/mcp-servers/ticket-server/server.py`, it provides 7 tools and 3 resources over stdio transport.\n\nLast reviewed: 2026-04-09\n\nWhen the VS Code extension is installed, the ticket MCP server is auto-registered through `contributes.mcpServerDefinitionProviders` and `vscode.lm.registerMcpServerDefinitionProvider`.\nYou do not need to manually create `.vscode/mcp.json` for this server in normal usage.\n\n### Tools\n\n| Tool | Purpose |\n|------|---------|\n| `syncTickets` | Release expired claims, resolve deps, move unblocked to READY |\n| `getStatus` | Dashboard view (text or JSON) |\n| `claimTicket` | Claim a READY ticket for an agent |\n| `advanceTicket` | Move ticket to next SDLC stage |\n| `releaseTicket` | Release a stale claim |\n| `reworkTicket` | Send back for rework with reason |\n| `validateIntegrity` | Full integrity check |\n\n### Resources\n\n| Resource | Returns |\n|----------|---------|\n| `ticket://READY` | JSON array of READY ticket summaries (`id`, `title`, `type`, `priority`) |\n| `ticket://DONE` | JSON array of DONE ticket summaries with `completed_at` |\n| `ticket://{ticket_id}` | Full ticket JSON for a valid ticket ID |\n\nInvalid ticket resource IDs return a not-found error. Ticket IDs are validated against the server allowlist format before file access.\n\nSetup: `pip install -r .github/mcp-servers/ticket-server/requirements.txt`\n\nServer registration details:\n\n- Provider ID: `vibecoding.ticket-server`\n- Command: `python3`\n- Script path: `.github/mcp-servers/ticket-server/server.py`\n- Working directory: workspace root\n- Environment: `VIBECODING_WORKSPACE_ROOT` and `PYTHONUNBUFFERED=1`\n\n---\n\n## Agent Configuration\n\nEach agent's `.agent.md` file includes frontmatter properties that control behavior:\n\n- **`tool-sets:`** \u2014 References reusable tool configurations from `.github/tool-sets/` (e.g., `#universal`, `#research`, `#code-editing`)\n- **`agents:`** \u2014 Restricts which subagents a coordinator can invoke (Ticketer dispatches all 13 workers; CTO invokes 5 strategic agents)\n- **`user-invocable:`** \u2014 Only Ticketer and CTO are `true`; all workers are `false` (dispatched by coordinators only)\n- **`model:`** \u2014 Review-chain agents (QA, CI, Validator, Documentation) use cost-efficient model arrays `[claude-3-7-sonnet, claude-3-5-sonnet]`; implementation agents use the default model\n\n---\n\n## License\n\nSee [LICENSE](LICENSE) for details.\n"
+}

@@ -1,0 +1,329 @@
+{
+  "repo": "todayeggrates",
+  "url": "https://github.com/ReaperOAK/todayeggrates",
+  "description": "",
+  "stars": 0,
+  "branch": "main",
+  "file_count": 345,
+  "tree_sample": [
+    ".env",
+    ".github/copilot-instructions.md",
+    ".github/workflows/publish.yml",
+    ".gitignore",
+    ".vscode/launch.json",
+    "README.md",
+    "blogs_source/ajmer-blog.mdx",
+    "blogs_source/bangalore-egg-market-guide.mdx",
+    "blogs_source/barwala-egg-rate.mdx",
+    "blogs_source/buying-eggs-wholesale-india.mdx",
+    "blogs_source/chennai-egg-market-guide.mdx",
+    "blogs_source/desi-egg-business-guide-mandi-rates-sourcing-margins.mdx",
+    "blogs_source/desi-egg-business-guide-sourcing-margins-mandi-economics.mdx",
+    "blogs_source/desi-egg-business-guide-sourcing-pricing-margins.mdx",
+    "blogs_source/desi-egg-business-guide-sourcing-pricing-wholesale-margins.mdx",
+    "blogs_source/desi-egg-business-guide-wholesale-sourcing-margins-farm-setu.mdx",
+    "blogs_source/desi-egg-economics-sourcing-wholesale-margins-and-demand.mdx",
+    "blogs_source/desi-egg-market-a-trader-s-guide-to-pricing-and-demand.mdx",
+    "blogs_source/desi-egg-market-guide-breeds-feed-costs-and-wholesale-margin.mdx",
+    "blogs_source/desi-egg-market-profitable-niche-or-high-risk.mdx",
+    "blogs_source/desi-egg-market-trading-guide-margins-and-demand-trends.mdx",
+    "blogs_source/desi-egg-sourcing-margins-market-guide-for-indian-traders.mdx",
+    "blogs_source/desi-egg-trade-guide-margins-sourcing-and-market-economics.mdx",
+    "blogs_source/desi-egg-trade-guide-sourcing-pricing-profit-margins.mdx",
+    "blogs_source/desi-egg-trade-guide-wholesale-margins-sourcing-market-rates.mdx",
+    "blogs_source/desi-egg-trade-in-india-wholesale-margins-sourcing-guide.mdx",
+    "blogs_source/desi-egg-wholesale-farming-economics-breeds-margins.mdx",
+    "blogs_source/desi-egg-wholesale-farming-guide-margins-breeds-market-rates.mdx",
+    "blogs_source/desi-egg-wholesale-farming-guide-margins-breeds-rates.mdx",
+    "blogs_source/desi-egg-wholesale-guide-breeds-pricing-profit-margins.mdx",
+    "blogs_source/desi-egg-wholesale-guide-breeds-sourcing-and-profit-margins.mdx",
+    "blogs_source/desi-egg-wholesale-guide-breeds-sourcing-profit-margins.mdx",
+    "blogs_source/desi-egg-wholesale-guide-margins-breeds-and-market-pricing.mdx",
+    "blogs_source/desi-egg-wholesale-guide-margins-breeds-and-sourcing.mdx",
+    "blogs_source/desi-egg-wholesale-guide-margins-sourcing-market-dynamics.mdx",
+    "blogs_source/desi-egg-wholesale-guide-margins-sourcing-trade-economics.mdx",
+    "blogs_source/desi-egg-wholesale-guide-sourcing-margins-and-market-demand.mdx",
+    "blogs_source/desi-egg-wholesale-guide-sourcing-margins-and-market-realiti.mdx",
+    "blogs_source/desi-egg-wholesale-guide-sourcing-margins-market-demand.mdx",
+    "blogs_source/desi-egg-wholesale-guide-sourcing-margins-market-rates.mdx"
+  ],
+  "manifests": {
+    "stack": [
+      "@babel/plugin-proposal-private-property-in-object",
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@mdx-js/loader",
+      "@mdx-js/react",
+      "@tailwindcss/typography",
+      "@testing-library/jest-dom",
+      "@testing-library/react",
+      "@testing-library/user-event",
+      "ajv",
+      "autoprefixer",
+      "babel-plugin-transform-react-remove-prop-types",
+      "chart.js",
+      "compression-webpack-plugin",
+      "critters",
+      "critters-webpack-plugin",
+      "cross-env",
+      "customize-cra",
+      "gray-matter",
+      "imagemin",
+      "imagemin-webp",
+      "intersection-observer",
+      "lucide-react",
+      "papaparse",
+      "postcss",
+      "prop-types",
+      "query-string",
+      "react",
+      "react-app-rewired",
+      "react-chartjs-2",
+      "react-dom",
+      "react-helmet",
+      "react-helmet-async",
+      "react-icons",
+      "react-intersection-observer",
+      "react-router-dom",
+      "react-scripts",
+      "react-select",
+      "react-share",
+      "react-snap",
+      "remark-frontmatter",
+      "remark-mdx-frontmatter",
+      "sharp",
+      "tailwindcss",
+      "terser-webpack-plugin",
+      "web-vitals",
+      "webpack",
+      "webpack-bundle-analyzer"
+    ],
+    "scripts": {
+      "package.json": {
+        "prestart": "node scripts/build-blog-index.js",
+        "prebuild": "npm run optimize-images && node scripts/build-blog-index.js",
+        "start": "react-app-rewired start",
+        "build": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
+        "postbuild": "node scripts/inline-critical-css.js && react-snap && node scripts/prerender-city-pages.js && node scripts/mandi/build-pages.mjs && node scripts/defer-css.js",
+        "build:no-snap": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build && node scripts/inline-critical-css.js",
+        "build:analyze": "cross-env GENERATE_SOURCEMAP=false ANALYZE=true react-app-rewired build",
+        "test": "react-app-rewired test",
+        "optimize-images": "node scripts/optimize-images.js",
+        "inline-css": "node scripts/inline-critical-css.js"
+      }
+    },
+    "ci_workflows": [
+      ".github/workflows/publish.yml"
+    ],
+    "schemas": [
+      "seed.sql",
+      "sqlstructur.sql"
+    ],
+    "specs": []
+  },
+  "git_intel": {
+    "total_mined": 100,
+    "inflection_points": [
+      {
+        "sha": "cc8db6b",
+        "date": "2026-10-17T02:37:06Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-market-trading-guide-margins-and-demand-trends\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "cfde927",
+        "date": "2026-10-14T02:32:09Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-market-a-trader-s-guide-to-pricing-and-demand\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "f35f546",
+        "date": "2026-10-13T02:34:37Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-market-profitable-niche-or-high-risk\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "3d6b670",
+        "date": "2026-10-10T02:36:07Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "profitable-guide-to-desi-egg-farming-trading-in-india\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "c8dca45",
+        "date": "2026-10-09T02:30:17Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-trade-guide-margins-sourcing-pricing\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "d5e9bfc",
+        "date": "2026-10-08T02:30:20Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-trade-guide-sourcing-pricing-profit-margins\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "81862a5",
+        "date": "2026-10-07T02:30:22Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-trade-guide-sourcing-margins-market-risks\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "a8b48f2",
+        "date": "2026-10-05T02:30:24Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-trade-guide-margins-sourcing-and-market-economics\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "a1b7876",
+        "date": "2026-10-04T02:30:28Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-trade-guide-wholesale-margins-sourcing-market-rates\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "9b739b0",
+        "date": "2026-10-03T02:30:20Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-trade-in-india-wholesale-margins-sourcing-guide\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "d14bc6c",
+        "date": "2026-10-02T02:30:27Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-guide-margins-breeds-and-market-pricing\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "76adb7f",
+        "date": "2026-09-30T02:30:22Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-farming-guide-margins-breeds-market-rates\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "b9c88ed",
+        "date": "2026-09-29T02:30:34Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-guide-breeds-sourcing-and-profit-margins\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "059d9e6",
+        "date": "2026-09-28T02:30:33Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-farming-economics-breeds-margins\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "feb2c4e",
+        "date": "2026-09-27T02:34:31Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-economics-sourcing-wholesale-margins-and-demand\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "0a41690",
+        "date": "2026-09-26T02:30:56Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-guide-sourcing-margins-market-rates\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "c4518a4",
+        "date": "2026-09-24T02:30:24Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-guide-breeds-pricing-profit-margins\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "fe30b8e",
+        "date": "2026-09-23T02:30:29Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-business-guide-mandi-rates-sourcing-margins\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "801d55e",
+        "date": "2026-09-22T02:30:22Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-business-guide-sourcing-margins-mandi-economics\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "6e48227",
+        "date": "2026-09-21T02:30:24Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-farming-guide-margins-breeds-rates\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "3672054",
+        "date": "2026-09-20T02:30:19Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-guide-margins-sourcing-market-dynamics\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "5d338bb",
+        "date": "2026-09-19T02:30:21Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-guide-breeds-sourcing-profit-margins\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "490713d",
+        "date": "2026-09-17T02:30:23Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-business-guide-wholesale-sourcing-margins-farm-setu\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "54c5fa5",
+        "date": "2026-09-15T02:30:21Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-guide-margins-sourcing-trade-economics\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "5559421",
+        "date": "2026-09-14T02:30:22Z",
+        "summary": "content: 1 auto-generated post(s)",
+        "body": "desi-egg-wholesale-retail-market-guide-margins-breeds-sourci\n\nGenerated by scripts/autoblog/generate.mjs from the buyer-intent keyword queue\nand passed through the publish gates in gates.mjs. No human reviewed this before\nit shipped \u2014 if it is wrong, the gate that should have caught it is missing.",
+        "is_inflection": true
+      }
+    ],
+    "war_stories": [
+      {
+        "sha": "d357052",
+        "date": "2026-09-01T05:40:12Z",
+        "summary": "fix(mandi): reserve the whole ad block to hold CLS down",
+        "body": "CLS measured 0.093-0.099 across mandi page types \u2014 inside the 0.1 'good'\nthreshold, but close enough that one taller creative would cross it.\n\nOnly the <ins> carried a min-height, so the label above it claimed its height at\nfill time. The wrapper now reserves 300px (280 for the unit, the rest for the\nlabel) with contain:layout, so nothing below the ad can be pushed by it.",
+        "is_inflection": true
+      },
+      {
+        "sha": "9735c7b",
+        "date": "2026-09-01T05:36:08Z",
+        "summary": "fix(mandi,a11y): paint the page canvas and add a main landmark",
+        "body": "Lighthouse scored these 99 / 95 / 77 / 100. Both accessibility failures were\nmine.\n\ncolor-contrast reported #f1f5f9 text on #ffffff \u2014 a ratio of 1.09, effectively\ninvisible. That is the dark-mode foreground on the light-mode background: only\n.mandi carried a background, and it is a centred max-width box, so under\nprefers-color-scheme: dark the variables went light while the page canvas stayed\nthe browser default white. html and body now carry the background too, so\nforeground and background can no longer come from different schemes. Light mode\nwas always correct, which is why opening the page by hand did not show it.\n\nlandmark-one-main: the pages had no <main> at all. The .mandi wrapper is the\nmain content, so it is now a <main> rather than a <div>.\n\nThe two remaining Best Practices failures are third-party-cookies and\ninspector-issues, both from AdSense cookies, and cap that category at 77 on\nevery page of this site regardless of framework.",
+        "is_inflection": true
+      },
+      {
+        "sha": "e24faba",
+        "date": "2026-09-01T05:07:53Z",
+        "summary": "fix(mandi): self-contained pages, real ad inventory, capped tables",
+        "body": "Three problems with the first cut, all found by opening the pages rather than\ntrusting the build.\n\nThe pages reused build/index.html as their template, so each carried ~16KB of\nReact app shell they cannot use \u2014 critical CSS extracted for a layout they do\nnot have, deferred stylesheet links, the Translate and PerformanceObserver\nbootstraps, preconnects for bundles that get stripped anyway. Across 7,000 pages\nthat was 111MB, committed to the build branch every night. They now emit a\npurpose-built document: metadata, their own stylesheet, the ad loader, nothing\nelse.\n\n  mandi HTML  111MB -> 56MB      build total 139MB -> 84MB\n\nThey shipped with no ads at all. The loader was being regex-extracted from\nbuild/index.html, and by that point in the build it is minified onto one line,\nso a pattern written against the source matched nothing \u2014 silently, with the\nbuild still green. It is now written out explicitly, along with an <ins> and its\npush, because these pages ship no React and AdUnit never runs. 7,035 pages that\ncarried zero inventory now carry a slot.\n\nNational commodity pages listed every reporting market \u2014 171 rows for onion,\nwhich is both an unreadable table and the largest page in the build. Capped at\n40 with a line saying how many were omitted and where the rest are; state pages\nstill carry their complete list.\n\nCoverage turned out far better than the morning snapshot suggested. The feed\ngrows through the day as mandis report: 236 rows and 59 markets at 08:30 IST,\n6,395 rows and 359 markets by 10:30. Dispersion falls with the larger sample\ntoo \u2014 onion 36% -> 20%, tomato 45% -> 23%, brinjal 101% -> 43% \u2014 so the earlier\nfigures were small-sample noise, not real volatility. 415 pages became 7,035.",
+        "is_inflection": true
+      }
+    ]
+  },
+  "readme_length": 307,
+  "raw_readme": "# TodayEggRates \u2014 Developer Quickstart\n\nA minimal developer guide for the TodayEggRates project.\n\nPurpose: quickly get the app running, know where key code lives, and how to validate changes.\n\n## Quick commands (PowerShell, run from repo root)\n\nInstall deps\n\n```powershell\nnpm install\n```\n\nRun dev server (frontend) \u2014 prestart regenerates blogs\n\n```powershell\nnpm start\n```\n\nBuild production bundle (runs image + blog pipelines)\n\n```powershell\nnpm run build\n```\n\nRegenerate blog artifacts (when editing MDX source)\n\n```powershell\nnode scripts/build-blog-index.js\n```\n\nOptimize images\n\n```powershell\nnpm run optimize-images\n```\n\n## Where the important code is\n\n- Frontend React: `src/` (entry: `src/index.js`, `src/App.js`).\n- API client: `src/services/api.js` (enhancedFetch, postRequest).\n- Generated blog components: `src/blogs/` (do NOT edit directly).\n- Blog sources: `blogs_source/` (edit MDX here; run `build-blog-index.js`).\n- Image pipeline: `scripts/optimize-images.js` \u2192 outputs to `public/optimized/`.\n- PHP backend & cron: `public/php/` (APIs: `public/php/api/`, cron: `public/php/cron/`).\n- Build config & aliasing: `webpack.config.js`, `config-overrides.js` (`@/` \u2192 `src/`).\n\n## Quick validation\n\n- Smoke UI: `npm install; npm start` and open the dev server.\n- Production check: `npm run build` (watch for build errors/warnings).\n- Blog changes: run `node scripts/build-blog-index.js` and confirm `src/blogs/index.json`.\n- Image changes: run `npm run optimize-images` and inspect `public/optimized/`.\n- Test backend endpoints via the local PHP server above; check `public/php/error.log` for server-side errors.\n\n## Security notes\n\n- Never commit production DB credentials or admin tokens. Move secrets to environment-backed config (example files or env vars) and exclude real credentials from Git.\n- Protect admin/write APIs with server-side auth (API keys, sessions, IP allowlist) and validate/sanitize inputs in PHP endpoints.\n\n## Where to look first\n\n- API client: `src/services/api.js`\n- Routing & app boot: `src/App.js`\n- Blog pipeline: `scripts/build-blog-index.js` and `blogs_source/`\n- PHP APIs: `public/php/api/`\n\nNeed more details or a specific smoke-test script? Tell me which endpoints or pages to cover and I will add a tiny test harness or examples.\n"
+}

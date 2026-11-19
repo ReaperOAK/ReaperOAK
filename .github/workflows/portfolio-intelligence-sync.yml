@@ -1,0 +1,54 @@
+name: Portfolio Intelligence Sync
+
+on:
+  schedule:
+    # Run every Sunday at 02:00 UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/portfolio_sync/**'
+      - '.github/workflows/portfolio-intelligence-sync.yml'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Root Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
+        run: pip install pyyaml
+
+      - name: Run Reconnaissance and Flagship Sync
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m tools.portfolio_sync.cli recon
+          python -m tools.portfolio_sync.cli sync-flagships
+
+      - name: Commit Intelligence Updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/portfolio_intelligence/ docs/generated_readmes/ tools/ portfolio/web/content/projects/ || true
+          if git diff --cached --quiet; then
+            echo "No intelligence updates to commit."
+          else
+            git commit -m "chore(sync): automated portfolio intelligence and case study refresh [skip ci]"
+            git push origin main
+          fi

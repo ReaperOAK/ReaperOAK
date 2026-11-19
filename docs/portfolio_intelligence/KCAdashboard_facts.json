@@ -1,0 +1,321 @@
+{
+  "repo": "KCAdashboard",
+  "url": "https://github.com/ReaperOAK/KCAdashboard",
+  "description": "student teacher dashboard for KCA",
+  "stars": 0,
+  "branch": "main",
+  "file_count": 677,
+  "tree_sample": [
+    ".github/publish.yml",
+    ".gitignore",
+    ".node-version",
+    ".nvmrc",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "PGN_SHARING_FEATURE.md",
+    "README-draw-offers.md",
+    "README-quiz-drag-drop.md",
+    "README-stockfish.md",
+    "README.md",
+    "colour_scheme.md",
+    "composer.json",
+    "database_migrations/add_chess_draw_offers_table.sql",
+    "database_migrations/add_question_order.sql",
+    "database_schema.md",
+    "database_schema/01_users_auth.md",
+    "database_schema/02_classrooms_batches.md",
+    "database_schema/03_quizzes_assessment.md",
+    "database_schema/04_chess_platform.md",
+    "database_schema/05_pgn_content.md",
+    "database_schema/06_resources_materials.md",
+    "database_schema/07_system_admin.md",
+    "database_schema/README.md",
+    "database_schema/foreign_keys.md",
+    "database_schema/indexes.md",
+    "docs.md",
+    "docs/session-management.md",
+    "package-lock.json",
+    "package.json",
+    "public/.htaccess",
+    "public/api/composer.json",
+    "public/api/config/Database.php",
+    "public/api/config/Database.php.example",
+    "public/api/config/cors.php",
+    "public/api/config/docs.md",
+    "public/api/config/mail.php",
+    "public/api/config/session-config.php",
+    "public/api/docs.md",
+    "public/api/endpoints/admin/attendance-overview.php"
+  ],
+  "manifests": {
+    "stack": [
+      "@babel/plugin-proposal-private-property-in-object",
+      "@dnd-kit/core",
+      "@dnd-kit/modifiers",
+      "@dnd-kit/sortable",
+      "@dnd-kit/utilities",
+      "@fullcalendar/daygrid",
+      "@fullcalendar/interaction",
+      "@fullcalendar/react",
+      "@fullcalendar/timegrid",
+      "@headlessui/react",
+      "@heroicons/react",
+      "@mliebelt/pgn-parser",
+      "@testing-library/jest-dom",
+      "@testing-library/react",
+      "chart.js",
+      "chess.js",
+      "date-fns",
+      "formik",
+      "framer-motion",
+      "lucide-react",
+      "react",
+      "react-chartjs-2",
+      "react-chessboard",
+      "react-dnd",
+      "react-dnd-html5-backend",
+      "react-dom",
+      "react-hot-toast",
+      "react-icons",
+      "react-router-dom",
+      "react-scripts",
+      "react-select",
+      "react-toastify",
+      "web-vitals",
+      "yup"
+    ],
+    "scripts": {
+      "package.json": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+      }
+    },
+    "ci_workflows": [],
+    "schemas": [
+      "database_migrations/add_chess_draw_offers_table.sql",
+      "database_migrations/add_question_order.sql"
+    ],
+    "specs": []
+  },
+  "git_intel": {
+    "total_mined": 100,
+    "inflection_points": [
+      {
+        "sha": "493cbe3",
+        "date": "2025-07-24T18:10:37Z",
+        "summary": "fix(teacher-dashboard): robust React key usage for all mapped lists",
+        "body": "- Fixed all React key warnings in TeacherDashboard by ensuring unique, robust keys for all mapped lists (modals, stats, activities)\n- Added fallback keys for edge cases to prevent duplicate/empty key issues and ensure stable UI updates\n- Updated all relevant docs (README, CHANGELOG, CONTRIBUTING, feature docs, API docs) to document the bugfix and new best practices",
+        "is_inflection": true
+      },
+      {
+        "sha": "f917201",
+        "date": "2025-07-24T17:50:35Z",
+        "summary": "fix(auth/session-management): robust PHP config path, error handling, and JSON output",
+        "body": "- Use absolute paths for all PHP session config includes for reliability across environments\n- Add output buffering and error suppression to PHP endpoints to prevent warnings from breaking JSON responses\n- Improve frontend JSON parsing to extract valid JSON even if PHP warnings are present\n- Add fallback config and safe array access in PHP for session config loading\n- Update README, CHANGELOG, session-management, contributing, and component docs to reflect backend robustness improvements",
+        "is_inflection": true
+      },
+      {
+        "sha": "d30fed2",
+        "date": "2025-07-24T17:29:43Z",
+        "summary": "fix: Prevent scheduling classes in the past, enforce IST timezone for all class/session logic, and update docs",
+        "body": "- Blocked past date scheduling in both UI and backend (single and recurring sessions)\n- All date/time logic now uses IST (Asia/Kolkata) timezone\n- Improved error handling for invalid scheduling attempts\n- Updated README, CONTRIBUTING.md, classroom/docs.md, and docs.md with new guidelines and features",
+        "is_inflection": true
+      },
+      {
+        "sha": "add8fa9",
+        "date": "2025-07-24T16:33:19Z",
+        "summary": "feat(settings): add Settings page and session management UI",
+        "body": "- Added dedicated Settings page for users to manage account security and active sessions\n- Integrated session management UI (view, logout, monitor sessions)\n- Role-based session limits and durations, configurable by admins\n- Updated all relevant docs: README.md, API docs, frontend docs, and session-management.md",
+        "is_inflection": true
+      },
+      {
+        "sha": "cf6cb3c",
+        "date": "2025-07-24T15:37:03Z",
+        "summary": "fix(grading): pending grading modal now updates after feedback; session-specific feedback tracking",
+        "body": "- Feedback submission now includes session_id, linking feedback to the correct session\n- Backend pending grading query updated to check for session-specific feedback from the teacher\n- Pending grading modal now disappears after feedback is submitted for a session\n- Updated all relevant docs (README, CHANGELOG, API docs, feature docs, CONTRIBUTING)",
+        "is_inflection": true
+      },
+      {
+        "sha": "db65acb",
+        "date": "2025-07-24T14:48:08Z",
+        "summary": "fix: implement 50-game limit for PGN uploads to prevent application hanging",
+        "body": "- Add frontend validation in PGNUpload.js to check game count before processing\n- Add backend validation in upload-pgn.php and validate-pgn.php to enforce 50-game limit\n- Update PGNViewer.js to automatically limit display to first 50 games for performance\n- Modify get-game.php to truncate large existing PGN files to 50 games when viewing\n- Add user-visible warnings in PGNFileDrop.js and upload components about the limit\n- Fix issue where clicking on large PGN files (3K+ games) would hang the application\n- Update documentation in README.md, CHANGELOG.md, and component docs\n- Ensure smooth user experience when uploading and viewing PGN files\n\nResolves performance issues with large PGN file uploads and viewing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "94de4ab",
+        "date": "2025-07-24T14:38:09Z",
+        "summary": "feat(classroom): support multiple file upload for classroom materials",
+        "body": "- Teachers can now upload multiple files at once as classroom materials\n- Each file is validated (type, size) and creates a separate resource entry\n- UI shows selected file count and names, supports mixed uploads (files + video links)\n- Improved error handling and user feedback for uploads\n- Updated backend and frontend logic, docs, and configuration\n- See material-upload-fix-summary.md for details",
+        "is_inflection": true
+      },
+      {
+        "sha": "709055f",
+        "date": "2025-07-24T14:08:09Z",
+        "summary": "fix(navbar): make user dropdown profile/logout menu fully accessible and functional",
+        "body": "- Fixed profile and logout buttons in the user dropdown menu (TopNavbar) so they are now fully accessible and functional\n- Removed duplicate logout button from the navbar for a cleaner UI\n- Improved dropdown accessibility: closes on outside click or Escape, remains open for menu actions\n- Updated README.md, CHANGELOG.md, CONTRIBUTING.md, and docs.md to document the new user menu logic and accessibility improvements",
+        "is_inflection": true
+      },
+      {
+        "sha": "6a3cbd3",
+        "date": "2025-07-23T16:58:41Z",
+        "summary": "fix(quiz/chess): show instant feedback for wrong chess moves in quiz mode",
+        "body": "- ChessQuizBoard and ChessPGNBoard now provide immediate feedback for both correct and incorrect moves in quiz questions (FEN and PGN modes)\n- Wrong moves are highlighted and users are prompted to try again\n- All moves (correct/incorrect) are reported to parent components for accurate quiz scoring\n- Updated README.md, CHANGELOG.md, CONTRIBUTING.md, chess/docs.md, and quiz/docs.md to document this improvement",
+        "is_inflection": true
+      },
+      {
+        "sha": "5d32c21",
+        "date": "2025-07-23T16:30:43Z",
+        "summary": "Security: Enforce student-only registration and admin-only role promotion",
+        "body": "- All new user registrations are now always created as students (frontend and backend enforced)\n- Removed role selection from registration form; added info message for users\n- Only admins can promote users to teacher/admin roles via user management UI (API endpoints require admin authentication)\n- Updated all relevant docs (README.md, CONTRIBUTING.md, CHANGELOG.md, docs.md, API docs, user management docs, auth docs) to clarify the new policy\n- Improved audit logging and added UI/UX clarifications for admins",
+        "is_inflection": true
+      },
+      {
+        "sha": "894530c",
+        "date": "2025-07-23T15:12:24Z",
+        "summary": "fix: PGN-created quizzes now default to public visibility",
+        "body": "- Quizzes created from PGNs (single or batch) now default to public, ensuring students can see them when published\n- Updated CHANGELOG, README, and docs",
+        "is_inflection": true
+      },
+      {
+        "sha": "ef27a72",
+        "date": "2025-07-22T18:07:51Z",
+        "summary": "fix(report-card): robust upload bugfixes, API/UX improvements, and doc updates",
+        "body": "- Fixed report card upload for both new and existing students: now uses the server-generated filename and refreshes the student list after upload\n- Improved error handling, user feedback, and success/error messaging in the UI\n- Added backend logging and directory permission checks for uploads\n- Updated frontend to use the correct API and handle all edge cases\n- Updated documentation in root, teacher, student, reportcard component, and grading API docs to reflect July 2025 changes",
+        "is_inflection": true
+      },
+      {
+        "sha": "1ce453f",
+        "date": "2025-07-19T06:27:35Z",
+        "summary": "feat(ui): Refactor chess dashboard components for beautiful, responsive, accessible UI",
+        "body": "- Applied Kolkata Chess Academy design system and Tailwind color tokens across all chess-related pages and components\n- Enhanced visual hierarchy, spacing, and typography for clarity and polish\n- Improved accessibility: ARIA labels, keyboard navigation, focus-visible rings\n- Optimized performance with memoization and modular, single-responsibility components\n- Updated loading/error/empty states for better UX feedback\n- Consistent card/panel styling, transitions, and responsive layouts\n- Refactored: ChessHome, GameArea, InteractiveBoard, PGNGameView, PGNManagementPage, PlayerVsPlayer, and all related chess components\n- Updated all relevant docs: README.md, CONTRIBUTING.md, docs.md, and feature docs",
+        "is_inflection": true
+      },
+      {
+        "sha": "6a69b9b",
+        "date": "2025-07-17T15:25:03Z",
+        "summary": "refactor(student-ui): overhaul all student-facing pages and components for design system, performance, and responsive UI",
+        "body": "- Refactored ClassroomDetails, ClassroomPage, FeedbackHistory, LeaderboardPage, QuizDetailPage, QuizHistoryPage, QuizPage, QuizResultsPage, ReportCard, ResourceCenter, ResourceDetails, StudentDashboard, TournamentsPage for:\n  - Strict adherence to KCA color system and Tailwind config\n  - Modern, beautiful, and accessible UI/UX\n  - Responsive layouts for all screen sizes\n  - Single-responsibility per file/component\n  - Improved performance with memoization and optimized structure\n  - Enhanced accessibility and ARIA usage\n  - Consistent use of modular subcomponents\n  - All interactive elements use correct color tokens, transitions, and states\n  - Improved visual hierarchy, spacing, and semantic HTML throughout\n  - Fixed minor bugs and syntax errors\n- Updated all relevant docs: README.md, CONTRIBUTING.md, and feature docs",
+        "is_inflection": true
+      },
+      {
+        "sha": "8e53524",
+        "date": "2025-07-17T15:00:42Z",
+        "summary": "feat(ui/ux): overhaul teacher dashboard, management, analytics, quiz, and support center for modern design, accessibility, and modularity",
+        "body": "- Enforced full Kolkata Chess Academy color system and Tailwind tokens across all teacher pages/components\n- Added gradients, icons, shadows, and responsive layouts for a beautiful, modern UI\n- Improved accessibility: ARIA labels, semantic HTML, keyboard navigation, and focus states\n- Modularized all components; each file does one job only\n- Memoized components and used hooks for performance\n- Added deep-linking to Support Center tabs via URL hash; SupportCenter auto-selects tab from hash\n- Enhanced Student Management: grouped report card upload/view, improved actions, icons, and accessibility\n- Refactored Quiz Management, Quiz Creator, Leaderboard, Batch/Classroom/Reports pages for design system, clarity, and responsiveness\n- Moved SharingControls to components/quiz/ for reusability\n- Updated all loading, error, and empty states for clarity and accessibility\n- No build artifacts or orphan files; all changes documented\n\ndocs: update docs.md with summary of July 2025 UI/UX overhaul, accessibility, and new features",
+        "is_inflection": true
+      },
+      {
+        "sha": "3acd995",
+        "date": "2025-07-14T14:01:41Z",
+        "summary": "refactor(support/admin): Beautiful, accessible, and performant UI/UX for leave requests, ticketing, and FAQ",
+        "body": "- Refactored all support/admin components for leave requests and ticketing:\n  - LeaveRequestsAdmin, LeaveRequestsTable, LeaveRequestRow, LeaveRequestsSkeleton, ErrorAlert, EmptyState, SupportSystem, TicketTable, TicketDetailModal, FaqModal, FaqCard\n- All components now use the KCA color system (colour_scheme.md, tailwind.config.js) and are fully responsive for all screen sizes\n- Accessibility: ARIA roles, keyboard navigation, focus management, and color contrast validated\n- Performance: React.memo, useCallback, and modular field components for minimal re-renders\n- Single-responsibility: each file/component does one job only and is documented with JSDoc\n- Consistent iconography (inline SVGs), animated transitions, and visual feedback for all actions and statuses\n- Custom modals for ticket/FAQ/leave actions, with focus trap and keyboard support\n- All interactive elements have accessible focus, hover, and disabled states\n- Updated all relevant docs: README.md, src/components/support/docs.md, CONTRIBUTING.md, CHANGELOG.md, src/pages/docs.md",
+        "is_inflection": true
+      },
+      {
+        "sha": "9c0306e",
+        "date": "2025-07-14T13:47:15Z",
+        "summary": "Refactor Student Attendance UI: modularization, color tokens, accessibility, and responsive design",
+        "body": "- Split StudentAttendanceList into container (data/state) and presentational (UI) components\n- All UI uses color tokens from colour_scheme.md and tailwind.config.js\n- Fully responsive layouts for all screen sizes\n- Accessibility: ARIA roles, keyboard navigation, focus/hover/active states, and clear error/loading/empty states\n- Performance: React.memo, useCallback, useMemo, and code splitting for heavy components\n- Single-responsibility: each file/component now does one job only\n- Modular subcomponents: StudentAttendanceTable, StudentAttendanceSkeleton, SearchAndBatchFilter\n- All states (loading, error, empty, data) handled beautifully and accessibly\n- Updated all relevant docs: README.md, src/pages/docs.md, src/components/attendance/docs.md, docs.md",
+        "is_inflection": true
+      },
+      {
+        "sha": "145830f",
+        "date": "2025-07-14T13:39:45Z",
+        "summary": "Refactor StudentAttendanceHistory and attendance components for beautiful, accessible, and responsive UI/UX",
+        "body": "- Refactored StudentAttendanceHistory.js (admin) for single-responsibility, modularity, and performance\n- Improved UI/UX: beautiful, modern, and fully responsive with Tailwind color tokens and design system\n- Enhanced accessibility: ARIA roles, keyboard navigation, focus/hover/active states\n- Added robust loading, error, and empty state handling with clear feedback and retry\n- Updated all relevant docs: README.md, src/pages/admin/docs.md, src/components/attendance/docs.md, src/pages/docs.md",
+        "is_inflection": true
+      },
+      {
+        "sha": "3f5db41",
+        "date": "2025-07-14T13:34:34Z",
+        "summary": "feat: Refactor Quiz Management UI for admin/teacher \u2013 modular, beautiful, and design-system compliant",
+        "body": "Extracted a generic, reusable QuizManagementPage component for both admin and teacher quiz management, eliminating code duplication and ensuring a unified, beautiful UI/UX\nRefactored all related components (QuizTableRow, QuizLoadingSkeleton, QuizErrorAlert, DeleteQuizModal) for strict design system compliance, accessibility, and performance (React.memo, useCallback, useMemo, code splitting)\nAll UI is fully responsive, accessible (ARIA, keyboard navigation, focus/hover/active states), and handles all states (loading, error, empty, data) gracefully\nEnsured each file/component is single-responsibility and registered in the correct modules\nUpdated all relevant documentation: README.md, CHANGELOG.md, docs.md, docs.md, docs.md, docs.md\nNo build artifacts or orphan files; all changes follow project and React best practices",
+        "is_inflection": true
+      },
+      {
+        "sha": "5b148d4",
+        "date": "2025-07-14T13:20:26Z",
+        "summary": "refactor(analytics): Beautiful, responsive, accessible analytics dashboard & components",
+        "body": "- Refactored PlatformAnalytics.js and all analytics components (AnalyticsSkeleton, ErrorAlert, TimeRangeSelect, UserGrowthChart, UserActivityChart, PerformanceMetricsChart) for a beautiful, modern, and fully responsive UI using Tailwind color tokens and the design system\n- Improved accessibility: ARIA roles, keyboard navigation, focus/hover/active states, and clear error/loading/empty states\n- Optimized performance: React.memo, useCallback, useMemo, and lazy loading for all heavy/chart components\n- Ensured single-responsibility: each file/component now does one job only and is properly registered\n- Updated and improved documentation in docs.md, src/components/analytics/docs.md, and README.md to reflect new UI/UX, performance, and accessibility standards\n- All analytics dashboard UI is now modular, maintainable, and mobile-first",
+        "is_inflection": true
+      },
+      {
+        "sha": "a61e9d7",
+        "date": "2025-07-14T13:15:00Z",
+        "summary": "refactor(admin/support): beautiful, accessible, and responsive leave requests UI/UX",
+        "body": "- Refactored all admin leave requests components (`LeaveRequestsAdmin.js`, `LeaveRequestsTable.js`, `LeaveRequestRow.js`, `LeaveRequestsSkeleton.js`, `ErrorAlert.js`, `EmptyState.js`) for a beautiful, modern, and fully responsive UI using Tailwind color tokens and the design system (`colour_scheme.md`)\n- Added custom modal for leave approval/rejection comments (no browser prompt)\n- Improved accessibility: ARIA roles, keyboard navigation, focus management, and color contrast\n- Enhanced performance with React.memo, useCallback, and modular structure\n- Odd row striping, hover/focus states, and clear action buttons\n- Each file/component now does one job only and is fully documented\n- Updated all relevant docs: `README.md`, `CHANGELOG.md`, `src/components/docs.md`, `src/pages/docs.md`, and created `src/components/support/docs.md`",
+        "is_inflection": true
+      },
+      {
+        "sha": "c63c932",
+        "date": "2025-07-14T13:08:58Z",
+        "summary": "refactor(batch-management): beautiful, accessible, and responsive UI/UX overhaul",
+        "body": "- Refactored BatchManagement, CreateBatchForm, BatchTable, and Modal for a modern, beautiful, and fully responsive UI using Tailwind color tokens and the design system\n- Improved accessibility: ARIA roles, keyboard navigation, focus management, and clear error/loading/empty states\n- Enhanced performance: React.memo, useCallback, useMemo, and modular field components\n- Added Lucide icons, animated transitions, and visual feedback throughout batch management\n- Ensured each file/component is single-responsibility and mobile-first responsive\n- Updated README.md, batches/docs.md, and admin/docs.md to document the July 2025 batch management UI/UX refactor and best practices",
+        "is_inflection": true
+      },
+      {
+        "sha": "5d1425e",
+        "date": "2025-07-14T13:05:59Z",
+        "summary": "feat(attendance): major UI/UX and responsive overhaul for AttendanceSystem and related components",
+        "body": "- Refactored AttendanceSystem for modularity, beauty, and full responsiveness at all breakpoints (desktop, mobile, tablet, 8:9, half-screen, etc.)\n- Improved BatchSelect: added visible label, better accessibility, and dropdown clarity\n- Controls (BatchSelect, ExportControls, Settings button) now stack or wrap naturally at all screen sizes\n- Enhanced color token usage, focus/hover/active states, and ARIA/keyboard accessibility across all components\n- All components are single-responsibility and memoized for performance\n- Updated docs to reflect new layout, modularization, and design system adherence",
+        "is_inflection": true
+      },
+      {
+        "sha": "73915a7",
+        "date": "2025-07-14T12:58:51Z",
+        "summary": "refactor(admin/attendance): beautiful, modular, accessible Attendance Settings UI",
+        "body": "- Refactored AttendanceSettings.js for a beautiful, modern, and fully responsive UI using Tailwind color tokens and design system\n- Improved accessibility: ARIA roles, keyboard navigation, focus management, and clear error/loading/success states\n- Optimized for performance with React.memo, useCallback, and modular stat/error/loading components\n- Ensured single-responsibility: each file/component now does one job only\n- Added success feedback and improved error handling for settings update\n- Updated all relevant docs (README.md, CHANGELOG.md, attendance/docs.md, pages/docs.md) to reflect new structure and best practices",
+        "is_inflection": true
+      },
+      {
+        "sha": "2b3058a",
+        "date": "2025-07-14T12:56:16Z",
+        "summary": "refactor(admin-dashboard): modularize & beautify UI, add accessible stat/error/loading components",
+        "body": "- Refactored AdminDashboard.js for beautiful, modern, and fully responsive UI using Tailwind color tokens and design system\n- Improved accessibility: ARIA roles, keyboard navigation, focus management, and clear error/loading states\n- Optimized performance: React.memo, useCallback, useMemo, and modular stat/error/loading components\n- Ensured single-responsibility: each file/component now does one job only\n- Added new modular components in src/components/admin/:\n  - StatCard.js: Animated, accessible stat card for dashboard statistics\n  - LoadingState.js: Accessible, visually clear loading state\n  - ErrorState.js: Accessible, visually distinct error state\n- Updated all relevant docs (README.md, docs.md, CONTRIBUTING.md, CHANGELOG.md, src/components/admin/docs.md)\n- All components use the color system from colour_scheme.md and follow UI/UX best practices",
+        "is_inflection": true
+      }
+    ],
+    "war_stories": [
+      {
+        "sha": "493cbe3",
+        "date": "2025-07-24T18:10:37Z",
+        "summary": "fix(teacher-dashboard): robust React key usage for all mapped lists",
+        "body": "- Fixed all React key warnings in TeacherDashboard by ensuring unique, robust keys for all mapped lists (modals, stats, activities)\n- Added fallback keys for edge cases to prevent duplicate/empty key issues and ensure stable UI updates\n- Updated all relevant docs (README, CHANGELOG, CONTRIBUTING, feature docs, API docs) to document the bugfix and new best practices",
+        "is_inflection": true
+      },
+      {
+        "sha": "f917201",
+        "date": "2025-07-24T17:50:35Z",
+        "summary": "fix(auth/session-management): robust PHP config path, error handling, and JSON output",
+        "body": "- Use absolute paths for all PHP session config includes for reliability across environments\n- Add output buffering and error suppression to PHP endpoints to prevent warnings from breaking JSON responses\n- Improve frontend JSON parsing to extract valid JSON even if PHP warnings are present\n- Add fallback config and safe array access in PHP for session config loading\n- Update README, CHANGELOG, session-management, contributing, and component docs to reflect backend robustness improvements",
+        "is_inflection": true
+      },
+      {
+        "sha": "d30fed2",
+        "date": "2025-07-24T17:29:43Z",
+        "summary": "fix: Prevent scheduling classes in the past, enforce IST timezone for all class/session logic, and update docs",
+        "body": "- Blocked past date scheduling in both UI and backend (single and recurring sessions)\n- All date/time logic now uses IST (Asia/Kolkata) timezone\n- Improved error handling for invalid scheduling attempts\n- Updated README, CONTRIBUTING.md, classroom/docs.md, and docs.md with new guidelines and features",
+        "is_inflection": true
+      },
+      {
+        "sha": "cf6cb3c",
+        "date": "2025-07-24T15:37:03Z",
+        "summary": "fix(grading): pending grading modal now updates after feedback; session-specific feedback tracking",
+        "body": "- Feedback submission now includes session_id, linking feedback to the correct session\n- Backend pending grading query updated to check for session-specific feedback from the teacher\n- Pending grading modal now disappears after feedback is submitted for a session\n- Updated all relevant docs (README, CHANGELOG, API docs, feature docs, CONTRIBUTING)",
+        "is_inflection": true
+      },
+      {
+        "sha": "db65acb",
+        "date": "2025-07-24T14:48:08Z",
+        "summary": "fix: implement 50-game limit for PGN uploads to prevent application hanging",
+        "body": "- Add frontend validation in PGNUpload.js to check game count before processing\n- Add backend validation in upload-pgn.php and validate-pgn.php to enforce 50-game limit\n- Update PGNViewer.js to automatically limit display to first 50 games for performance\n- Modify get-game.php to truncate large existing PGN files to 50 games when viewing\n- Add user-visible warnings in PGNFileDrop.js and upload components about the limit\n- Fix issue where clicking on large PGN files (3K+ games) would hang the application\n- Update documentation in README.md, CHANGELOG.md, and component docs\n- Ensure smooth user experience when uploading and viewing PGN files\n\nResolves performance issues with large PGN file uploads and viewing.",
+        "is_inflection": true
+      }
+    ]
+  },
+  "readme_length": 1313,
+  "raw_readme": "# Kolkata Chess Academy Dashboard\n\n\n## \ufffd July 2025: Settings Page, Session Management & Backend Robustness\n\n- **Settings Page**: Added a dedicated Settings page accessible from the sidebar and user dropdown. Users can now manage their account security and active sessions from one place.\n- **Session Management**: Users can view all active login sessions, log out from other devices, and monitor session activity for enhanced security. Session limits and durations are role-based and configurable by admins.\n- **Backend Robustness**: Improved PHP backend to use absolute paths for session config, added error handling and output buffering to prevent PHP warnings from breaking JSON responses, and enhanced frontend parsing of API responses with PHP warnings. This ensures reliable session management and authentication even if server warnings occur.\n\nSee [`docs/session-management.md`](docs/session-management.md) for full details.\n\nWelcome! KCAdashboard is a modern, beautiful, and accessible dashboard for the Kolkata Chess Academy.\n\n## \ud83d\udee0\ufe0f Quick Start\n\n```powershell\ncd c:\\Owais\\KCAdashboard; npm install; npm start\n```\n\n\n## \ud83d\udcdd July 2025 Update: Quiz Chess Move Feedback\nChess quiz questions now provide instant feedback for both correct and incorrect moves. Wrong moves are highlighted and users are prompted to try again, improving the learning experience for both FEN and PGN quiz modes.\n\n## \ud83c\udd95 July 2025: Show/Hide Password Option\nAll authentication forms (Login, Register, Reset Password) now include a \"Show Password\" toggle for better usability. A reusable `PasswordInput` component is available for use in any form. See `src/components/common/PasswordInput.js` and `FormikPasswordField.js` for details.\n\n## \ud83d\udfe2 July 2025 Update: Teacher Attendance Batch Selection\nTeachers no longer need to manually select a batch before marking attendance. The system now automatically determines the batch from the student being marked, streamlining the attendance process and preventing errors.\n\n## \u26a0\ufe0f July 2025 Update: PGN Upload 50-Game Limit\nTo prevent performance issues and application hanging, PGN uploads are now limited to a maximum of 50 games per file. This ensures smooth user experience when uploading and viewing PGN files. Existing large PGN files (like the 3K games file) are automatically truncated to the first 50 games when viewed.\n\n## \ud83d\udfe2 July 2025 Update: Grading Workflow & Pending Grading Modal Fix\n\n\n## \ud83c\udd95 July 2025: Student Dashboard Quick Links\nThe Student Dashboard now features prominent navigation cards for \"Feedback & Grading\" and \"Report Cards\". These cards provide students with one-click access to their feedback history and academic performance reports, improving discoverability and navigation. The cards are fully accessible, responsive, and follow the KCA design system.\n\n\n\n## \ud83d\udfe2 July 2025: Teacher Dashboard React Key Bugfix & List Rendering Robustness\n\n- Fixed: All React lists in the Teacher Dashboard now use robust, unique keys to prevent duplicate/empty key warnings and ensure stable UI updates.\n- Improved: All mapped lists (modals, stats, activities) now have fallback keys for edge cases, eliminating React key warnings and improving dashboard reliability.\n\n## \ud83c\udd95 Teacher Leave Requests (July 2025)\n\n## \ud83d\udcd6 Where to Find Things\n\n- [UI/UX, Design System, Accessibility](docs.md)\n- [Feature Docs](src/components/docs.md)\n- [API Docs](public/api/docs.md)\n- [Contribution Guidelines](CONTRIBUTING.md)\n- [Changelog](CHANGELOG.md)\n\n---\n\n\n## Registration & Role Security Policy (July 2025)\n\nAll new user registrations are created as **students**. Only administrators can promote users to teacher or admin roles via the user management interface. This prevents unauthorized access to teacher dashboards and ensures secure role management. See `CONTRIBUTING.md` and API docs for details.\n\nFor all project details, see the docs above.\n\n## Getting Started\n\n1. Install dependencies:\n   ```bash\n   npm install\n   ```\n2. Start the development server:\n   ```bash\n   npm start\n   ```\n\n## User Menu & Profile/Logout Dropdown (July 2025)\n\nThe top navigation bar features a user menu with a dropdown containing \"Profile\" and \"Logout\" actions. The dropdown is fully accessible (keyboard, ARIA, focus management), and only appears when clicking the user avatar. All actions are handled inside the dropdown for clarity and accessibility.\n\n## Design System\n\nThis project uses a custom color system defined in `colour_scheme.md` and `tailwind.config.js`. All UI components are built with Tailwind utility classes and follow the design system for consistency, accessibility, and visual clarity.\n\n### Color Tokens\n\nSee `colour_scheme.md` for the full palette and usage guide.\n\n### UI/UX Principles\n\n- Responsive layouts for all screen sizes\n- Accessible components (ARIA, keyboard navigation, visually hidden text)\n- Consistent spacing, typography, and color usage\n- Visual hierarchy and clarity\n- Loading, error, and empty states handled in all major components\n- Iconography for actions and statuses\n\n## Contributing\n\nSee `CONTRIBUTING.md` for guidelines.\n\n## Changelog\n\nSee `CHANGELOG.md` for release notes.\n\n## \u265f\ufe0f PGN to Quiz Integration (July 2025)\n\n- Teachers/admins can now create quizzes directly from PGN games in the Chess Library.\n- Quizzes created from PGNs now default to public visibility, so students can see them when published.\n- Batch PGN-to-quiz creation also defaults to public visibility.\n- Quiz Creator auto-detects PGN data and loads chess questions with full game content.\n- See `src/hooks/usePGNQuizIntegration.js` and `src/components/chess/pgnlibrary/` for implementation details.\n\n## \ud83c\udd95 Recurring Classes Feature\n\nTeachers can now schedule recurring classes based on batch schedules:\n- Click \"Recurring Classes\" in Classroom Management to auto-generate sessions for weeks/months in advance.\n- Uses batch schedule (days, time, duration) for session creation.\n- Smart conflict detection, preview, and notifications for students.\n- See `src/components/classroom/docs.md` and API docs for details.\n\n## \ud83c\udd95 Enhanced Profile System (July 2025)\n\n- FIDE ID integration: Add and link to official FIDE profiles\n- Rating management: FIDE and national ratings, with validation\n- Mandatory profile picture uploads for all users\n- Mandatory date of birth certificate upload for students\n- Admin document verification workflow\n- Role-based profile fields (students, teachers/coaches)\n- See [ENHANCED_PROFILE_DOCUMENTATION.md](ENHANCED_PROFILE_DOCUMENTATION.md) for full details\n\n## July 2025: Multiple File Upload for Classroom Materials\n\n- Teachers can now upload multiple files at once as classroom materials.\n- Each file is validated (type, size) and creates a separate resource entry.\n- UI shows selected file count and names, and supports mixed uploads (files + video links).\n- See `material-upload-fix-summary.md` for details.\n\n# Quiz No-Retake Policy (July 2025)\n\n- Once a quiz is submitted, students cannot retake it. No cooling time, no retry, no second attempt.\n- All UI retry/retake options have been removed.\n- Backend and frontend both enforce this rule for fairness and security.\n- See `README-quiz-no-retake-policy.md` for full details.\n\n## July 2025 Update: Class Scheduling Improvements\n\n- Teachers can no longer schedule classes in the past (UI and backend validation).\n- All class/session date logic now uses IST (Asia/Kolkata) timezone for accuracy.\n- Improved error handling for scheduling attempts with invalid dates.\n\n# Chess Draw Offers Feature\n\nThis release adds the ability for players to offer, accept, and decline draw offers in player vs player chess games.\n\n## Key Features\n- Offer Draw: Players can offer a draw during an active game\n- Accept/Decline: Opponents can accept or decline draw offers\n- Automatic acceptance if both players offer draws\n- Draw offers expire after 5 minutes\n- Real-time notifications and toast alerts\n- Game statistics updated for draws\n\n## Database Changes\n- New table: `chess_draw_offers` (see `database_migrations/add_chess_draw_offers_table.sql`)\n\n## API Endpoints\n- `POST /api/chess/offer-draw.php` \u2014 Offer a draw\n- `POST /api/chess/respond-draw.php` \u2014 Accept/decline a draw offer\n- `GET /api/chess/get-draw-offers.php?game_id=...` \u2014 List pending draw offers\n\n## Frontend\n- New components: DrawOfferDialog, DrawOfferToast, BrowserNotification\n- ChessBoard integration: \"Offer Draw\" button, polling, and notifications\n\nSee `README-draw-offers.md` for full details.\n\n# \u265f\ufe0f PGN Sharing Feature (July 2025)\n\n- Teachers and administrators can share PGN studies (public or their own private) with any user.\n- Students cannot share PGNs, but can view those shared with them in the new \"Shared with Me\" category in the PGN Library.\n- Role-based access: Only teachers/admins see the share button; students do not.\n- See `PGN_SHARING_FEATURE.md` for full documentation and usage examples.\n\n## \u265f\ufe0f PGN Sharing Enhancement (July 2025)\n\n- PGNs can now be shared with entire batches or students from other batches, in addition to individual users.\n- Teachers/admins can select batches or students from any batch in the share modal.\n- See `PGN_SHARING_FEATURE.md` for full details.\n"
+}
