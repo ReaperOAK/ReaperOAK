@@ -13,8 +13,8 @@
 ### Currently
 
 - **Focusing on** distributed systems, autonomous AI agents, and backend infrastructure.
-- **This cycle** — This week: added Claude Code bridge for vibecoding, refactored event handling with stricter types, standardized Vercel and Next.js configs, and updated graphify scripts.
-- **Thinking about** — Considering event-driven state sync with CRDTs to reduce latency in distributed model serving.
+- **This cycle** — This week: integrated automated portfolio intelligence pipeline, synchronized multi-repo fact sheets, and hardened desktop preflight layout engines.
+- **Thinking about** — Designing deterministic verification gates for agentic SDLC workflows to prevent speculative code drift.
 
 ---
 
@@ -46,22 +46,11 @@
 | Project | What it solves | Stack |
 |---------|----------------|-------|
 | **[ForgeOS](https://github.com/ReaperOAK/ForgeOS)** | An SDLC engine of orchestrated agents for spec-driven development. | `TypeScript · Python · JavaScript` |
-| **[csefarewell2k25](https://github.com/ReaperOAK/csefarewell2k25)** |  | `TypeScript · Python · HTML` |
-| **[portfolio](https://github.com/ReaperOAK/portfolio)** |  | `JavaScript · TypeScript · MDX` |
-| **[vibecoding](https://github.com/ReaperOAK/vibecoding)** |  | `Python · HTML · Shell` |
-| **[survivorship-free-backtester](https://github.com/ReaperOAK/survivorship-free-backtester)** | An honest, survivorship-bias-corrected backtesting engine. Market-agnostic — Indian equities (Nifty 50/100/200/500) wired in out of the box, extensible to US/global via yfinance. Tax-aware, free data, Python + DuckDB. | `Python · Shell` |
-| **[id-card-maker](https://github.com/ReaperOAK/id-card-maker)** |  | `TypeScript · CSS · Rust` |
-
----
-
-<!-- section:log -->
-### Engineering log
-
-- New skills were added.
-- Script was updated.
-- Graphify was added.
-- A .claude bridge was added so Claude Code could fully operate the vibecoding system.
-- License was switched from MIT to PolyForm Noncommercial 1.0.0.
+| **[todayeggrates](https://github.com/ReaperOAK/todayeggrates)** | Automated commodity price tracker scaled to 34.2k+ clicks, 7M+ impressions & sub-100ms API response. | `JavaScript · PHP · SQL` |
+| **[survivorship-free-backtester](https://github.com/ReaperOAK/survivorship-free-backtester)** | Honest, survivorship-bias-corrected, tax-aware backtesting on free data. | `Python · Shell` |
+| **[id-card-maker](https://github.com/ReaperOAK/id-card-maker)** | Desktop preflight, layout, and print-imposition engine in Tauri, Rust, and TypeScript. | `TypeScript · CSS · Rust` |
+| **[CodebaseRAG](https://github.com/ReaperOAK/CodebaseRAG)** | Local RAG over any repository via an MCP server for instant codebase querying. | `JavaScript` |
+| **[KCAdashboard](https://github.com/ReaperOAK/KCAdashboard)** | LAMP learning-management system with Stockfish engine and student/coach dashboards. | `JavaScript · PHP · HTML` |
 
 ---
 
@@ -92,6 +81,8 @@
 
 **Tradeoff** — MDX made the build heavier and the content model stricter than a CMS would have. Bought two years of uninterrupted daily updates without an editor UI to maintain.
 
+**Outcome** — Scaled to 7M+ search impressions, 34.2K+ clicks, and 2K+ MAU. Redis caching cut database load by ~90% and delivered sub-100ms API response times with ~99.9% uptime.
+
 [Open todayeggrates ↗](https://todayeggrates.com/)
 
 </details>
@@ -104,6 +95,8 @@
 **Decision** — Split the SDLC into stage-specific agents with explicit handoffs and a ticket lifecycle, so each stage has one job and a reviewable artifact.
 
 **Tradeoff** — Far more orchestration machinery than a single-agent loop, and every stage boundary is a place work can stall. Bought traceability from vision to diff.
+
+**Outcome** — Deterministic stage gates and artifact handoffs eliminated uncontrolled code drifts, producing verified PR diffs and full traceability from specification to merged implementation.
 
 [Open ForgeOS ↗](https://github.com/ReaperOAK/ForgeOS)
 
@@ -124,7 +117,7 @@
 <!-- section:engine-room -->
 ### The Engine Room
 
-- **Languages · measured** — Python 39% · TypeScript 29% · JavaScript 22% · HTML 5% · Shell 2% · CSS 2%
+- **Languages · measured** — Python 36% · TypeScript 27% · JavaScript 25% · HTML 4% · PHP 3% · Shell 1%
 - **Frontend** — React · React Native · Next.js · Expo · Tailwind / NativeWind
 - **Backend** — NestJS · FastAPI · Node.js · Express · Socket.io · BullMQ
 - **Generative AI** — Claude / GPT / Gemini · Prompt engineering · Multimodal

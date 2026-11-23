@@ -46,7 +46,9 @@ export const featuredPanel: MarkdownPanel<RankedRepo[]> = {
     const rows = repos.map((r) => {
       // Own-property lookup only: a repo named `constructor` must not resolve to Object.prototype's.
       const own = Object.hasOwn(ctx.fields.featuredBlurbs, r.name) ? ctx.fields.featuredBlurbs[r.name] : undefined;
-      const blurb = escapeMd(own ?? r.description);
+      const fallback = (content.fallback.featuredBlurbs as Record<string, string>)[r.name];
+      const staticProblem = content.featured.find((f) => f.title === r.name)?.problem;
+      const blurb = escapeMd(own ?? (r.description || fallback || staticProblem || ""));
       const name = r.url ? `**[${escapeMd(r.name)}](${r.url})**` : `**${escapeMd(r.name)}**`;
       const stack = r.stack ? `\`${escapeMd(r.stack)}\`` : "";
       return `| ${name} | ${blurb} | ${stack} |`;

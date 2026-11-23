@@ -1,0 +1,278 @@
+{
+  "repo": "expensify-sniper",
+  "url": "https://github.com/ReaperOAK/expensify-sniper",
+  "description": "",
+  "stars": 0,
+  "branch": "bounty-tracker",
+  "file_count": 71,
+  "tree_sample": [
+    ".gitignore",
+    "HANDOFF.md",
+    "NEXT-SESSION-PROMPT.md",
+    "TRAPS.md",
+    "appenv.sh",
+    "backtest.py",
+    "deploy/hunt.cron",
+    "deploy/install-hunt-cron.sh",
+    "docs/README.md",
+    "docs/bounty-market-findings.md",
+    "docs/expensify-proposal-path.md",
+    "docs/github-api-traps.md",
+    "docs/superpowers/plans/2026-08-09-tracker-filters-and-board.md",
+    "docs/superpowers/specs/2026-08-09-tracker-filters-and-board-design.md",
+    "docs/tracker-operations.md",
+    "groundtruth.py",
+    "hunt.py",
+    "melvin_accuracy.py",
+    "post.py",
+    "pytest.ini",
+    "sniper/board.py",
+    "sniper/claude_cli.py",
+    "sniper/config.py",
+    "sniper/filters.py",
+    "sniper/github_api.py",
+    "sniper/mailbox.py",
+    "sniper/models.py",
+    "sniper/notify.py",
+    "sniper/payers.py",
+    "sniper/repro.py",
+    "sniper/score.py",
+    "sniper/similarity.py",
+    "sniper/sources/__init__.py",
+    "sniper/sources/base.py",
+    "sniper/sources/bounty_labels.py",
+    "sniper/sources/expensify.py",
+    "sniper/sources/payer_watch.py",
+    "sniper/store.py",
+    "tests/__init__.py",
+    "tests/conftest.py"
+  ],
+  "manifests": {
+    "stack": [],
+    "scripts": {},
+    "ci_workflows": [],
+    "schemas": [],
+    "specs": [
+      "docs/superpowers/specs/2026-08-09-tracker-filters-and-board-design.md"
+    ]
+  },
+  "git_intel": {
+    "total_mined": 97,
+    "inflection_points": [
+      {
+        "sha": "8a79a7c",
+        "date": "2026-08-10T15:51:18Z",
+        "summary": "fix: a claimed candidate was stored as never-checked, so it was checked forever",
+        "body": "Self-review of the TTL two commits back. The claim branch upserted `cand`\nbefore with_linked_prs had been applied, so every candidate rejected as\nclaimed went into the table with open_pr_count NULL.\n\nTwo things wrong with that. Candidate's own docstring defines NULL there as\n\"the timeline was never read, never that there are no PRs\" -- and we had read\nit, and found the assignee's own pull request. And recent_pr_check requires a\nnon-NULL count precisely because a NULL one is not evidence of a check, so\nevery claimed candidate was re-read on every sweep: the exact per-sweep cost\nthe TTL exists to remove, left in place for the rows LEAST likely to have\nchanged, since a bounty already awarded is the one thing that stays awarded.\n\nThe test that was supposed to catch this passed for the wrong reason. It\nqueued no timeline response, so the attempted call raised an unqueued-request\nerror, which stage 3 caught as an ordinary timeline failure, warned about,\nand skipped the upsert for -- leaving the claim standing by accident and the\nassertion green. It now asserts no timeline URL was requested at all and that\nno timeline warning reached the digest, and was verified red against the old\ncode before this fix was kept.\n\nThe failed-read test was weak in the same way: the candidate had never been\nstored at all, so it exercised nothing about the stamp. It now checks a\nsuccessfully-stamped row whose TTL has expired, fails the re-read, asserts\nthe stamp did NOT advance, and asserts the very next sweep asks again rather\nthan sitting out a fresh six-hour window on the strength of a failure.",
+        "is_inflection": true
+      },
+      {
+        "sha": "8588832",
+        "date": "2026-08-10T15:47:54Z",
+        "summary": "fix: the staleness rule only ever judged what it had just discovered",
+        "body": "149f5c0/1d5852d gave the comment ceiling a retroactive half. e785fef gave\nthe staleness rule none, so a row that went idle AFTER being stored stayed\nlive indefinitely -- until a source happened to rediscover it, which for a\nmonths-old bounty is never.\n\nThe argument is stronger here than for the ceiling, not weaker. A stale issue\nis by definition one nothing is happening to, and BountyLabelSource sorts by\n`updated` -- so the stalest rows are exactly the ones its pages reach last\nand its stop() reaches never. The rule that most needed a retroactive pass\nwas the only one without one.\n\nstore.apply_staleness mirrors apply_comment_ceiling, comparing GitHub's own\ntimestamp format lexicographically (fixed width, always UTC, so string order\nIS chronological). The cutoff is days+1 because free_reject rejects on\n`idle > days` and timedelta.days truncates, putting the real line at eight\nwhole days for STALE_AFTER_DAYS=7; a test pins 7.9 / 8.0 / 8.1 days against\nfree_reject's own verdict on the same rows, because a rule that keeps a\ncandidate at stage 1 and rejects it retroactively on the same sweep is worse\nthan either answer alone. An empty updated_at is skipped rather than swept\nup: it sorts before every real timestamp, and \"I do not know when\" must not\nread as \"a long time ago\".\n\nThe reason no longer interpolates the measured idle count. \"no activity in\n221d\" gave every candidate a different spelling of one verdict, and the board\ngroups its reject table by exact string while clear_rejections matches by\nexact string -- so the biggest rule on the board could only ever appear as\ndozens of one-row reasons nobody could see the size of or reverse. Both paths\nnow call filters.stale_reason(), which is also what made writing the SQL half\npossible at all: it judges in bulk and has no per-row count to interpolate.",
+        "is_inflection": true
+      },
+      {
+        "sha": "63d80b9",
+        "date": "2026-08-10T15:43:39Z",
+        "summary": "fix: two Expensify calls spent more quota than they had reserved",
+        "body": "The reservation guard is the thing standing between a throttle and a digest\nthat reports the world as empty (HANDOFF.md trap #3), so a request it has not\ncounted is a hole in it. Two of them:\n\n_standing reserved ONE search unit and then called search_issues with\nmax_pages=EXPENSIFY_STANDING_MAX_PAGES (4). Two requests are actually made\ntoday -- 83 results at SEARCH_PER_PAGE 50 -- and the cap is 4 precisely\nbecause that number grows. Every other caller in the tree already reserves up\nfront: BountyLabelSource reserves self.max_pages, known_payers reserves\n`pages`, ever_closed_with reserves 2 for its 2 requests.\n\nThe event poll reserved one CORE unit for the whole call, while\npoll_label_events' deep-paging block calls _get up to EVENT_MAX_PAGES-1 extra\ntimes. It now reserves the cap when a watermark exists and one when it does\nnot, because since_event_id is what switches that block on -- reserving five\nwithout a watermark would be spending the guard on requests that cannot\nhappen. Live as of the previous commit, which is the first time that block\never ran.",
+        "is_inflection": true
+      },
+      {
+        "sha": "1b103dd",
+        "date": "2026-08-10T15:41:29Z",
+        "summary": "fix: silence had come to mean five things, and none of them said which",
+        "body": "main() passes notify_when_empty=False for both jobs, which is right -- 144\n\"nothing new\" messages a day trains the reader to ignore the channel, so the\none that matters lands somewhere nobody looks. But `flock -n` exits 1 and\nprints NOTHING, so Discord silence became indistinguishable between a healthy\nquiet market, a hung job holding its lock, a dead box, a lost .env and a\nremoved crontab. That is the collision this codebase exists to prevent,\nreintroduced one layer out.\n\nTwo halves, because a log and a channel answer different questions.\n\nThe cron jobs now leave a line when they skip. -E 99 and a `[ $? -eq 99 ]`\ntest rather than a bare `|| echo`: flock passes the command's own exit status\nthrough when it DID get the lock, so the simple form would file every python\ntraceback as a lock conflict -- one wrong story swapped for another. Verified\nlocally against a real flock in all three states: lock held writes the line,\nlock free does not, and a command exiting 3 does not.\n\nThe digest now speaks once every HEARTBEAT_S (24h) regardless, carrying the\nsweep count and the live totals. Periodic, not per-run: at ten-minute sweeps\nthat is 1 message in 144, and the branch is tested against two hours of\nsweeps producing exactly two beats rather than twelve. The sweep COUNT is\nwhat makes a half-dead deployment visible -- a heartbeat reading 6 where 144\nbelong is a watch cron that has stopped, said out loud by the digest cron\nthat has not.\n\nStored in http_cache the way board-signature is, and advanced only by a beat\nthat actually reached someone. A recorded-but-undelivered beat would buy\nanother full day of silence out of a delivery failure, which is exactly what\nit exists to break; --dry-run does not spend it either.\n\nAlso corrected the installer's flock preflight comment, which still said both\njobs share one lock. They stopped four commits ago.",
+        "is_inflection": true
+      },
+      {
+        "sha": "88a2bb0",
+        "date": "2026-08-10T15:35:55Z",
+        "summary": "fix: the deep paging added last commit had never run once",
+        "body": "poll_help_wanted_events returns events already filtered to `labeled` + Help\nWanted + not-a-PR -- a tiny minority of the feed. The caller then took its\nwatermark from THAT list, which breaks in both directions and both were live:\n\n  * no matching event yet -> no watermark ever written -> since_event_id\n    stays None -> the paging block is skipped entirely. That is the deployed\n    state: measured 2026-08-10, the newest Help Wanted label event on\n    Expensify/App was three days old, so the feature shipped inert;\n  * after one matching event -> the watermark freezes at that id until\n    another Help Wanted label lands, so every poll in between re-pages the\n    full EVENT_MAX_PAGES (5 core calls, every ten minutes) to re-read pages\n    it had already read.\n\npoll_label_events is the only function that sees the unfiltered payload, so\nit now returns the newest id ON THE PAGE as a fourth value rather than\nleaving the caller to reconstruct it from output it cannot reconstruct it\nfrom. None means the page said nothing -- empty, or a 304 -- and is\ndeliberately not 0, which is a real id every event compares greater than.\n\npayer-watch unpacks and DISCARDS it, with a note saying why: passing\nsince_event_id is what turns deep paging on, and that loop runs across up to\nWATCH_MAX_REPOS (60) repos a sweep, where one page each is what makes\nwatching them affordable at all.\n\nNothing in the suite mentioned since_event_id, watermark or EVENT_MAX_PAGES.\nEleven tests now do, including both failure directions above, the stop at\nthe page that reaches the watermark, the stop at the cap when it never does,\nand the single page read when there is no watermark to page toward.",
+        "is_inflection": true
+      },
+      {
+        "sha": "02cc94b",
+        "date": "2026-08-10T15:31:53Z",
+        "summary": "fix: two modules agreed on a string by convention, and nothing checked",
+        "body": "store.PAYOUT_REJECT_PREFIXES was a tuple of hand-typed literals, matched with\nSQL LIKE against reasons built as f-strings in payers.payout_reject. Two\ncopies of the same words in two modules, linked by nothing.\n\nA reword on either side raises nothing. bounty_inventory silently stops\ncounting those rows, the repo's advertised inventory falls back under\nUNPAID_REPO_THRESHOLD, the rule abstains, and the survivors look exactly like\na repo that was never suspicious -- which is the self-erosion bug\nbounty_inventory exists to fix, restored with no error anywhere. Measured\n2026-08-10, that erosion took SecureBananaLabs/bug-bounty from 31 live rows\nto 3 in a single sweep, three being under the threshold of ten.\n\nThere was no test naming bounty_inventory, algora_repos or\nPAYOUT_REJECT_PREFIXES at all.\n\npayers now owns the strings and BUILDS its reasons from them, so there is one\nstring used twice rather than two strings expected to agree; store imports\nthem lazily, as it already does for the rest of payers.\n\nThree tests, because the coupling has three halves worth holding:\n\n  * every reason payout_reject can return, enumerated by driving all three\n    rejecting branches, asserted against the prefix set -- two of three\n    passing is the shape of this bug, not a defence against it;\n  * an ast walk over payout_reject itself, so a FOURTH reason added later\n    cannot quietly fall out of the LIKE. Verified it fails on an added\n    branch before being kept;\n  * the behaviour the functions exist for: a payout-rejected row still counts\n    toward its repo's advertised inventory (a fork rejection does not), and a\n    repo where any one row wears the Algora label is flagged for all of them\n    -- the 28-rejected/3-survived split measured on the same repo.",
+        "is_inflection": true
+      },
+      {
+        "sha": "e5cfce8",
+        "date": "2026-08-10T15:28:46Z",
+        "summary": "fix: the ten-minute job re-read 83 timelines it had already read",
+        "body": "Expensify's standing search returns every open Help Wanted issue on every\nsweep. Measured 2026-08-10: all 83 survive free_reject -- Expensify is in\nASSIGNEE_NOT_A_CLAIM, so the assignee rule that drops them everywhere else\nnever fires -- survive repo_reject, and reach stage 3. Stage 3 had no cache,\nno dedup against rows it had already judged and no per-source cap, so each\none cost 1-3 core calls plus CORE_CALL_PAUSE_S (0.5s), every time.\n\nWATCH_SOURCES puts that on the TEN-MINUTE cron: 1.5-2.5 minutes of wall\nclock per sweep and 500-1500 guard-counted core units an hour, against a\nguard that refuses to start a run once 3500 of the 5000/hr pool is spent. It\nfitted inside ten minutes by luck rather than by construction, and `flock -n`\nturns an overrun into a silently skipped cycle -- which is indistinguishable\nfrom a healthy quiet market.\n\ncandidates.pr_checked_at records when the timeline was actually READ, added\nthrough ADDED_COLUMNS the way open_pr_count was. recent_pr_check() returns\nthe stored verdict only while it is younger than TIMELINE_RECHECK_S, and\nreturns None -- go and look -- for no row, no stamp, a stamp too old, or a\nNULL count, because every candidate rejected before stage 3 carries a NULL\ncount and a row existing is not evidence anyone read its timeline.\n\nSix hours, and it is a trade, not a free win: a claim can land at any moment,\nso a reused verdict can show a bounty awarded five hours ago. That is the\nsame safe direction TIMELINE_MAX_PAGES already takes -- a kept candidate gets\nread by a human who sees the assigned PR, a rejected one disappears unseen.\nSix rather than three so a watch sweep is not forced to redo the standing\nlist between digests, rather than twenty-four so a claim never survives more\nthan two digests. 83 x 4 checks a day against 12,000-36,000.\n\nThree things the reuse gets right or it would be worse than the bug:\n\n  * a candidate never checked is checked immediately, whatever the TTL --\n    the label-event path is as fast as it ever was;\n  * the stored open_pr_count is reused, so the score does not quietly become\n    \"uncontested\" on the sweep that skips;\n  * the CLAIM is carried forward with it. Stage 3's verdict is two facts, and\n    reusing only the count would rewrite a claimed candidate with\n    rejected=NULL and put an awarded bounty back on the board with no call\n    made to blame it on. CLAIM_PREFIX exists so the writer and the reader of\n    that reason cannot drift apart.\n\nA read that FAILED writes no stamp at all: recording one would suppress the\nretry for a whole six-hour window, which is \"I could not look\" wearing the\nface of \"I looked\".",
+        "is_inflection": true
+      },
+      {
+        "sha": "7f87b8e",
+        "date": "2026-08-10T14:47:11Z",
+        "summary": "fix: the watch was starved by the digest, and one page was a bet on a quiet repo",
+        "body": "Two reasons the Expensify channel has produced zero candidates.\n\nThe locks. I gave both cron jobs the SAME flock hours earlier. A full sweep\nspends ~20 minutes in the timeline stage alone -- twice the watch job's entire\ninterval -- so every digest starved two to four watch cycles. That is exactly\nbackwards: the watch is the time-critical one, because its whole purpose is to\ncatch a label before it rolls off the events page, while a skipped digest just\nreports the same inventory three hours later. One lock per job now. The shared\nSQLite file, which the single lock was reaching for, is already handled a layer\ndown by timeout=30 and upsert_candidate's hardening.\n\nThe paging. poll_label_events read exactly one 100-event page, which is a bet\nthat the repo is quiet. Measured 2026-08-10 on Expensify/App that page covered\n27 MINUTES against a 10-minute poll; the day before it covered 2h52m. A 6x swing\nin velocity, and losing the bet is silent -- the label is simply never seen.\n\nIt now pages until it reaches an event id it has already passed. A WATERMARK,\nnot a per-event seen-test: only a matching label is ever recorded as handled and\nthose are a tiny minority of the feed, so a seen-test would recognise nothing\nand page the full cap every poll. Event ids increase monotonically, so 'we have\nreached an id we already passed' is the honest stopping point.",
+        "is_inflection": true
+      },
+      {
+        "sha": "1d5852d",
+        "date": "2026-08-10T14:36:07Z",
+        "summary": "fix: the comment ceiling has to reach the rows already stored",
+        "body": "free_reject only judges candidates a source hands over this sweep, and a\nmonths-old bounty may never be rediscovered. Measured 2026-08-10, 36 live rows\nwere already past the ceiling when it shipped -- without this they would have\nsat on the board forever while the rule applied to new inventory only.\n\nSame reason apply_dismissals and apply_payout_rejections exist, and the reason\nstring is built to match free_reject's exactly so the board's reject table\ngroups both paths under one row instead of showing one rule twice.",
+        "is_inflection": true
+      },
+      {
+        "sha": "cdd0cac",
+        "date": "2026-08-10T14:22:41Z",
+        "summary": "fix: the payout rule was erasing the condition it fires on",
+        "body": "Two leaks, both visible in the published board, both structural rather than\nthreshold-tuning.\n\nA repo's ledger is a fact about the REPO, but check_rewarded was keyed on the\nlabels of whichever issue was in hand. Measured 2026-08-10: 28 of\nSecureBananaLabs/bug-bounty's candidates carried \ud83d\udc8e Bounty and were rejected on\na zero rewarded count, while three siblings tagged only ['bug', 'good first\nissue', 'bounty', '$1.2k'] survived the same sweep -- one repo, one ledger, two\nverdicts, decided by tagging. algora_repos() answers it per repo instead.\n\nAnd UNPAID_REPO_THRESHOLD was measured against currently-live rows, so the rule\nshrank its own basis as it worked. SecureBananaLabs fell 31 -> 3 live in one\nsweep; 3 is under the threshold of 10, so the next sweep abstained and the\nsurvivors became permanently untouchable. bounty-plaza did the same at 2. A\nfilter that destroys its own trigger stops firing, and what it leaves behind is\nindistinguishable from a repo that was never suspicious.\n\nbounty_inventory() counts live rows PLUS the ones the payout rules themselves\nrejected, because 'is this repo advertising a pile of bounties' is a question\nabout the repo, not about how many of its issues survived our filters. Other\nrejections -- forks, below-floor, archived -- are deliberately not counted back:\nthose say the candidate was never worth ranking, not that the repo does not pay.",
+        "is_inflection": true
+      },
+      {
+        "sha": "2ea5ff4",
+        "date": "2026-08-10T13:18:05Z",
+        "summary": "fix: Algora's own ledger outranks a ratio, and a ratio needs a sample",
+        "body": "Farms held 11 of the top 15 slots by score on the live box today. Three\nseparate holes, none of them the ratio rule failing:\n\n  repo                        live   rewarded   closed \ud83d\udc8e   with PR\n  SecureBananaLabs/bug-bounty   31          0           1         1\n  UnsafeLabs/Bounty-Hunters      9          0           0         0\n  Spectral-Finance/lux           2          0           0         0\n\nSecureBananaLabs passed because 1/1 is 100%. A ratio on a sample of one is not\nevidence. UnsafeLabs was never judged at all: nine live candidates, one under\nUNPAID_REPO_THRESHOLD, so the gate abstained before any rule ran.\n\nBoth wear Algora's own \ud83d\udc8e Bounty label and have never had a single issue marked\n\ud83d\udcb0 Rewarded. That is not an inference from the payer roster -- which is a sample\nof the 43 most-recent payers, and weak by construction -- it is Algora's own\nrecord for that repo saying nobody was ever paid. So rewarded_count reads the\nrepo directly and its verdict does not wait for the open-count threshold.\n\nIt is asked ONLY of repos wearing the exact Algora label. microg/GmsCore has\n14,170 stars, a real $1,340 bounty and 0 rewarded, because it never opted into\nAlgora at all -- absence of the label is absence of a record to be silent about,\nand that asymmetry is what makes skipping the threshold safe.\n\nThe ratio now needs CLOSED_SAMPLE_MIN closures before it is trusted, and below\nthat it ABSTAINS rather than rejects. The direction is the point:\ncommaai/opendbc is a genuine payer with seven closed bounties, and rejecting a\nshort track record would kill exactly what this tool exists to find.\n\napply_payout_rejections loses its own copy of the gate -- the third -- which\ncarried the same nine-under-ten hole for rows already in the table.",
+        "is_inflection": true
+      },
+      {
+        "sha": "cd45629",
+        "date": "2026-08-10T10:23:48Z",
+        "summary": "fix: one issue's timeline could consume a whole sweep",
+        "body": "Measured 2026-08-10 on the live box, mid-deploy: core spend went 195 -> 270,\nseventy-five consecutive calls in ninety seconds, while open_pr_count did not\nadvance by a single row. Stage 3 was paging one issue's timeline -- 7,500+\nevents -- with nothing bounding it. Throughput fell to about three candidates a\nminute, which over 975 survivors is longer than the interval of the cron that\ncalls it, and the run would have exhausted CORE_BUDGET_PER_RUN long before\nfinishing.\n\nhas_open_linked_pr could not hit this. It stopped at the first open PR and\nalmost never left page one. Counting removed that stop and nothing replaced the\nbound; the recorded fixture has 167 events, so no test could see it either.\n\nPaging now stops at TIMELINE_MAX_PAGES (3 = 300 events, which covers every real\nbounty issue) and LinkedPRs.complete says whether the whole timeline was read.\nTruncation is safe in both directions, which is what makes a cap acceptable\nhere: a claimant found is positive evidence and still rejects, and a claimant\nnot found leaves the candidate live -- the safe error, because a kept candidate\ngets read by a human while a rejected one disappears.\n\nAlso un-fragiles the gist-token fallback test, which reloaded config and so read\nthe developer's real .env. It passed everywhere until the credential was\nactually configured, then failed for a reason unrelated to the code.",
+        "is_inflection": true
+      },
+      {
+        "sha": "22afe41",
+        "date": "2026-08-10T10:08:31Z",
+        "summary": "fix: the two cron jobs share a database and neither is as short as its schedule",
+        "body": "Measured 2026-08-10: a full sweep of 975 survivors spends about twenty minutes\nin the timeline stage alone, one core call per candidate. That is twice the\nwatch job's entire interval, so the 10-minute sweep was starting on top of a\nrunning digest and both were writing the same SQLite file.\n\nThe watch job is not cheap any more either. It was affordable because\n/issues/events revalidates and a 304 costs nothing, but since the payout rules\nlanded it also clears stale rejections and can run paced searches of its own on\nevery invocation.\n\nBoth jobs now take the same flock. -n rather than -w: a sweep that cannot get\nthe lock skips, because queueing would build a backlog of sweeps racing to\nreport the same inventory and the next run is only minutes away.\n\nThe installer gained a preflight for flock itself. A crontab calling a missing\nbinary would fail every sweep with 127 into a log nobody reads, and a tracker\nthat reports nothing looks exactly like a market with nothing in it.",
+        "is_inflection": true
+      },
+      {
+        "sha": "95a30f3",
+        "date": "2026-08-10T10:01:32Z",
+        "summary": "fix: closing a bounty is not paying one, and a farm bulk-closes",
+        "body": "The label-agnostic payout rule rejected a repo only when it had NEVER closed an\nissue carrying its bounty label. Verified against live data today, that is fooled\nby the exact repo it was written for: zhangjiayang6835-cyber/bounty-plaza reports\n198 closed 'Bounty' issues, so the rule abstained and 22 of its issues sat live\nin the digest holding the top five slots by score.\n\nThose closures are not payouts. Issues #12, #13 and #16 were closed at\n10:43:51Z, :55Z and :58Z on 2026-07-12 -- seven seconds apart, none assigned, one\nof them titled '[bounty][funding-pending]'. It is a bulk close, and closing costs\na farm nothing.\n\nWhat separates them is whether the closure carried merged work. Measured:\n\n    repo                     closed   with a linked PR   ratio\n    bounty-plaza (farm)         198                 23     12%\n    activepieces/activepieces   173                170     98%\n    commaai/opendbc               7                  4     57%\n\nA real programme closes a bounty BECAUSE a pull request landed. So the rule now\nasks for both numbers and rejects below a third, which keeps opendbc -- seven\nclosed bounties, no Algora label, its own programme -- and drops the farm.\n\nNote for the next person: GitHub's search API silently IGNORES -no:assignee. It\nreturned the identical 198 for a repo whose closed issues have no assignee at\nall. 'linked:pr' does work.",
+        "is_inflection": true
+      },
+      {
+        "sha": "57dbf26",
+        "date": "2026-08-10T09:43:43Z",
+        "summary": "fix: the gist needs a scope the read token deliberately does not have",
+        "body": "Measured 2026-08-10 against the live API: GITHUB_TOKEN is a classic PAT with an\nEMPTY scope list. That is exactly right for everything else this tool does --\nit reads public issues and can do nothing else, so losing it costs nothing --\nbut creating or updating a gist needs the `gist` scope, and POST /gists answers\n404 with it. GitHub reports a missing scope as not-found rather than forbidden,\nso an under-scoped credential is indistinguishable from a deleted gist.\n\nThe board's credential is therefore separate rather than widening the read\ntoken: BOUNTY_GIST_TOKEN, falling back to GITHUB_TOKEN so one sufficiently\nscoped token still works. Least privilege -- one narrow token that can write one\ngist, and a read token that stays powerless.",
+        "is_inflection": true
+      },
+      {
+        "sha": "caf0fe2",
+        "date": "2026-08-10T09:40:41Z",
+        "summary": "fix: the silence rule was dead code on every real invocation",
+        "body": "run() defaults notify_when_empty=True so the test suite can assert on a digest\nwithout wiring a fake channel. main() never passed anything else, so\n`nothing_to_say and not notify_when_empty` was `True and False` every time the\ncron ran and the branch was unreachable.\n\nSo the watch sweep had been posting to Discord every ten minutes whether or not\nanything changed -- 144 messages a day, which is precisely the failure the rule\nwas written to prevent. The comment above it has been describing behaviour the\ncode never had.\n\nThe new test asserts the wiring rather than the rule; the rule already has\ntest_a_quiet_watch_sweep_says_nothing.",
+        "is_inflection": true
+      },
+      {
+        "sha": "8c3d0a5",
+        "date": "2026-08-10T08:55:27Z",
+        "summary": "fix: three small ways a number or a name silently meant nothing",
+        "body": "* ASSIGNEE_NOT_A_CLAIM was not case-normalised, unlike PAID_LABELS three\n  sections above it. `ASSIGNEE_NOT_A_CLAIM=Expensify` in .env -- the\n  obvious spelling, since that is how the project writes its own name --\n  would have matched no source, restored the blanket assignee reject,\n  and taken the whole $250 channel dark again with no error anywhere.\n  That is the exact failure this branch exists to fix, reintroduced by a\n  capital letter. Lowered on both sides, with a test.\n\n* test_score.py had no boundary case at stars=20, repo_age_days=90 or\n  repo_open_issues=200. The three comparisons are deliberately\n  asymmetric (>=, <, >) and bounty-plaza's measured 5 / 32 / 526 sits\n  clear of all of them, so nothing pinned the edges and a later reader\n  tuning FEW_STARS could not tell which side of each line the boundary\n  falls on.\n\n* tools/record_fixtures.py claimed the recorded timeline carries 6 open\n  pull-request cross-references. Counted from the committed fixture it\n  carries 29 (34 including closed), across 167 events and two pages --\n  the 6 was measured before linked_pr_state() read past page 1 and never\n  re-measured, directly contradicting the note underneath it. It also\n  pointed at \"Step 6\" of a plan that has nine of them. Folded into one\n  note that says what produced the number.",
+        "is_inflection": true
+      },
+      {
+        "sha": "1614667",
+        "date": "2026-08-10T08:53:18Z",
+        "summary": "fix: the board's headline numbers were page sizes, and its change signal died on day one",
+        "body": "Five defects, one cause: a page was being reported as an inventory.\n\n* signature() counted len(rows) from a list capped at\n  BOARD_UNRANKABLE_N (600). The true unrankable set is 934 post-revive\n  (529 + 405), so the count pinned at 600 on the first sweep and never\n  moved again -- has_changed's percentage arm was dead from day one and\n  only the new-repo arm still worked. It now takes the count from the\n  database. `repos` stays page-derived on purpose: the page is ordered\n  first_seen_at DESC, so a NEW repo cannot be truncated away, and a repo\n  falling off the tail is the case has_changed deliberately leaves to\n  the count.\n\n* The board-signature cache advanced even when publishing failed, and on\n  --dry-run. A 40% move on a sweep where publish() raised was warned\n  about and then FORGOTTEN: the next successful sweep compared against\n  the advanced signature, saw nothing, and sent no link, so the move was\n  never announced on any future sweep. It now advances only when a url\n  came back.\n\n* \"Rankable \u2014 25\" over 48 priced live rows, fed DIGEST_TOP_N with no\n  truncation notice, and `live 30` in the footer -- a sum of two capped\n  lists that also double-counts a new top-scoring row -- while 982 rows\n  were live. Counts now come from store.live_counts (one query, three\n  honest numbers), the board has its own BOARD_RANKABLE_N, and a\n  truncated section says \"showing N of M\". config's claim that \"the\n  footer says when it truncates\" was false and is now true of the\n  heading.\n\n* An unset BOUNTY_GIST_ID warned on stderr only, because publish()\n  returns None rather than raising. In Discord \"the gist was never\n  configured\" and \"the board did not move\" were the same silence -- the\n  collision publish()'s own docstring forbids -- and unset is the state\n  both hosts deploy in. It now reaches the digest, and the deploy smoke\n  test names it beside DISCORD_WEBHOOK.\n\n  One deviation from the review, deliberately: the note is excluded from\n  the silence test. It is a permanent configuration state, not news\n  about this sweep, and letting it force delivery would be 144 identical\n  messages a day out of the watch cron -- the failure the silence rule\n  exists to prevent, arriving through the warning channel instead.\n\n* The Rejected section rendered counts only, against design section D's\n  \"up to three example issues each\". A count says a filter is BIG; an\n  example says it is WRONG, and the example is the half that catches the\n  next 'open linked PR = 562'.\n\nclear_rejections' comment claimed revived rows are \"put back in front of\nthe new one\". They are not: run() judges only what a source rediscovers\nthis sweep. Corrected in both hunt.py and store.py, with why it is\nacceptable -- all 446 revived rows carry score IS NULL, so they sort\nlast and cannot pollute the digest.",
+        "is_inflection": true
+      },
+      {
+        "sha": "7d422d5",
+        "date": "2026-08-10T08:46:48Z",
+        "summary": "fix: one throttled farm check could stall a whole sweep for hours",
+        "body": "ever_closed_with writes its cache only on success. A throttle or an\nexception left nothing behind, and hunt's stage 1 -- unlike\napply_payout_rejections, which memoises None in its own closed_cache --\nre-asked per candidate.\n\nThe cost is not one call. Measured against the live database: clearing\n'open linked PR' revives 446 rows, taking live from 536 to 982 and repos\nover UNPAID_REPO_THRESHOLD from 4 to 14. One of those repos holds 296\ncandidates, another 185. ever_closed_with called search_issues without\nretries=, inheriting the 3-attempt 60/120/240s ladder, and because a\nsingle-page search has no items in hand _fetch_search_page sleeps the\nfull 420s and then raises. 296 uncached asks at 420s is a 3-hourly sweep\nthat never finishes, a 10-minute watch cron piling up overlapping\nprocesses, and no digest to say why.\n\nThree changes:\n\n* hunt.run memoises closed_for for the whole run, failures included. A\n  None means \"already asked, could not tell\" -- an answer, cached like\n  any other.\n* ever_closed_with passes retries=0. The ladder exists because\n  abandoning a DISCOVERY page cost 420 of 520 candidates; abandoning a\n  farm check costs one abstain on one repo.\n* ever_closed_with paces itself by SEARCH_PAGE_PAUSE_S. search_issues\n  only pauses between pages and this asks for exactly one, so the 14\n  calls apply_payout_rejections now makes went out back to back --\n  against a burst guard measured tripping at ten (23 of 30 primary units\n  still unspent).\n\npayout_reject's first four conditions move to payers.label_to_check,\nused by both call sites, so the gate that decides whether to spend a\nsearch unit is not a hand-copied duplicate of the gate that decides the\nverdict. A drifted copy is asymmetric: more permissive only wastes\nquota, more restrictive passes closed=None where a count was needed and\nsilently keeps a farm. Same shape as 441d2ed.\n\nThe suite could not see any of this: conftest's no_budget_waiting zeroes\nSEARCH_MAX_RETRIES and SEARCH_RETRY_BACKOFF_S. The regression test asks\ninstead how MANY times a failing closed_for is called -- once per (repo,\nlabel), not once per candidate.",
+        "is_inflection": true
+      },
+      {
+        "sha": "7af04f2",
+        "date": "2026-08-10T08:26:00Z",
+        "summary": "fix: close three review findings in the board/gist wiring",
+        "body": "1. tests/test_hunt.py's dry_run=False sites called hunt.run() -> board.publish()\n   with no injectable seam, and were only safe because this worktree's .env has\n   BOUNTY_GIST_ID unset. The moment an operator configures a real gist, every\n   local `pytest` run would PATCH it with test fixtures. Extended the existing\n   board-sandbox autouse fixture to also force BOUNTY_GIST_ID empty, mirroring\n   the GITHUB_TOKEN override already at the top of conftest.py -- and added the\n   missing hunt.run() integration test covering the write/publish/link/cache\n   round-trip, with board.publish and notify.send replaced wholesale.\n\n2. The board block ran after notify.format_digest(), so a write or publish\n   failure landed in `warnings` too late to reach the delivered digest, and the\n   stderr print was gated on the id being unset -- a configured gist that\n   failed for any other reason produced no stderr line either. Moved the board\n   block before format_digest() so its warnings render into the same digest,\n   and made the stderr print unconditional with a reason chosen per failure\n   mode, mirroring the existing digest-delivery failure handling.\n\n3. board._headers() duplicated github_api._headers() minus its User-Agent.\n   Deleted the copy; both gist calls now use the shared one.\n\nAlso: corrected board.py's module docstring (create_gist/publish are not\npure), documented why has_changed's new-repo-vs-count asymmetry is\ndeliberate, and pinned the > (not >=) threshold behaviour with a test.",
+        "is_inflection": true
+      },
+      {
+        "sha": "441d2ed",
+        "date": "2026-08-09T17:15:46Z",
+        "summary": "fix: the stage-1 payout guard must abstain on an empty roster too",
+        "body": "Review caught a bug carried over verbatim from the brief: the stage-1 guard\nin hunt.py checked \"off the payer roster\" and \"over threshold\" before calling\nclosed_for, but not \"the roster was actually fetched\". When known_payers\nfails and returns an empty set -- deliberately, so payout_reject abstains\nrather than treating \"could not look\" as \"nobody pays\" -- every repo is\nvacuously \"not in payer_repos\", so the guard fired for every qualifying\ncandidate and payout_reject discarded every answer anyway (its first check is\n`if not payers: return None`). Worse than wasted: reserve_or_wait blocks for\nup to BUDGET_WAIT_S (65s) once the search pool is spent, and the roster fetch\nusually fails from that same rate pressure, so a run could stall for minutes\nbuying answers already guaranteed to be thrown away.\n\nAdded `payer_repos and` to the guard, matching store.apply_payout_rejections,\nwhich already got this right. Added test_an_empty_roster_never_reaches_closed_for,\nwhich fails against the old guard and passes against the fix (verified both\nways).\n\nAlso: bounty_label_of now returns the stripped label on all three branches,\nnot just the one flagged -- the return value flows into ever_closed_with's\nquery as label:\"{label}\", where incidental whitespace would silently fail to\nmatch. And the commaai/opendbc citation (7 closed bounties, no Algora label)\nthat got dropped when a test was renamed is reattached to\ntest_keeps_a_repo_that_has_closed_even_one, the test whose mechanism it\nactually grounds.",
+        "is_inflection": true
+      },
+      {
+        "sha": "1a3b8b2",
+        "date": "2026-08-09T17:00:29Z",
+        "summary": "fix: a farm is a repo that never closes a bounty, whatever label it uses",
+        "body": "The payout rule only fired on Algora's exact label, so a farm running its own\nlabel was invisible to it. Measured 2026-08-09, zhangjiayang6835-cyber/bounty-plaza\nheld three of the top four digest slots: 526 open bounties, 0 ever closed, 5\nstars, created a month earlier, advertising 'Add a shrimp-person species' at\n$200 behind a plain 'Bounty' label.\n\nThe label gate is replaced by direct evidence -- has this repo ever CLOSED a\nbounty carrying the label it is advertising under. Closed rather than rewarded,\nbecause '\ud83d\udcb0 Rewarded' is Algora's marker and a repo running its own programme\nnever sets it: commaai/opendbc has closed seven bounties including a $4,000 port\nwith no Algora label anywhere.\n\nThe lookup costs one search unit per repo per day and is asked only about repos\nalready over the open-bounty threshold and off the payer roster. It returns None\nwhen it could not look, and every caller abstains on None rather than reading it\nas zero.",
+        "is_inflection": true
+      },
+      {
+        "sha": "654c7b5",
+        "date": "2026-08-09T16:35:59Z",
+        "summary": "fix: an Expensify assignee is the reviewer, not the winner",
+        "body": "Expensify assigns an internal engineer the moment a job is posted and a C+ when\none volunteers. Verified against the live API on 2026-08-09: #97949 is open and\naccepting proposals, labelled External/Daily/Help Wanted, assigned to\nstitesExpensify.\n\nSo free_reject's blanket assignee rule was rejecting 100% of Expensify\ncandidates at stage 1 -- the entire \\$250 channel, and silently, because a\nrejected candidate looks exactly like one that was never posted. It had not\nsurfaced yet only because the watch cron is hours old and Help Wanted lands about\ntwice a day.\n\nWhether such a job has actually been awarded is now answered by stage 3: a C+\npicks a proposal, its author is assigned and opens the PR, and that is precisely\nthe claim linked_pr_state tests for.",
+        "is_inflection": true
+      },
+      {
+        "sha": "ea31811",
+        "date": "2026-08-09T16:22:17Z",
+        "summary": "fix: stop discarding bounties because a bot opened a PR on them",
+        "body": "Stage 3 now rejects only when an open linked PR's author is already an assignee,\nand scores every other open PR as competition: amount / (1 + comments + 2*prs).\nAn open PR weighs more than a comment because its author has already written\ncode, and less than a wall because on Expensify selection is by proposal and on\nAlgora only a merge wins -- a later entrant may read those PRs and do better.\n\nThe 562 candidates already rejected under the old question are cleared at the\nstart of the run so the new rule actually sees them, and the digest says how many\nwere re-judged rather than letting a silent revival look like new inventory.",
+        "is_inflection": true
+      },
+      {
+        "sha": "9a9f129",
+        "date": "2026-08-09T16:13:15Z",
+        "summary": "fix: close the check-then-act race in the column migration",
+        "body": "_migrate() read PRAGMA table_info and then ran ALTER TABLE with nothing\nspanning the check and the write. upsert_candidate's own docstring already\nholds this file to a standard here -- two processes sharing the database is\n\"the normal case, not a corner one\" (hunt.py's cron every 3 hours, the\nExpensify watch sweep every 10 minutes, independently), measured at 8 of 10\nracing writers colliding on a bare check-then-act. On first deploy, while a\ndatabase is still on the old schema, two callers of connect() can both see\nthe column missing before either runs its ALTER, and the loser crashed with\n\"duplicate column name\".\n\nALTER TABLE now treats that one error string as success: a peer already did\nthe job this call wanted done. Any other OperationalError -- a genuinely\nbroken ALTER -- still raises.\n\nAlso: added the idempotency test that actually exercises the migrated path\n(OLD_SCHEMA -> connect once to run the ALTER -> connect again), since the\nexisting one only reopened a database that was born on the new schema and\nnever went through ALTER TABLE at all. And fixed a schema alignment typo:\nopen_pr_count had two spaces before its type where the rest of the table\nuses one.",
+        "is_inflection": true
+      }
+    ],
+    "war_stories": [
+      {
+        "sha": "8a79a7c",
+        "date": "2026-08-10T15:51:18Z",
+        "summary": "fix: a claimed candidate was stored as never-checked, so it was checked forever",
+        "body": "Self-review of the TTL two commits back. The claim branch upserted `cand`\nbefore with_linked_prs had been applied, so every candidate rejected as\nclaimed went into the table with open_pr_count NULL.\n\nTwo things wrong with that. Candidate's own docstring defines NULL there as\n\"the timeline was never read, never that there are no PRs\" -- and we had read\nit, and found the assignee's own pull request. And recent_pr_check requires a\nnon-NULL count precisely because a NULL one is not evidence of a check, so\nevery claimed candidate was re-read on every sweep: the exact per-sweep cost\nthe TTL exists to remove, left in place for the rows LEAST likely to have\nchanged, since a bounty already awarded is the one thing that stays awarded.\n\nThe test that was supposed to catch this passed for the wrong reason. It\nqueued no timeline response, so the attempted call raised an unqueued-request\nerror, which stage 3 caught as an ordinary timeline failure, warned about,\nand skipped the upsert for -- leaving the claim standing by accident and the\nassertion green. It now asserts no timeline URL was requested at all and that\nno timeline warning reached the digest, and was verified red against the old\ncode before this fix was kept.\n\nThe failed-read test was weak in the same way: the candidate had never been\nstored at all, so it exercised nothing about the stamp. It now checks a\nsuccessfully-stamped row whose TTL has expired, fails the re-read, asserts\nthe stamp did NOT advance, and asserts the very next sweep asks again rather\nthan sitting out a fresh six-hour window on the strength of a failure.",
+        "is_inflection": true
+      },
+      {
+        "sha": "8588832",
+        "date": "2026-08-10T15:47:54Z",
+        "summary": "fix: the staleness rule only ever judged what it had just discovered",
+        "body": "149f5c0/1d5852d gave the comment ceiling a retroactive half. e785fef gave\nthe staleness rule none, so a row that went idle AFTER being stored stayed\nlive indefinitely -- until a source happened to rediscover it, which for a\nmonths-old bounty is never.\n\nThe argument is stronger here than for the ceiling, not weaker. A stale issue\nis by definition one nothing is happening to, and BountyLabelSource sorts by\n`updated` -- so the stalest rows are exactly the ones its pages reach last\nand its stop() reaches never. The rule that most needed a retroactive pass\nwas the only one without one.\n\nstore.apply_staleness mirrors apply_comment_ceiling, comparing GitHub's own\ntimestamp format lexicographically (fixed width, always UTC, so string order\nIS chronological). The cutoff is days+1 because free_reject rejects on\n`idle > days` and timedelta.days truncates, putting the real line at eight\nwhole days for STALE_AFTER_DAYS=7; a test pins 7.9 / 8.0 / 8.1 days against\nfree_reject's own verdict on the same rows, because a rule that keeps a\ncandidate at stage 1 and rejects it retroactively on the same sweep is worse\nthan either answer alone. An empty updated_at is skipped rather than swept\nup: it sorts before every real timestamp, and \"I do not know when\" must not\nread as \"a long time ago\".\n\nThe reason no longer interpolates the measured idle count. \"no activity in\n221d\" gave every candidate a different spelling of one verdict, and the board\ngroups its reject table by exact string while clear_rejections matches by\nexact string -- so the biggest rule on the board could only ever appear as\ndozens of one-row reasons nobody could see the size of or reverse. Both paths\nnow call filters.stale_reason(), which is also what made writing the SQL half\npossible at all: it judges in bulk and has no per-row count to interpolate.",
+        "is_inflection": true
+      },
+      {
+        "sha": "63d80b9",
+        "date": "2026-08-10T15:43:39Z",
+        "summary": "fix: two Expensify calls spent more quota than they had reserved",
+        "body": "The reservation guard is the thing standing between a throttle and a digest\nthat reports the world as empty (HANDOFF.md trap #3), so a request it has not\ncounted is a hole in it. Two of them:\n\n_standing reserved ONE search unit and then called search_issues with\nmax_pages=EXPENSIFY_STANDING_MAX_PAGES (4). Two requests are actually made\ntoday -- 83 results at SEARCH_PER_PAGE 50 -- and the cap is 4 precisely\nbecause that number grows. Every other caller in the tree already reserves up\nfront: BountyLabelSource reserves self.max_pages, known_payers reserves\n`pages`, ever_closed_with reserves 2 for its 2 requests.\n\nThe event poll reserved one CORE unit for the whole call, while\npoll_label_events' deep-paging block calls _get up to EVENT_MAX_PAGES-1 extra\ntimes. It now reserves the cap when a watermark exists and one when it does\nnot, because since_event_id is what switches that block on -- reserving five\nwithout a watermark would be spending the guard on requests that cannot\nhappen. Live as of the previous commit, which is the first time that block\never ran.",
+        "is_inflection": true
+      },
+      {
+        "sha": "1b103dd",
+        "date": "2026-08-10T15:41:29Z",
+        "summary": "fix: silence had come to mean five things, and none of them said which",
+        "body": "main() passes notify_when_empty=False for both jobs, which is right -- 144\n\"nothing new\" messages a day trains the reader to ignore the channel, so the\none that matters lands somewhere nobody looks. But `flock -n` exits 1 and\nprints NOTHING, so Discord silence became indistinguishable between a healthy\nquiet market, a hung job holding its lock, a dead box, a lost .env and a\nremoved crontab. That is the collision this codebase exists to prevent,\nreintroduced one layer out.\n\nTwo halves, because a log and a channel answer different questions.\n\nThe cron jobs now leave a line when they skip. -E 99 and a `[ $? -eq 99 ]`\ntest rather than a bare `|| echo`: flock passes the command's own exit status\nthrough when it DID get the lock, so the simple form would file every python\ntraceback as a lock conflict -- one wrong story swapped for another. Verified\nlocally against a real flock in all three states: lock held writes the line,\nlock free does not, and a command exiting 3 does not.\n\nThe digest now speaks once every HEARTBEAT_S (24h) regardless, carrying the\nsweep count and the live totals. Periodic, not per-run: at ten-minute sweeps\nthat is 1 message in 144, and the branch is tested against two hours of\nsweeps producing exactly two beats rather than twelve. The sweep COUNT is\nwhat makes a half-dead deployment visible -- a heartbeat reading 6 where 144\nbelong is a watch cron that has stopped, said out loud by the digest cron\nthat has not.\n\nStored in http_cache the way board-signature is, and advanced only by a beat\nthat actually reached someone. A recorded-but-undelivered beat would buy\nanother full day of silence out of a delivery failure, which is exactly what\nit exists to break; --dry-run does not spend it either.\n\nAlso corrected the installer's flock preflight comment, which still said both\njobs share one lock. They stopped four commits ago.",
+        "is_inflection": true
+      },
+      {
+        "sha": "88a2bb0",
+        "date": "2026-08-10T15:35:55Z",
+        "summary": "fix: the deep paging added last commit had never run once",
+        "body": "poll_help_wanted_events returns events already filtered to `labeled` + Help\nWanted + not-a-PR -- a tiny minority of the feed. The caller then took its\nwatermark from THAT list, which breaks in both directions and both were live:\n\n  * no matching event yet -> no watermark ever written -> since_event_id\n    stays None -> the paging block is skipped entirely. That is the deployed\n    state: measured 2026-08-10, the newest Help Wanted label event on\n    Expensify/App was three days old, so the feature shipped inert;\n  * after one matching event -> the watermark freezes at that id until\n    another Help Wanted label lands, so every poll in between re-pages the\n    full EVENT_MAX_PAGES (5 core calls, every ten minutes) to re-read pages\n    it had already read.\n\npoll_label_events is the only function that sees the unfiltered payload, so\nit now returns the newest id ON THE PAGE as a fourth value rather than\nleaving the caller to reconstruct it from output it cannot reconstruct it\nfrom. None means the page said nothing -- empty, or a 304 -- and is\ndeliberately not 0, which is a real id every event compares greater than.\n\npayer-watch unpacks and DISCARDS it, with a note saying why: passing\nsince_event_id is what turns deep paging on, and that loop runs across up to\nWATCH_MAX_REPOS (60) repos a sweep, where one page each is what makes\nwatching them affordable at all.\n\nNothing in the suite mentioned since_event_id, watermark or EVENT_MAX_PAGES.\nEleven tests now do, including both failure directions above, the stop at\nthe page that reaches the watermark, the stop at the cap when it never does,\nand the single page read when there is no watermark to page toward.",
+        "is_inflection": true
+      }
+    ]
+  },
+  "readme_length": 123,
+  "raw_readme": "# docs/\n\nHard-won context for the bounty tracker. Written 2026-08-09.\n\nStart with [`../HANDOFF.md`](../HANDOFF.md) \u2014 it carries the OPEN ITEMS and the system\noverview. These files hold the detail behind it.\n\n| file | what it answers |\n|---|---|\n| [bounty-market-findings.md](bounty-market-findings.md) | Why the digest is four items long and tuning the filters will not fix it |\n| [expensify-proposal-path.md](expensify-proposal-path.md) | Why `has_open_linked_pr()` is wrong for Expensify \u2014 an open bug |\n| [github-api-traps.md](github-api-traps.md) | Six API behaviours that each silently produced \"no bounties\" |\n| [tracker-operations.md](tracker-operations.md) | What runs where, how to check it is alive, how to intervene |\n\nEvery number in these files was measured against the live API, not estimated. Re-verify\nbefore acting on any of them months from now.\n"
+}

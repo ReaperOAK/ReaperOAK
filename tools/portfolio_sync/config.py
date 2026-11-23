@@ -20,14 +20,21 @@ GITHUB_OWNER = "ReaperOAK"
 TIER_1_FLAGSHIPS = [
     "ForgeOS",
     "survivorship-free-backtester",
+    "expensify-sniper",
+    "hackinhills",
+    "claimswarm",
+    "influencer",
+    "id-card-maker",
     "todayeggrates",
-    "KCAdashboard",
     "CodebaseRAG",
     "vibecoding",
-    "id-card-maker",
+    "KCAdashboard",
 ]
 
 TIER_2_UTILITIES = [
+    "Shopify-apps",
+    "ofc.org.in",
+    "SIH_2k26",
     "player-auction",
     "auction-player-assigner",
     "bulk-certificate-generator",

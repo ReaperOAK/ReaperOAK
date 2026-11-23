@@ -2,14 +2,16 @@
   "summary": {
     "tier_1_flagships": [
       "todayeggrates",
+      "survivorship-free-backtester",
+      "id-card-maker",
       "ForgeOS",
       "vibecoding",
-      "id-card-maker",
-      "survivorship-free-backtester",
       "CodebaseRAG",
       "KCAdashboard"
     ],
     "tier_2_utilities": [
+      "PalBro",
+      "linearecta",
       "neetcode-submissions",
       "csefarewell2k25",
       "accounts",
@@ -23,11 +25,20 @@
       "reddit-post",
       "bulk-certificate-generator",
       "ms-rewards",
-      "PalBro",
-      "linearecta",
       "tradingviewAPI"
     ],
     "tier_3_archive": [
+      "kaggle",
+      "job-hunt",
+      "influencer",
+      "Shopify-apps",
+      "SIH_2k26",
+      "hackinhills",
+      "claimswarm",
+      "ofc-redesign-demo",
+      "ofc.org.in",
+      "expensify-sniper",
+      "kaggle-gemma-4-dev-agent",
       "python-cli-alarm-clock",
       "VMN",
       "ReaperOAK.tab-nuke-1.0.0",
@@ -52,23 +63,25 @@
     ],
     "skipped": [
       "owaiskhan-website",
-      "App",
       "portfolio",
       "ReaperOAK",
+      "App",
       "ai-home",
       "cheating-daddy",
       "openclaw",
       "Code_compiler"
     ],
     "missing_readme": [
-      "id-card-maker",
+      "kaggle",
+      "influencer",
+      "Shopify-apps",
+      "hackinhills",
+      "claimswarm",
       "trpPDPL",
       "sem3",
-      "isl_prototype_test",
-      "PalBro"
+      "isl_prototype_test"
     ],
     "stub_readme": [
-      "linearecta",
       "WeatherApp",
       "airbnb",
       "Simple-Nav-Bar",
@@ -82,22 +95,188 @@
   },
   "repositories": [
     {
-      "name": "owaiskhan-website",
-      "url": "https://github.com/ReaperOAK/owaiskhan-website",
+      "name": "kaggle",
+      "url": "https://github.com/ReaperOAK/kaggle",
       "is_private": true,
       "is_fork": false,
       "stars": 0,
       "description": "",
-      "updated_at": "2026-11-12T15:00:17Z",
-      "default_branch": "master",
-      "tier": "SKIPPED",
+      "updated_at": "2026-11-23T04:37:16Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "job-hunt",
+      "url": "https://github.com/ReaperOAK/job-hunt",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:36:59Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
       "readme": {
         "status": "EXCELLENT",
-        "word_count": 512,
+        "word_count": 2529,
+        "has_architecture": true,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "influencer",
+      "url": "https://github.com/ReaperOAK/influencer",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:36:23Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
         "has_architecture": false,
-        "has_setup": true,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "Shopify-apps",
+      "url": "https://github.com/ReaperOAK/Shopify-apps",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:34:44Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "SIH_2k26",
+      "url": "https://github.com/ReaperOAK/SIH_2k26",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:34:18Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 5542,
+        "has_architecture": false,
+        "has_setup": false,
         "has_benchmarks": true,
         "path": "README.md"
+      }
+    },
+    {
+      "name": "hackinhills",
+      "url": "https://github.com/ReaperOAK/hackinhills",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:33:49Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "claimswarm",
+      "url": "https://github.com/ReaperOAK/claimswarm",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:33:22Z",
+      "default_branch": "main",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "MISSING",
+        "word_count": 0,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false
+      }
+    },
+    {
+      "name": "ofc-redesign-demo",
+      "url": "https://github.com/ReaperOAK/ofc-redesign-demo",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:32:50Z",
+      "default_branch": "feat/redesign-demo",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 377,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "ofc.org.in",
+      "url": "https://github.com/ReaperOAK/ofc.org.in",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:32:34Z",
+      "default_branch": "feat/premium-home",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 377,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "expensify-sniper",
+      "url": "https://github.com/ReaperOAK/expensify-sniper",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-23T04:32:07Z",
+      "default_branch": "bounty-tracker",
+      "tier": "TIER_3_ARCHIVE",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 123,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "docs/README.md"
       }
     },
     {
@@ -120,18 +299,37 @@
       }
     },
     {
-      "name": "App",
-      "url": "https://github.com/ReaperOAK/App",
-      "is_private": false,
-      "is_fork": true,
+      "name": "kaggle-gemma-4-dev-agent",
+      "url": "https://github.com/ReaperOAK/kaggle-gemma-4-dev-agent",
+      "is_private": true,
+      "is_fork": false,
       "stars": 0,
-      "description": "Welcome to New Expensify: a complete re-imagination of financial collaboration, centered around chat. Help us build the next generation of Expensify by sharing feedback and contributing to the code.",
-      "updated_at": "2026-11-09T21:42:01Z",
+      "description": "",
+      "updated_at": "2026-11-20T15:39:39Z",
       "default_branch": "main",
-      "tier": "FORK_SKIP",
+      "tier": "TIER_3_ARCHIVE",
       "readme": {
         "status": "EXCELLENT",
-        "word_count": 916,
+        "word_count": 802,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "owaiskhan-website",
+      "url": "https://github.com/ReaperOAK/owaiskhan-website",
+      "is_private": true,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-11-12T15:00:17Z",
+      "default_branch": "master",
+      "tier": "SKIPPED",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 512,
         "has_architecture": false,
         "has_setup": true,
         "has_benchmarks": true,
@@ -139,19 +337,19 @@
       }
     },
     {
-      "name": "ForgeOS",
-      "url": "https://github.com/ReaperOAK/ForgeOS",
+      "name": "survivorship-free-backtester",
+      "url": "https://github.com/ReaperOAK/survivorship-free-backtester",
       "is_private": false,
       "is_fork": false,
-      "stars": 0,
-      "description": "An SDLC engine of orchestrated agents for spec-driven development.",
-      "updated_at": "2026-10-08T06:58:59Z",
+      "stars": 2,
+      "description": "An honest, survivorship-bias-corrected backtesting engine. Market-agnostic \u2014 Indian equities (Nifty 50/100/200/500) wired in out of the box, extensible to US/global via yfinance. Tax-aware, free data, Python + DuckDB.",
+      "updated_at": "2026-10-04T17:39:54Z",
       "default_branch": "main",
       "tier": "TIER_1_FLAGSHIP",
       "readme": {
         "status": "EXCELLENT",
-        "word_count": 5086,
-        "has_architecture": true,
+        "word_count": 760,
+        "has_architecture": false,
         "has_setup": true,
         "has_benchmarks": true,
         "path": "README.md"
@@ -191,6 +389,101 @@
         "word_count": 867,
         "has_architecture": true,
         "has_setup": false,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "PalBro",
+      "url": "https://github.com/ReaperOAK/PalBro",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "Companion app for palworld",
+      "updated_at": "2024-06-26T13:29:23Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 143,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "linearecta",
+      "url": "https://github.com/ReaperOAK/linearecta",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2024-03-08T15:05:47Z",
+      "default_branch": "main",
+      "tier": "TIER_2_UTILITY",
+      "readme": {
+        "status": "ADEQUATE",
+        "word_count": 163,
+        "has_architecture": false,
+        "has_setup": false,
+        "has_benchmarks": false,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "id-card-maker",
+      "url": "https://github.com/ReaperOAK/id-card-maker",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "",
+      "updated_at": "2026-09-03T09:11:39Z",
+      "default_branch": "feat/render-core",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 494,
+        "has_architecture": true,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "App",
+      "url": "https://github.com/ReaperOAK/App",
+      "is_private": false,
+      "is_fork": true,
+      "stars": 0,
+      "description": "Welcome to New Expensify: a complete re-imagination of financial collaboration, centered around chat. Help us build the next generation of Expensify by sharing feedback and contributing to the code.",
+      "updated_at": "2026-11-09T21:42:01Z",
+      "default_branch": "main",
+      "tier": "FORK_SKIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 916,
+        "has_architecture": false,
+        "has_setup": true,
+        "has_benchmarks": true,
+        "path": "README.md"
+      }
+    },
+    {
+      "name": "ForgeOS",
+      "url": "https://github.com/ReaperOAK/ForgeOS",
+      "is_private": false,
+      "is_fork": false,
+      "stars": 0,
+      "description": "An SDLC engine of orchestrated agents for spec-driven development.",
+      "updated_at": "2026-10-08T06:58:59Z",
+      "default_branch": "main",
+      "tier": "TIER_1_FLAGSHIP",
+      "readme": {
+        "status": "EXCELLENT",
+        "word_count": 5086,
+        "has_architecture": true,
+        "has_setup": true,
         "has_benchmarks": true,
         "path": "README.md"
       }
@@ -329,24 +622,6 @@
       }
     },
     {
-      "name": "id-card-maker",
-      "url": "https://github.com/ReaperOAK/id-card-maker",
-      "is_private": false,
-      "is_fork": false,
-      "stars": 0,
-      "description": "",
-      "updated_at": "2026-09-03T09:11:39Z",
-      "default_branch": "feat/render-core",
-      "tier": "TIER_1_FLAGSHIP",
-      "readme": {
-        "status": "MISSING",
-        "word_count": 0,
-        "has_architecture": false,
-        "has_setup": false,
-        "has_benchmarks": false
-      }
-    },
-    {
       "name": "bag-manufacturer",
       "url": "https://github.com/ReaperOAK/bag-manufacturer",
       "is_private": true,
@@ -362,25 +637,6 @@
         "has_architecture": false,
         "has_setup": true,
         "has_benchmarks": false,
-        "path": "README.md"
-      }
-    },
-    {
-      "name": "survivorship-free-backtester",
-      "url": "https://github.com/ReaperOAK/survivorship-free-backtester",
-      "is_private": false,
-      "is_fork": false,
-      "stars": 2,
-      "description": "An honest, survivorship-bias-corrected backtesting engine. Market-agnostic \u2014 Indian equities (Nifty 50/100/200/500) wired in out of the box, extensible to US/global via yfinance. Tax-aware, free data, Python + DuckDB.",
-      "updated_at": "2026-10-04T17:39:54Z",
-      "default_branch": "main",
-      "tier": "TIER_1_FLAGSHIP",
-      "readme": {
-        "status": "EXCELLENT",
-        "word_count": 760,
-        "has_architecture": false,
-        "has_setup": true,
-        "has_benchmarks": true,
         "path": "README.md"
       }
     },
@@ -854,43 +1110,6 @@
         "has_architecture": false,
         "has_setup": false,
         "has_benchmarks": false
-      }
-    },
-    {
-      "name": "PalBro",
-      "url": "https://github.com/ReaperOAK/PalBro",
-      "is_private": false,
-      "is_fork": false,
-      "stars": 0,
-      "description": "Companion app for palworld",
-      "updated_at": "2024-06-26T13:29:23Z",
-      "default_branch": "main",
-      "tier": "TIER_2_UTILITY",
-      "readme": {
-        "status": "MISSING",
-        "word_count": 0,
-        "has_architecture": false,
-        "has_setup": false,
-        "has_benchmarks": false
-      }
-    },
-    {
-      "name": "linearecta",
-      "url": "https://github.com/ReaperOAK/linearecta",
-      "is_private": false,
-      "is_fork": false,
-      "stars": 0,
-      "description": "",
-      "updated_at": "2024-03-08T15:05:47Z",
-      "default_branch": "main",
-      "tier": "TIER_2_UTILITY",
-      "readme": {
-        "status": "STUB",
-        "word_count": 2,
-        "has_architecture": false,
-        "has_setup": false,
-        "has_benchmarks": false,
-        "path": "README.md"
       }
     },
     {

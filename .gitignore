@@ -5,3 +5,5 @@
 # nested repo and local browser automation output
 portfolio/
 .playwright-mcp/
+__pycache__/
+*.pyc

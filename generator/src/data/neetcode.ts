@@ -36,7 +36,7 @@ export async function getNeetcode(
   config: Config,
   fetchImpl: typeof fetch = fetch,
 ): Promise<NeetcodeSnapshot | null> {
-  if (!config.githubToken) return null;
+  if (!config.githubToken) return validCachedNeetcode(readCache<unknown>(CACHE_KEY));
   try {
     const url = `https://api.github.com/repos/${config.githubLogin}/${REPO}/git/trees/HEAD?recursive=1`;
     const res = await fetchImpl(url, {

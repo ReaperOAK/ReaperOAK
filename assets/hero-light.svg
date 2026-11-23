@@ -15,7 +15,7 @@
 <text x="450" y="138" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2" fill="#6B6459">
   <tspan fill="#C77B30">O</tspan>wais <tspan fill="#C77B30">A</tspan>hmed <tspan fill="#C77B30">K</tspan>han<tspan fill="#C77B30" dx="8">·</tspan><tspan dx="8">Senior Developer · Backend &amp; Infrastructure</tspan>
 </text>
-<text x="450" y="180" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" fill="#1A1712" opacity="0.92">I build and run production backends and their underlying infrastructure.</text>
+<text x="450" y="180" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" fill="#1A1712" opacity="0.92">I build and operate production backends and the infrastructure under them.</text>
 <line x1="330" y1="206" x2="570" y2="206" stroke="#C77B30" stroke-opacity="0.35"/>
 <circle class="live" cx="332" cy="238" r="3.5" fill="none" stroke="#C77B30" stroke-width="1.2">
   <animate attributeName="r" values="3.5;10.5" dur="2.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.16 1 0.3 1"/>

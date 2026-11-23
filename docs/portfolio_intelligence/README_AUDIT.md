@@ -1,12 +1,12 @@
 # Repository Audit & Signal Analysis
 
-Total Repositories Analyzed: **52**
+Total Repositories Analyzed: **63**
 
-- **Tier 1 Flagships (7):** todayeggrates, ForgeOS, vibecoding, id-card-maker, survivorship-free-backtester, CodebaseRAG, KCAdashboard
+- **Tier 1 Flagships (7):** todayeggrates, survivorship-free-backtester, id-card-maker, ForgeOS, vibecoding, CodebaseRAG, KCAdashboard
 - **Tier 2 Utilities (16):** 16 repos
-- **Tier 3 Archives (21):** 21 repos (to be unlisted)
-- **Missing READMEs (5):** id-card-maker, trpPDPL, sem3, isl_prototype_test, PalBro
-- **Stub READMEs (<80 words) (10):** linearecta, WeatherApp, airbnb, Simple-Nav-Bar, tradingviewAPI, openweatherAPI, Spotify-Clone, whatsapp, QuoraApp, Simon-Says
+- **Tier 3 Archives (32):** 32 repos (to be unlisted)
+- **Missing READMEs (8):** kaggle, influencer, Shopify-apps, hackinhills, claimswarm, trpPDPL, sem3, isl_prototype_test
+- **Stub READMEs (<80 words) (9):** WeatherApp, airbnb, Simple-Nav-Bar, tradingviewAPI, openweatherAPI, Spotify-Clone, whatsapp, QuoraApp, Simon-Says
 
 ## Detailed Matrix
 
@@ -22,13 +22,15 @@ Total Repositories Analyzed: **52**
 | `ai-home` | SKIPPED | 0 | `main` | ADEQUATE | 298 | ❌ | ❌ |
 | `survivorship-free-backtester` | TIER_1_FLAGSHIP | 2 | `main` | EXCELLENT | 760 | ❌ | ✅ |
 | `todayeggrates` | TIER_1_FLAGSHIP | 0 | `main` | EXCELLENT | 307 | ❌ | ❌ |
+| `id-card-maker` | TIER_1_FLAGSHIP | 0 | `feat/render-core` | EXCELLENT | 494 | ✅ | ✅ |
 | `ForgeOS` | TIER_1_FLAGSHIP | 0 | `main` | EXCELLENT | 5086 | ✅ | ✅ |
 | `vibecoding` | TIER_1_FLAGSHIP | 0 | `main` | EXCELLENT | 1252 | ✅ | ❌ |
-| `id-card-maker` | TIER_1_FLAGSHIP | 0 | `feat/render-core` | MISSING | 0 | ❌ | ❌ |
 | `CodebaseRAG` | TIER_1_FLAGSHIP | 0 | `main` | EXCELLENT | 992 | ✅ | ✅ |
 | `KCAdashboard` | TIER_1_FLAGSHIP | 0 | `main` | EXCELLENT | 1313 | ❌ | ✅ |
 | `ms-rewards` | TIER_2_UTILITY | 1 | `main` | EXCELLENT | 1379 | ❌ | ❌ |
 | `tradingviewAPI` | TIER_2_UTILITY | 1 | `main` | STUB | 15 | ❌ | ❌ |
+| `PalBro` | TIER_2_UTILITY | 0 | `main` | ADEQUATE | 143 | ❌ | ❌ |
+| `linearecta` | TIER_2_UTILITY | 0 | `main` | ADEQUATE | 163 | ❌ | ❌ |
 | `neetcode-submissions` | TIER_2_UTILITY | 0 | `main` | ADEQUATE | 291 | ❌ | ❌ |
 | `csefarewell2k25` | TIER_2_UTILITY | 0 | `main` | EXCELLENT | 451 | ❌ | ❌ |
 | `accounts` | TIER_2_UTILITY | 0 | `master` | EXCELLENT | 317 | ❌ | ❌ |
@@ -41,8 +43,17 @@ Total Repositories Analyzed: **52**
 | `eventure` | TIER_2_UTILITY | 0 | `main` | EXCELLENT | 727 | ✅ | ❌ |
 | `reddit-post` | TIER_2_UTILITY | 0 | `main` | EXCELLENT | 461 | ❌ | ❌ |
 | `bulk-certificate-generator` | TIER_2_UTILITY | 0 | `main` | EXCELLENT | 560 | ❌ | ❌ |
-| `PalBro` | TIER_2_UTILITY | 0 | `main` | MISSING | 0 | ❌ | ❌ |
-| `linearecta` | TIER_2_UTILITY | 0 | `main` | STUB | 2 | ❌ | ❌ |
+| `kaggle` | TIER_3_ARCHIVE | 0 | `main` | MISSING | 0 | ❌ | ❌ |
+| `job-hunt` | TIER_3_ARCHIVE | 0 | `main` | EXCELLENT | 2529 | ✅ | ❌ |
+| `influencer` | TIER_3_ARCHIVE | 0 | `main` | MISSING | 0 | ❌ | ❌ |
+| `Shopify-apps` | TIER_3_ARCHIVE | 0 | `main` | MISSING | 0 | ❌ | ❌ |
+| `SIH_2k26` | TIER_3_ARCHIVE | 0 | `main` | EXCELLENT | 5542 | ❌ | ✅ |
+| `hackinhills` | TIER_3_ARCHIVE | 0 | `main` | MISSING | 0 | ❌ | ❌ |
+| `claimswarm` | TIER_3_ARCHIVE | 0 | `main` | MISSING | 0 | ❌ | ❌ |
+| `ofc-redesign-demo` | TIER_3_ARCHIVE | 0 | `feat/redesign-demo` | EXCELLENT | 377 | ❌ | ❌ |
+| `ofc.org.in` | TIER_3_ARCHIVE | 0 | `feat/premium-home` | EXCELLENT | 377 | ❌ | ❌ |
+| `expensify-sniper` | TIER_3_ARCHIVE | 0 | `bounty-tracker` | ADEQUATE | 123 | ❌ | ❌ |
+| `kaggle-gemma-4-dev-agent` | TIER_3_ARCHIVE | 0 | `main` | EXCELLENT | 802 | ✅ | ✅ |
 | `python-cli-alarm-clock` | TIER_3_ARCHIVE | 0 | `main` | EXCELLENT | 2427 | ❌ | ❌ |
 | `VMN` | TIER_3_ARCHIVE | 0 | `main` | EXCELLENT | 2241 | ✅ | ❌ |
 | `ReaperOAK.tab-nuke-1.0.0` | TIER_3_ARCHIVE | 0 | `main` | ADEQUATE | 178 | ❌ | ❌ |

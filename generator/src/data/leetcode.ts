@@ -45,7 +45,7 @@ export async function getLeetcode(
   fetchImpl: typeof fetch = fetch,
 ): Promise<LeetcodeSnapshot | null> {
   const handle = config.leetcodeHandle;
-  if (!handle) return null;
+  if (!handle) return validCachedLeetcode(readCache<unknown>(CACHE_KEY));
   try {
     const res = await fetchImpl(ENDPOINT, {
       method: "POST",

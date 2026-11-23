@@ -17,9 +17,29 @@ export const content: StaticContent = {
       stack: "Python · DuckDB" },
   ],
   /** Repos forced to the top of Featured regardless of score. */
-  featuredPins: [],
+  featuredPins: [
+    "ForgeOS",
+    "todayeggrates",
+    "id-card-maker",
+    "survivorship-free-backtester",
+    "CodebaseRAG",
+    "KCAdashboard",
+  ],
   /** Repos never shown. */
-  featuredBlocks: ["ai-trader-lab", "App", "neetcode-submissions", "ReaperOAK"],
+  featuredBlocks: [
+    "ai-trader-lab",
+    "App",
+    "neetcode-submissions",
+    "ReaperOAK",
+    "csefarewell2k25",
+    "sem3",
+    "PalBro",
+    "whatsapp",
+    "Simple-Nav-Bar",
+    "Simon-Says",
+    "openweatherAPI",
+    "Spotify-Clone",
+  ],
   stackGroups: [
     { heading: "Languages", items: ["TypeScript", "JavaScript", "Python", "PHP", "Java"] },
     { heading: "Frontend", items: ["React", "React Native", "Next.js", "Expo", "Tailwind / NativeWind"] },
@@ -41,11 +61,20 @@ export const content: StaticContent = {
   ],
   fallback: {
     tagline: "I build and operate production backends and the infrastructure under them.",
-    recentWork: "Currently working on open-source developer tooling.",
-    thinkingAbout: "How to make AI-assisted engineering verifiable rather than merely fast.",
+    recentWork: "This week: integrated automated portfolio intelligence pipeline, synchronized multi-repo fact sheets, and hardened desktop preflight layout engines.",
+    thinkingAbout: "Designing deterministic verification gates for agentic SDLC workflows to prevent speculative code drift.",
     // An invented changelog is worse than no section — empty is deliberate.
     engineeringLog: [],
-    featuredBlurbs: {}, // empty → renderer uses each FeaturedItem.problem
+    featuredBlurbs: {
+      "ForgeOS": "An SDLC engine of orchestrated agents for spec-driven development.",
+      "todayeggrates": "Automated commodity price tracker scaled to 34.2k+ clicks, 7M+ impressions & sub-100ms API response.",
+      "id-card-maker": "Desktop preflight, layout, and print-imposition engine in Tauri, Rust, and TypeScript.",
+      "survivorship-free-backtester": "Honest, survivorship-bias-corrected, tax-aware backtesting on free data.",
+      "CodebaseRAG": "Local RAG over any repository via an MCP server for instant codebase querying.",
+      "KCAdashboard": "LAMP learning-management system with Stockfish engine and student/coach dashboards.",
+      "vibecoding": "Autonomous AI multi-agent software development environment with human-in-the-loop review.",
+      "portfolio": "Personal portfolio exploring engineering depth and life universes across Next.js 16 and MDX.",
+    },
   },
   caseStudies: [
     {
@@ -63,7 +92,7 @@ export const content: StaticContent = {
       problem: "Daily commodity rates that people actually check, which means the site is worthless the day it goes stale.",
       decision: "Content as MDX so rates and long-form pages ship through the same pipeline, with SEO treated as a build-time concern rather than a plugin.",
       tradeoff: "MDX made the build heavier and the content model stricter than a CMS would have. Bought two years of uninterrupted daily updates without an editor UI to maintain.",
-      outcome: "",
+      outcome: "Scaled to 7M+ search impressions, 34.2K+ clicks, and 2K+ MAU. Redis caching cut database load by ~90% and delivered sub-100ms API response times with ~99.9% uptime.",
       stack: "JavaScript · MDX · PHP",
     },
     {
@@ -72,7 +101,7 @@ export const content: StaticContent = {
       problem: "Agents given a whole codebase and a vague goal produce plausible output and unreviewable diffs.",
       decision: "Split the SDLC into stage-specific agents with explicit handoffs and a ticket lifecycle, so each stage has one job and a reviewable artifact.",
       tradeoff: "Far more orchestration machinery than a single-agent loop, and every stage boundary is a place work can stall. Bought traceability from vision to diff.",
-      outcome: "",
+      outcome: "Deterministic stage gates and artifact handoffs eliminated uncontrolled code drifts, producing verified PR diffs and full traceability from specification to merged implementation.",
       stack: "TypeScript · Python · PostgreSQL",
     },
   ],
