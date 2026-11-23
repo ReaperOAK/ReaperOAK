@@ -5,13 +5,13 @@
     "graphify",
     "graphify",
     "Add .claude bridge so Claude Code can fully operate the vibecoding system",
-    "License: switch MIT -> PolyForm Noncommercial 1.0.0 (commercial use requires a paid license)",
-    "Sanitize for public release: portable paths, MIT LICENSE, stronger disclaimer; drop personal files (note.md, PRD.md) + legacy ai4trade client",
-    "Initial commit: honest survivorship-corrected Indian equity backtesting lab",
-    "Add initial extension files for terminal sniper 1.0.0",
-    "first commit",
-    "first commit",
-    "chore: refresh profile README [skip ci]"
+    "audit: nightly ledger snapshot 2026-11-22",
+    "audit: nightly ledger snapshot 2026-11-21",
+    "audit: nightly ledger snapshot 2026-11-21",
+    "audit: nightly ledger snapshot 2026-11-20",
+    "audit: nightly ledger snapshot 2026-11-19",
+    "feat: Smart India Hackathon 2026 (SIH 2k26) proposals and POCs",
+    "docs: add Shopify exchange engine and qualifier README"
   ],
   "totalContributions": 0,
   "currentStreakDays": 0,
@@ -20,146 +20,6 @@
   "reviews": 0,
   "issues": 0,
   "calendar": [
-    {
-      "date": "2025-10-19",
-      "count": 0
-    },
-    {
-      "date": "2025-10-20",
-      "count": 0
-    },
-    {
-      "date": "2025-10-21",
-      "count": 0
-    },
-    {
-      "date": "2025-10-22",
-      "count": 0
-    },
-    {
-      "date": "2025-10-23",
-      "count": 0
-    },
-    {
-      "date": "2025-10-24",
-      "count": 0
-    },
-    {
-      "date": "2025-10-25",
-      "count": 0
-    },
-    {
-      "date": "2025-10-26",
-      "count": 0
-    },
-    {
-      "date": "2025-10-27",
-      "count": 0
-    },
-    {
-      "date": "2025-10-28",
-      "count": 0
-    },
-    {
-      "date": "2025-10-29",
-      "count": 0
-    },
-    {
-      "date": "2025-10-30",
-      "count": 0
-    },
-    {
-      "date": "2025-10-31",
-      "count": 0
-    },
-    {
-      "date": "2025-11-01",
-      "count": 0
-    },
-    {
-      "date": "2025-11-02",
-      "count": 0
-    },
-    {
-      "date": "2025-11-03",
-      "count": 0
-    },
-    {
-      "date": "2025-11-04",
-      "count": 0
-    },
-    {
-      "date": "2025-11-05",
-      "count": 0
-    },
-    {
-      "date": "2025-11-06",
-      "count": 0
-    },
-    {
-      "date": "2025-11-07",
-      "count": 0
-    },
-    {
-      "date": "2025-11-08",
-      "count": 0
-    },
-    {
-      "date": "2025-11-09",
-      "count": 0
-    },
-    {
-      "date": "2025-11-10",
-      "count": 0
-    },
-    {
-      "date": "2025-11-11",
-      "count": 0
-    },
-    {
-      "date": "2025-11-12",
-      "count": 0
-    },
-    {
-      "date": "2025-11-13",
-      "count": 0
-    },
-    {
-      "date": "2025-11-14",
-      "count": 0
-    },
-    {
-      "date": "2025-11-15",
-      "count": 0
-    },
-    {
-      "date": "2025-11-16",
-      "count": 0
-    },
-    {
-      "date": "2025-11-17",
-      "count": 0
-    },
-    {
-      "date": "2025-11-18",
-      "count": 0
-    },
-    {
-      "date": "2025-11-19",
-      "count": 0
-    },
-    {
-      "date": "2025-11-20",
-      "count": 0
-    },
-    {
-      "date": "2025-11-21",
-      "count": 0
-    },
-    {
-      "date": "2025-11-22",
-      "count": 0
-    },
     {
       "date": "2025-11-23",
       "count": 0
@@ -1503,38 +1363,129 @@
     {
       "date": "2026-10-24",
       "count": 0
+    },
+    {
+      "date": "2026-10-25",
+      "count": 0
+    },
+    {
+      "date": "2026-10-26",
+      "count": 0
+    },
+    {
+      "date": "2026-10-27",
+      "count": 0
+    },
+    {
+      "date": "2026-10-28",
+      "count": 0
+    },
+    {
+      "date": "2026-10-29",
+      "count": 0
+    },
+    {
+      "date": "2026-10-30",
+      "count": 0
+    },
+    {
+      "date": "2026-10-31",
+      "count": 0
+    },
+    {
+      "date": "2026-11-01",
+      "count": 0
+    },
+    {
+      "date": "2026-11-02",
+      "count": 0
+    },
+    {
+      "date": "2026-11-03",
+      "count": 0
+    },
+    {
+      "date": "2026-11-04",
+      "count": 0
+    },
+    {
+      "date": "2026-11-05",
+      "count": 0
+    },
+    {
+      "date": "2026-11-06",
+      "count": 0
+    },
+    {
+      "date": "2026-11-07",
+      "count": 0
+    },
+    {
+      "date": "2026-11-08",
+      "count": 0
+    },
+    {
+      "date": "2026-11-09",
+      "count": 0
+    },
+    {
+      "date": "2026-11-10",
+      "count": 0
+    },
+    {
+      "date": "2026-11-11",
+      "count": 0
+    },
+    {
+      "date": "2026-11-12",
+      "count": 0
+    },
+    {
+      "date": "2026-11-13",
+      "count": 0
+    },
+    {
+      "date": "2026-11-14",
+      "count": 0
+    },
+    {
+      "date": "2026-11-15",
+      "count": 0
+    },
+    {
+      "date": "2026-11-16",
+      "count": 0
+    },
+    {
+      "date": "2026-11-17",
+      "count": 0
+    },
+    {
+      "date": "2026-11-18",
+      "count": 0
+    },
+    {
+      "date": "2026-11-19",
+      "count": 0
+    },
+    {
+      "date": "2026-11-20",
+      "count": 0
+    },
+    {
+      "date": "2026-11-21",
+      "count": 0
+    },
+    {
+      "date": "2026-11-22",
+      "count": 0
+    },
+    {
+      "date": "2026-11-23",
+      "count": 0
     }
   ],
   "repos": [
-    {
-      "name": "todayeggrates",
-      "url": "https://github.com/ReaperOAK/todayeggrates",
-      "description": "Automated commodity price tracker scaled to 34.2k+ clicks, 7M+ impressions & sub-100ms API response.",
-      "homepageUrl": "https://todayeggrates.com/",
-      "stars": 0,
-      "forks": 0,
-      "pushedAt": "2026-10-03T14:34:00Z",
-      "isFork": false,
-      "isArchived": false,
-      "commitsLastYear": 45,
-      "languages": [
-        {
-          "name": "JavaScript",
-          "color": "#f1e05a",
-          "size": 185000
-        },
-        {
-          "name": "PHP",
-          "color": "#4F5D95",
-          "size": 85000
-        },
-        {
-          "name": "SQL",
-          "color": "#e38c00",
-          "size": 32000
-        }
-      ]
-    },
     {
       "name": "whatsapp",
       "url": "https://github.com/ReaperOAK/whatsapp",
@@ -1663,20 +1614,20 @@
       "homepageUrl": null,
       "stars": 2,
       "forks": 0,
-      "pushedAt": "2026-07-17T17:50:27Z",
+      "pushedAt": "2026-11-22T17:35:03Z",
       "isFork": false,
       "isArchived": false,
-      "commitsLastYear": 3,
+      "commitsLastYear": 15,
       "languages": [
         {
           "name": "Python",
           "color": "#3572A5",
-          "size": 189010
+          "size": 228411
         },
         {
           "name": "Shell",
           "color": "#89e051",
-          "size": 2801
+          "size": 3630
         }
       ]
     },
@@ -1754,6 +1705,49 @@
           "name": "CSS",
           "color": "#663399",
           "size": 459
+        }
+      ]
+    },
+    {
+      "name": "SIH_2k26",
+      "url": "https://github.com/ReaperOAK/SIH_2k26",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-11-23T04:34:14Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 1,
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 15624
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 11303
+        }
+      ]
+    },
+    {
+      "name": "Shopify-apps",
+      "url": "https://github.com/ReaperOAK/Shopify-apps",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-11-23T04:44:12Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 2,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 8595
         }
       ]
     },
@@ -1845,15 +1839,20 @@
       "homepageUrl": null,
       "stars": 0,
       "forks": 0,
-      "pushedAt": "2026-10-23T05:52:27Z",
+      "pushedAt": "2026-11-23T04:44:58Z",
       "isFork": false,
       "isArchived": false,
-      "commitsLastYear": 122,
+      "commitsLastYear": 3,
       "languages": [
         {
           "name": "TypeScript",
           "color": "#3178c6",
-          "size": 255005
+          "size": 255045
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 40906
         }
       ]
     },
@@ -1912,30 +1911,30 @@
       "homepageUrl": "https://portfolio-umber-seven-19.vercel.app",
       "stars": 0,
       "forks": 0,
-      "pushedAt": "2026-10-21T18:42:47Z",
+      "pushedAt": "2026-11-19T07:27:16Z",
       "isFork": false,
       "isArchived": false,
-      "commitsLastYear": 36,
+      "commitsLastYear": 4,
       "languages": [
         {
           "name": "JavaScript",
           "color": "#f1e05a",
-          "size": 248570
+          "size": 246492
         },
         {
           "name": "TypeScript",
           "color": "#3178c6",
-          "size": 74434
+          "size": 78862
         },
         {
           "name": "MDX",
           "color": "#fcb32c",
-          "size": 47789
+          "size": 58590
         },
         {
           "name": "CSS",
           "color": "#663399",
-          "size": 33262
+          "size": 34631
         },
         {
           "name": "HTML",
@@ -1990,10 +1989,10 @@
       "homepageUrl": null,
       "stars": 0,
       "forks": 0,
-      "pushedAt": "2024-06-26T13:29:20Z",
+      "pushedAt": "2026-11-19T06:51:59Z",
       "isFork": false,
       "isArchived": false,
-      "commitsLastYear": 0,
+      "commitsLastYear": 1,
       "languages": [
         {
           "name": "EJS",
@@ -2033,6 +2032,94 @@
           "name": "HTML",
           "color": "#e34c26",
           "size": 2569
+        }
+      ]
+    },
+    {
+      "name": "ofc.org.in",
+      "url": "https://github.com/ReaperOAK/ofc.org.in",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-11-23T04:32:31Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 25,
+      "languages": [
+        {
+          "name": "Astro",
+          "color": "#ff5a03",
+          "size": 33640
+        },
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 17386
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 5758
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 1883
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 1021
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 427
+        }
+      ]
+    },
+    {
+      "name": "ofc-redesign-demo",
+      "url": "https://github.com/ReaperOAK/ofc-redesign-demo",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-11-23T04:32:52Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 25,
+      "languages": [
+        {
+          "name": "Astro",
+          "color": "#ff5a03",
+          "size": 32310
+        },
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "size": 2762
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 1883
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "size": 1824
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 1021
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 394
         }
       ]
     },
@@ -2164,10 +2251,10 @@
       "homepageUrl": null,
       "stars": 0,
       "forks": 0,
-      "pushedAt": "2024-03-09T14:24:33Z",
+      "pushedAt": "2026-11-19T06:51:38Z",
       "isFork": false,
       "isArchived": false,
-      "commitsLastYear": 0,
+      "commitsLastYear": 1,
       "languages": [
         {
           "name": "JavaScript",
@@ -2245,16 +2332,60 @@
       ]
     },
     {
+      "name": "influencer",
+      "url": "https://github.com/ReaperOAK/influencer",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-11-23T04:44:29Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 2,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 112076
+        },
+        {
+          "name": "Jupyter Notebook",
+          "color": "#DA5B0B",
+          "size": 21249
+        },
+        {
+          "name": "PowerShell",
+          "color": "#012456",
+          "size": 13353
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 12675
+        },
+        {
+          "name": "Go Template",
+          "color": "#00ADD8",
+          "size": 6527
+        },
+        {
+          "name": "Batchfile",
+          "color": "#C1F12E",
+          "size": 2427
+        }
+      ]
+    },
+    {
       "name": "id-card-maker",
       "url": "https://github.com/ReaperOAK/id-card-maker",
       "description": null,
       "homepageUrl": null,
       "stars": 0,
       "forks": 0,
-      "pushedAt": "2026-09-03T09:07:39Z",
+      "pushedAt": "2026-11-19T06:50:53Z",
       "isFork": false,
       "isArchived": false,
-      "commitsLastYear": 35,
+      "commitsLastYear": 36,
       "languages": [
         {
           "name": "TypeScript",
@@ -2279,13 +2410,57 @@
       ]
     },
     {
+      "name": "hackinhills",
+      "url": "https://github.com/ReaperOAK/hackinhills",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-11-23T04:43:58Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 2,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 119007
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "size": 8190
+        },
+        {
+          "name": "Mermaid",
+          "color": "#ff3670",
+          "size": 5297
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 2130
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "size": 1080
+        },
+        {
+          "name": "Dockerfile",
+          "color": "#384d54",
+          "size": 257
+        }
+      ]
+    },
+    {
       "name": "ForgeOS",
       "url": "https://github.com/ReaperOAK/ForgeOS",
       "description": "An SDLC engine of orchestrated agents for spec-driven development.",
       "homepageUrl": null,
       "stars": 0,
       "forks": 0,
-      "pushedAt": "2026-10-08T06:58:55Z",
+      "pushedAt": "2026-10-24T17:12:17Z",
       "isFork": false,
       "isArchived": false,
       "commitsLastYear": 1551,
@@ -2358,6 +2533,30 @@
           "name": "HTML",
           "color": "#e34c26",
           "size": 12935
+        }
+      ]
+    },
+    {
+      "name": "expensify-sniper",
+      "url": "https://github.com/ReaperOAK/expensify-sniper",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-11-23T04:44:55Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 98,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 577429
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 7944
         }
       ]
     },
@@ -2460,6 +2659,30 @@
           "name": "JavaScript",
           "color": "#f1e05a",
           "size": 45301
+        }
+      ]
+    },
+    {
+      "name": "claimswarm",
+      "url": "https://github.com/ReaperOAK/claimswarm",
+      "description": null,
+      "homepageUrl": null,
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-11-23T04:43:37Z",
+      "isFork": false,
+      "isArchived": false,
+      "commitsLastYear": 2,
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "size": 41483
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "size": 6716
         }
       ]
     },
@@ -2619,5 +2842,5 @@
       ]
     }
   ],
-  "fetchedAt": "2026-10-24T05:35:43.696Z"
+  "fetchedAt": "2026-11-23T04:45:23.590Z"
 }

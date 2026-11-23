@@ -45,12 +45,23 @@
 
 | Project | What it solves | Stack |
 |---------|----------------|-------|
+| **[survivorship-free-backtester](https://github.com/ReaperOAK/survivorship-free-backtester)** | An honest, survivorship-bias-corrected backtesting engine. Market-agnostic — Indian equities (Nifty 50/100/200/500) wired in out of the box, extensible to US/global via yfinance. Tax-aware, free data, Python + DuckDB. | `Python · Shell` |
 | **[ForgeOS](https://github.com/ReaperOAK/ForgeOS)** | An SDLC engine of orchestrated agents for spec-driven development. | `TypeScript · Python · JavaScript` |
-| **[todayeggrates](https://github.com/ReaperOAK/todayeggrates)** | Automated commodity price tracker scaled to 34.2k+ clicks, 7M+ impressions & sub-100ms API response. | `JavaScript · PHP · SQL` |
-| **[survivorship-free-backtester](https://github.com/ReaperOAK/survivorship-free-backtester)** | Honest, survivorship-bias-corrected, tax-aware backtesting on free data. | `Python · Shell` |
 | **[id-card-maker](https://github.com/ReaperOAK/id-card-maker)** | Desktop preflight, layout, and print-imposition engine in Tauri, Rust, and TypeScript. | `TypeScript · CSS · Rust` |
 | **[CodebaseRAG](https://github.com/ReaperOAK/CodebaseRAG)** | Local RAG over any repository via an MCP server for instant codebase querying. | `JavaScript` |
-| **[KCAdashboard](https://github.com/ReaperOAK/KCAdashboard)** | LAMP learning-management system with Stockfish engine and student/coach dashboards. | `JavaScript · PHP · HTML` |
+| **[KCAdashboard](https://github.com/ReaperOAK/KCAdashboard)** | student teacher dashboard for KCA | `JavaScript · PHP · HTML` |
+| **[expensify-sniper](https://github.com/ReaperOAK/expensify-sniper)** |  | `Python · Shell` |
+
+---
+
+<!-- section:log -->
+### Engineering log
+
+- Built automated repository intelligence engine to extract benchmark metrics and architecture decisions.
+- Shipped Tauri desktop preflight verification and PDF imposition engine in id-card-maker.
+- Hardened MCP server integration in ForgeOS with strict contract enforcement.
+- Synchronized portfolio evidence matrix across 52 audited repositories.
+- Refactored portfolio Next.js 16 App Router architecture and MDX content pipeline.
 
 ---
 
@@ -117,7 +128,7 @@
 <!-- section:engine-room -->
 ### The Engine Room
 
-- **Languages · measured** — Python 36% · TypeScript 27% · JavaScript 25% · HTML 4% · PHP 3% · Shell 1%
+- **Languages · measured** — Python 45% · TypeScript 16% · JavaScript 15% · Astro 7% · HTML 6% · EJS 3%
 - **Frontend** — React · React Native · Next.js · Expo · Tailwind / NativeWind
 - **Backend** — NestJS · FastAPI · Node.js · Express · Socket.io · BullMQ
 - **Generative AI** — Claude / GPT / Gemini · Prompt engineering · Multimodal

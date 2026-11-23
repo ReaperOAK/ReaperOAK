@@ -3,27 +3,27 @@
 <rect width="900" height="252" fill="#0B0B0D"/>
 <rect x="16" y="16" width="868" height="220" rx="14" fill="#0E0E11" stroke="rgba(255,255,255,0.08)"/><text x="32" y="40" font-family="ui-monospace,monospace" font-size="11" letter-spacing="2" fill="#8F887B">LANGUAGE MIX · WEIGHTED BY RECENCY</text>
 <text x="32" y="62" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">Python</text>
-<text x="868" y="62" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">35.7%</text>
+<text x="868" y="62" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">45.1%</text>
 <rect x="32" y="68" width="836" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-<rect x="32" y="68" width="298.1611863000133" height="6" rx="3" fill="#3572A5" class="bar-fill"/>
+<rect x="32" y="68" width="377.090993610418" height="6" rx="3" fill="#3572A5" class="bar-fill"/>
 <text x="32" y="92" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">TypeScript</text>
-<text x="868" y="92" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">26.7%</text>
+<text x="868" y="92" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">16.4%</text>
 <rect x="32" y="98" width="836" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-<rect x="32" y="98" width="223.4114705847482" height="6" rx="3" fill="#3178c6" class="bar-fill"/>
+<rect x="32" y="98" width="137.02755571886485" height="6" rx="3" fill="#3178c6" class="bar-fill"/>
 <text x="32" y="122" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">JavaScript</text>
-<text x="868" y="122" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">25.2%</text>
+<text x="868" y="122" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">14.9%</text>
 <rect x="32" y="128" width="836" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-<rect x="32" y="128" width="210.91836644357357" height="6" rx="3" fill="#f1e05a" class="bar-fill"/>
-<text x="32" y="152" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">HTML</text>
-<text x="868" y="152" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">4.4%</text>
+<rect x="32" y="128" width="124.81792129210928" height="6" rx="3" fill="#f1e05a" class="bar-fill"/>
+<text x="32" y="152" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">Astro</text>
+<text x="868" y="152" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">7.1%</text>
 <rect x="32" y="158" width="836" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-<rect x="32" y="158" width="36.3856296402638" height="6" rx="3" fill="#e34c26" class="bar-fill"/>
-<text x="32" y="182" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">PHP</text>
-<text x="868" y="182" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">2.7%</text>
+<rect x="32" y="158" width="59.01494227485061" height="6" rx="3" fill="#ff5a03" class="bar-fill"/>
+<text x="32" y="182" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">HTML</text>
+<text x="868" y="182" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">6.5%</text>
 <rect x="32" y="188" width="836" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-<rect x="32" y="188" width="22.78158245850917" height="6" rx="3" fill="#4F5D95" class="bar-fill"/>
-<text x="32" y="212" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">Shell</text>
-<text x="868" y="212" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">1.5%</text>
+<rect x="32" y="188" width="54.131467246643744" height="6" rx="3" fill="#e34c26" class="bar-fill"/>
+<text x="32" y="212" font-family="ui-monospace,monospace" font-size="12" fill="#ECE7DE">EJS</text>
+<text x="868" y="212" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#8F887B">2.7%</text>
 <rect x="32" y="218" width="836" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-<rect x="32" y="218" width="12.293968384449563" height="6" rx="3" fill="#89e051" class="bar-fill"/>
+<rect x="32" y="218" width="22.302972701189685" height="6" rx="3" fill="#a91e50" class="bar-fill"/>
 </svg>
